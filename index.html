@@ -223,15 +223,21 @@
             if (netData.length === 0) throw new Error("Data array kosong.");
 
             // ==========================================
-            // LOGIKA REBASE TO ZERO HANYA UNTUK IHSG & LQ45
+            // LOGIKA STOCKBIT: REBASE SEMUA GRAFIK KE 0% 
             // ==========================================
             let baseIHSG = ihsgData[0] || 0;
             let baseLQ45 = lq45Data[0] || 0;
+            let baseFloat = floatData[0] || 0;
+            let baseNet = netData[0] || 0;
 
             let rebasedIHSG = ihsgData.map(val => val - baseIHSG);
             let rebasedLQ45 = lq45Data.map(val => val - baseLQ45);
+            let rebasedFloat = floatData.map(val => val - baseFloat);
+            let rebasedNet = netData.map(val => val - baseNet);
 
-            // Tampilkan Angka Terkini (Akan persis -20.01% seperti Stockbit)
+            // ==========================================
+            // LOGIKA STOCKBIT: TAMPILAN KARTU ABSOLUT (ALL-TIME)
+            // ==========================================
             const lastIdx = netData.length - 1;
             document.getElementById('val-net-pct').innerText = netData[lastIdx].toFixed(2) + "%";
             document.getElementById('val-net-pct').className = netData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
@@ -256,8 +262,8 @@
                 lucide.createIcons();
             }
 
-            // Render Chart Menggunakan Data Portofolio Asli, tapi Benchmark di-Rebase
-            renderLineChart(labels, netData, floatData, rebasedIHSG, rebasedLQ45);
+            // Render Chart Menggunakan Data yang Sudah Di-Rebase (Mulai dari 0)
+            renderLineChart(labels, rebasedNet, rebasedFloat, rebasedIHSG, rebasedLQ45);
 
         } catch (error) {
             console.error("Error Detail:", error);
