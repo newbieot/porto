@@ -339,12 +339,18 @@
 
             if (netData.length === 0) throw new Error("Empty data array.");
 
+            // REBASE TO ZERO (0%) FOR ALL DATA TO MAKE IT APPLE-TO-APPLE
             let baseIHSG = ihsgData[0] || 0;
             let baseLQ45 = lq45Data[0] || 0;
+            let baseFloat = floatData[0] || 0;
+            let baseNet = netData[0] || 0;
             
             let rebasedIHSG = ihsgData.map(val => val - baseIHSG);
             let rebasedLQ45 = lq45Data.map(val => val - baseLQ45);
+            let rebasedFloat = floatData.map(val => val - baseFloat);
+            let rebasedNet = netData.map(val => val - baseNet);
 
+            // ABSOLUTE VALUES FOR CARDS (Menggunakan data riil sebelum di-rebase)
             const lastIdx = netData.length - 1;
             document.getElementById('val-net-pct').innerText = netData[lastIdx].toFixed(2) + "%";
             document.getElementById('val-net-pct').className = netData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
@@ -352,6 +358,7 @@
             document.getElementById('val-floating-pct').innerText = floatData[lastIdx].toFixed(2) + "%";
             document.getElementById('val-floating-pct').className = floatData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
 
+            // STATUS BADGE UPDATE
             const badge = document.getElementById('status-badge');
             badge.style.color = '#10b981'; 
             badge.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
@@ -368,7 +375,8 @@
                 lucide.createIcons();
             }
 
-            renderLineChart(labels, netData, floatData, rebasedIHSG, rebasedLQ45);
+            // Render Chart Menggunakan Data yang Sudah Di-rebase
+            renderLineChart(labels, rebasedNet, rebasedFloat, rebasedIHSG, rebasedLQ45);
             renderAllocationChart();
 
         } catch (error) {
