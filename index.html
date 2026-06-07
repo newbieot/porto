@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -128,33 +128,47 @@
         </div>
         <div class="badge" id="status-badge">
             <i data-lucide="loader-2" class="animate-spin w-4 h-4" id="status-icon"></i>
-            <span id="status-text">MEMUAT DATA SHEETS...</span>
+            <span id="status-text">LOADING SHEETS DATA...</span>
         </div>
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <div class="glass rounded-xl p-5 shadow-lg border-l-4 border-stockbitGreen">
-            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">NET RETURN PORTOFOLIO TERCATAT (CURRENT YTD)</h3>
+            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">RECORDED NET RETURN (CURRENT YTD)</h3>
             <p class="text-3xl font-bold text-stockbitGreen" id="val-net-pct">-%</p>
-            <p class="text-xs text-gray-500 mt-2 uppercase">*TERMASUK REALIZED GAIN & DIVIDEN</p>
+            <p class="text-xs text-gray-500 mt-2 uppercase">*INCLUDES REALIZED GAINS & DIVIDENDS</p>
         </div>
         <div class="glass rounded-xl p-5 shadow-lg border-l-4 border-stockbitRed">
-            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">FLOATING P&L TERCATAT</h3>
+            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">RECORDED FLOATING P&L</h3>
             <p class="text-3xl font-bold text-stockbitRed" id="val-floating-pct">-%</p>
-            <p class="text-xs text-gray-500 mt-2 uppercase">*MURNI HARGA SAHAM AKTIF SAAT INI</p>
+            <p class="text-xs text-gray-500 mt-2 uppercase">*PURELY CURRENT ACTIVE STOCK PRICES</p>
         </div>
     </div>
 
-    <div class="glass rounded-xl p-5 shadow-lg w-full">
-        <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
-            <i data-lucide="trending-up" class="text-posOrange w-5 h-5"></i>
-            <h2 class="text-lg font-bold uppercase text-white">GRAFIK HISTORIS PERBANDINGAN KINERJA YTD (%)</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
+        <div class="glass rounded-xl p-5 shadow-lg lg:col-span-2 w-full flex flex-col">
+            <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
+                <i data-lucide="trending-up" class="text-posOrange w-5 h-5"></i>
+                <h2 class="text-lg font-bold uppercase text-white">HISTORICAL YTD PERFORMANCE COMPARISON (%)</h2>
+            </div>
+            <div class="relative h-[350px] md:h-[400px] w-full flex-grow">
+                <canvas id="performanceChart"></canvas>
+            </div>
         </div>
-        <div class="relative h-[400px] w-full">
-            <canvas id="performanceChart"></canvas>
+
+        <div class="glass rounded-xl p-5 shadow-lg lg:col-span-1 w-full flex flex-col">
+            <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
+                <i data-lucide="pie-chart" class="text-posOrange w-5 h-5"></i>
+                <h2 class="text-lg font-bold uppercase text-white">PORTFOLIO ALLOCATION</h2>
+            </div>
+            <div class="relative h-[350px] md:h-[400px] w-full flex items-center justify-center flex-grow">
+                <canvas id="allocationChart"></canvas>
+            </div>
         </div>
-        <p class="text-xs text-gray-500 mt-4 uppercase">*DATA TOTAL DERET WAKTU DIPROSES SECARA REAL-TIME MENGIKUTI PERUBAHAN MATRIX HISTORIS PADA GOOGLE SHEETS.</p>
     </div>
+    
+    <p class="text-xs text-gray-500 uppercase mt-4">*TOTAL TIME-SERIES DATA IS PROCESSED IN REAL-TIME FOLLOWING HISTORICAL MATRIX CHANGES ON GOOGLE SHEETS.</p>
+
 </div>
 
 <footer class="dashboard-footer">
@@ -175,11 +189,12 @@
     const GOOGLE_SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGDMnOz1BMqtSnIkMxUpBDaqr7xsZdVmL8grhHQ5HWtJ0waZyoY_XfzrrKPtRX6M4bYnZ3x1HwfJUE/pub?gid=247687098&single=true&output=csv";
 
     let myChart = null;
+    let myAllocationChart = null;
 
     async function fetchHistoricalData() {
         try {
             const response = await fetch(GOOGLE_SHEETS_CSV_URL, { cache: 'no-store' });
-            if (!response.ok) throw new Error("Gagal menarik data dari URL CSV");
+            if (!response.ok) throw new Error("Failed to fetch CSV data");
             
             const dataText = await response.text();
             const lines = dataText.split(/\r?\n/);
@@ -220,11 +235,9 @@
                 netData.push(isNaN(valNet) ? 0 : valNet);
             }
 
-            if (netData.length === 0) throw new Error("Data array kosong.");
+            if (netData.length === 0) throw new Error("Empty data array.");
 
-            // ==========================================
-            // LOGIKA STOCKBIT: REBASE SEMUA GRAFIK KE 0% 
-            // ==========================================
+            // REBASE TO ZERO ONLY FOR IHSG & LQ45
             let baseIHSG = ihsgData[0] || 0;
             let baseLQ45 = lq45Data[0] || 0;
             let baseFloat = floatData[0] || 0;
@@ -235,9 +248,7 @@
             let rebasedFloat = floatData.map(val => val - baseFloat);
             let rebasedNet = netData.map(val => val - baseNet);
 
-            // ==========================================
-            // LOGIKA STOCKBIT: TAMPILAN KARTU ABSOLUT (ALL-TIME)
-            // ==========================================
+            // ABSOLUTE VALUES FOR CARDS
             const lastIdx = netData.length - 1;
             document.getElementById('val-net-pct').innerText = netData[lastIdx].toFixed(2) + "%";
             document.getElementById('val-net-pct').className = netData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
@@ -245,7 +256,7 @@
             document.getElementById('val-floating-pct').innerText = floatData[lastIdx].toFixed(2) + "%";
             document.getElementById('val-floating-pct').className = floatData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
 
-            // Update UI Status Badge
+            // STATUS BADGE UPDATE
             const badge = document.getElementById('status-badge');
             badge.style.color = '#10b981'; 
             badge.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
@@ -262,15 +273,15 @@
                 lucide.createIcons();
             }
 
-            // Render Chart Menggunakan Data yang Sudah Di-Rebase (Mulai dari 0)
             renderLineChart(labels, rebasedNet, rebasedFloat, rebasedIHSG, rebasedLQ45);
+            renderAllocationChart();
 
         } catch (error) {
             console.error("Error Detail:", error);
             const badge = document.getElementById('status-badge');
             badge.style.color = '#e94758'; 
             badge.style.backgroundColor = 'rgba(233, 71, 88, 0.15)';
-            document.getElementById('status-text').innerText = "KONEKSI CSV ERROR";
+            document.getElementById('status-text').innerText = "CSV CONNECTION ERROR";
             
             const iconEl = document.getElementById('status-icon');
             if (iconEl) {
@@ -291,7 +302,7 @@
                 labels: labels,
                 datasets: [
                     {
-                        label: 'NET RETURN PORTOFOLIO %',
+                        label: 'NET RETURN %',
                         data: netData,
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.05)',
@@ -301,7 +312,7 @@
                         fill: true
                     },
                     {
-                        label: 'FLOATING P&L PORTOFOLIO %',
+                        label: 'FLOATING P&L %',
                         data: floatData,
                         borderColor: '#e94758',
                         borderWidth: 2,
@@ -345,6 +356,54 @@
                     x: { 
                         grid: { display: false }, 
                         ticks: { color: '#94a3b8', maxTicksLimit: 12 } 
+                    }
+                }
+            }
+        });
+    }
+
+    function renderAllocationChart() {
+        const ctx = document.getElementById('allocationChart').getContext('2d');
+        if (myAllocationChart) myAllocationChart.destroy();
+
+        myAllocationChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['BBNI', 'BMRI', 'BBCA', 'BNGA', 'NISP'],
+                datasets: [{
+                    data: [32.6, 21.9, 17.9, 17.1, 10.5],
+                    backgroundColor: [
+                        '#f97316', // Orange
+                        '#eab308', // Yellow
+                        '#3b82f6', // Blue
+                        '#ef4444', // Red
+                        '#06b6d4'  // Cyan
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '75%', // Makes the doughnut thin and sleek
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { 
+                            color: '#94a3b8', 
+                            font: { size: 11, family: 'Inter' },
+                            padding: 15,
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return ' ' + context.label + ': ' + context.raw + '%';
+                            }
+                        }
                     }
                 }
             }
