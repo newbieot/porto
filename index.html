@@ -172,20 +172,16 @@
 <script>
     lucide.createIcons();
 
-    // URL sudah diperbarui menggunakan link Publish to Web (CSV) yang baru
     const GOOGLE_SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGDMnOz1BMqtSnIkMxUpBDaqr7xsZdVmL8grhHQ5HWtJ0waZyoY_XfzrrKPtRX6M4bYnZ3x1HwfJUE/pub?gid=247687098&single=true&output=csv";
 
     let myChart = null;
 
     async function fetchHistoricalData() {
         try {
-            // Tambahan cache: 'no-store' agar selalu menarik data terbaru dari sheet
             const response = await fetch(GOOGLE_SHEETS_CSV_URL, { cache: 'no-store' });
             if (!response.ok) throw new Error("Gagal menarik data dari URL CSV");
             
             const dataText = await response.text();
-            console.log("Data CSV berhasil ditarik:", dataText.substring(0, 100) + "..."); // Membantu debugging di console
-            
             const lines = dataText.split(/\r?\n/);
             
             let labels = [];
@@ -200,7 +196,6 @@
                 if(row.length < 5 || row[0].trim() === "") continue;
 
                 let rawDateStr = row[0].replace(/"/g, '').trim(); 
-                
                 let justDate = rawDateStr.split(' ')[0]; 
                 let dateParts = justDate.split(/[-/]/); 
                 let formattedDate = justDate;
@@ -225,8 +220,18 @@
                 netData.push(isNaN(valNet) ? 0 : valNet);
             }
 
-            if (netData.length === 0) throw new Error("Data ditarik tapi array kosong. Periksa format delimiter CSV.");
+            if (netData.length === 0) throw new Error("Data array kosong.");
 
+            // ==========================================
+            // LOGIKA REBASE TO ZERO HANYA UNTUK IHSG & LQ45
+            // ==========================================
+            let baseIHSG = ihsgData[0] || 0;
+            let baseLQ45 = lq45Data[0] || 0;
+
+            let rebasedIHSG = ihsgData.map(val => val - baseIHSG);
+            let rebasedLQ45 = lq45Data.map(val => val - baseLQ45);
+
+            // Tampilkan Angka Terkini (Akan persis -20.01% seperti Stockbit)
             const lastIdx = netData.length - 1;
             document.getElementById('val-net-pct').innerText = netData[lastIdx].toFixed(2) + "%";
             document.getElementById('val-net-pct').className = netData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
@@ -234,11 +239,11 @@
             document.getElementById('val-floating-pct').innerText = floatData[lastIdx].toFixed(2) + "%";
             document.getElementById('val-floating-pct').className = floatData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
 
+            // Update UI Status Badge
             const badge = document.getElementById('status-badge');
             badge.style.color = '#10b981'; 
             badge.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
             badge.style.borderColor = 'rgba(16, 185, 129, 0.2)';
-            
             document.getElementById('status-text').innerText = "SYSTEM ONLINE (LIVE CSV)";
             
             const iconEl = document.getElementById('status-icon');
@@ -251,7 +256,8 @@
                 lucide.createIcons();
             }
 
-            renderLineChart(labels, netData, floatData, ihsgData, lq45Data);
+            // Render Chart Menggunakan Data Portofolio Asli, tapi Benchmark di-Rebase
+            renderLineChart(labels, netData, floatData, rebasedIHSG, rebasedLQ45);
 
         } catch (error) {
             console.error("Error Detail:", error);
@@ -326,8 +332,14 @@
                     legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11, family: 'Inter' } } }
                 },
                 scales: {
-                    y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8', callback: function(value) { return value + '%'; } } },
-                    x: { grid: { display: false }, ticks: { color: '#94a3b8', maxTicksLimit: 12 } }
+                    y: { 
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' }, 
+                        ticks: { color: '#94a3b8', callback: function(value) { return value.toFixed(2) + '%'; } } 
+                    },
+                    x: { 
+                        grid: { display: false }, 
+                        ticks: { color: '#94a3b8', maxTicksLimit: 12 } 
+                    }
                 }
             }
         });
