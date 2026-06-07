@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IKHSAN PORTFOLIO DASHBOARD</title>
     
+    <title>Ikhsan Portfolio Dashboard | Real-Time Stock Tracker</title>
+    <meta name="description" content="A private, real-time financial dashboard tracking historical YTD stock portfolio performance against IHSG and LQ45 benchmarks. Built by Ikhsan Radiansyah.">
+    <meta name="keywords" content="Portfolio Dashboard, Stock Market Tracker, IHSG, LQ45, Finance, Investment, Net Return, BBNI, BMRI, BBCA, BNGA, NISP">
+    <meta name="author" content="Ikhsan Radiansyah">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://idx.posnew.com/">
+    <meta property="og:title" content="Ikhsan Portfolio Dashboard">
+    <meta property="og:description" content="Track my personal stock portfolio performance against IHSG and LQ45 in real-time.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ikhsan Portfolio Dashboard">
+    <meta name="twitter:description" content="A private, real-time financial dashboard tracking historical YTD stock portfolio performance.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -120,13 +138,13 @@
 </head>
 <body class="antialiased">
 
-<div class="main-content p-4 md:p-8">
+<main class="main-content p-4 md:p-8">
     <header class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
             <h1 class="text-2xl font-bold tracking-tight text-white uppercase font-['Sora']">IKHSAN PORTFOLIO DASHBOARD</h1>
             <p class="text-sm text-gray-400 mt-1 uppercase">HISTORICAL YTD TRACKER VS MARKET BENCHMARKS</p>
         </div>
-        <div class="badge" id="status-badge">
+        <div class="badge" id="status-badge" aria-label="System Status">
             <i data-lucide="loader-2" class="animate-spin w-4 h-4" id="status-icon"></i>
             <span id="status-text">LOADING SHEETS DATA...</span>
         </div>
@@ -146,7 +164,7 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
-        <div class="glass rounded-xl p-5 shadow-lg lg:col-span-2 w-full flex flex-col">
+        <section class="glass rounded-xl p-5 shadow-lg lg:col-span-2 w-full flex flex-col" aria-label="Performance Line Chart">
             <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
                 <i data-lucide="trending-up" class="text-posOrange w-5 h-5"></i>
                 <h2 class="text-lg font-bold uppercase text-white">HISTORICAL YTD PERFORMANCE COMPARISON (%)</h2>
@@ -154,9 +172,9 @@
             <div class="relative h-[350px] md:h-[400px] w-full flex-grow">
                 <canvas id="performanceChart"></canvas>
             </div>
-        </div>
+        </section>
 
-        <div class="glass rounded-xl p-5 shadow-lg lg:col-span-1 w-full flex flex-col">
+        <section class="glass rounded-xl p-5 shadow-lg lg:col-span-1 w-full flex flex-col" aria-label="Portfolio Allocation Chart">
             <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
                 <i data-lucide="pie-chart" class="text-posOrange w-5 h-5"></i>
                 <h2 class="text-lg font-bold uppercase text-white">PORTFOLIO ALLOCATION</h2>
@@ -164,12 +182,12 @@
             <div class="relative h-[350px] md:h-[400px] w-full flex items-center justify-center flex-grow">
                 <canvas id="allocationChart"></canvas>
             </div>
-        </div>
+        </section>
     </div>
     
     <p class="text-xs text-gray-500 uppercase mt-4">*TOTAL TIME-SERIES DATA IS PROCESSED IN REAL-TIME FOLLOWING HISTORICAL MATRIX CHANGES ON GOOGLE SHEETS.</p>
 
-</div>
+</main>
 
 <footer class="dashboard-footer">
     <div class="footer-brand">
@@ -240,13 +258,9 @@
             // REBASE TO ZERO ONLY FOR IHSG & LQ45
             let baseIHSG = ihsgData[0] || 0;
             let baseLQ45 = lq45Data[0] || 0;
-            let baseFloat = floatData[0] || 0;
-            let baseNet = netData[0] || 0;
-
+            
             let rebasedIHSG = ihsgData.map(val => val - baseIHSG);
             let rebasedLQ45 = lq45Data.map(val => val - baseLQ45);
-            let rebasedFloat = floatData.map(val => val - baseFloat);
-            let rebasedNet = netData.map(val => val - baseNet);
 
             // ABSOLUTE VALUES FOR CARDS
             const lastIdx = netData.length - 1;
@@ -273,7 +287,7 @@
                 lucide.createIcons();
             }
 
-            renderLineChart(labels, rebasedNet, rebasedFloat, rebasedIHSG, rebasedLQ45);
+            renderLineChart(labels, netData, floatData, rebasedIHSG, rebasedLQ45);
             renderAllocationChart();
 
         } catch (error) {
@@ -386,7 +400,7 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                cutout: '75%', // Makes the doughnut thin and sleek
+                cutout: '75%',
                 plugins: {
                     legend: {
                         position: 'bottom',
