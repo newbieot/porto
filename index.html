@@ -172,17 +172,19 @@
 <script>
     lucide.createIcons();
 
-    // Syntax error di baris ini sudah diperbaiki (tanda ')' berlebih dihapus)
-    const GOOGLE_SHEETS_CSV_URL = "https://script.google.com/macros/s/AKfycbxp6QoJuPwNdpk7cNqyTdRCC52rh_3DTPZdDEF0Du_imi-rSvbPMCi56a6q6tww4F1gNg/exec";
+    // URL sudah diperbarui menggunakan link Publish to Web (CSV) yang baru
+    const GOOGLE_SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGDMnOz1BMqtSnIkMxUpBDaqr7xsZdVmL8grhHQ5HWtJ0waZyoY_XfzrrKPtRX6M4bYnZ3x1HwfJUE/pub?gid=247687098&single=true&output=csv";
 
     let myChart = null;
 
     async function fetchHistoricalData() {
         try {
-            const response = await fetch(GOOGLE_SHEETS_CSV_URL);
+            // Tambahan cache: 'no-store' agar selalu menarik data terbaru dari sheet
+            const response = await fetch(GOOGLE_SHEETS_CSV_URL, { cache: 'no-store' });
             if (!response.ok) throw new Error("Gagal menarik data dari URL CSV");
             
             const dataText = await response.text();
+            console.log("Data CSV berhasil ditarik:", dataText.substring(0, 100) + "..."); // Membantu debugging di console
             
             const lines = dataText.split(/\r?\n/);
             
