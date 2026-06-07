@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKHSAN PORTFOLIO DASHBOARD</title>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090e17',
+                        cardBg: 'rgba(15, 23, 42, 0.6)',
+                        cardBorder: 'rgba(255, 255, 255, 0.06)',
+                        stockbitGreen: '#10b981',
+                        stockbitRed: '#e94758',
+                        posOrange: '#FF5722',
+                        posOrangeHover: 'rgba(255, 87, 34, 0.25)',
+                        posOrangeGlow: 'rgba(255, 87, 34, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap');
+
+        body { 
+            background-color: #090e17; 
+            color: #f8fafc; 
+            font-family: 'Inter', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 87, 34, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(30, 58, 138, 0.15), transparent 25%),
+                radial-gradient(circle at top right, #111827, #090e17);
+            background-attachment: fixed;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding-bottom: 2rem;
+        }
+
+        .glass { 
+            background: rgba(15, 23, 42, 0.6); 
+            border: 1px solid rgba(255, 255, 255, 0.06); 
+            backdrop-filter: blur(12px);
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 87, 34, 0.15);
+            color: #FF5722;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 87, 34, 0.2);
+        }
+        
+        .dashboard-footer {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: transparent; 
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            margin-top: auto;
+            font-family: 'Inter', sans-serif;
+            z-index: 20;
+            height: 70px;
+            overflow: hidden;
+        }
+        .footer-brand {
+            display: flex; align-items: center; gap: 8px;
+            color: #f8fafc; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.5px;
+            white-space: nowrap; font-family: 'Sora', sans-serif;
+        }
+        .footer-desc { 
+            color: #94a3b8; font-size: 0.85rem; margin: 0 15px; 
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            text-align: center; flex: 1;
+        }
+        .footer-creator-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255, 87, 34, 0.15); border: 1px solid rgba(255, 87, 34, 0.2);
+            padding: 6px 16px; border-radius: 20px; color: #e2e8f0; font-size: 0.8rem;
+            white-space: nowrap; transition: all 0.3s ease;
+        }
+        .footer-creator-badge:hover { 
+            background: rgba(255, 87, 34, 0.25); border-color: rgba(255, 87, 34, 0.5); 
+        }
+        .footer-creator-badge strong { color: #FF5722; font-weight: 600; }
+
+        @media (max-width: 850px) {
+            .dashboard-footer { 
+                flex-direction: column; justify-content: center; gap: 10px; 
+                padding: 20px; height: auto; 
+            }
+            .footer-desc { display: none; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<div class="main-content p-4 md:p-8">
+    <header class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+            <h1 class="text-2xl font-bold tracking-tight text-white uppercase font-['Sora']">IKHSAN PORTFOLIO DASHBOARD</h1>
+            <p class="text-sm text-gray-400 mt-1 uppercase">HISTORICAL YTD TRACKER VS MARKET BENCHMARKS</p>
+        </div>
+        <div class="badge" id="status-badge">
+            <i data-lucide="loader-2" class="animate-spin w-4 h-4" id="status-icon"></i>
+            <span id="status-text">MEMUAT DATA SHEETS...</span>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div class="glass rounded-xl p-5 shadow-lg border-l-4 border-stockbitGreen">
+            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">NET RETURN PORTOFOLIO TERCATAT (CURRENT YTD)</h3>
+            <p class="text-3xl font-bold text-stockbitGreen" id="val-net-pct">-%</p>
+            <p class="text-xs text-gray-500 mt-2 uppercase">*TERMASUK REALIZED GAIN & DIVIDEN</p>
+        </div>
+        <div class="glass rounded-xl p-5 shadow-lg border-l-4 border-stockbitRed">
+            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">FLOATING P&L TERCATAT</h3>
+            <p class="text-3xl font-bold text-stockbitRed" id="val-floating-pct">-%</p>
+            <p class="text-xs text-gray-500 mt-2 uppercase">*MURNI HARGA SAHAM AKTIF SAAT INI</p>
+        </div>
+    </div>
+
+    <div class="glass rounded-xl p-5 shadow-lg w-full">
+        <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
+            <i data-lucide="trending-up" class="text-posOrange w-5 h-5"></i>
+            <h2 class="text-lg font-bold uppercase text-white">GRAFIK HISTORIS PERBANDINGAN KINERJA YTD (%)</h2>
+        </div>
+        <div class="relative h-[400px] w-full">
+            <canvas id="performanceChart"></canvas>
+        </div>
+        <p class="text-xs text-gray-500 mt-4 uppercase">*DATA TOTAL DERET WAKTU DIPROSES SECARA REAL-TIME MENGIKUTI PERUBAHAN MATRIX HISTORIS PADA GOOGLE SHEETS.</p>
+    </div>
+</div>
+
+<footer class="dashboard-footer">
+    <div class="footer-brand">
+        <i data-lucide="line-chart" style="color: #FF5722; width: 18px; height: 18px;"></i>
+        Portfolio Tracker
+    </div>
+    <p class="footer-desc">A private financial dashboard linked to Google Sheets for real-time market backtesting.</p>
+    <div class="footer-creator-badge">
+        <i data-lucide="code-2" style="color: #FF5722; width: 14px; height: 14px;"></i>
+        Built by <strong>Ikhsan Radiansyah</strong> &copy; 2026
+    </div>
+</footer>
+
+<script>
+    lucide.createIcons();
+
+    // Syntax error di baris ini sudah diperbaiki (tanda ')' berlebih dihapus)
+    const GOOGLE_SHEETS_CSV_URL = "https://script.google.com/macros/s/AKfycbxp6QoJuPwNdpk7cNqyTdRCC52rh_3DTPZdDEF0Du_imi-rSvbPMCi56a6q6tww4F1gNg/exec";
+
+    let myChart = null;
+
+    async function fetchHistoricalData() {
+        try {
+            const response = await fetch(GOOGLE_SHEETS_CSV_URL);
+            if (!response.ok) throw new Error("Gagal menarik data dari URL CSV");
+            
+            const dataText = await response.text();
+            
+            const lines = dataText.split(/\r?\n/);
+            
+            let labels = [];
+            let ihsgData = [];
+            let lq45Data = [];
+            let floatData = [];
+            let netData = [];
+
+            for(let i = 1; i < lines.length; i++) {
+                const row = lines[i].split(',');
+                
+                if(row.length < 5 || row[0].trim() === "") continue;
+
+                let rawDateStr = row[0].replace(/"/g, '').trim(); 
+                
+                let justDate = rawDateStr.split(' ')[0]; 
+                let dateParts = justDate.split(/[-/]/); 
+                let formattedDate = justDate;
+                
+                if(dateParts.length >= 3) {
+                    let year, month, day;
+                    if(dateParts[0].length === 4) { year=dateParts[0]; month=dateParts[1]; day=dateParts[2]; } 
+                    else { day=dateParts[0]; month=dateParts[1]; year=dateParts[2]; }
+                    formattedDate = `${parseInt(day)}/${parseInt(month)}`;
+                }
+
+                labels.push(formattedDate);
+                
+                let valIHSG = parseFloat(row[1].replace(/"/g, ''));
+                let valLQ45 = parseFloat(row[2].replace(/"/g, ''));
+                let valFloat = parseFloat(row[3].replace(/"/g, ''));
+                let valNet = parseFloat(row[4].replace(/"/g, ''));
+
+                ihsgData.push(isNaN(valIHSG) ? 0 : valIHSG);
+                lq45Data.push(isNaN(valLQ45) ? 0 : valLQ45);
+                floatData.push(isNaN(valFloat) ? 0 : valFloat);
+                netData.push(isNaN(valNet) ? 0 : valNet);
+            }
+
+            if (netData.length === 0) throw new Error("Data ditarik tapi array kosong. Periksa format delimiter CSV.");
+
+            const lastIdx = netData.length - 1;
+            document.getElementById('val-net-pct').innerText = netData[lastIdx].toFixed(2) + "%";
+            document.getElementById('val-net-pct').className = netData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
+            
+            document.getElementById('val-floating-pct').innerText = floatData[lastIdx].toFixed(2) + "%";
+            document.getElementById('val-floating-pct').className = floatData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
+
+            const badge = document.getElementById('status-badge');
+            badge.style.color = '#10b981'; 
+            badge.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
+            badge.style.borderColor = 'rgba(16, 185, 129, 0.2)';
+            
+            document.getElementById('status-text').innerText = "SYSTEM ONLINE (LIVE CSV)";
+            
+            const iconEl = document.getElementById('status-icon');
+            if (iconEl) {
+                iconEl.classList.remove('animate-spin', 'w-4', 'h-4');
+                const newIcon = document.createElement('i');
+                newIcon.setAttribute('data-lucide', 'check-circle-2');
+                newIcon.className = "w-4 h-4";
+                badge.replaceChild(newIcon, iconEl);
+                lucide.createIcons();
+            }
+
+            renderLineChart(labels, netData, floatData, ihsgData, lq45Data);
+
+        } catch (error) {
+            console.error("Error Detail:", error);
+            const badge = document.getElementById('status-badge');
+            badge.style.color = '#e94758'; 
+            badge.style.backgroundColor = 'rgba(233, 71, 88, 0.15)';
+            document.getElementById('status-text').innerText = "KONEKSI CSV ERROR";
+            
+            const iconEl = document.getElementById('status-icon');
+            if (iconEl) {
+                iconEl.classList.remove('animate-spin');
+                iconEl.setAttribute('data-lucide', 'alert-circle');
+                lucide.createIcons();
+            }
+        }
+    }
+
+    function renderLineChart(labels, netData, floatData, ihsgData, lq45Data) {
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        if (myChart) myChart.destroy();
+
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'NET RETURN PORTOFOLIO %',
+                        data: netData,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                        borderWidth: 2.5,
+                        tension: 0.15,
+                        pointRadius: 0,
+                        fill: true
+                    },
+                    {
+                        label: 'FLOATING P&L PORTOFOLIO %',
+                        data: floatData,
+                        borderColor: '#e94758',
+                        borderWidth: 2,
+                        borderDash: [4, 4],
+                        tension: 0.15,
+                        pointRadius: 0,
+                        fill: false
+                    },
+                    {
+                        label: 'IHSG %',
+                        data: ihsgData,
+                        borderColor: '#3b82f6',
+                        borderWidth: 1.5,
+                        tension: 0.1,
+                        pointRadius: 0,
+                        fill: false
+                    },
+                    {
+                        label: 'LQ45 %',
+                        data: lq45Data,
+                        borderColor: '#8b5cf6',
+                        borderWidth: 1.5,
+                        tension: 0.1,
+                        pointRadius: 0,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11, family: 'Inter' } } }
+                },
+                scales: {
+                    y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8', callback: function(value) { return value + '%'; } } },
+                    x: { grid: { display: false }, ticks: { color: '#94a3b8', maxTicksLimit: 12 } }
+                }
+            }
+        });
+    }
+
+    fetchHistoricalData();
+</script>
+</body>
+</html>
