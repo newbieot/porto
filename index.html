@@ -174,7 +174,6 @@
             </div>
         </section>
 
-        <!-- Upgraded Portfolio Allocation Section -->
         <section class="glass rounded-xl p-5 shadow-lg lg:col-span-1 w-full flex flex-col" aria-label="Portfolio Allocation Chart">
             <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
                 <i data-lucide="pie-chart" class="text-posOrange w-5 h-5"></i>
@@ -182,7 +181,6 @@
             </div>
             
             <div class="flex flex-col gap-6 flex-grow mt-2">
-                <!-- Doughnut Chart Container -->
                 <div class="relative w-full h-[220px]">
                     <canvas id="allocationChart"></canvas>
                     <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
@@ -191,14 +189,12 @@
                     </div>
                 </div>
 
-                <!-- Custom Elegant Legend with Logos -->
                 <div class="flex flex-col gap-3 w-full">
                     
-                    <!-- BBNI -->
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#f97316] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/BBNI.png" alt="BBNI" class="w-full h-full object-contain">
+                                <img src="https://assets.stockbit.com/logos/companies/BBNI.png" alt="BBNI" class="w-full h-full object-contain" referrerpolicy="no-referrer">
                             </div>
                             <div>
                                 <h4 class="font-bold text-white text-sm leading-tight">BBNI</h4>
@@ -208,11 +204,10 @@
                         <p class="font-bold text-white text-sm">32.6%</p>
                     </div>
                     
-                    <!-- BMRI -->
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#eab308] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/BMRI.png" alt="BMRI" class="w-full h-full object-contain">
+                                <img src="https://assets.stockbit.com/logos/companies/BMRI.png" alt="BMRI" class="w-full h-full object-contain" referrerpolicy="no-referrer">
                             </div>
                             <div>
                                 <h4 class="font-bold text-white text-sm leading-tight">BMRI</h4>
@@ -222,11 +217,10 @@
                         <p class="font-bold text-white text-sm">21.9%</p>
                     </div>
 
-                    <!-- BBCA -->
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#3b82f6] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/BBCA.png" alt="BBCA" class="w-full h-full object-contain">
+                                <img src="https://assets.stockbit.com/logos/companies/BBCA.png" alt="BBCA" class="w-full h-full object-contain" referrerpolicy="no-referrer">
                             </div>
                             <div>
                                 <h4 class="font-bold text-white text-sm leading-tight">BBCA</h4>
@@ -236,11 +230,10 @@
                         <p class="font-bold text-white text-sm">17.9%</p>
                     </div>
 
-                    <!-- BNGA -->
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#ef4444] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/BNGA.png" alt="BNGA" class="w-full h-full object-contain">
+                                <img src="https://assets.stockbit.com/logos/companies/BNGA.png" alt="BNGA" class="w-full h-full object-contain" referrerpolicy="no-referrer">
                             </div>
                             <div>
                                 <h4 class="font-bold text-white text-sm leading-tight">BNGA</h4>
@@ -250,11 +243,10 @@
                         <p class="font-bold text-white text-sm">17.1%</p>
                     </div>
 
-                    <!-- NISP -->
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#06b6d4] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/NISP.png" alt="NISP" class="w-full h-full object-contain">
+                                <img src="https://assets.stockbit.com/logos/companies/NISP.png" alt="NISP" class="w-full h-full object-contain" referrerpolicy="no-referrer">
                             </div>
                             <div>
                                 <h4 class="font-bold text-white text-sm leading-tight">NISP</h4>
@@ -288,7 +280,7 @@
 <script>
     lucide.createIcons();
 
-    const GOOGLE_SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGDMnOz1BMqtSnIkMxUpBDaqr7xsZdVmL8grhHQ5HWtJ0waZyoY_XfzrrKPtRX6M4bYnZ3x1HwfJUE/pubhtml?gid=247687098&single=true";
+    const GOOGLE_SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGDMnOz1BMqtSnIkMxUpBDaqr7xsZdVmL8grhHQ5HWtJ0waZyoY_XfzrrKPtRX6M4bYnZ3x1HwfJUE/pub?gid=247687098&single=true&output=csv";
 
     let myChart = null;
     let myAllocationChart = null;
@@ -339,7 +331,6 @@
 
             if (netData.length === 0) throw new Error("Empty data array.");
 
-            // REBASE TO ZERO (0%) FOR ALL DATA TO MAKE IT APPLE-TO-APPLE
             let baseIHSG = ihsgData[0] || 0;
             let baseLQ45 = lq45Data[0] || 0;
             let baseFloat = floatData[0] || 0;
@@ -350,7 +341,6 @@
             let rebasedFloat = floatData.map(val => val - baseFloat);
             let rebasedNet = netData.map(val => val - baseNet);
 
-            // ABSOLUTE VALUES FOR CARDS (Menggunakan data riil sebelum di-rebase)
             const lastIdx = netData.length - 1;
             document.getElementById('val-net-pct').innerText = netData[lastIdx].toFixed(2) + "%";
             document.getElementById('val-net-pct').className = netData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
@@ -358,7 +348,6 @@
             document.getElementById('val-floating-pct').innerText = floatData[lastIdx].toFixed(2) + "%";
             document.getElementById('val-floating-pct').className = floatData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
 
-            // STATUS BADGE UPDATE
             const badge = document.getElementById('status-badge');
             badge.style.color = '#10b981'; 
             badge.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
@@ -375,7 +364,6 @@
                 lucide.createIcons();
             }
 
-            // Render Chart Menggunakan Data yang Sudah Di-rebase
             renderLineChart(labels, rebasedNet, rebasedFloat, rebasedIHSG, rebasedLQ45);
             renderAllocationChart();
 
