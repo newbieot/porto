@@ -5,24 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Ikhsan Portfolio Dashboard | Real-Time Stock Tracker</title>
-    <meta name="description" content="A private, real-time financial dashboard tracking historical YTD stock portfolio performance against IHSG and LQ45 benchmarks. Built by Ikhsan Radiansyah.">
-    <meta name="keywords" content="Portfolio Dashboard, Stock Market Tracker, IHSG, LQ45, Finance, Investment, Net Return, BBNI, BMRI, BBCA, BNGA, NISP">
+    <meta name="description" content="A private, real-time financial dashboard tracking historical YTD stock portfolio performance against IHSG, LQ45, IDX30, and SRI-KEHATI.">
     <meta name="author" content="Ikhsan Radiansyah">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+    <link rel="canonical" href="https://idx.posnew.com/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://idx.posnew.com/">
     <meta property="og:title" content="Ikhsan Portfolio Dashboard">
-    <meta property="og:description" content="Track my personal stock portfolio performance against IHSG and LQ45 in real-time.">
+    <meta property="og:description" content="Track my personal stock portfolio performance against major market benchmarks in real-time.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ikhsan Portfolio Dashboard">
-    <meta name="twitter:description" content="A private, real-time financial dashboard tracking historical YTD stock portfolio performance.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -35,12 +29,9 @@
                     colors: {
                         darkBg: '#090e17',
                         cardBg: 'rgba(15, 23, 42, 0.6)',
-                        cardBorder: 'rgba(255, 255, 255, 0.06)',
                         stockbitGreen: '#10b981',
                         stockbitRed: '#e94758',
-                        posOrange: '#FF5722',
-                        posOrangeHover: 'rgba(255, 87, 34, 0.25)',
-                        posOrangeGlow: 'rgba(255, 87, 34, 0.15)'
+                        posOrange: '#FF5722'
                     }
                 }
             }
@@ -48,115 +39,33 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap');
-
-        body { 
-            background-color: #090e17; 
-            color: #f8fafc; 
-            font-family: 'Inter', system-ui, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(255, 87, 34, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(30, 58, 138, 0.15), transparent 25%),
-                radial-gradient(circle at top right, #111827, #090e17);
-            background-attachment: fixed;
-        }
-        
-        .main-content {
-            flex: 1;
-            padding-bottom: 2rem;
-        }
-
-        .glass { 
-            background: rgba(15, 23, 42, 0.6); 
-            border: 1px solid rgba(255, 255, 255, 0.06); 
-            backdrop-filter: blur(12px);
-        }
-        
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 87, 34, 0.15);
-            color: #FF5722;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(255, 87, 34, 0.2);
-        }
-        
-        .dashboard-footer {
-            width: 100%;
-            box-sizing: border-box;
-            background-color: transparent; 
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            margin-top: auto;
-            font-family: 'Inter', sans-serif;
-            z-index: 20;
-            height: 70px;
-            overflow: hidden;
-        }
-        .footer-brand {
-            display: flex; align-items: center; gap: 8px;
-            color: #f8fafc; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.5px;
-            white-space: nowrap; font-family: 'Sora', sans-serif;
-        }
-        .footer-desc { 
-            color: #94a3b8; font-size: 0.85rem; margin: 0 15px; 
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-            text-align: center; flex: 1;
-        }
-        .footer-creator-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: rgba(255, 87, 34, 0.15); border: 1px solid rgba(255, 87, 34, 0.2);
-            padding: 6px 16px; border-radius: 20px; color: #e2e8f0; font-size: 0.8rem;
-            white-space: nowrap; transition: all 0.3s ease;
-        }
-        .footer-creator-badge:hover { 
-            background: rgba(255, 87, 34, 0.25); border-color: rgba(255, 87, 34, 0.5); 
-        }
-        .footer-creator-badge strong { color: #FF5722; font-weight: 600; }
-
-        @media (max-width: 850px) {
-            .dashboard-footer { 
-                flex-direction: column; justify-content: center; gap: 10px; 
-                padding: 20px; height: auto; 
-            }
-            .footer-desc { display: none; }
-        }
+        body { background-color: #090e17; color: #f8fafc; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; 
+               background-image: radial-gradient(circle at 15% 50%, rgba(255, 87, 34, 0.05), transparent 25%), radial-gradient(circle at 85% 30%, rgba(30, 58, 138, 0.15), transparent 25%), radial-gradient(circle at top right, #111827, #090e17); background-attachment: fixed; }
+        .glass { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); backdrop-filter: blur(12px); }
+        .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 87, 34, 0.15); color: #FF5722; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(255, 87, 34, 0.2); }
     </style>
 </head>
 <body class="antialiased">
 
-<main class="main-content p-4 md:p-8">
+<main class="p-4 md:p-8 flex-1">
     <header class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
             <h1 class="text-2xl font-bold tracking-tight text-white uppercase font-['Sora']">IKHSAN PORTFOLIO DASHBOARD</h1>
-            <p class="text-sm text-gray-400 mt-1 uppercase">HISTORICAL YTD TRACKER VS MARKET BENCHMARKS</p>
+            <p class="text-sm text-gray-400 mt-1 uppercase">LIVE TRACKER: idx.posnew.com</p>
         </div>
-        <div class="badge" id="status-badge" aria-label="System Status">
+        <div class="badge" id="status-badge">
             <i data-lucide="loader-2" class="animate-spin w-4 h-4" id="status-icon"></i>
             <span id="status-text">LOADING SHEETS DATA...</span>
         </div>
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        <div class="glass rounded-xl p-5 shadow-lg border-l-4 border-stockbitGreen">
-            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">RECORDED NET RETURN (CURRENT YTD)</h3>
+        <div class="glass rounded-xl p-5 border-l-4 border-stockbitGreen shadow-lg">
+            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">RECORDED NET RETURN (YTD)</h3>
             <p class="text-3xl font-bold text-stockbitGreen" id="val-net-pct">-%</p>
             <p class="text-xs text-gray-500 mt-2 uppercase">*INCLUDES REALIZED GAINS & DIVIDENDS</p>
         </div>
-        <div class="glass rounded-xl p-5 shadow-lg border-l-4 border-stockbitRed">
+        <div class="glass rounded-xl p-5 border-l-4 border-stockbitRed shadow-lg">
             <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">RECORDED FLOATING P&L</h3>
             <p class="text-3xl font-bold text-stockbitRed" id="val-floating-pct">-%</p>
             <p class="text-xs text-gray-500 mt-2 uppercase">*PURELY CURRENT ACTIVE STOCK PRICES</p>
@@ -164,22 +73,19 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
-        <section class="glass rounded-xl p-5 shadow-lg lg:col-span-2 w-full flex flex-col" aria-label="Performance Line Chart">
+        <section class="glass rounded-xl p-5 lg:col-span-2 shadow-lg flex flex-col">
             <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
                 <i data-lucide="trending-up" class="text-posOrange w-5 h-5"></i>
                 <h2 class="text-lg font-bold uppercase text-white">HISTORICAL YTD PERFORMANCE COMPARISON (%)</h2>
             </div>
-            <div class="relative h-[350px] md:h-[400px] w-full flex-grow">
-                <canvas id="performanceChart"></canvas>
-            </div>
+            <div class="relative h-[350px] md:h-[400px] w-full flex-grow"><canvas id="performanceChart"></canvas></div>
         </section>
-
-        <section class="glass rounded-xl p-5 shadow-lg lg:col-span-1 w-full flex flex-col" aria-label="Portfolio Allocation Chart">
+        
+        <section class="glass rounded-xl p-5 shadow-lg flex flex-col">
             <div class="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
                 <i data-lucide="pie-chart" class="text-posOrange w-5 h-5"></i>
                 <h2 class="text-lg font-bold uppercase text-white">PORTFOLIO ALLOCATION</h2>
             </div>
-            
             <div class="flex flex-col gap-6 flex-grow mt-2">
                 <div class="relative w-full h-[220px]">
                     <canvas id="allocationChart"></canvas>
@@ -188,100 +94,167 @@
                         <span class="text-xs text-gray-400 font-medium tracking-widest mt-1">ASSETS</span>
                     </div>
                 </div>
-
                 <div class="flex flex-col gap-3 w-full">
-                    
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#f97316] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/BBNI.png" alt="BBNI" class="w-full h-full object-contain" referrerpolicy="no-referrer">
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm leading-tight">BBNI</h4>
-                                <p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK NEGARA INDONESIA</p>
-                            </div>
-                        </div>
-                        <p class="font-bold text-white text-sm">32.6%</p>
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0"><img src="https://assets.stockbit.com/logos/companies/BBNI.png" alt="BBNI" class="w-full h-full object-contain"></div>
+                            <div><h4 class="font-bold text-white text-sm">BBNI</h4><p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK NEGARA INDONESIA</p></div>
+                        </div><p class="font-bold text-white text-sm">32.6%</p>
                     </div>
-                    
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#eab308] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/BMRI.png" alt="BMRI" class="w-full h-full object-contain" referrerpolicy="no-referrer">
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm leading-tight">BMRI</h4>
-                                <p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK MANDIRI</p>
-                            </div>
-                        </div>
-                        <p class="font-bold text-white text-sm">21.9%</p>
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0"><img src="https://assets.stockbit.com/logos/companies/BMRI.png" alt="BMRI" class="w-full h-full object-contain"></div>
+                            <div><h4 class="font-bold text-white text-sm">BMRI</h4><p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK MANDIRI</p></div>
+                        </div><p class="font-bold text-white text-sm">21.9%</p>
                     </div>
-
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#3b82f6] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/BBCA.png" alt="BBCA" class="w-full h-full object-contain" referrerpolicy="no-referrer">
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm leading-tight">BBCA</h4>
-                                <p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK CENTRAL ASIA</p>
-                            </div>
-                        </div>
-                        <p class="font-bold text-white text-sm">17.9%</p>
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0"><img src="https://assets.stockbit.com/logos/companies/BBCA.png" alt="BBCA" class="w-full h-full object-contain"></div>
+                            <div><h4 class="font-bold text-white text-sm">BBCA</h4><p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK CENTRAL ASIA</p></div>
+                        </div><p class="font-bold text-white text-sm">17.9%</p>
                     </div>
-
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#ef4444] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/BNGA.png" alt="BNGA" class="w-full h-full object-contain" referrerpolicy="no-referrer">
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm leading-tight">BNGA</h4>
-                                <p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK CIMB NIAGA</p>
-                            </div>
-                        </div>
-                        <p class="font-bold text-white text-sm">17.1%</p>
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0"><img src="https://assets.stockbit.com/logos/companies/BNGA.png" alt="BNGA" class="w-full h-full object-contain"></div>
+                            <div><h4 class="font-bold text-white text-sm">BNGA</h4><p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK CIMB NIAGA</p></div>
+                        </div><p class="font-bold text-white text-sm">17.1%</p>
                     </div>
-
                     <div class="flex items-center justify-between p-3 rounded-xl bg-[rgba(15,23,42,0.4)] border border-gray-700/50 border-l-4 border-l-[#06b6d4] hover:bg-gray-800/60 transition shadow-sm">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0 shadow-inner">
-                                <img src="https://assets.stockbit.com/logos/companies/NISP.png" alt="NISP" class="w-full h-full object-contain" referrerpolicy="no-referrer">
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-white text-sm leading-tight">NISP</h4>
-                                <p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK OCBC NISP</p>
-                            </div>
-                        </div>
-                        <p class="font-bold text-white text-sm">10.5%</p>
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1.5 shrink-0"><img src="https://assets.stockbit.com/logos/companies/NISP.png" alt="NISP" class="w-full h-full object-contain"></div>
+                            <div><h4 class="font-bold text-white text-sm">NISP</h4><p class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">BANK OCBC NISP</p></div>
+                        </div><p class="font-bold text-white text-sm">10.5%</p>
                     </div>
-
                 </div>
             </div>
         </section>
     </div>
-    
-    <p class="text-xs text-gray-500 uppercase mt-4">*TOTAL TIME-SERIES DATA IS PROCESSED IN REAL-TIME FOLLOWING HISTORICAL MATRIX CHANGES ON GOOGLE SHEETS.</p>
+
+    <section class="glass rounded-xl p-5 shadow-lg w-full mb-4">
+        <div class="flex items-center gap-2 mb-6 border-b border-gray-800 pb-4">
+            <i data-lucide="history" class="text-posOrange w-5 h-5"></i>
+            <h2 class="text-lg font-bold uppercase text-white">REALIZED GAINS & DIVIDENDS HISTORY (YTD)</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            
+            <div class="bg-[rgba(15,23,42,0.4)] border border-gray-700/50 rounded-xl p-4 flex items-center justify-between hover:bg-gray-800/60 transition">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">25 MAY 2026</span>
+                    <h4 class="font-bold text-white text-sm mt-1">Dividend BMRI</h4>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 uppercase">Net Impact</span>
+                    <p class="text-lg font-bold text-stockbitGreen">+1.74%</p>
+                </div>
+            </div>
+
+            <div class="bg-[rgba(15,23,42,0.4)] border border-gray-700/50 rounded-xl p-4 flex items-center justify-between hover:bg-gray-800/60 transition">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">13 MAY 2026</span>
+                    <h4 class="font-bold text-white text-sm mt-1">Dividend BNGA</h4>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 uppercase">Net Impact</span>
+                    <p class="text-lg font-bold text-stockbitGreen">+1.56%</p>
+                </div>
+            </div>
+
+            <div class="bg-[rgba(15,23,42,0.4)] border border-gray-700/50 rounded-xl p-4 flex items-center justify-between hover:bg-gray-800/60 transition">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">04 MAY 2026</span>
+                    <h4 class="font-bold text-white text-sm mt-1">Dividend NISP</h4>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 uppercase">Net Impact</span>
+                    <p class="text-lg font-bold text-stockbitGreen">+0.36%</p>
+                </div>
+            </div>
+
+            <div class="bg-[rgba(15,23,42,0.4)] border border-gray-700/50 rounded-xl p-4 flex items-center justify-between hover:bg-gray-800/60 transition">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">08 APR 2026</span>
+                    <h4 class="font-bold text-white text-sm mt-1">Dividend BBCA</h4>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 uppercase">Net Impact</span>
+                    <p class="text-lg font-bold text-stockbitGreen">+0.66%</p>
+                </div>
+            </div>
+
+            <div class="bg-[rgba(15,23,42,0.4)] border border-gray-700/50 rounded-xl p-4 flex items-center justify-between hover:bg-gray-800/60 transition">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">07 APR 2026</span>
+                    <h4 class="font-bold text-white text-sm mt-1">Dividend BBNI</h4>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 uppercase">Net Impact</span>
+                    <p class="text-lg font-bold text-stockbitGreen">+2.57%</p>
+                </div>
+            </div>
+
+            <div class="bg-[rgba(15,23,42,0.4)] border border-gray-700/50 rounded-xl p-4 flex items-center justify-between hover:bg-gray-800/60 transition">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">06 MAR 2026</span>
+                    <h4 class="font-bold text-white text-sm mt-1">Sell TUGU (Gain)</h4>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 uppercase">Net Impact</span>
+                    <p class="text-lg font-bold text-stockbitGreen">+2.93%</p>
+                </div>
+            </div>
+
+            <div class="bg-[rgba(15,23,42,0.4)] border border-gray-700/50 rounded-xl p-4 flex items-center justify-between hover:bg-gray-800/60 transition">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">18 FEB 2026</span>
+                    <h4 class="font-bold text-white text-sm mt-1">Sell TUGU (Gain)</h4>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 uppercase">Net Impact</span>
+                    <p class="text-lg font-bold text-stockbitGreen">+6.69%</p>
+                </div>
+            </div>
+
+            <div class="bg-[rgba(15,23,42,0.4)] border border-gray-700/50 rounded-xl p-4 flex items-center justify-between hover:bg-gray-800/60 transition">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">23 JAN 2026</span>
+                    <h4 class="font-bold text-white text-sm mt-1">Sell AADI (Gain)</h4>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 uppercase">Net Impact</span>
+                    <p class="text-lg font-bold text-stockbitGreen">+0.89%</p>
+                </div>
+            </div>
+
+            <div class="bg-[rgba(15,23,42,0.4)] border border-gray-700/50 rounded-xl p-4 flex items-center justify-between hover:bg-gray-800/60 transition">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-bold tracking-wider">14 JAN 2026</span>
+                    <h4 class="font-bold text-white text-sm mt-1">Div BMRI & KKGI</h4>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 uppercase">Net Impact</span>
+                    <p class="text-lg font-bold text-stockbitGreen">+0.28%</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 </main>
 
-<footer class="dashboard-footer">
-    <div class="footer-brand">
-        <i data-lucide="line-chart" style="color: #FF5722; width: 18px; height: 18px;"></i>
-        Portfolio Tracker
+<footer class="w-full box-border border-t border-gray-800 flex flex-col md:flex-row justify-between items-center px-4 md:px-10 py-5 z-20 font-['Inter']">
+    <div class="flex items-center gap-2 text-white font-bold text-sm tracking-wide font-['Sora']">
+        <i data-lucide="line-chart" class="text-posOrange w-4 h-4"></i> Portfolio Tracker
     </div>
-    <p class="footer-desc">A private financial dashboard linked to Google Sheets for real-time market backtesting.</p>
-    <div class="footer-creator-badge">
-        <i data-lucide="code-2" style="color: #FF5722; width: 14px; height: 14px;"></i>
-        Built by <strong>Ikhsan Radiansyah</strong> &copy; 2026
+    <p class="text-gray-500 text-xs hidden md:block">A private financial dashboard linked to Google Sheets for real-time market backtesting.</p>
+    <div class="inline-flex items-center gap-2 bg-[rgba(255,87,34,0.15)] border border-[rgba(255,87,34,0.2)] px-4 py-1.5 rounded-full text-gray-200 text-xs transition-colors hover:bg-[rgba(255,87,34,0.25)]">
+        <i data-lucide="code-2" class="text-posOrange w-3.5 h-3.5"></i> Built by <strong class="text-posOrange">Ikhsan Radiansyah</strong> &copy; 2026
     </div>
 </footer>
 
 <script>
     lucide.createIcons();
-
     const GOOGLE_SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGDMnOz1BMqtSnIkMxUpBDaqr7xsZdVmL8grhHQ5HWtJ0waZyoY_XfzrrKPtRX6M4bYnZ3x1HwfJUE/pub?gid=247687098&single=true&output=csv";
-
     let myChart = null;
     let myAllocationChart = null;
 
@@ -296,12 +269,13 @@
             let labels = [];
             let ihsgData = [];
             let lq45Data = [];
+            let sriData = [];
+            let idx30Data = [];
             let floatData = [];
             let netData = [];
 
             for(let i = 1; i < lines.length; i++) {
                 const row = lines[i].split(',');
-                
                 if(row.length < 5 || row[0].trim() === "") continue;
 
                 let rawDateStr = row[0].replace(/"/g, '').trim(); 
@@ -318,28 +292,35 @@
 
                 labels.push(formattedDate);
                 
-                let valIHSG = parseFloat(row[1].replace(/"/g, ''));
-                let valLQ45 = parseFloat(row[2].replace(/"/g, ''));
-                let valFloat = parseFloat(row[3].replace(/"/g, ''));
-                let valNet = parseFloat(row[4].replace(/"/g, ''));
+                ihsgData.push(parseFloat(row[1].replace(/"/g, '')) || 0);
+                lq45Data.push(parseFloat(row[2].replace(/"/g, '')) || 0);
 
-                ihsgData.push(isNaN(valIHSG) ? 0 : valIHSG);
-                lq45Data.push(isNaN(valLQ45) ? 0 : valLQ45);
-                floatData.push(isNaN(valFloat) ? 0 : valFloat);
-                netData.push(isNaN(valNet) ? 0 : valNet);
+                // CEK AMAN: Jika kolom belum ditambah di Google Sheets, pakai susunan lama
+                if (row.length >= 7) {
+                    sriData.push(parseFloat(row[3].replace(/"/g, '')) || 0);
+                    idx30Data.push(parseFloat(row[4].replace(/"/g, '')) || 0);
+                    floatData.push(parseFloat(row[5].replace(/"/g, '')) || 0);
+                    netData.push(parseFloat(row[6].replace(/"/g, '')) || 0);
+                } else {
+                    // Fallback sementara (jika data masih format lama 5 kolom)
+                    sriData.push(0); 
+                    idx30Data.push(0);
+                    floatData.push(parseFloat(row[3].replace(/"/g, '')) || 0);
+                    netData.push(parseFloat(row[4].replace(/"/g, '')) || 0);
+                }
             }
 
             if (netData.length === 0) throw new Error("Empty data array.");
 
             let baseIHSG = ihsgData[0] || 0;
             let baseLQ45 = lq45Data[0] || 0;
-            let baseFloat = floatData[0] || 0;
-            let baseNet = netData[0] || 0;
+            let baseSri  = sriData[0] || 0;
+            let baseIdx  = idx30Data[0] || 0;
             
             let rebasedIHSG = ihsgData.map(val => val - baseIHSG);
             let rebasedLQ45 = lq45Data.map(val => val - baseLQ45);
-            let rebasedFloat = floatData.map(val => val - baseFloat);
-            let rebasedNet = netData.map(val => val - baseNet);
+            let rebasedSri  = sriData.map(val => val - baseSri);
+            let rebasedIdx  = idx30Data.map(val => val - baseIdx);
 
             const lastIdx = netData.length - 1;
             document.getElementById('val-net-pct').innerText = netData[lastIdx].toFixed(2) + "%";
@@ -364,7 +345,7 @@
                 lucide.createIcons();
             }
 
-            renderLineChart(labels, rebasedNet, rebasedFloat, rebasedIHSG, rebasedLQ45);
+            renderLineChart(labels, netData, floatData, rebasedIHSG, rebasedLQ45, rebasedSri, rebasedIdx);
             renderAllocationChart();
 
         } catch (error) {
@@ -383,71 +364,96 @@
         }
     }
 
-    function renderLineChart(labels, netData, floatData, ihsgData, lq45Data) {
+    function renderLineChart(labels, netData, floatData, ihsgData, lq45Data, sriData, idx30Data) {
         const ctx = document.getElementById('performanceChart').getContext('2d');
         if (myChart) myChart.destroy();
 
+        // Menyembunyikan SRI dan IDX30 jika datanya belum tersedia (nilainya 0 semua)
+        let isSriEmpty = sriData.every(item => item === 0);
+        let isIdxEmpty = idx30Data.every(item => item === 0);
+
+        let datasets = [
+            {
+                label: 'NET RETURN %',
+                data: netData,
+                borderColor: '#10b981',
+                backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                borderWidth: 2.5,
+                tension: 0.15,
+                pointRadius: 0,
+                fill: true,
+                order: 1
+            },
+            {
+                label: 'FLOATING P&L %',
+                data: floatData,
+                borderColor: '#e94758',
+                borderWidth: 2,
+                borderDash: [4, 4],
+                tension: 0.15,
+                pointRadius: 0,
+                fill: false,
+                order: 2
+            },
+            {
+                label: 'IHSG %',
+                data: ihsgData,
+                borderColor: '#3b82f6',
+                borderWidth: 1.5,
+                tension: 0.1,
+                pointRadius: 0,
+                fill: false,
+                order: 3
+            },
+            {
+                label: 'LQ45 %',
+                data: lq45Data,
+                borderColor: '#8b5cf6',
+                borderWidth: 1.5,
+                tension: 0.1,
+                pointRadius: 0,
+                fill: false,
+                order: 4
+            }
+        ];
+
+        // Jika data dari Google Sheets sudah ditambahkan, masukkan ke chart
+        if(!isSriEmpty) {
+            datasets.push({
+                label: 'SRI-KEHATI %',
+                data: sriData,
+                borderColor: '#ec4899', // Pink
+                borderWidth: 1.5,
+                tension: 0.1,
+                pointRadius: 0,
+                fill: false,
+                order: 5
+            });
+        }
+        if(!isIdxEmpty) {
+            datasets.push({
+                label: 'IDX30 %',
+                data: idx30Data,
+                borderColor: '#14b8a6', // Teal
+                borderWidth: 1.5,
+                tension: 0.1,
+                pointRadius: 0,
+                fill: false,
+                order: 6
+            });
+        }
+
         myChart = new Chart(ctx, {
             type: 'line',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'NET RETURN %',
-                        data: netData,
-                        borderColor: '#10b981',
-                        backgroundColor: 'rgba(16, 185, 129, 0.05)',
-                        borderWidth: 2.5,
-                        tension: 0.15,
-                        pointRadius: 0,
-                        fill: true
-                    },
-                    {
-                        label: 'FLOATING P&L %',
-                        data: floatData,
-                        borderColor: '#e94758',
-                        borderWidth: 2,
-                        borderDash: [4, 4],
-                        tension: 0.15,
-                        pointRadius: 0,
-                        fill: false
-                    },
-                    {
-                        label: 'IHSG %',
-                        data: ihsgData,
-                        borderColor: '#3b82f6',
-                        borderWidth: 1.5,
-                        tension: 0.1,
-                        pointRadius: 0,
-                        fill: false
-                    },
-                    {
-                        label: 'LQ45 %',
-                        data: lq45Data,
-                        borderColor: '#8b5cf6',
-                        borderWidth: 1.5,
-                        tension: 0.1,
-                        pointRadius: 0,
-                        fill: false
-                    }
-                ]
-            },
+            data: { labels: labels, datasets: datasets },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 interaction: { mode: 'index', intersect: false },
-                plugins: {
-                    legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11, family: 'Inter' } } }
-                },
+                plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 11, family: 'Inter' } } } },
                 scales: {
-                    y: { 
-                        grid: { color: 'rgba(255, 255, 255, 0.05)' }, 
-                        ticks: { color: '#94a3b8', callback: function(value) { return value.toFixed(2) + '%'; } } 
-                    },
-                    x: { 
-                        grid: { display: false }, 
-                        ticks: { color: '#94a3b8', maxTicksLimit: 12 } 
-                    }
+                    y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8', callback: function(value) { return value.toFixed(2) + '%'; } } },
+                    x: { grid: { display: false }, ticks: { color: '#94a3b8', maxTicksLimit: 12 } }
                 }
             }
         });
@@ -456,40 +462,20 @@
     function renderAllocationChart() {
         const ctx = document.getElementById('allocationChart').getContext('2d');
         if (myAllocationChart) myAllocationChart.destroy();
-
         myAllocationChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 labels: ['BBNI', 'BMRI', 'BBCA', 'BNGA', 'NISP'],
                 datasets: [{
                     data: [32.6, 21.9, 17.9, 17.1, 10.5],
-                    backgroundColor: [
-                        '#f97316', 
-                        '#eab308', 
-                        '#3b82f6', 
-                        '#ef4444', 
-                        '#06b6d4'  
-                    ],
+                    backgroundColor: ['#f97316', '#eab308', '#3b82f6', '#ef4444', '#06b6d4'],
                     borderWidth: 0,
                     hoverOffset: 4
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '76%',
-                plugins: {
-                    legend: {
-                        display: false 
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return ' ' + context.label + ': ' + context.raw + '%';
-                            }
-                        }
-                    }
-                }
+                responsive: true, maintainAspectRatio: false, cutout: '76%',
+                plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(context) { return ' ' + context.label + ': ' + context.raw + '%'; } } } }
             }
         });
     }
