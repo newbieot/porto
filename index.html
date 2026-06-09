@@ -61,7 +61,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <div class="glass rounded-xl p-5 border-l-4 border-stockbitGreen shadow-lg">
-            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">RECORDED NET RETURN (YTD)</h3>
+            <h3 class="text-gray-400 text-sm font-medium mb-1 uppercase">RECORDED NET RETURN (CURRENT YTD)</h3>
             <p class="text-3xl font-bold text-stockbitGreen" id="val-net-pct">-%</p>
             <p class="text-xs text-gray-500 mt-2 uppercase">*INCLUDES REALIZED GAINS & DIVIDENDS</p>
         </div>
@@ -134,10 +134,6 @@
         <div class="flex items-center gap-2 mb-6 border-b border-gray-800 pb-4">
             <i data-lucide="history" class="text-posOrange w-5 h-5"></i>
             <h2 class="text-lg font-bold uppercase text-white">REALIZED GAINS & DIVIDENDS HISTORY (YTD)</h2>
-            <div class="ml-auto text-right">
-                <p class="text-xs text-gray-400 uppercase">Total Realized</p>
-                <p class="text-sm font-bold text-stockbitGreen">+Rp142.100.374</p>
-            </div>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -146,7 +142,6 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">25 MAY 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend BMRI</h4>
-                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp13.985.102</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -158,7 +153,6 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">13 MAY 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend BNGA</h4>
-                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp12.569.529</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -170,7 +164,6 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">04 MAY 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend NISP</h4>
-                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp2.884.500</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -182,7 +175,6 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">08 APR 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend BBCA</h4>
-                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp5.310.900</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -194,7 +186,6 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">07 APR 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend BBNI</h4>
-                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp20.615.389</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -206,7 +197,6 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">06 MAR 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Sell TUGU (Gain)</h4>
-                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp23.563.670</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -218,7 +208,6 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">18 FEB 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Sell TUGU (Gain)</h4>
-                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp53.750.717</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -230,7 +219,6 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">23 JAN 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Sell AADI (Gain)</h4>
-                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp7.170.533</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -242,7 +230,6 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">14 JAN 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Div BMRI & KKGI</h4>
-                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp2.250.034</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -288,8 +275,6 @@
 
             for(let i = 1; i < lines.length; i++) {
                 const row = lines[i].split(',');
-                
-                // Pastikan minimal ada 6 kolom (indeks 0 sampai 5)
                 if(row.length < 6 || row[0].trim() === "") continue;
 
                 // SISTEM KEBAL: Membaca kolom PORTO_FLOAT_PCT di indeks 4
@@ -322,19 +307,30 @@
 
             if (netData.length === 0) throw new Error("Empty data array (Google Sheets might be loading).");
 
+            // ==========================================
+            // LOGIKA STOCKBIT: REBASE SEMUA GRAFIK KE 0% 
+            // ==========================================
             let baseIHSG = ihsgData[0] || 0;
             let baseSri  = sriData[0] || 0;
             let baseIdx  = idx30Data[0] || 0;
-            
+            let baseFloat = floatData[0] || 0; 
+            let baseNet = netData[0] || 0;     
+
             let rebasedIHSG = ihsgData.map(val => val - baseIHSG);
             let rebasedSri  = sriData.map(val => val - baseSri);
             let rebasedIdx  = idx30Data.map(val => val - baseIdx);
+            let rebasedFloat = floatData.map(val => val - baseFloat); 
+            let rebasedNet = netData.map(val => val - baseNet);     
+            // ==========================================
 
+            // ==========================================
+            // LOGIKA STOCKBIT: TAMPILAN KARTU ABSOLUT (ALL-TIME)
+            // ==========================================
             const lastIdx = netData.length - 1;
-            document.getElementById('val-net-pct').innerText = netData[lastIdx].toFixed(2) + "%";
+            document.getElementById('val-net-pct').innerText = netData[lastIdx].toFixed(2) + "%"; 
             document.getElementById('val-net-pct').className = netData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
             
-            document.getElementById('val-floating-pct').innerText = floatData[lastIdx].toFixed(2) + "%";
+            document.getElementById('val-floating-pct').innerText = floatData[lastIdx].toFixed(2) + "%"; 
             document.getElementById('val-floating-pct').className = floatData[lastIdx] >= 0 ? "text-3xl font-bold text-stockbitGreen" : "text-3xl font-bold text-stockbitRed";
 
             const badge = document.getElementById('status-badge');
@@ -353,7 +349,8 @@
                 lucide.createIcons();
             }
 
-            renderLineChart(labels, netData, floatData, rebasedIHSG, rebasedSri, rebasedIdx);
+            // Render Chart Menggunakan Data yang Sudah Di-Rebase (Mulai dari 0)
+            renderLineChart(labels, rebasedNet, rebasedFloat, rebasedIHSG, rebasedSri, rebasedIdx);
             renderAllocationChart();
 
         } catch (error) {
@@ -381,7 +378,7 @@
         let datasets = [
             {
                 label: 'NET RETURN %',
-                data: netData,
+                data: netData, 
                 borderColor: '#10b981',
                 backgroundColor: 'rgba(16, 185, 129, 0.05)',
                 borderWidth: 2.5,
@@ -392,7 +389,7 @@
             },
             {
                 label: 'FLOATING P&L %',
-                data: floatData,
+                data: floatData, 
                 borderColor: '#e94758',
                 borderWidth: 2,
                 borderDash: [4, 4],
