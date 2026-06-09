@@ -130,6 +130,29 @@
         </section>
     </div>
 
+    <section class="glass rounded-xl p-5 shadow-lg w-full mb-8">
+        <div class="flex items-center gap-2 mb-6 border-b border-gray-800 pb-4">
+            <i data-lucide="bar-chart-2" class="text-posOrange w-5 h-5"></i>
+            <h2 class="text-lg font-bold uppercase text-white">KEY STATS PERFORMANCE</h2>
+        </div>
+        <div class="overflow-x-auto hide-scrollbar">
+            <table class="w-full text-left border-collapse whitespace-nowrap">
+                <thead>
+                    <tr class="text-gray-400 text-xs uppercase border-b border-gray-800">
+                        <th class="p-3 font-medium tracking-wider">INDICATOR</th>
+                        <th class="p-3 font-medium tracking-wider text-right">1D</th>
+                        <th class="p-3 font-medium tracking-wider text-right">1W</th>
+                        <th class="p-3 font-medium tracking-wider text-right">1M</th>
+                        <th class="p-3 font-medium tracking-wider text-right">3M</th>
+                        <th class="p-3 font-medium tracking-wider text-right">YTD</th>
+                    </tr>
+                </thead>
+                <tbody id="keystats-body">
+                    </tbody>
+            </table>
+        </div>
+    </section>
+
     <section class="glass rounded-xl p-5 shadow-lg w-full mb-4">
         <div class="flex items-center gap-2 mb-6 border-b border-gray-800 pb-4">
             <i data-lucide="history" class="text-posOrange w-5 h-5"></i>
@@ -349,9 +372,10 @@
                 lucide.createIcons();
             }
 
-            // Render Chart Menggunakan Data yang Sudah Di-Rebase (Mulai dari 0)
+            // Render Modules
             renderLineChart(labels, rebasedNet, rebasedFloat, rebasedIHSG, rebasedSri, rebasedIdx);
             renderAllocationChart();
+            renderKeyStats(netData, floatData, ihsgData, sriData, idx30Data);
 
         } catch (error) {
             console.error("Error Detail:", error);
@@ -368,6 +392,76 @@
         }
     }
 
+    // ==========================================
+    // MODULE: KEY STATS PERFORMANCE (1D, 1W, 1M, 3M, YTD)
+    // ==========================================
+    function formatCell(val) {
+        if (val === null || val === undefined || isNaN(val)) return `<td class="p-3 text-right text-gray-500">-</td>`;
+        const isPositive = val >= 0;
+        const colorClass = isPositive ? 'text-stockbitGreen' : 'text-stockbitRed';
+        const sign = isPositive && val > 0 ? '+' : '';
+        return `<td class="p-3 text-right font-bold ${colorClass}">${sign}${val.toFixed(2)}%</td>`;
+    }
+
+    function getPerfData(arr) {
+        if (!arr || arr.length === 0) return { d1: null, w1: null, m1: null, m3: null, ytd: null };
+        const lastIdx = arr.length - 1;
+        
+        // Fungsi cerdas untuk menghitung performa historis (Meskipun ada tanggal lompat seperti 8 Juni)
+        const calc = (daysAgo) => {
+            if (lastIdx < daysAgo) return null; // Jika data belum cukup lama
+            const targetIdx = lastIdx - daysAgo;
+            const valB = arr[lastIdx];
+            const valA = arr[targetIdx];
+            // Rumus Bunga Majemuk Akurat: ((1 + Akhir/100) / (1 + Awal/100) - 1) * 100
+            return ((1 + valB/100) / (1 + valA/100) - 1) * 100;
+        };
+
+        return {
+            d1: calc(1),   // 1D  (Membandingkan dengan 1 baris terakhir yang valid)
+            w1: calc(5),   // 1W  (5 Hari Bursa)
+            m1: calc(21),  // 1M  (21 Hari Bursa)
+            m3: calc(63),  // 3M  (63 Hari Bursa)
+            ytd: arr[lastIdx] // YTD (Menggunakan data murni absolute dari Sheets)
+        };
+    }
+
+    function renderKeyStats(netData, floatData, ihsgData, sriData, idx30Data) {
+        const stats = [
+            { name: 'NET RETURN', data: netData, color: '#10b981' },
+            { name: 'FLOATING P&L', data: floatData, color: '#e94758' },
+            { name: 'IHSG', data: ihsgData, color: '#3b82f6' },
+            { name: 'SRI-KEHATI', data: sriData, color: '#ec4899' },
+            { name: 'IDX30', data: idx30Data, color: '#14b8a6' }
+        ];
+
+        let html = '';
+        stats.forEach(stat => {
+            // Sembunyikan SRI / IDX30 jika datanya masih kosong dari Sheets
+            if (stat.data.every(v => v === 0)) return; 
+            
+            const perf = getPerfData(stat.data);
+            html += `
+                <tr class="border-b border-gray-800/50 hover:bg-gray-800/40 transition">
+                    <td class="p-3 font-bold text-white text-sm flex items-center gap-3">
+                        <span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: ${stat.color}"></span>
+                        ${stat.name}
+                    </td>
+                    ${formatCell(perf.d1)}
+                    ${formatCell(perf.w1)}
+                    ${formatCell(perf.m1)}
+                    ${formatCell(perf.m3)}
+                    ${formatCell(perf.ytd)}
+                </tr>
+            `;
+        });
+
+        document.getElementById('keystats-body').innerHTML = html;
+    }
+
+    // ==========================================
+    // MODULE: CHARTS
+    // ==========================================
     function renderLineChart(labels, netData, floatData, ihsgData, sriData, idx30Data) {
         const ctx = document.getElementById('performanceChart').getContext('2d');
         if (myChart) myChart.destroy();
