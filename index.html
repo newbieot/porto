@@ -278,6 +278,17 @@
                 const row = lines[i].split(',');
                 if(row.length < 5 || row[0].trim() === "") continue;
 
+                // ==========================================
+                // SISTEM KEBAL: CEK APAKAH SHEET SEDANG LOADING
+                // ==========================================
+                // Jika kolom Float kosong/bukan angka (akibat IFERROR ""), lewati baris ini!
+                let checkFloatStr = row.length >= 7 ? row[5] : row[3];
+                if (!checkFloatStr || checkFloatStr.trim() === "") continue;
+                
+                let checkFloatVal = parseFloat(checkFloatStr.replace(/"/g, ''));
+                if (isNaN(checkFloatVal)) continue; // Jangan jadikan 0, langsung lewati.
+                // ==========================================
+
                 let rawDateStr = row[0].replace(/"/g, '').trim(); 
                 let justDate = rawDateStr.split(' ')[0]; 
                 let dateParts = justDate.split(/[-/]/); 
@@ -295,14 +306,12 @@
                 ihsgData.push(parseFloat(row[1].replace(/"/g, '')) || 0);
                 lq45Data.push(parseFloat(row[2].replace(/"/g, '')) || 0);
 
-                // CEK AMAN: Jika kolom belum ditambah di Google Sheets, pakai susunan lama
                 if (row.length >= 7) {
                     sriData.push(parseFloat(row[3].replace(/"/g, '')) || 0);
                     idx30Data.push(parseFloat(row[4].replace(/"/g, '')) || 0);
                     floatData.push(parseFloat(row[5].replace(/"/g, '')) || 0);
                     netData.push(parseFloat(row[6].replace(/"/g, '')) || 0);
                 } else {
-                    // Fallback sementara (jika data masih format lama 5 kolom)
                     sriData.push(0); 
                     idx30Data.push(0);
                     floatData.push(parseFloat(row[3].replace(/"/g, '')) || 0);
@@ -310,7 +319,7 @@
                 }
             }
 
-            if (netData.length === 0) throw new Error("Empty data array.");
+            if (netData.length === 0) throw new Error("Empty data array (Google Sheets might be loading).");
 
             let baseIHSG = ihsgData[0] || 0;
             let baseLQ45 = lq45Data[0] || 0;
@@ -351,14 +360,14 @@
         } catch (error) {
             console.error("Error Detail:", error);
             const badge = document.getElementById('status-badge');
-            badge.style.color = '#e94758'; 
-            badge.style.backgroundColor = 'rgba(233, 71, 88, 0.15)';
-            document.getElementById('status-text').innerText = "CSV CONNECTION ERROR";
+            badge.style.color = '#FF5722'; // Warna orange peringatan
+            badge.style.backgroundColor = 'rgba(255, 87, 34, 0.15)';
+            document.getElementById('status-text').innerText = "WAITING GOOGLE FINANCE...";
             
             const iconEl = document.getElementById('status-icon');
             if (iconEl) {
-                iconEl.classList.remove('animate-spin');
-                iconEl.setAttribute('data-lucide', 'alert-circle');
+                // Biarkan tetap berputar (animate-spin) menandakan sedang refresh
+                iconEl.setAttribute('data-lucide', 'loader-2');
                 lucide.createIcons();
             }
         }
