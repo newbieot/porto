@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Ikhsan Portfolio Dashboard | Real-Time Stock Tracker</title>
-    <meta name="description" content="A private, real-time financial dashboard tracking historical YTD stock portfolio performance against IHSG, LQ45, IDX30, and SRI-KEHATI.">
+    <meta name="description" content="A private, real-time financial dashboard tracking historical YTD stock portfolio performance against IHSG, SRI-KEHATI, and IDX30.">
     <meta name="author" content="Ikhsan Radiansyah">
     <link rel="canonical" href="https://idx.posnew.com/">
 
@@ -134,6 +134,10 @@
         <div class="flex items-center gap-2 mb-6 border-b border-gray-800 pb-4">
             <i data-lucide="history" class="text-posOrange w-5 h-5"></i>
             <h2 class="text-lg font-bold uppercase text-white">REALIZED GAINS & DIVIDENDS HISTORY (YTD)</h2>
+            <div class="ml-auto text-right">
+                <p class="text-xs text-gray-400 uppercase">Total Realized</p>
+                <p class="text-sm font-bold text-stockbitGreen">+Rp142.100.374</p>
+            </div>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -142,6 +146,7 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">25 MAY 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend BMRI</h4>
+                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp13.985.102</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -153,6 +158,7 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">13 MAY 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend BNGA</h4>
+                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp12.569.529</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -164,6 +170,7 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">04 MAY 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend NISP</h4>
+                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp2.884.500</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -175,6 +182,7 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">08 APR 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend BBCA</h4>
+                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp5.310.900</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -186,6 +194,7 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">07 APR 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Dividend BBNI</h4>
+                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp20.615.389</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -197,6 +206,7 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">06 MAR 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Sell TUGU (Gain)</h4>
+                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp23.563.670</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -208,6 +218,7 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">18 FEB 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Sell TUGU (Gain)</h4>
+                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp53.750.717</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -219,6 +230,7 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">23 JAN 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Sell AADI (Gain)</h4>
+                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp7.170.533</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -230,6 +242,7 @@
                 <div>
                     <span class="text-[10px] text-gray-400 font-bold tracking-wider">14 JAN 2026</span>
                     <h4 class="font-bold text-white text-sm mt-1">Div BMRI & KKGI</h4>
+                    <p class="text-xs text-stockbitGreen font-medium mt-0.5">+Rp2.250.034</p>
                 </div>
                 <div class="text-right">
                     <span class="text-xs text-gray-500 uppercase">Net Impact</span>
@@ -268,7 +281,6 @@
             
             let labels = [];
             let ihsgData = [];
-            let lq45Data = [];
             let sriData = [];
             let idx30Data = [];
             let floatData = [];
@@ -276,18 +288,16 @@
 
             for(let i = 1; i < lines.length; i++) {
                 const row = lines[i].split(',');
-                if(row.length < 5 || row[0].trim() === "") continue;
+                
+                // Pastikan minimal ada 6 kolom (indeks 0 sampai 5)
+                if(row.length < 6 || row[0].trim() === "") continue;
 
-                // ==========================================
-                // SISTEM KEBAL: CEK APAKAH SHEET SEDANG LOADING
-                // ==========================================
-                // Jika kolom Float kosong/bukan angka (akibat IFERROR ""), lewati baris ini!
-                let checkFloatStr = row.length >= 7 ? row[5] : row[3];
+                // SISTEM KEBAL: Membaca kolom PORTO_FLOAT_PCT di indeks 4
+                let checkFloatStr = row[4];
                 if (!checkFloatStr || checkFloatStr.trim() === "") continue;
                 
                 let checkFloatVal = parseFloat(checkFloatStr.replace(/"/g, ''));
-                if (isNaN(checkFloatVal)) continue; // Jangan jadikan 0, langsung lewati.
-                // ==========================================
+                if (isNaN(checkFloatVal)) continue; 
 
                 let rawDateStr = row[0].replace(/"/g, '').trim(); 
                 let justDate = rawDateStr.split(' ')[0]; 
@@ -304,30 +314,19 @@
                 labels.push(formattedDate);
                 
                 ihsgData.push(parseFloat(row[1].replace(/"/g, '')) || 0);
-                lq45Data.push(parseFloat(row[2].replace(/"/g, '')) || 0);
-
-                if (row.length >= 7) {
-                    sriData.push(parseFloat(row[3].replace(/"/g, '')) || 0);
-                    idx30Data.push(parseFloat(row[4].replace(/"/g, '')) || 0);
-                    floatData.push(parseFloat(row[5].replace(/"/g, '')) || 0);
-                    netData.push(parseFloat(row[6].replace(/"/g, '')) || 0);
-                } else {
-                    sriData.push(0); 
-                    idx30Data.push(0);
-                    floatData.push(parseFloat(row[3].replace(/"/g, '')) || 0);
-                    netData.push(parseFloat(row[4].replace(/"/g, '')) || 0);
-                }
+                sriData.push(parseFloat(row[2].replace(/"/g, '')) || 0);
+                idx30Data.push(parseFloat(row[3].replace(/"/g, '')) || 0);
+                floatData.push(parseFloat(row[4].replace(/"/g, '')) || 0);
+                netData.push(parseFloat(row[5].replace(/"/g, '')) || 0);
             }
 
             if (netData.length === 0) throw new Error("Empty data array (Google Sheets might be loading).");
 
             let baseIHSG = ihsgData[0] || 0;
-            let baseLQ45 = lq45Data[0] || 0;
             let baseSri  = sriData[0] || 0;
             let baseIdx  = idx30Data[0] || 0;
             
             let rebasedIHSG = ihsgData.map(val => val - baseIHSG);
-            let rebasedLQ45 = lq45Data.map(val => val - baseLQ45);
             let rebasedSri  = sriData.map(val => val - baseSri);
             let rebasedIdx  = idx30Data.map(val => val - baseIdx);
 
@@ -354,30 +353,28 @@
                 lucide.createIcons();
             }
 
-            renderLineChart(labels, netData, floatData, rebasedIHSG, rebasedLQ45, rebasedSri, rebasedIdx);
+            renderLineChart(labels, netData, floatData, rebasedIHSG, rebasedSri, rebasedIdx);
             renderAllocationChart();
 
         } catch (error) {
             console.error("Error Detail:", error);
             const badge = document.getElementById('status-badge');
-            badge.style.color = '#FF5722'; // Warna orange peringatan
+            badge.style.color = '#FF5722'; 
             badge.style.backgroundColor = 'rgba(255, 87, 34, 0.15)';
             document.getElementById('status-text').innerText = "WAITING GOOGLE FINANCE...";
             
             const iconEl = document.getElementById('status-icon');
             if (iconEl) {
-                // Biarkan tetap berputar (animate-spin) menandakan sedang refresh
                 iconEl.setAttribute('data-lucide', 'loader-2');
                 lucide.createIcons();
             }
         }
     }
 
-    function renderLineChart(labels, netData, floatData, ihsgData, lq45Data, sriData, idx30Data) {
+    function renderLineChart(labels, netData, floatData, ihsgData, sriData, idx30Data) {
         const ctx = document.getElementById('performanceChart').getContext('2d');
         if (myChart) myChart.destroy();
 
-        // Menyembunyikan SRI dan IDX30 jika datanya belum tersedia (nilainya 0 semua)
         let isSriEmpty = sriData.every(item => item === 0);
         let isIdxEmpty = idx30Data.every(item => item === 0);
 
@@ -413,42 +410,31 @@
                 pointRadius: 0,
                 fill: false,
                 order: 3
-            },
-            {
-                label: 'LQ45 %',
-                data: lq45Data,
-                borderColor: '#8b5cf6',
+            }
+        ];
+
+        if(!isSriEmpty) {
+            datasets.push({
+                label: 'SRI-KEHATI %',
+                data: sriData,
+                borderColor: '#ec4899', 
                 borderWidth: 1.5,
                 tension: 0.1,
                 pointRadius: 0,
                 fill: false,
                 order: 4
-            }
-        ];
-
-        // Jika data dari Google Sheets sudah ditambahkan, masukkan ke chart
-        if(!isSriEmpty) {
-            datasets.push({
-                label: 'SRI-KEHATI %',
-                data: sriData,
-                borderColor: '#ec4899', // Pink
-                borderWidth: 1.5,
-                tension: 0.1,
-                pointRadius: 0,
-                fill: false,
-                order: 5
             });
         }
         if(!isIdxEmpty) {
             datasets.push({
                 label: 'IDX30 %',
                 data: idx30Data,
-                borderColor: '#14b8a6', // Teal
+                borderColor: '#14b8a6', 
                 borderWidth: 1.5,
                 tension: 0.1,
                 pointRadius: 0,
                 fill: false,
-                order: 6
+                order: 5
             });
         }
 
