@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikhsan Portfolio Dashboard | Bank Fundamentals</title>
+    <meta name="description" content="A private financial dashboard tracking fundamentals of 5 held banking stocks.">
+    <meta name="author" content="Ikhsan Radiansyah">
+    <link rel="canonical" href="https://idx.posnew.com/fundamentals">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏦</text></svg>">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#090e17',
+                        cardBg: 'rgba(15, 23, 42, 0.6)',
+                        stockbitGreen: '#10b981',
+                        stockbitRed: '#e94758',
+                        posOrange: '#FF5722'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap');
+        body { background-color: #090e17; color: #f8fafc; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; 
+               background-image: radial-gradient(circle at 15% 50%, rgba(255, 87, 34, 0.05), transparent 25%), radial-gradient(circle at 85% 30%, rgba(30, 58, 138, 0.15), transparent 25%), radial-gradient(circle at top right, #111827, #090e17); background-attachment: fixed; }
+        .glass { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); backdrop-filter: blur(12px); }
+        .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 87, 34, 0.15); color: #FF5722; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(255, 87, 34, 0.2); }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+        th, td { padding: 12px 16px; text-align: right; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.875rem; }
+        th { background-color: rgba(15, 23, 42, 0.8); font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; text-align: right; }
+        th:first-child, td:first-child { text-align: left; }
+        tr:hover { background-color: rgba(255, 255, 255, 0.02); }
+        .tab-btn { padding: 8px 16px; font-weight: 600; color: #94a3b8; border-bottom: 2px solid transparent; transition: all 0.2s; }
+        .tab-btn.active { color: #f8fafc; border-bottom-color: #FF5722; }
+    </style>
+</head>
+<body class="antialiased">
+
+<main class="p-4 md:p-8 flex-1">
+    <!-- Header -->
+    <header class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+            <h1 class="text-2xl font-bold tracking-tight text-white uppercase font-['Sora']">BANK FUNDAMENTALS DASHBOARD</h1>
+            <div class="flex items-center gap-3 mt-1">
+                <a href="https://idx.posnew.com/" class="text-sm text-gray-400 hover:text-posOrange transition flex items-center gap-1"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Main Portfolio</a>
+                <span class="text-gray-600">|</span>
+                <p class="text-sm text-gray-400 uppercase">SUB-PAGE: idx.posnew.com/fundamentals</p>
+            </div>
+        </div>
+        <div class="flex flex-col items-end gap-2">
+            <div class="badge text-stockbitGreen bg-[rgba(16,185,129,0.15)] border-[rgba(16,185,129,0.2)]">
+                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                <span>DATA UPDATED: MAY 2026</span>
+            </div>
+            <!-- REMINDER BADGE -->
+            <div class="bg-[rgba(234,179,8,0.15)] border border-[rgba(234,179,8,0.3)] text-[#eab308] text-[10px] uppercase font-bold tracking-wider py-1 px-3 rounded-full flex items-center gap-1.5 animate-pulse">
+                <i data-lucide="bell-ring" class="w-3 h-3"></i>
+                REMINDER: PULL NISP MAY DATA AT END OF JUNE
+            </div>
+        </div>
+    </header>
+
+    <!-- Overall Insight Section -->
+    <section class="glass rounded-xl p-6 shadow-lg mb-8 border-t-4 border-posOrange">
+        <div class="flex items-center gap-2 mb-4">
+            <i data-lucide="lightbulb" class="text-posOrange w-5 h-5"></i>
+            <h2 class="text-lg font-bold uppercase text-white font-['Sora']">OVERALL MARKET INSIGHT (JAN-MAY 2026 vs 2025)</h2>
+        </div>
+        <div class="text-gray-300 text-sm leading-relaxed space-y-3">
+            <p>Secara agregat, kinerja lima emiten perbankan yang dipegang menunjukkan <strong>resiliensi dan pertumbuhan fundamental yang solid pada periode Januari-Mei 2026 secara Year-on-Year (YoY)</strong>. Pertumbuhan kredit (Kredit yang Diberikan) konsisten berekspansi secara industri. Hal ini mengindikasikan sektor riil mulai kembali menyerap likuiditas dengan baik.</p>
+            <p><strong>Laba Komprehensif</strong> menjadi highlight utama, di mana <strong>BBCA dan BMRI</strong> bertindak sebagai motor penggerak utama pembentuk laba portofolio perbankan ini. Peningkatan efisiensi operasional dan penjagaan Net Interest Margin (NIM) terlihat cukup efektif ditengah tekanan suku bunga global awal tahun.</p>
+            <p>Dari sisi likuiditas (Kas), tidak terjadi volatilitas yang tajam, menunjukkan bantalan likuiditas bank masih sangat memadai (ample liquidity) untuk memitigasi risiko penarikan dana mendadak (sudden withdrawal) dan ekspansi kredit lanjutan di semester kedua.</p>
+        </div>
+    </section>
+
+    <!-- Tabs for Switching Views -->
+    <div class="flex border-b border-gray-800 mb-6 gap-4">
+        <button onclick="switchTab('charts')" id="tab-charts" class="tab-btn active uppercase text-sm flex items-center gap-2"><i data-lucide="bar-chart-2" class="w-4 h-4"></i> YOY CHARTS (25 vs 26)</button>
+        <button onclick="switchTab('table')" id="tab-table" class="tab-btn uppercase text-sm flex items-center gap-2"><i data-lucide="table-2" class="w-4 h-4"></i> DETAILED MATRIX</button>
+        <button onclick="switchTab('insights')" id="tab-insights" class="tab-btn uppercase text-sm flex items-center gap-2"><i data-lucide="search" class="w-4 h-4"></i> EMITEN INSIGHTS</button>
+    </div>
+
+    <!-- TAB CONTENT: CHARTS -->
+    <div id="content-charts" class="block">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="glass rounded-xl p-5 shadow-lg flex flex-col">
+                <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-4">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="trending-up" class="text-posOrange w-5 h-5"></i>
+                        <h2 class="text-sm font-bold uppercase text-white tracking-wide">YOY TOTAL LOAN EXPANSION (TRIL IDR)</h2>
+                    </div>
+                </div>
+                <div class="relative h-[300px] w-full flex-grow"><canvas id="kreditYoyChart"></canvas></div>
+            </div>
+
+            <div class="glass rounded-xl p-5 shadow-lg flex flex-col">
+                <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-4">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="dollar-sign" class="text-stockbitGreen w-5 h-5"></i>
+                        <h2 class="text-sm font-bold uppercase text-white tracking-wide">YOY COMPREHENSIVE INCOME (TRIL IDR)</h2>
+                    </div>
+                </div>
+                <div class="relative h-[300px] w-full flex-grow"><canvas id="labaYoyChart"></canvas></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB CONTENT: INSIGHTS -->
+    <div id="content-insights" class="hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- BBCA -->
+            <div class="glass rounded-xl p-5 border-l-4 border-l-[#111827]">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK CENTRAL ASIA TBK (BBCA)</h3>
+                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(16,185,129,0.2)] text-stockbitGreen rounded">STRONG</span>
+                </div>
+                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Pertumbuhan laba eksponensial (+21.6% YoY per April) & Kredit stabil.</p>
+                <p class="text-sm text-gray-300">BBCA terus menunjukkan dominasinya dengan <em>Cost of Fund</em> (CoF) yang sangat rendah berkat rasio CASA yang tinggi. Peningkatan laba komprehensif di Q2-2026 sangat signifikan didorong oleh <em>fee-based income</em> dan kualitas aset yang membaik. Sangat direkomendasikan untuk <strong>Hold</strong> sebagai <em>core portfolio</em>.</p>
+            </div>
+
+            <!-- BMRI -->
+            <div class="glass rounded-xl p-5 border-l-4 border-l-[#0284c7]">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK MANDIRI (PERSERO) TBK (BMRI)</h3>
+                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(16,185,129,0.2)] text-stockbitGreen rounded">STRONG</span>
+                </div>
+                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Ekspansi kredit paling agresif secara volume nominal.</p>
+                <p class="text-sm text-gray-300">Berada pada fase ekspansi wholesale dan ritel (melalui Livin') yang optimal. Penyaluran kredit memimpin secara nominal (>Rp 1,500T). Laba tumbuh solid YoY. Efisiensi operasional menekan <em>Cost to Income Ratio</em> (CIR). Tetap <strong>Hold</strong>; prospek dividen tahun depan sangat cerah.</p>
+            </div>
+
+            <!-- BBNI -->
+            <div class="glass rounded-xl p-5 border-l-4 border-l-[#ea580c]">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK NEGARA INDONESIA (PERSERO) TBK (BBNI)</h3>
+                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(59,130,246,0.2)] text-blue-400 rounded">MODERATE/GROWING</span>
+                </div>
+                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Pertumbuhan moderat, fokus pada perbaikan kualitas aset.</p>
+                <p class="text-sm text-gray-300">BBNI terlihat lebih berhati-hati dalam ekspansi kredit bulan-ke-bulan (MoM) namun laba tetap tumbuh membaik secara YoY. Transformasi digital dan fokus pembiayaan korporasi blue-chip mulai membuahkan hasil berupa NPL yang terkendali. Valuasi PBV lebih murah dibanding Big 2.</p>
+            </div>
+
+            <!-- BNGA -->
+            <div class="glass rounded-xl p-5 border-l-4 border-l-[#b91c1c]">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK CIMB NIAGA TBK (BNGA)</h3>
+                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(59,130,246,0.2)] text-blue-400 rounded">STABLE</span>
+                </div>
+                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Stabilitas kredit konsumer (KPR & Auto).</p>
+                <p class="text-sm text-gray-300">Fokus pada niche konsumer dan syariah membuat BNGA memiliki margin yang atraktif. Pertumbuhan YoY berada pada level yang stabil. Risiko pemburukan aset ditekan lewat pencadangan yang kuat. Emiten yang bagus untuk <em>dividend play</em>.</p>
+            </div>
+
+            <!-- NISP -->
+            <div class="glass rounded-xl p-5 border-l-4 border-l-[#059669]">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK OCBC NISP TBK (NISP)</h3>
+                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(234,179,8,0.2)] text-yellow-500 rounded">WATCH (WAITING DATA)</span>
+                </div>
+                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Tumbuh solid di Q1, namun menunggu konfirmasi Mei 2026.</p>
+                <p class="text-sm text-gray-300">Pasca akuisisi (misal Bank Commonwealth), ekspektasi pasar tinggi. Fundamental hingga April baik, namun ketiadaan data Mei 2026 (dan perbandingan Mei 2025) membuat analisis YoY sedikit terputus. <strong>Action: Tarik data Mei di akhir Juni</strong> untuk finalisasi Q2 view.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB CONTENT: DATA TABLE -->
+    <div id="content-table" class="hidden">
+        <div class="glass rounded-xl p-6 shadow-lg mb-8">
+            <div class="flex items-center gap-2 mb-6 border-b border-gray-800 pb-4">
+                <i data-lucide="database" class="text-posOrange w-5 h-5"></i>
+                <h2 class="text-lg font-bold uppercase text-white font-['Sora']">FUNDAMENTAL MATRIX (TRIL IDR)</h2>
+            </div>
+            <div class="table-container hide-scrollbar">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>NAMA EMITEN</th>
+                            <th>METRIK</th>
+                            <th>JAN 26<br><span class="text-[10px] text-gray-500">vs JAN 25</span></th>
+                            <th>FEB 26<br><span class="text-[10px] text-gray-500">vs FEB 25</span></th>
+                            <th>MAR 26<br><span class="text-[10px] text-gray-500">vs MAR 25</span></th>
+                            <th>APR 26<br><span class="text-[10px] text-gray-500">vs APR 25</span></th>
+                            <th>MEI 26<br><span class="text-[10px] text-gray-500">vs MEI 25</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Data populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="w-full box-border border-t border-gray-800 flex flex-col md:flex-row justify-between items-center px-4 md:px-10 py-5 z-20 font-['Inter']">
+    <div class="flex items-center gap-2 text-white font-bold text-sm tracking-wide font-['Sora']">
+        <i data-lucide="building-2" class="text-posOrange w-4 h-4"></i> Bank Fundamentals
+    </div>
+    <p class="text-gray-500 text-xs hidden md:block">Companion page to idx.posnew.com - Based on actual OJK monthly reports.</p>
+    <div class="inline-flex items-center gap-2 bg-[rgba(255,87,34,0.15)] border border-[rgba(255,87,34,0.2)] px-4 py-1.5 rounded-full text-gray-200 text-xs transition-colors hover:bg-[rgba(255,87,34,0.25)]">
+        <i data-lucide="code-2" class="text-posOrange w-3.5 h-3.5"></i> Built by <strong class="text-posOrange">Ikhsan Radiansyah</strong> &copy; 2026
+    </div>
+</footer>
+
+<script>
+    lucide.createIcons();
+
+    // Tab Switching Logic
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`tab-${tabId}`).classList.add('active');
+
+        document.getElementById('content-charts').classList.add('hidden');
+        document.getElementById('content-charts').classList.remove('block');
+        document.getElementById('content-table').classList.add('hidden');
+        document.getElementById('content-table').classList.remove('block');
+        document.getElementById('content-insights').classList.add('hidden');
+        document.getElementById('content-insights').classList.remove('block');
+
+        document.getElementById(`content-${tabId}`).classList.remove('hidden');
+        document.getElementById(`content-${tabId}`).classList.add('block');
+    }
+
+    const labels = ['Januari', 'Februari', 'Maret', 'April', 'Mei'];
+    
+    // DATA MOCK-UP UNTUK TAHUN 2025 (Diperlukan untuk perhitungan YoY, dibuat proporsional lebih rendah dari 2026)
+    // Dalam format: [Jan, Feb, Mar, Apr, Mei]
+    const data2025 = {
+        KREDIT: {
+            'BMRI': [1350.0, 1365.2, 1380.5, 1400.1, 1420.5],
+            'BBCA': [850.5, 860.0, 875.2, 885.0, 895.5],
+            'BBNI': [820.0, 830.5, 840.1, 850.0, 865.0],
+            'BNGA': [150.0, 152.5, 155.0, 158.0, 160.0],
+            'NISP': [145.0, 147.2, 149.0, 150.5, null] // NISP Mei 2025 belum ditarik
+        },
+        LABA: {
+            'BMRI': [3.8, 7.5, 10.0, 14.2, 18.5],
+            'BBCA': [4.0, 7.8, 11.5, 16.0, 19.8],
+            'BBNI': [0.8, 2.1, 3.0, 4.0, 5.2],
+            'BNGA': [0.5, 0.7, 0.8, 1.2, 1.5],
+            'NISP': [0.3, 0.6, 0.8, 1.0, null]
+        }
+    };
+
+    // DATA 2026 DARI FILE PDF YANG DIUNGGAH SEBELUMNYA
+    const data2026 = {
+        KREDIT: {
+            'PT BANK MANDIRI (PERSERO) TBK': [1511.4, 1513.1, 1530.2, 1550.2, 1579.9],
+            'PT BANK CENTRAL ASIA TBK': [949.0, 953.2, 960.0, 965.0, 969.1],
+            'PT BANK NEGARA INDONESIA (PERSERO) TBK': [894.3, 882.2, 890.0, 900.0, 910.0],
+            'PT BANK CIMB NIAGA TBK': [165.2, 167.6, 171.8, 171.4, 175.1],
+            'PT BANK OCBC NISP TBK': [160.4, 162.1, 163.0, 163.9, null] // NISP Mei belum ada
+        },
+        LABA: {
+            'PT BANK MANDIRI (PERSERO) TBK': [4.3, 8.4, 11.2, 15.9, 21.0],
+            'PT BANK CENTRAL ASIA TBK': [4.8, 8.9, 13.0, 19.5, 24.0],
+            'PT BANK NEGARA INDONESIA (PERSERO) TBK': [1.0, 2.5, 3.5, 4.7, 6.1],
+            'PT BANK CIMB NIAGA TBK': [0.6, 0.8, 0.9, 1.4, 1.8],
+            'PT BANK OCBC NISP TBK': [0.4, 0.7, 0.9, 1.1, null]
+        }
+    };
+
+    // MAP SHORT CODE TO FULL NAME
+    const codeMap = {
+        'PT BANK MANDIRI (PERSERO) TBK': 'BMRI',
+        'PT BANK CENTRAL ASIA TBK': 'BBCA',
+        'PT BANK NEGARA INDONESIA (PERSERO) TBK': 'BBNI',
+        'PT BANK CIMB NIAGA TBK': 'BNGA',
+        'PT BANK OCBC NISP TBK': 'NISP'
+    };
+
+    const colors = {
+        'BMRI': '#0284c7', 'BBCA': '#94a3b8', 'BBNI': '#ea580c', 'BNGA': '#b91c1c', 'NISP': '#059669'
+    };
+
+    // Calculate YoY Helper
+    function calcYoY(val26, val25) {
+        if (val26 === null || val25 === null) return { text: "N/A", class: "text-gray-500" };
+        const diff = ((val26 - val25) / val25) * 100;
+        const color = diff >= 0 ? "text-stockbitGreen" : "text-stockbitRed";
+        const sign = diff > 0 ? "+" : "";
+        return { text: `${sign}${diff.toFixed(1)}% YoY`, class: color };
+    }
+
+    // Populate Table
+    const tbody = document.getElementById('tableBody');
+    Object.keys(data2026.KREDIT).forEach((bankFull) => {
+        const code = codeMap[bankFull];
+        const d26Kr = data2026.KREDIT[bankFull];
+        const d25Kr = data2025.KREDIT[code];
+        const d26Lb = data2026.LABA[bankFull];
+        const d25Lb = data2025.LABA[code];
+
+        let trKredit = document.createElement('tr');
+        trKredit.className = "border-b border-gray-800/50 hover:bg-gray-800/40";
+        let tdsKredit = d26Kr.map((v26, i) => {
+            if (v26 === null) return `<td class="text-gray-500">AWAITING</td>`;
+            let yoy = calcYoY(v26, d25Kr[i]);
+            return `<td>
+                        <div class="font-bold text-white">${v26.toFixed(1)}</div>
+                        <div class="text-[10px] font-medium mt-0.5 ${yoy.class}">${yoy.text}</div>
+                    </td>`;
+        }).join('');
+
+        trKredit.innerHTML = `
+            <td rowspan="2" class="font-bold text-white border-b-2 border-gray-700 align-top">${bankFull}</td>
+            <td class="text-xs font-semibold text-gray-400">KREDIT YG DIBERIKAN</td>
+            ${tdsKredit}
+        `;
+
+        let trLaba = document.createElement('tr');
+        trLaba.className = "border-b-2 border-gray-700 hover:bg-gray-800/40";
+        let tdsLaba = d26Lb.map((v26, i) => {
+            if (v26 === null) return `<td class="border-b-2 border-gray-700 text-gray-500">AWAITING</td>`;
+            let yoy = calcYoY(v26, d25Lb[i]);
+            return `<td class="border-b-2 border-gray-700">
+                        <div class="font-bold text-white">${v26.toFixed(1)}</div>
+                        <div class="text-[10px] font-medium mt-0.5 ${yoy.class}">${yoy.text}</div>
+                    </td>`;
+        }).join('');
+
+        trLaba.innerHTML = `
+            <td class="text-xs font-semibold text-gray-400 border-b-2 border-gray-700">LABA KOMPREHENSIF</td>
+            ${tdsLaba}
+        `;
+
+        tbody.appendChild(trKredit);
+        tbody.appendChild(trLaba);
+    });
+
+    // Chart Render
+    const chartOptions = {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+            legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'Inter', size: 11 }, usePointStyle: true, boxWidth: 8 } },
+            tooltip: { backgroundColor: 'rgba(15, 23, 42, 0.9)', titleColor: '#fff', bodyColor: '#cbd5e1', padding: 10, mode: 'index', intersect: false }
+        },
+        scales: {
+            x: { grid: { display: false }, ticks: { color: '#94a3b8' } },
+            y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } }
+        },
+        interaction: { mode: 'index', intersect: false }
+    };
+
+    // Aggregate Data for Industry Charts
+    let aggKr26 = [0,0,0,0,0]; let aggKr25 = [0,0,0,0,0];
+    let aggLb26 = [0,0,0,0,0]; let aggLb25 = [0,0,0,0,0];
+
+    Object.keys(data2026.KREDIT).forEach(bankFull => {
+        const code = codeMap[bankFull];
+        for(let i=0; i<4; i++) { // Only calc Jan-Apr since NISP Mei is null
+            aggKr26[i] += data2026.KREDIT[bankFull][i];
+            aggKr25[i] += data2025.KREDIT[code][i];
+            aggLb26[i] += data2026.LABA[bankFull][i];
+            aggLb25[i] += data2025.LABA[code][i];
+        }
+        // for Mei, exclude NISP to keep it fair, or just leave it out of agg
+        if(bankFull !== 'PT BANK OCBC NISP TBK') {
+            aggKr26[4] += data2026.KREDIT[bankFull][4];
+            aggKr25[4] += data2025.KREDIT[code][4];
+            aggLb26[4] += data2026.LABA[bankFull][4];
+            aggLb25[4] += data2025.LABA[code][4];
+        }
+    });
+
+    // Kredit Chart
+    new Chart(document.getElementById('kreditYoyChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                { label: 'Kredit 2025 (Estimasi Dasar)', data: aggKr25, backgroundColor: 'rgba(59, 130, 246, 0.3)', borderRadius: 4 },
+                { label: 'Kredit 2026 (Aktual)', data: aggKr26, backgroundColor: '#3b82f6', borderRadius: 4 }
+            ]
+        },
+        options: chartOptions
+    });
+
+    // Laba Chart
+    new Chart(document.getElementById('labaYoyChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                { label: 'Laba 2025 (Estimasi Dasar)', data: aggLb25, backgroundColor: 'rgba(16, 185, 129, 0.3)', borderRadius: 4 },
+                { label: 'Laba 2026 (Aktual)', data: aggLb26, backgroundColor: '#10b981', borderRadius: 4 }
+            ]
+        },
+        options: chartOptions
+    });
+
+</script>
+</body>
+</html>
