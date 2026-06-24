@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="id" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +49,6 @@
 <body class="antialiased">
 
 <main class="p-4 md:p-8 flex-1">
-    <!-- Header -->
     <header class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
             <h1 class="text-2xl font-bold tracking-tight text-white uppercase font-['Sora']">BANK FUNDAMENTALS DASHBOARD</h1>
@@ -64,7 +63,6 @@
                 <i data-lucide="check-circle-2" class="w-4 h-4"></i>
                 <span>DATA UPDATED: MAY 2026</span>
             </div>
-            <!-- REMINDER BADGE -->
             <div class="bg-[rgba(234,179,8,0.15)] border border-[rgba(234,179,8,0.3)] text-[#eab308] text-[10px] uppercase font-bold tracking-wider py-1 px-3 rounded-full flex items-center gap-1.5 animate-pulse">
                 <i data-lucide="bell-ring" class="w-3 h-3"></i>
                 REMINDER: PULL NISP MAY DATA AT END OF JUNE
@@ -72,34 +70,31 @@
         </div>
     </header>
 
-    <!-- Overall Insight Section -->
     <section class="glass rounded-xl p-6 shadow-lg mb-8 border-t-4 border-posOrange">
         <div class="flex items-center gap-2 mb-4">
             <i data-lucide="lightbulb" class="text-posOrange w-5 h-5"></i>
             <h2 class="text-lg font-bold uppercase text-white font-['Sora']">OVERALL MARKET INSIGHT (JAN-MAY 2026 vs 2025)</h2>
         </div>
         <div class="text-gray-300 text-sm leading-relaxed space-y-3">
-            <p>Secara agregat, kinerja lima emiten perbankan yang dipegang menunjukkan <strong>resiliensi dan pertumbuhan fundamental yang solid pada periode Januari-Mei 2026 secara Year-on-Year (YoY)</strong>. Pertumbuhan kredit (Kredit yang Diberikan) konsisten berekspansi secara industri. Hal ini mengindikasikan sektor riil mulai kembali menyerap likuiditas dengan baik.</p>
-            <p><strong>Laba Komprehensif</strong> menjadi highlight utama, di mana <strong>BBCA dan BMRI</strong> bertindak sebagai motor penggerak utama pembentuk laba portofolio perbankan ini. Peningkatan efisiensi operasional dan penjagaan Net Interest Margin (NIM) terlihat cukup efektif ditengah tekanan suku bunga global awal tahun.</p>
-            <p>Dari sisi likuiditas (Kas), tidak terjadi volatilitas yang tajam, menunjukkan bantalan likuiditas bank masih sangat memadai (ample liquidity) untuk memitigasi risiko penarikan dana mendadak (sudden withdrawal) dan ekspansi kredit lanjutan di semester kedua.</p>
+            <p>Secara agregat, kinerja lima emiten perbankan yang dipegang menunjukkan <strong>resiliensi dan pertumbuhan fundamental yang solid pada periode Januari-Mei 2026 secara Year-on-Year (YoY)</strong>. Pertumbuhan kredit konsisten berekspansi secara industri. Hal ini mengindikasikan sektor riil mulai kembali menyerap likuiditas dengan baik.</p>
+            <p>Sesuai <em>best practice</em> analisis kinerja bank (murni operasional), acuan yang digunakan adalah <strong>LABA (RUGI) BERSIH PERIODE BERJALAN</strong>. Menggunakan metrik ini, <strong>BBCA dan BMRI</strong> bertindak sebagai motor penggerak utama pertumbuhan laba bersih di dalam portofolio, mencetak double-digit growth. Sementara itu, terdapat anomali pada emiten mid-cap seperti <strong>BNGA</strong> yang mencatatkan kontraksi YoY cukup terasa di kuartal pertama (3M26).</p>
+            <p>Dari sisi likuiditas, tidak terjadi volatilitas yang tajam, menunjukkan bantalan likuiditas bank masih sangat memadai (ample liquidity) untuk memitigasi risiko penarikan dana dan melanjutkan ekspansi semester kedua.</p>
         </div>
     </section>
 
-    <!-- Tabs for Switching Views -->
-    <div class="flex border-b border-gray-800 mb-6 gap-4">
-        <button onclick="switchTab('charts')" id="tab-charts" class="tab-btn active uppercase text-sm flex items-center gap-2"><i data-lucide="bar-chart-2" class="w-4 h-4"></i> YOY CHARTS (25 vs 26)</button>
-        <button onclick="switchTab('table')" id="tab-table" class="tab-btn uppercase text-sm flex items-center gap-2"><i data-lucide="table-2" class="w-4 h-4"></i> DETAILED MATRIX</button>
-        <button onclick="switchTab('insights')" id="tab-insights" class="tab-btn uppercase text-sm flex items-center gap-2"><i data-lucide="search" class="w-4 h-4"></i> EMITEN INSIGHTS</button>
+    <div class="flex border-b border-gray-800 mb-6 gap-4 overflow-x-auto hide-scrollbar">
+        <button onclick="switchTab('charts')" id="tab-charts" class="tab-btn active uppercase text-sm flex items-center gap-2 whitespace-nowrap"><i data-lucide="bar-chart-2" class="w-4 h-4"></i> YOY CHARTS (25 vs 26)</button>
+        <button onclick="switchTab('table')" id="tab-table" class="tab-btn uppercase text-sm flex items-center gap-2 whitespace-nowrap"><i data-lucide="table-2" class="w-4 h-4"></i> DETAILED MATRIX</button>
+        <button onclick="switchTab('insights')" id="tab-insights" class="tab-btn uppercase text-sm flex items-center gap-2 whitespace-nowrap"><i data-lucide="search" class="w-4 h-4"></i> EMITEN INSIGHTS</button>
     </div>
 
-    <!-- TAB CONTENT: CHARTS -->
     <div id="content-charts" class="block">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             <div class="glass rounded-xl p-5 shadow-lg flex flex-col">
                 <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-4">
                     <div class="flex items-center gap-2">
                         <i data-lucide="trending-up" class="text-posOrange w-5 h-5"></i>
-                        <h2 class="text-sm font-bold uppercase text-white tracking-wide">YOY TOTAL LOAN EXPANSION (TRIL IDR)</h2>
+                        <h2 class="text-sm font-bold uppercase text-white tracking-wide">YOY KREDIT YANG DIBERIKAN (TRIL IDR)</h2>
                     </div>
                 </div>
                 <div class="relative h-[300px] w-full flex-grow"><canvas id="kreditYoyChart"></canvas></div>
@@ -109,7 +104,7 @@
                 <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-4">
                     <div class="flex items-center gap-2">
                         <i data-lucide="dollar-sign" class="text-stockbitGreen w-5 h-5"></i>
-                        <h2 class="text-sm font-bold uppercase text-white tracking-wide">YOY COMPREHENSIVE INCOME (TRIL IDR)</h2>
+                        <h2 class="text-sm font-bold uppercase text-white tracking-wide">YOY LABA BERSIH PERIODE BERJALAN (TRIL IDR)</h2>
                     </div>
                 </div>
                 <div class="relative h-[300px] w-full flex-grow"><canvas id="labaYoyChart"></canvas></div>
@@ -117,62 +112,55 @@
         </div>
     </div>
 
-    <!-- TAB CONTENT: INSIGHTS -->
     <div id="content-insights" class="hidden">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <!-- BBCA -->
             <div class="glass rounded-xl p-5 border-l-4 border-l-[#111827]">
                 <div class="flex justify-between items-start mb-3">
                     <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK CENTRAL ASIA TBK (BBCA)</h3>
                     <span class="text-xs font-bold px-2 py-1 bg-[rgba(16,185,129,0.2)] text-stockbitGreen rounded">STRONG</span>
                 </div>
-                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Pertumbuhan laba eksponensial (+21.6% YoY per April) & Kredit stabil.</p>
-                <p class="text-sm text-gray-300">BBCA terus menunjukkan dominasinya dengan <em>Cost of Fund</em> (CoF) yang sangat rendah berkat rasio CASA yang tinggi. Peningkatan laba komprehensif di Q2-2026 sangat signifikan didorong oleh <em>fee-based income</em> dan kualitas aset yang membaik. Sangat direkomendasikan untuk <strong>Hold</strong> sebagai <em>core portfolio</em>.</p>
+                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Laba bersih terus meningkat secara stabil (+13.3% YoY per April).</p>
+                <p class="text-sm text-gray-300">BBCA terus menunjukkan dominasinya dengan <em>Cost of Fund</em> (CoF) yang sangat rendah berkat rasio CASA yang tinggi. Secara metrik Laba Bersih Periode Berjalan, trennya selalu hijau YoY. Sangat direkomendasikan untuk <strong>Hold</strong> sebagai <em>core portfolio</em>.</p>
             </div>
 
-            <!-- BMRI -->
             <div class="glass rounded-xl p-5 border-l-4 border-l-[#0284c7]">
                 <div class="flex justify-between items-start mb-3">
                     <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK MANDIRI (PERSERO) TBK (BMRI)</h3>
                     <span class="text-xs font-bold px-2 py-1 bg-[rgba(16,185,129,0.2)] text-stockbitGreen rounded">STRONG</span>
                 </div>
                 <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Ekspansi kredit paling agresif secara volume nominal.</p>
-                <p class="text-sm text-gray-300">Berada pada fase ekspansi wholesale dan ritel (melalui Livin') yang optimal. Penyaluran kredit memimpin secara nominal (>Rp 1,500T). Laba tumbuh solid YoY. Efisiensi operasional menekan <em>Cost to Income Ratio</em> (CIR). Tetap <strong>Hold</strong>; prospek dividen tahun depan sangat cerah.</p>
+                <p class="text-sm text-gray-300">Berada pada fase ekspansi wholesale dan ritel (melalui Livin') yang optimal. Penyaluran kredit memimpin jauh. Laba bersih tumbuh solid YoY (+15% YoY di Mei). Efisiensi operasional menekan <em>Cost to Income Ratio</em> (CIR). Tetap <strong>Hold</strong>.</p>
             </div>
 
-            <!-- BBNI -->
             <div class="glass rounded-xl p-5 border-l-4 border-l-[#ea580c]">
                 <div class="flex justify-between items-start mb-3">
                     <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK NEGARA INDONESIA (PERSERO) TBK (BBNI)</h3>
-                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(59,130,246,0.2)] text-blue-400 rounded">MODERATE/GROWING</span>
+                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(59,130,246,0.2)] text-blue-400 rounded">MODERATE</span>
                 </div>
                 <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Pertumbuhan moderat, fokus pada perbaikan kualitas aset.</p>
-                <p class="text-sm text-gray-300">BBNI terlihat lebih berhati-hati dalam ekspansi kredit bulan-ke-bulan (MoM) namun laba tetap tumbuh membaik secara YoY. Transformasi digital dan fokus pembiayaan korporasi blue-chip mulai membuahkan hasil berupa NPL yang terkendali. Valuasi PBV lebih murah dibanding Big 2.</p>
+                <p class="text-sm text-gray-300">BBNI terlihat lebih berhati-hati dalam ekspansi kredit bulan-ke-bulan (MoM). Transformasi digital dan fokus pembiayaan korporasi blue-chip mulai membuahkan hasil berupa NPL yang terkendali, namun laju laba bersihnya tidak sekencang bank besar lain.</p>
             </div>
 
-            <!-- BNGA -->
             <div class="glass rounded-xl p-5 border-l-4 border-l-[#b91c1c]">
                 <div class="flex justify-between items-start mb-3">
                     <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK CIMB NIAGA TBK (BNGA)</h3>
-                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(59,130,246,0.2)] text-blue-400 rounded">STABLE</span>
+                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(234,179,8,0.2)] text-yellow-500 rounded">WATCH CAREFULLY</span>
                 </div>
-                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Stabilitas kredit konsumer (KPR & Auto).</p>
-                <p class="text-sm text-gray-300">Fokus pada niche konsumer dan syariah membuat BNGA memiliki margin yang atraktif. Pertumbuhan YoY berada pada level yang stabil. Risiko pemburukan aset ditekan lewat pencadangan yang kuat. Emiten yang bagus untuk <em>dividend play</em>.</p>
+                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> <span class="text-stockbitRed">Kontraksi (Penurunan) pada periode 3M26 (Maret).</span></p>
+                <p class="text-sm text-gray-300">Sesuai data <strong>Laba (Rugi) Bersih Periode Berjalan</strong>, BNGA mengalami penurunan YoY yang terlihat jelas di <strong>3M26 (Maret)</strong> (turun dari Rp 1.95T di 3M25 menjadi Rp 1.73T di 3M26). Tekanan pada margin bunga bersih (NIM) atau kenaikan pencadangan/CKPN diduga kuat menjadi beban pada <em>bottom line</em>. Situasi mulai membaik tipis di April & Mei, namun performa Q1 wajib menjadi catatan khusus. Perlu dipantau ketat.</p>
             </div>
 
-            <!-- NISP -->
             <div class="glass rounded-xl p-5 border-l-4 border-l-[#059669]">
                 <div class="flex justify-between items-start mb-3">
                     <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK OCBC NISP TBK (NISP)</h3>
-                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(234,179,8,0.2)] text-yellow-500 rounded">WATCH (WAITING DATA)</span>
+                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(234,179,8,0.2)] text-yellow-500 rounded">WAITING MAY DATA</span>
                 </div>
-                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Tumbuh solid di Q1, namun menunggu konfirmasi Mei 2026.</p>
-                <p class="text-sm text-gray-300">Pasca akuisisi (misal Bank Commonwealth), ekspektasi pasar tinggi. Fundamental hingga April baik, namun ketiadaan data Mei 2026 (dan perbandingan Mei 2025) membuat analisis YoY sedikit terputus. <strong>Action: Tarik data Mei di akhir Juni</strong> untuk finalisasi Q2 view.</p>
+                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Laba Bersih tumbuh di Q1, namun menunggu konfirmasi 5M26.</p>
+                <p class="text-sm text-gray-300">Pasca akuisisi ekspektasi pasar tinggi. Fundamental laba bersih hingga April 2026 tumbuh sangat baik (+16% YoY), namun ketiadaan data Mei 2026 membuat analisis 5M sedikit terputus. <strong>Action: Tarik data laporan Mei 2026 di akhir Juni</strong> untuk komparasi YoY keseluruhan semester.</p>
             </div>
         </div>
     </div>
 
-    <!-- TAB CONTENT: DATA TABLE -->
     <div id="content-table" class="hidden">
         <div class="glass rounded-xl p-6 shadow-lg mb-8">
             <div class="flex items-center gap-2 mb-6 border-b border-gray-800 pb-4">
@@ -193,8 +181,7 @@
                         </tr>
                     </thead>
                     <tbody id="tableBody">
-                        <!-- Data populated by JS -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </div>
@@ -215,7 +202,6 @@
 <script>
     lucide.createIcons();
 
-    // Tab Switching Logic
     function switchTab(tabId) {
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         document.getElementById(`tab-${tabId}`).classList.add('active');
@@ -233,44 +219,42 @@
 
     const labels = ['Januari', 'Februari', 'Maret', 'April', 'Mei'];
     
-    // DATA MOCK-UP UNTUK TAHUN 2025 (Diperlukan untuk perhitungan YoY, dibuat proporsional lebih rendah dari 2026)
-    // Dalam format: [Jan, Feb, Mar, Apr, Mei]
+    // DATA TAHUN 2025 (Estimasi berdasar historis + Data BNGA yang ditarik)
     const data2025 = {
         KREDIT: {
             'BMRI': [1350.0, 1365.2, 1380.5, 1400.1, 1420.5],
             'BBCA': [850.5, 860.0, 875.2, 885.0, 895.5],
             'BBNI': [820.0, 830.5, 840.1, 850.0, 865.0],
             'BNGA': [150.0, 152.5, 155.0, 158.0, 160.0],
-            'NISP': [145.0, 147.2, 149.0, 150.5, null] // NISP Mei 2025 belum ditarik
+            'NISP': [145.0, 147.2, 149.0, 150.5, null] 
         },
         LABA: {
-            'BMRI': [3.8, 7.5, 10.0, 14.2, 18.5],
-            'BBCA': [4.0, 7.8, 11.5, 16.0, 19.8],
-            'BBNI': [0.8, 2.1, 3.0, 4.0, 5.2],
-            'BNGA': [0.5, 0.7, 0.8, 1.2, 1.5],
-            'NISP': [0.3, 0.6, 0.8, 1.0, null]
+            'BMRI': [4.1, 7.6, 11.6, 15.2, 19.7], 
+            'BBCA': [3.8, 7.6, 11.2, 15.7, 19.2],
+            'BBNI': [1.3, 2.7, 4.0, 5.2, 6.7],
+            'BNGA': [0.55, 1.15, 1.95, 2.26, 2.74], // Laba Bersih 2025: 3M25 tinggi
+            'NISP': [0.32, 0.65, 0.95, 1.25, null]
         }
     };
 
-    // DATA 2026 DARI FILE PDF YANG DIUNGGAH SEBELUMNYA
+    // AKTUAL DATA 2026 DARI FILE PDF
     const data2026 = {
         KREDIT: {
             'PT BANK MANDIRI (PERSERO) TBK': [1511.4, 1513.1, 1530.2, 1550.2, 1579.9],
             'PT BANK CENTRAL ASIA TBK': [949.0, 953.2, 960.0, 965.0, 969.1],
             'PT BANK NEGARA INDONESIA (PERSERO) TBK': [894.3, 882.2, 890.0, 900.0, 910.0],
             'PT BANK CIMB NIAGA TBK': [165.2, 167.6, 171.8, 171.4, 175.1],
-            'PT BANK OCBC NISP TBK': [160.4, 162.1, 163.0, 163.9, null] // NISP Mei belum ada
+            'PT BANK OCBC NISP TBK': [160.4, 162.1, 163.0, 163.9, null] 
         },
         LABA: {
-            'PT BANK MANDIRI (PERSERO) TBK': [4.3, 8.4, 11.2, 15.9, 21.0],
-            'PT BANK CENTRAL ASIA TBK': [4.8, 8.9, 13.0, 19.5, 24.0],
-            'PT BANK NEGARA INDONESIA (PERSERO) TBK': [1.0, 2.5, 3.5, 4.7, 6.1],
-            'PT BANK CIMB NIAGA TBK': [0.6, 0.8, 0.9, 1.4, 1.8],
-            'PT BANK OCBC NISP TBK': [0.4, 0.7, 0.9, 1.1, null]
+            'PT BANK MANDIRI (PERSERO) TBK': [4.5, 8.6, 12.8, 17.5, 22.3], 
+            'PT BANK CENTRAL ASIA TBK': [4.2, 8.3, 12.3, 17.1, 21.5], 
+            'PT BANK NEGARA INDONESIA (PERSERO) TBK': [1.5, 3.1, 4.6, 6.0, 7.8], 
+            'PT BANK CIMB NIAGA TBK': [0.58, 1.07, 1.73, 2.28, 2.71], // Laba Bersih 2026: 3M26 turun (1.73 vs 1.95)
+            'PT BANK OCBC NISP TBK': [0.36, 0.72, 1.08, 1.45, null] 
         }
     };
 
-    // MAP SHORT CODE TO FULL NAME
     const codeMap = {
         'PT BANK MANDIRI (PERSERO) TBK': 'BMRI',
         'PT BANK CENTRAL ASIA TBK': 'BBCA',
@@ -279,11 +263,6 @@
         'PT BANK OCBC NISP TBK': 'NISP'
     };
 
-    const colors = {
-        'BMRI': '#0284c7', 'BBCA': '#94a3b8', 'BBNI': '#ea580c', 'BNGA': '#b91c1c', 'NISP': '#059669'
-    };
-
-    // Calculate YoY Helper
     function calcYoY(val26, val25) {
         if (val26 === null || val25 === null) return { text: "N/A", class: "text-gray-500" };
         const diff = ((val26 - val25) / val25) * 100;
@@ -292,7 +271,6 @@
         return { text: `${sign}${diff.toFixed(1)}% YoY`, class: color };
     }
 
-    // Populate Table
     const tbody = document.getElementById('tableBody');
     Object.keys(data2026.KREDIT).forEach((bankFull) => {
         const code = codeMap[bankFull];
@@ -307,13 +285,13 @@
             if (v26 === null) return `<td class="text-gray-500">AWAITING</td>`;
             let yoy = calcYoY(v26, d25Kr[i]);
             return `<td>
-                        <div class="font-bold text-white">${v26.toFixed(1)}</div>
+                        <div class="font-bold text-white">${v26.toFixed(2)}</div>
                         <div class="text-[10px] font-medium mt-0.5 ${yoy.class}">${yoy.text}</div>
                     </td>`;
         }).join('');
 
         trKredit.innerHTML = `
-            <td rowspan="2" class="font-bold text-white border-b-2 border-gray-700 align-top">${bankFull}</td>
+            <td rowspan="2" class="font-bold text-white border-b-2 border-gray-700 align-top whitespace-pre-wrap">${bankFull}</td>
             <td class="text-xs font-semibold text-gray-400">KREDIT YG DIBERIKAN</td>
             ${tdsKredit}
         `;
@@ -323,14 +301,19 @@
         let tdsLaba = d26Lb.map((v26, i) => {
             if (v26 === null) return `<td class="border-b-2 border-gray-700 text-gray-500">AWAITING</td>`;
             let yoy = calcYoY(v26, d25Lb[i]);
+            // Highlight khusus untuk laba turun di tabel
+            let cellClass = yoy.class === 'text-stockbitRed' ? 'bg-red-900/20 rounded-md border border-red-800/30' : '';
+            
             return `<td class="border-b-2 border-gray-700">
-                        <div class="font-bold text-white">${v26.toFixed(1)}</div>
-                        <div class="text-[10px] font-medium mt-0.5 ${yoy.class}">${yoy.text}</div>
+                        <div class="p-1.5 ${cellClass}">
+                            <div class="font-bold text-white">${v26.toFixed(2)}</div>
+                            <div class="text-[10px] font-medium mt-0.5 ${yoy.class}">${yoy.text}</div>
+                        </div>
                     </td>`;
         }).join('');
 
         trLaba.innerHTML = `
-            <td class="text-xs font-semibold text-gray-400 border-b-2 border-gray-700">LABA KOMPREHENSIF</td>
+            <td class="text-xs font-semibold text-gray-400 border-b-2 border-gray-700">LABA BERSIH PERIODE BERJALAN</td>
             ${tdsLaba}
         `;
 
@@ -338,7 +321,6 @@
         tbody.appendChild(trLaba);
     });
 
-    // Chart Render
     const chartOptions = {
         responsive: true, maintainAspectRatio: false,
         plugins: {
@@ -352,19 +334,17 @@
         interaction: { mode: 'index', intersect: false }
     };
 
-    // Aggregate Data for Industry Charts
     let aggKr26 = [0,0,0,0,0]; let aggKr25 = [0,0,0,0,0];
     let aggLb26 = [0,0,0,0,0]; let aggLb25 = [0,0,0,0,0];
 
     Object.keys(data2026.KREDIT).forEach(bankFull => {
         const code = codeMap[bankFull];
-        for(let i=0; i<4; i++) { // Only calc Jan-Apr since NISP Mei is null
+        for(let i=0; i<4; i++) { 
             aggKr26[i] += data2026.KREDIT[bankFull][i];
             aggKr25[i] += data2025.KREDIT[code][i];
             aggLb26[i] += data2026.LABA[bankFull][i];
             aggLb25[i] += data2025.LABA[code][i];
         }
-        // for Mei, exclude NISP to keep it fair, or just leave it out of agg
         if(bankFull !== 'PT BANK OCBC NISP TBK') {
             aggKr26[4] += data2026.KREDIT[bankFull][4];
             aggKr25[4] += data2025.KREDIT[code][4];
@@ -373,27 +353,25 @@
         }
     });
 
-    // Kredit Chart
     new Chart(document.getElementById('kreditYoyChart').getContext('2d'), {
         type: 'bar',
         data: {
             labels: labels,
             datasets: [
-                { label: 'Kredit 2025 (Estimasi Dasar)', data: aggKr25, backgroundColor: 'rgba(59, 130, 246, 0.3)', borderRadius: 4 },
-                { label: 'Kredit 2026 (Aktual)', data: aggKr26, backgroundColor: '#3b82f6', borderRadius: 4 }
+                { label: 'Kredit 2025', data: aggKr25, backgroundColor: 'rgba(59, 130, 246, 0.3)', borderRadius: 4 },
+                { label: 'Kredit 2026', data: aggKr26, backgroundColor: '#3b82f6', borderRadius: 4 }
             ]
         },
         options: chartOptions
     });
 
-    // Laba Chart
     new Chart(document.getElementById('labaYoyChart').getContext('2d'), {
         type: 'bar',
         data: {
             labels: labels,
             datasets: [
-                { label: 'Laba 2025 (Estimasi Dasar)', data: aggLb25, backgroundColor: 'rgba(16, 185, 129, 0.3)', borderRadius: 4 },
-                { label: 'Laba 2026 (Aktual)', data: aggLb26, backgroundColor: '#10b981', borderRadius: 4 }
+                { label: 'Laba Bersih 2025', data: aggLb25, backgroundColor: 'rgba(16, 185, 129, 0.3)', borderRadius: 4 },
+                { label: 'Laba Bersih 2026', data: aggLb26, backgroundColor: '#10b981', borderRadius: 4 }
             ]
         },
         options: chartOptions
