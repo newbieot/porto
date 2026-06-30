@@ -64,9 +64,9 @@
                 <i data-lucide="check-circle-2" class="w-4 h-4"></i>
                 <span>DATA UPDATED: MAY 2026 (ACTUAL)</span>
             </div>
-            <div class="bg-[rgba(234,179,8,0.15)] border border-[rgba(234,179,8,0.3)] text-[#eab308] text-[10px] uppercase font-bold tracking-wider py-1 px-3 rounded-full flex items-center gap-1.5 animate-pulse">
-                <i data-lucide="bell-ring" class="w-3 h-3"></i>
-                REMINDER: PULL NISP MAY DATA AT END OF JUNE
+            <div class="badge text-stockbitGreen bg-[rgba(16,185,129,0.15)] border-[rgba(16,185,129,0.2)]">
+                <i data-lucide="check-double" class="w-4 h-4"></i>
+                <span>DASHBOARD 100% COMPLETE</span>
             </div>
         </div>
     </header>
@@ -163,10 +163,10 @@
             <div class="glass rounded-xl p-5 border-l-4 border-l-[#059669]">
                 <div class="flex justify-between items-start mb-3">
                     <h3 class="font-bold text-white uppercase font-['Sora']">PT BANK OCBC NISP TBK (NISP)</h3>
-                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(234,179,8,0.2)] text-yellow-500 rounded">WAITING MAY DATA</span>
+                    <span class="text-xs font-bold px-2 py-1 bg-[rgba(59,130,246,0.2)] text-blue-400 rounded">MODERATE / HOLD</span>
                 </div>
-                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Tumbuh solid +6.4% YoY di bulan April, butuh konfirmasi Mei.</p>
-                <p class="text-sm text-gray-300">Merespons dengan baik setelah proses akuisisi di waktu lampau. Fundamental laba bersih NISP hingga bulan April 2026 berjalan *on track* positif. Karena laporan bulan Mei belum dirilis, disarankan melakukan penarikan data kembali di akhir Juni untuk memvalidasi performa tutup semester.</p>
+                <p class="text-sm text-gray-400 mb-2"><strong>YoY Trend:</strong> Laba bersih 5M26 tumbuh solid sebesar +6.1% YoY.</p>
+                <p class="text-sm text-gray-300">Kinerja NISP terkonfirmasi stabil di bulan Mei 2026 dengan perolehan laba Rp 2,26 Triliun (dibandingkan Rp 2,13 Triliun pada Mei 2025). Ekspansi kredit juga bertumbuh dengan baik. Secara keseluruhan, fundamental inti pasca akuisisi tetap terjaga.</p>
             </div>
         </div>
     </div>
@@ -235,17 +235,17 @@
     const data2025 = {
         KREDIT: {
             'BMRI': [1307.18, 1307.64, 1303.27, 1308.44, 1309.68],
-            'BBCA': [893.03, 900.66, 930.13, 923.10, 924.26], // Updated BBCA 2025
+            'BBCA': [893.03, 900.66, 930.13, 923.10, 924.26], 
             'BBNI': [749.82, 741.99, 750.42, 757.58, 755.45],
             'BNGA': [155.31, 157.13, 160.11, 160.20, 161.20],
-            'NISP': [158.23, 161.03, 162.31, 162.32, null] 
+            'NISP': [158.23, 161.03, 162.31, 162.32, 158.35] // Updated NISP 2025
         },
         LABA: {
             'BMRI': [4.01, 7.59, 11.63, 15.19, 19.65],
-            'BBCA': [4.73, 8.98, 14.15, 20.21, 25.16], // Updated BBCA 2025
+            'BBCA': [4.73, 8.98, 14.15, 20.21, 25.16], 
             'BBNI': [1.63, 3.29, 5.38, 6.87, 8.45],
             'BNGA': [0.36, 0.73, 1.63, 2.26, 2.74], 
-            'NISP': [0.42, 0.83, 1.29, 1.71, null] 
+            'NISP': [0.42, 0.83, 1.29, 1.71, 2.13] // Updated NISP 2025
         }
     };
 
@@ -253,17 +253,17 @@
     const data2026 = {
         KREDIT: {
             'PT BANK MANDIRI (PERSERO) TBK': [1511.41, 1513.07, 1530.16, 1550.18, 1579.94],
-            'PT BANK CENTRAL ASIA TBK': [948.96, 953.22, 980.59, 965.02, 969.10], // Updated BBCA 2026
+            'PT BANK CENTRAL ASIA TBK': [948.96, 953.22, 980.59, 965.02, 969.10], 
             'PT BANK NEGARA INDONESIA (PERSERO) TBK': [894.29, 882.22, 903.34, 919.50, 940.88],
             'PT BANK CIMB NIAGA TBK': [165.19, 167.61, 171.76, 171.40, 175.09], 
-            'PT BANK OCBC NISP TBK': [160.38, 162.11, 170.56, 163.87, null] 
+            'PT BANK OCBC NISP TBK': [160.38, 162.11, 170.56, 163.87, 168.69] // Updated NISP 2026
         },
         LABA: {
             'PT BANK MANDIRI (PERSERO) TBK': [4.65, 8.86, 13.58, 18.05, 23.32],
-            'PT BANK CENTRAL ASIA TBK': [5.00, 9.23, 14.69, 20.82, 25.68], // Updated BBCA 2026
+            'PT BANK CENTRAL ASIA TBK': [5.00, 9.23, 14.69, 20.82, 25.68], 
             'PT BANK NEGARA INDONESIA (PERSERO) TBK': [1.69, 3.42, 5.65, 7.29, 9.05], 
             'PT BANK CIMB NIAGA TBK': [0.58, 1.07, 1.73, 2.28, 2.71], 
-            'PT BANK OCBC NISP TBK': [0.44, 0.86, 1.36, 1.82, null] 
+            'PT BANK OCBC NISP TBK': [0.44, 0.86, 1.36, 1.82, 2.26] // Updated NISP 2026
         }
     };
 
@@ -350,17 +350,11 @@
 
     Object.keys(data2026.KREDIT).forEach(bankFull => {
         const code = codeMap[bankFull];
-        for(let i=0; i<4; i++) { 
+        for(let i=0; i<5; i++) { 
             aggKr26[i] += data2026.KREDIT[bankFull][i];
             aggKr25[i] += data2025.KREDIT[code][i];
             aggLb26[i] += data2026.LABA[bankFull][i];
             aggLb25[i] += data2025.LABA[code][i];
-        }
-        if(bankFull !== 'PT BANK OCBC NISP TBK') {
-            aggKr26[4] += data2026.KREDIT[bankFull][4];
-            aggKr25[4] += data2025.KREDIT[code][4];
-            aggLb26[4] += data2026.LABA[bankFull][4];
-            aggLb25[4] += data2025.LABA[code][4];
         }
     });
 
