@@ -1,4 +1,9 @@
 # Changelog
+## 2026-07-25 — Routing hotfix
+
+- Removed the custom `/fundamentals` proxy rule that conflicted with Cloudflare Pages clean URLs and caused a redirect loop.
+- `/fundamentals` is now served directly from `fundamentals.html` by Cloudflare Pages.
+
 
 ## 2026-07-25
 
