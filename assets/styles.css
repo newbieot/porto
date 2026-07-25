@@ -349,3 +349,40 @@ html[data-theme="dark"] .theme-icon-moon, html[data-theme="light"] .theme-icon-s
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* BMRI Q2 2026 update */
+.q2-spotlight { margin-bottom: 18px; padding: 22px; overflow: hidden; position: relative; }
+.q2-spotlight::after { content: ''; position: absolute; inset: 0 0 auto auto; width: 260px; height: 260px; border-radius: 50%; transform: translate(34%, -48%); background: color-mix(in srgb, var(--brand) 11%, transparent); pointer-events: none; }
+.q2-heading { position: relative; z-index: 1; display: flex; align-items: flex-start; justify-content: space-between; gap: 22px; margin-bottom: 18px; }
+.q2-heading h2 { margin: 6px 0 5px; font-size: clamp(21px, 2.5vw, 30px); letter-spacing: -.035em; }
+.q2-heading p { max-width: 700px; margin: 0; color: var(--text-soft); font-size: 12px; }
+.update-badge { flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 30px; padding: 6px 10px; border: 1px solid color-mix(in srgb, var(--brand) 32%, var(--border)); border-radius: 999px; color: var(--brand); background: var(--brand-soft); font-size: 10px; font-weight: 900; letter-spacing: .045em; text-transform: uppercase; }
+.q2-kpi-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.q2-kpi-grid article { min-width: 0; padding: 15px; border: 1px solid var(--border); border-radius: 14px; background: color-mix(in srgb, var(--bg-soft) 70%, transparent); }
+.q2-kpi-grid span, .q2-detail-grid span { display: block; color: var(--text-faint); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .045em; }
+.q2-kpi-grid strong { display: block; margin-top: 7px; font-size: clamp(21px, 2.1vw, 29px); letter-spacing: -.035em; }
+.q2-kpi-grid small, .q2-detail-grid small { display: block; margin-top: 4px; font-size: 10px; font-weight: 850; }
+.q2-detail-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; margin-top: 12px; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; background: var(--border); }
+.q2-detail-grid > div { min-width: 0; padding: 12px 13px; background: var(--bg-elevated); }
+.q2-detail-grid strong { display: block; margin-top: 5px; font-size: 16px; }
+.insight-banner-bmri { border-color: color-mix(in srgb, var(--brand) 26%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 8%, var(--bg-elevated)), var(--bg-elevated)); }
+.insight-banner-bmri .insight-banner-icon { color: var(--brand); background: var(--brand-soft); }
+.coverage-note { margin: -4px 0 14px; color: var(--text-faint); font-size: 10px; }
+.matrix-pending { color: var(--text-faint); }
+.note-card.note-featured { grid-column: span 2; border-left-color: var(--brand); background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 7%, var(--bg-elevated)), var(--bg-elevated)); }
+
+@media (max-width: 900px) {
+    .q2-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .q2-detail-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+    .q2-spotlight { padding: 17px; border-radius: 20px; }
+    .q2-heading { flex-direction: column; gap: 12px; }
+    .q2-kpi-grid { grid-template-columns: 1fr; }
+    .q2-detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .note-card.note-featured { grid-column: auto; }
+}
+@media (max-width: 620px) {
+    .q2-detail-grid > div:last-child { grid-column: 1 / -1; }
+}

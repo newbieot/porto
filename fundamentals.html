@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
     <meta name="theme-color" content="#0b1020">
-    <title>Bank Fundamentals | IDX Portfolio Monitor</title>
-    <meta name="description" content="A focused comparison of 2025 and 2026 monthly bank loan and net-profit fundamentals for five Indonesian listed banks.">
+    <title>Bank Fundamentals & BMRI Q2 2026 | IDX Portfolio Monitor</title>
+    <meta name="description" content="Compare monthly loan and profit trends for five Indonesian banks, including Bank Mandiri (BMRI) reviewed Q2 2026 performance with audited June 2025 year-over-year comparisons.">
     <meta name="author" content="Ikhsan Radiansyah">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://idx.posnew.com/fundamentals">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://idx.posnew.com/fundamentals">
-    <meta property="og:title" content="Bank Fundamentals | IDX Portfolio Monitor">
-    <meta property="og:description" content="Monthly credit and net-profit comparison for BBCA, BMRI, BBNI, BNGA, and NISP.">
+    <meta property="og:title" content="Bank Fundamentals & BMRI Q2 2026 | IDX Portfolio Monitor">
+    <meta property="og:description" content="Monthly bank fundamentals with Bank Mandiri (BMRI) reviewed Q2 2026 results and audited June 2025 year-over-year comparisons.">
     <meta property="og:image" content="https://idx.posnew.com/og-cover.png">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.webmanifest">
-    <link rel="stylesheet" href="/assets/styles.css?v=20260725-1">
+    <link rel="stylesheet" href="/assets/styles.css?v=20260725-bmri-q2-yoy">
     <script>
         (() => {
             const saved = localStorage.getItem('idx-theme');
@@ -44,7 +44,7 @@
                 <a class="nav-link is-active" href="/fundamentals" aria-current="page">Bank fundamentals</a>
             </nav>
             <div class="header-actions">
-                <span class="sync-pill is-online"><span class="status-dot"></span>Jan–May 2026</span>
+                <span class="sync-pill is-online"><span class="status-dot"></span>BMRI Q2 · June 2026</span>
                 <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
                     <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
                     <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
@@ -56,9 +56,9 @@
     <main id="main-content" class="shell main-shell">
         <section class="fund-hero">
             <div>
-                <span class="eyebrow">OJK monthly-report companion</span>
-                <h1>Bank fundamentals, made easier to compare.</h1>
-                <p>Explore monthly loan books and net profit across five portfolio banks, with direct 2026 versus 2025 comparisons and concise company notes.</p>
+                <span class="eyebrow">Monthly reports + reviewed quarterly results</span>
+                <h1>Bank fundamentals, with BMRI Q2 now in focus.</h1>
+                <p>Compare five portfolio banks through May, then examine Bank Mandiri’s reviewed June 2026 performance against audited June 2025 figures.</p>
             </div>
             <a class="button button-secondary" href="/">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
@@ -68,17 +68,41 @@
 
         <section class="metric-grid fund-metrics" aria-label="Fundamental summary">
             <article class="metric-card"><div class="metric-head"><span>Banks tracked</span></div><strong class="metric-value" id="bank-count">5</strong><p>BBCA, BMRI, BBNI, BNGA, and NISP</p></article>
-            <article class="metric-card metric-positive"><div class="metric-head"><span>Strongest May profit growth</span></div><strong class="metric-value" id="strongest-profit">—</strong><p id="strongest-profit-detail">Calculated from the matrix</p></article>
-            <article class="metric-card"><div class="metric-head"><span>Largest May loan book</span></div><strong class="metric-value" id="largest-loan">—</strong><p id="largest-loan-detail">Trillion IDR</p></article>
-            <article class="metric-card"><div class="metric-head"><span>Reporting window</span></div><strong class="metric-value metric-value-text">5 months</strong><p>January through May 2026</p></article>
+            <article class="metric-card metric-positive"><div class="metric-head"><span>BMRI H1 profit growth</span></div><strong class="metric-value" id="latest-profit">—</strong><p id="latest-profit-detail">Reviewed Q2 2026 result</p></article>
+            <article class="metric-card"><div class="metric-head"><span>BMRI June loan book</span></div><strong class="metric-value" id="latest-loan">—</strong><p id="latest-loan-detail">Individual bank figure</p></article>
+            <article class="metric-card"><div class="metric-head"><span>Latest coverage</span></div><strong class="metric-value metric-value-text">June</strong><p>BMRI updated; peers remain through May</p></article>
         </section>
 
-        <section class="panel insight-banner">
+        <section class="panel q2-spotlight" aria-labelledby="bmri-q2-title">
+            <div class="q2-heading">
+                <div>
+                    <span class="section-kicker">BMRI reviewed result · 30 June 2026</span>
+                    <h2 id="bmri-q2-title">Q2 confirms stronger earnings and efficiency.</h2>
+                    <p>Bank-only figures are used here so the quarterly snapshot remains consistent with the monthly series.</p>
+                </div>
+                <span class="update-badge">New Q2 update</span>
+            </div>
+            <div class="q2-kpi-grid" aria-label="BMRI Q2 key performance indicators">
+                <article><span>H1 net profit</span><strong>Rp28.51T</strong><small class="return-positive">+25.0% YoY</small></article>
+                <article><span>Credit extended</span><strong>Rp1,591.68T</strong><small class="return-positive">+19.9% YoY</small></article>
+                <article><span>Return on equity</span><strong>24.28%</strong><small class="return-positive">+3.22pp YoY</small></article>
+                <article><span>Gross NPL</span><strong>0.98%</strong><small class="return-positive">-0.10pp YoY</small></article>
+            </div>
+            <div class="q2-detail-grid">
+                <div><span>NIM</span><strong>4.34%</strong><small class="return-negative">-0.27pp</small></div>
+                <div><span>BOPO</span><strong>57.59%</strong><small class="return-positive">-6.20pp</small></div>
+                <div><span>Cost-to-income</span><strong>35.60%</strong><small class="return-positive">-7.80pp</small></div>
+                <div><span>LDR</span><strong>92.73%</strong><small class="return-negative">+2.51pp</small></div>
+                <div><span>KPMM</span><strong>17.52%</strong><small class="return-negative">-0.83pp</small></div>
+            </div>
+        </section>
+
+        <section class="panel insight-banner insight-banner-bmri">
             <div class="insight-banner-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 18h6m-5 4h4m3-10a5 5 0 1 0-10 0c0 2 1 3 2 4h6c1-1 2-2 2-4Z"/></svg></div>
             <div>
-                <span class="section-kicker">Overall market insight</span>
-                <h2>Growth remains positive, but momentum differs by bank.</h2>
-                <p>BMRI leads May net-profit growth and loan expansion. BBCA remains defensive with a strong funding profile, while BNGA requires closer monitoring after May profit contracted year over year.</p>
+                <span class="section-kicker">Updated investment insight</span>
+                <h2>BMRI’s growth accelerated across loans, earnings, and efficiency—but balance-sheet intensity rose.</h2>
+                <p>H1 net profit rose 25.0% year over year, credit expanded 19.9%, and net interest income grew 8.0%. Returns and efficiency strengthened—ROA reached 3.10%, ROE 24.28%, BOPO fell to 57.59%, and CIR to 35.60%—while gross NPL improved to below 1%. My read remains positive: execution, asset quality, and operating leverage are strong. However, loan growth materially outpaced equity growth of 6.1%, consistent with LDR rising to 92.73% and KPMM declining to 17.52%. NIM stabilization, funding growth, and capital-buffer replenishment are the next key checks.</p>
             </div>
         </section>
 
@@ -92,17 +116,18 @@
             <div class="filter-row">
                 <div>
                     <span class="section-kicker">Chart focus</span>
-                    <p>Select one bank or view the five-bank aggregate.</p>
+                    <p>Select a bank to inspect its monthly series. BMRI is selected by default because June and Q2 have been updated.</p>
                 </div>
                 <div class="bank-filter" id="bank-filter" aria-label="Select bank"></div>
             </div>
+            <p class="coverage-note" id="coverage-note" aria-live="polite"></p>
             <div class="fund-chart-grid">
                 <article class="panel">
-                    <div class="panel-header compact"><div><span class="section-kicker">Loan book</span><h2>Credit extended</h2><p>2025 versus 2026, trillion IDR</p></div></div>
+                    <div class="panel-header compact"><div><span class="section-kicker">Loan book</span><h2>Credit extended</h2><p>Monthly cumulative balance, trillion IDR</p></div></div>
                     <div class="chart-wrap chart-medium"><canvas id="credit-chart" aria-label="Credit extended comparison chart" role="img"></canvas></div>
                 </article>
                 <article class="panel">
-                    <div class="panel-header compact"><div><span class="section-kicker">Earnings</span><h2>Current-period net profit</h2><p>2025 versus 2026, trillion IDR</p></div></div>
+                    <div class="panel-header compact"><div><span class="section-kicker">Earnings</span><h2>Current-period net profit</h2><p>Monthly cumulative earnings, trillion IDR</p></div></div>
                     <div class="chart-wrap chart-medium"><canvas id="profit-chart" aria-label="Net profit comparison chart" role="img"></canvas></div>
                 </article>
             </div>
@@ -111,13 +136,13 @@
         <section id="panel-matrix" class="tab-panel" role="tabpanel" aria-labelledby="tab-matrix" hidden>
             <article class="panel matrix-panel">
                 <div class="panel-header">
-                    <div><span class="section-kicker">Source matrix</span><h2>Monthly fundamentals</h2><p>Every 2026 figure includes its year-over-year change against the corresponding 2025 month.</p></div>
+                    <div><span class="section-kicker">Source matrix</span><h2>Monthly fundamentals</h2><p>Available 2026 figures include their comparison basis. June currently contains BMRI only; peer reports remain pending.</p></div>
                     <span class="helper-chip">Trillion IDR</span>
                 </div>
                 <div class="table-scroll matrix-scroll">
                     <table class="data-table matrix-table">
-                        <caption class="sr-only">Monthly bank credit and net profit data from January to May 2026 with year-over-year changes</caption>
-                        <thead><tr><th scope="col">Bank</th><th scope="col">Metric</th><th scope="col">Jan</th><th scope="col">Feb</th><th scope="col">Mar</th><th scope="col">Apr</th><th scope="col">May</th></tr></thead>
+                        <caption class="sr-only">Monthly bank credit and net profit data from January to June 2026, with June currently available for BMRI</caption>
+                        <thead><tr><th scope="col">Bank</th><th scope="col">Metric</th><th scope="col">Jan</th><th scope="col">Feb</th><th scope="col">Mar</th><th scope="col">Apr</th><th scope="col">May</th><th scope="col">Jun</th></tr></thead>
                         <tbody id="fundamental-table-body"></tbody>
                     </table>
                 </div>
@@ -127,7 +152,7 @@
         <section id="panel-notes" class="tab-panel" role="tabpanel" aria-labelledby="tab-notes" hidden>
             <div class="notes-grid">
                 <article class="note-card"><div class="note-top"><span class="bank-code">BBCA</span><span class="rating rating-strong">Strong / Hold</span></div><h2>PT Bank Central Asia Tbk</h2><p class="note-trend"><strong>YoY trend:</strong> May 2026 net profit grew 2.1%.</p><p>Growth is moderate, while the bank remains resilient through stable credit expansion and a strong CASA funding base. It continues to serve as a defensive portfolio anchor.</p></article>
-                <article class="note-card"><div class="note-top"><span class="bank-code">BMRI</span><span class="rating rating-strong">Strong / Outperform</span></div><h2>PT Bank Mandiri (Persero) Tbk</h2><p class="note-trend"><strong>YoY trend:</strong> May 2026 net profit grew 18.7%.</p><p>BMRI leads the group in both momentum and absolute loan-book size, supported by aggressive expansion and good operating efficiency.</p></article>
+                <article class="note-card note-featured"><div class="note-top"><span class="bank-code">BMRI</span><span class="rating rating-strong">Strong momentum</span></div><h2>PT Bank Mandiri (Persero) Tbk</h2><p class="note-trend"><strong>Q2 2026:</strong> H1 net profit grew 25.0% YoY to Rp28.51T, while June credit reached Rp1,591.68T (+19.9% YoY).</p><p>Profitability, loan growth, and efficiency improved materially, while gross NPL remained below 1%. The result supports a positive fundamental view, although credit grew much faster than equity; NIM compression, funding capacity, higher LDR, and a thinner capital buffer remain the main items to monitor.</p></article>
                 <article class="note-card"><div class="note-top"><span class="bank-code">BBNI</span><span class="rating rating-moderate">Moderate</span></div><h2>PT Bank Negara Indonesia (Persero) Tbk</h2><p class="note-trend"><strong>YoY trend:</strong> May 2026 net profit grew 7.1%.</p><p>BBNI prioritizes asset quality and blue-chip corporate lending. The strategy produces steadier, more conservative growth with a solid long-term outlook.</p></article>
                 <article class="note-card note-watch"><div class="note-top"><span class="bank-code">BNGA</span><span class="rating rating-watch">Watch carefully</span></div><h2>PT Bank CIMB Niaga Tbk</h2><p class="note-trend negative"><strong>YoY trend:</strong> May 2026 net profit contracted 1.1%.</p><p>Momentum slowed after the first quarter. The next quarterly report should be monitored for pressure on net interest margin and funding costs.</p></article>
                 <article class="note-card"><div class="note-top"><span class="bank-code">NISP</span><span class="rating rating-moderate">Moderate / Hold</span></div><h2>PT Bank OCBC NISP Tbk</h2><p class="note-trend"><strong>YoY trend:</strong> May 2026 net profit grew 6.1%.</p><p>Profit and loan growth remain stable. Core fundamentals continue to hold after the acquisition-related integration period.</p></article>
@@ -136,7 +161,7 @@
 
         <section class="disclosure" aria-label="Fundamental data note">
             <div class="disclosure-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16v-5m5 5V7m5 9V4"/></svg></div>
-            <div><strong>Data interpretation</strong><p>This page uses the monthly figures embedded in the original project and presents them as a comparison aid. Company notes are monitoring observations, not buy or sell recommendations.</p></div>
+            <div><strong>Data interpretation</strong><p>The monthly matrix uses individual bank figures. BMRI June and Q2 metrics use the reviewed 30 June 2026 publications, with audited 30 June 2025 figures as the year-over-year comparison base. Consolidated figures are not mixed into the monthly charts. Company notes are monitoring observations, not buy or sell recommendations.</p></div>
         </section>
     </main>
 
@@ -149,6 +174,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
-    <script src="/assets/fundamentals.js?v=20260725-1" defer></script>
+    <script src="/assets/fundamentals.js?v=20260725-bmri-q2-yoy" defer></script>
 </body>
 </html>

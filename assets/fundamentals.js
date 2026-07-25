@@ -1,7 +1,7 @@
 (() => {
     'use strict';
 
-    const months = ['January', 'February', 'March', 'April', 'May'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June'];
     const banks = [
         { code: 'BMRI', name: 'PT Bank Mandiri (Persero) Tbk', color: '#3976e8' },
         { code: 'BBCA', name: 'PT Bank Central Asia Tbk', color: '#f04b2f' },
@@ -10,54 +10,87 @@
         { code: 'NISP', name: 'PT Bank OCBC NISP Tbk', color: '#0b9f6a' }
     ];
 
+    // Trillion IDR. June 2026 is currently available for BMRI only.
     const data2025 = {
         credit: {
-            BMRI: [1307.18, 1307.64, 1303.27, 1308.44, 1309.68],
-            BBCA: [893.03, 900.66, 930.13, 923.10, 924.26],
-            BBNI: [749.82, 741.99, 750.42, 757.58, 755.45],
-            BNGA: [155.31, 157.13, 160.11, 160.20, 161.20],
-            NISP: [158.23, 161.03, 162.31, 162.32, 158.35]
+            BMRI: [1307.18, 1307.64, 1303.27, 1308.44, 1309.68, 1327.536899],
+            BBCA: [893.03, 900.66, 930.13, 923.10, 924.26, null],
+            BBNI: [749.82, 741.99, 750.42, 757.58, 755.45, null],
+            BNGA: [155.31, 157.13, 160.11, 160.20, 161.20, null],
+            NISP: [158.23, 161.03, 162.31, 162.32, 158.35, null]
         },
         profit: {
-            BMRI: [4.01, 7.59, 11.63, 15.19, 19.65],
-            BBCA: [4.73, 8.98, 14.15, 20.21, 25.16],
-            BBNI: [1.63, 3.29, 5.38, 6.87, 8.45],
-            BNGA: [0.36, 0.73, 1.63, 2.26, 2.74],
-            NISP: [0.42, 0.83, 1.29, 1.71, 2.13]
+            BMRI: [4.01, 7.59, 11.63, 15.19, 19.65, 22.801127],
+            BBCA: [4.73, 8.98, 14.15, 20.21, 25.16, null],
+            BBNI: [1.63, 3.29, 5.38, 6.87, 8.45, null],
+            BNGA: [0.36, 0.73, 1.63, 2.26, 2.74, null],
+            NISP: [0.42, 0.83, 1.29, 1.71, 2.13, null]
         }
     };
 
     const data2026 = {
         credit: {
-            BMRI: [1511.41, 1513.07, 1530.16, 1550.18, 1579.94],
-            BBCA: [948.96, 953.22, 980.59, 965.02, 969.10],
-            BBNI: [894.29, 882.22, 903.34, 919.50, 940.88],
-            BNGA: [165.19, 167.61, 171.76, 171.40, 175.09],
-            NISP: [160.38, 162.11, 170.56, 163.87, 168.69]
+            BMRI: [1511.41, 1513.07, 1530.16, 1550.18, 1579.94, 1591.678057],
+            BBCA: [948.96, 953.22, 980.59, 965.02, 969.10, null],
+            BBNI: [894.29, 882.22, 903.34, 919.50, 940.88, null],
+            BNGA: [165.19, 167.61, 171.76, 171.40, 175.09, null],
+            NISP: [160.38, 162.11, 170.56, 163.87, 168.69, null]
         },
         profit: {
-            BMRI: [4.65, 8.86, 13.58, 18.05, 23.32],
-            BBCA: [5.00, 9.23, 14.69, 20.82, 25.68],
-            BBNI: [1.69, 3.42, 5.65, 7.29, 9.05],
-            BNGA: [0.58, 1.07, 1.73, 2.28, 2.71],
-            NISP: [0.44, 0.86, 1.36, 1.82, 2.26]
+            BMRI: [4.65, 8.86, 13.58, 18.05, 23.32, 28.512231],
+            BBCA: [5.00, 9.23, 14.69, 20.82, 25.68, null],
+            BBNI: [1.69, 3.42, 5.65, 7.29, 9.05, null],
+            BNGA: [0.58, 1.07, 1.73, 2.28, 2.71, null],
+            NISP: [0.44, 0.86, 1.36, 1.82, 2.26, null]
         }
     };
 
-    const state = { selectedBank: 'all', creditChart: null, profitChart: null };
+    const bmriQ2 = {
+        profit: 28.512231,
+        profitPrior: 22.801127,
+        credit: 1591.678057,
+        creditPrior: 1327.536899,
+        creditDec2025: 1497.108664,
+        assets: 2349.191616,
+        assetsPrior: 1972.600785,
+        equity: 252.826108,
+        equityPrior: 238.371479,
+        netInterestIncome: 41.574101,
+        netInterestIncomePrior: 38.491562,
+        roa: 3.10,
+        roaPrior: 2.89,
+        roe: 24.28,
+        roePrior: 21.06,
+        nim: 4.34,
+        nimPrior: 4.61,
+        bopo: 57.59,
+        bopoPrior: 63.79,
+        cir: 35.60,
+        cirPrior: 43.40,
+        nplGross: 0.98,
+        nplGrossPrior: 1.08,
+        nplNet: 0.40,
+        nplNetPrior: 0.39,
+        ldr: 92.73,
+        ldrPrior: 90.22,
+        kpmm: 17.52,
+        kpmmPrior: 18.35
+    };
+
+    const state = { selectedBank: 'BMRI', creditChart: null, profitChart: null };
 
     function cssVar(name) {
         return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
     }
 
-    function yoy(current, prior) {
+    function growth(current, prior) {
         if (!Number.isFinite(current) || !Number.isFinite(prior) || prior === 0) return null;
         return ((current - prior) / prior) * 100;
     }
 
-    function formatYoy(value) {
-        if (!Number.isFinite(value)) return 'N/A';
-        return `${value > 0 ? '+' : ''}${value.toFixed(1)}% YoY`;
+    function formatGrowth(value, suffix = 'YoY') {
+        if (!Number.isFinite(value)) return 'Comparison unavailable';
+        return `${value > 0 ? '+' : ''}${value.toFixed(1)}% ${suffix}`;
     }
 
     function setTheme(theme) {
@@ -72,7 +105,11 @@
     }
 
     function aggregate(metric, yearData) {
-        return months.map((_, index) => banks.reduce((sum, bank) => sum + yearData[metric][bank.code][index], 0));
+        return months.map((_, index) => {
+            const values = banks.map(bank => yearData[metric][bank.code][index]);
+            if (!values.every(Number.isFinite)) return null;
+            return values.reduce((sum, value) => sum + value, 0);
+        });
     }
 
     function selectedSeries(metric, yearData) {
@@ -94,7 +131,18 @@
             animation: { duration: 420 },
             plugins: {
                 legend: { position: 'bottom', labels: { color: soft, usePointStyle: true, pointStyle: 'circle', boxWidth: 7, padding: 18, font: { size: 11, weight: '600' } } },
-                tooltip: { backgroundColor: panel, titleColor: text, bodyColor: soft, borderColor: border, borderWidth: 1, padding: 12, callbacks: { label: context => `${context.dataset.label}: ${Number(context.raw).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}T` } }
+                tooltip: {
+                    backgroundColor: panel,
+                    titleColor: text,
+                    bodyColor: soft,
+                    borderColor: border,
+                    borderWidth: 1,
+                    padding: 12,
+                    filter: context => Number.isFinite(context.raw),
+                    callbacks: {
+                        label: context => `${context.dataset.label}: ${Number(context.raw).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}T`
+                    }
+                }
             },
             scales: {
                 x: { grid: { display: false }, ticks: { color: soft, font: { size: 10 } }, border: { display: false } },
@@ -104,6 +152,15 @@
     }
 
     function renderCharts() {
+        const note = document.getElementById('coverage-note');
+        if (note) {
+            note.textContent = state.selectedBank === 'BMRI'
+                ? 'BMRI includes reviewed June monthly reports for 2026 and audited June 2025 comparatives, together with the Q2 2026 result.'
+                : state.selectedBank === 'all'
+                    ? 'June is intentionally blank in the aggregate because only BMRI has been updated. The five-bank aggregate remains comparable through May.'
+                    : `${state.selectedBank} remains updated through May 2026; its June report has not been added yet.`;
+        }
+
         if (!window.Chart) return;
         const label = state.selectedBank === 'all' ? 'Five-bank aggregate' : state.selectedBank;
         const credit25 = selectedSeries('credit', data2025);
@@ -161,26 +218,45 @@
     }
 
     function renderSummary() {
-        const mayIndex = months.length - 1;
-        const profitGrowth = banks.map(bank => ({ bank, value: yoy(data2026.profit[bank.code][mayIndex], data2025.profit[bank.code][mayIndex]) })).sort((a, b) => b.value - a.value)[0];
-        const largestLoan = banks.map(bank => ({ bank, value: data2026.credit[bank.code][mayIndex] })).sort((a, b) => b.value - a.value)[0];
-
-        document.getElementById('strongest-profit').textContent = `${profitGrowth.bank.code} ${profitGrowth.value > 0 ? '+' : ''}${profitGrowth.value.toFixed(1)}%`;
-        document.getElementById('strongest-profit-detail').textContent = 'May 2026 versus May 2025';
-        document.getElementById('largest-loan').textContent = `${largestLoan.bank.code} ${largestLoan.value.toLocaleString('en-US', { maximumFractionDigits: 2 })}T`;
-        document.getElementById('largest-loan-detail').textContent = 'May 2026 credit extended';
+        const profitGrowth = growth(bmriQ2.profit, bmriQ2.profitPrior);
+        const creditGrowth = growth(bmriQ2.credit, bmriQ2.creditPrior);
+        document.getElementById('latest-profit').textContent = `+${profitGrowth.toFixed(1)}%`;
+        document.getElementById('latest-profit-detail').textContent = `BMRI H1 net profit · ${bmriQ2.profit.toFixed(2)}T`;
+        document.getElementById('latest-loan').textContent = `${bmriQ2.credit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}T`;
+        document.getElementById('latest-loan-detail').textContent = `BMRI June credit · +${creditGrowth.toFixed(1)}% YoY`;
     }
 
-    function createValueCell(current, prior) {
+    function createValueCell(current, prior, options = {}) {
         const td = document.createElement('td');
+
+        if (!Number.isFinite(current)) {
+            td.className = 'matrix-pending';
+            const pending = document.createElement('span');
+            pending.className = 'matrix-value';
+            pending.textContent = '—';
+            const detail = document.createElement('span');
+            detail.className = 'matrix-yoy';
+            detail.textContent = options.pendingText || 'Report pending';
+            td.append(pending, detail);
+            return td;
+        }
+
         const value = document.createElement('span');
         value.className = 'matrix-value';
         value.textContent = current.toFixed(2);
-        const change = yoy(current, prior);
-        const yoyText = document.createElement('span');
-        yoyText.className = `matrix-yoy ${change >= 0 ? 'return-positive' : 'return-negative'}`;
-        yoyText.textContent = formatYoy(change);
-        td.append(value, yoyText);
+        const comparison = document.createElement('span');
+        comparison.className = 'matrix-yoy';
+
+        if (options.comparisonLabel) {
+            comparison.textContent = options.comparisonLabel;
+            comparison.classList.add(options.positive === false ? 'return-negative' : 'return-positive');
+        } else {
+            const change = growth(current, prior);
+            comparison.textContent = formatGrowth(change);
+            if (Number.isFinite(change)) comparison.classList.add(change >= 0 ? 'return-positive' : 'return-negative');
+        }
+
+        td.append(value, comparison);
         return td;
     }
 
@@ -198,14 +274,24 @@
             creditMetric.className = 'metric-name';
             creditMetric.textContent = 'Credit extended';
             creditRow.append(bankCell, creditMetric);
-            data2026.credit[bank.code].forEach((value, index) => creditRow.append(createValueCell(value, data2025.credit[bank.code][index])));
+
+            data2026.credit[bank.code].forEach((value, index) => {
+                const options = index === 5 && bank.code !== 'BMRI'
+                    ? { pendingText: 'June not added' }
+                    : {};
+                creditRow.append(createValueCell(value, data2025.credit[bank.code][index], options));
+            });
 
             const profitRow = document.createElement('tr');
             const profitMetric = document.createElement('td');
             profitMetric.className = 'metric-name';
             profitMetric.textContent = 'Current-period net profit';
             profitRow.append(profitMetric);
-            data2026.profit[bank.code].forEach((value, index) => profitRow.append(createValueCell(value, data2025.profit[bank.code][index])));
+
+            data2026.profit[bank.code].forEach((value, index) => {
+                const options = index === 5 && bank.code !== 'BMRI' ? { pendingText: 'June not added' } : {};
+                profitRow.append(createValueCell(value, data2025.profit[bank.code][index], options));
+            });
 
             fragment.append(creditRow, profitRow);
         });
