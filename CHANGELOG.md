@@ -1,4 +1,12 @@
 # Changelog
+## 2026-07-28 — BBCA June and Q2 2026 update
+
+- Added BBCA June 2026 and June 2025 individual credit and cumulative net-profit figures to the charts and source matrix.
+- Added a BBCA Q2 spotlight covering profit, credit, ROE, NPL, NIM, BOPO, CIR, LDR, and KPMM.
+- Added a balanced BBCA investment insight highlighting resilient loan growth and asset-quality improvement alongside softer margins, returns, and earnings conversion.
+- Updated the default chart focus, coverage notes, company note, SEO copy, disclosure, README, sitemap, and cache-busting asset versions.
+- June data is now available for BBCA and BMRI; BBNI, BNGA, and NISP remain pending.
+
 ## 2026-07-25 — BMRI audited YoY comparison update
 
 - Added BMRI June 2025 audited loan balance to the monthly chart and source matrix.

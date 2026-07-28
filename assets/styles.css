@@ -350,7 +350,7 @@ html[data-theme="dark"] .theme-icon-moon, html[data-theme="light"] .theme-icon-s
     *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
-/* BMRI Q2 2026 update */
+/* Bank Q2 2026 updates */
 .q2-spotlight { margin-bottom: 18px; padding: 22px; overflow: hidden; position: relative; }
 .q2-spotlight::after { content: ''; position: absolute; inset: 0 0 auto auto; width: 260px; height: 260px; border-radius: 50%; transform: translate(34%, -48%); background: color-mix(in srgb, var(--brand) 11%, transparent); pointer-events: none; }
 .q2-heading { position: relative; z-index: 1; display: flex; align-items: flex-start; justify-content: space-between; gap: 22px; margin-bottom: 18px; }
@@ -365,11 +365,18 @@ html[data-theme="dark"] .theme-icon-moon, html[data-theme="light"] .theme-icon-s
 .q2-detail-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; margin-top: 12px; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; background: var(--border); }
 .q2-detail-grid > div { min-width: 0; padding: 12px 13px; background: var(--bg-elevated); }
 .q2-detail-grid strong { display: block; margin-top: 5px; font-size: 16px; }
-.insight-banner-bmri { border-color: color-mix(in srgb, var(--brand) 26%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 8%, var(--bg-elevated)), var(--bg-elevated)); }
-.insight-banner-bmri .insight-banner-icon { color: var(--brand); background: var(--brand-soft); }
+.q2-spotlight-bbca { border-color: color-mix(in srgb, var(--brand) 28%, var(--border)); }
+.q2-spotlight-bbca::after { background: color-mix(in srgb, var(--brand) 15%, transparent); }
+.update-badge-secondary { color: var(--blue); border-color: color-mix(in srgb, var(--blue) 32%, var(--border)); background: color-mix(in srgb, var(--blue) 11%, transparent); }
+.insight-banner-bbca { border-color: color-mix(in srgb, var(--brand) 26%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 8%, var(--bg-elevated)), var(--bg-elevated)); }
+.insight-banner-bbca .insight-banner-icon { color: var(--brand); background: var(--brand-soft); }
+.insight-banner-bmri { border-color: color-mix(in srgb, var(--blue) 26%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 8%, var(--bg-elevated)), var(--bg-elevated)); }
+.insight-banner-bmri .insight-banner-icon { color: var(--blue); background: color-mix(in srgb, var(--blue) 12%, transparent); }
 .coverage-note { margin: -4px 0 14px; color: var(--text-faint); font-size: 10px; }
 .matrix-pending { color: var(--text-faint); }
-.note-card.note-featured { grid-column: span 2; border-left-color: var(--brand); background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 7%, var(--bg-elevated)), var(--bg-elevated)); }
+.note-card.note-featured { grid-column: span 2; }
+.note-card.note-featured-bbca { border-left-color: var(--brand); background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 7%, var(--bg-elevated)), var(--bg-elevated)); }
+.note-card.note-featured-bmri { border-left-color: var(--blue); background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 7%, var(--bg-elevated)), var(--bg-elevated)); }
 
 @media (max-width: 900px) {
     .q2-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
