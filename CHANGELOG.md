@@ -1,4 +1,12 @@
 # Changelog
+## 2026-07-31 — NISP June and Q2 2026 update
+
+- Added NISP June 2026 and June 2025 gross-loan and cumulative net-profit figures to the charts and source matrix.
+- Added an NISP Q2 spotlight using the supplied unaudited consolidated financial statements, covering profit, loans, net interest and sharia income, deposits, CASA mix, NPL, RIM, CAR, and derived cost-to-income.
+- Added a balanced NISP insight highlighting improved funding mix and operating leverage alongside higher provision expense, slightly higher net NPL, lower capital ratio, and the FVOCI valuation loss.
+- Made NISP the default chart focus and updated the hero, summary cards, coverage notes, company notes, disclosure, SEO, README, sitemap, and cache-busting asset versions.
+- June data is now available for NISP, BBCA, and BMRI; BBNI and BNGA remain pending.
+
 ## 2026-07-28 — BBCA June and Q2 2026 update
 
 - Added BBCA June 2026 and June 2025 individual credit and cumulative net-profit figures to the charts and source matrix.

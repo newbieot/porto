@@ -365,9 +365,16 @@ html[data-theme="dark"] .theme-icon-moon, html[data-theme="light"] .theme-icon-s
 .q2-detail-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; margin-top: 12px; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; background: var(--border); }
 .q2-detail-grid > div { min-width: 0; padding: 12px 13px; background: var(--bg-elevated); }
 .q2-detail-grid strong { display: block; margin-top: 5px; font-size: 16px; }
+.q2-spotlight-nisp { border-color: color-mix(in srgb, var(--green) 30%, var(--border)); }
+.q2-spotlight-nisp::after { background: color-mix(in srgb, var(--green) 16%, transparent); }
+.section-kicker-nisp { color: var(--green); }
+.update-badge-nisp { color: var(--green); border-color: color-mix(in srgb, var(--green) 34%, var(--border)); background: var(--green-soft); }
+.update-badge-bbca { color: var(--brand); border-color: color-mix(in srgb, var(--brand) 32%, var(--border)); background: var(--brand-soft); }
 .q2-spotlight-bbca { border-color: color-mix(in srgb, var(--brand) 28%, var(--border)); }
 .q2-spotlight-bbca::after { background: color-mix(in srgb, var(--brand) 15%, transparent); }
 .update-badge-secondary { color: var(--blue); border-color: color-mix(in srgb, var(--blue) 32%, var(--border)); background: color-mix(in srgb, var(--blue) 11%, transparent); }
+.insight-banner-nisp { border-color: color-mix(in srgb, var(--green) 28%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--green) 9%, var(--bg-elevated)), var(--bg-elevated)); }
+.insight-banner-nisp .insight-banner-icon { color: var(--green); background: var(--green-soft); }
 .insight-banner-bbca { border-color: color-mix(in srgb, var(--brand) 26%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 8%, var(--bg-elevated)), var(--bg-elevated)); }
 .insight-banner-bbca .insight-banner-icon { color: var(--brand); background: var(--brand-soft); }
 .insight-banner-bmri { border-color: color-mix(in srgb, var(--blue) 26%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 8%, var(--bg-elevated)), var(--bg-elevated)); }
@@ -375,6 +382,7 @@ html[data-theme="dark"] .theme-icon-moon, html[data-theme="light"] .theme-icon-s
 .coverage-note { margin: -4px 0 14px; color: var(--text-faint); font-size: 10px; }
 .matrix-pending { color: var(--text-faint); }
 .note-card.note-featured { grid-column: span 2; }
+.note-card.note-featured-nisp { border-left-color: var(--green); background: linear-gradient(135deg, color-mix(in srgb, var(--green) 8%, var(--bg-elevated)), var(--bg-elevated)); }
 .note-card.note-featured-bbca { border-left-color: var(--brand); background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 7%, var(--bg-elevated)), var(--bg-elevated)); }
 .note-card.note-featured-bmri { border-left-color: var(--blue); background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 7%, var(--bg-elevated)), var(--bg-elevated)); }
 
