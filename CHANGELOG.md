@@ -1,4 +1,13 @@
 # Changelog
+## 2026-08-05 — BBNI June and Q2 2026 update
+
+- Added BBNI June 2026 and June 2025 individual credit and cumulative net-profit figures to the charts and source matrix.
+- Added a reviewed BBNI Q2 spotlight covering profit, credit, net interest income, deposits, derived CASA, ROA, ROE, NIM, BOPO, CIR, NPL, LDR, and KPMM.
+- Added a balanced BBNI insight highlighting exceptional balance-sheet growth alongside a weaker deposit mix, margin pressure, higher impairment expense, lower capital adequacy, and the FVOCI valuation loss.
+- Made BBNI the default chart focus and updated the hero, summary cards, coverage notes, company notes, disclosure, SEO, README, sitemap, and cache-busting asset versions.
+- June data is now available for BBNI, NISP, BBCA, and BMRI; BNGA remains pending.
+- Uses the 45.18% prior-period CIR comparator shown in the 2026 publication; the standalone 2Q 2025 report displayed 45.47%.
+
 ## 2026-07-31 — NISP June and Q2 2026 update
 
 - Added NISP June 2026 and June 2025 gross-loan and cumulative net-profit figures to the charts and source matrix.

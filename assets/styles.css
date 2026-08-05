@@ -372,6 +372,10 @@ html[data-theme="dark"] .theme-icon-moon, html[data-theme="light"] .theme-icon-s
 .update-badge-bbca { color: var(--brand); border-color: color-mix(in srgb, var(--brand) 32%, var(--border)); background: var(--brand-soft); }
 .q2-spotlight-bbca { border-color: color-mix(in srgb, var(--brand) 28%, var(--border)); }
 .q2-spotlight-bbca::after { background: color-mix(in srgb, var(--brand) 15%, transparent); }
+.q2-spotlight-bbni { border-color: color-mix(in srgb, var(--yellow) 34%, var(--border)); }
+.q2-spotlight-bbni::after { background: color-mix(in srgb, var(--yellow) 18%, transparent); }
+.section-kicker-bbni { color: var(--yellow); }
+.update-badge-bbni { color: var(--yellow); border-color: color-mix(in srgb, var(--yellow) 38%, var(--border)); background: color-mix(in srgb, var(--yellow) 12%, transparent); }
 .update-badge-secondary { color: var(--blue); border-color: color-mix(in srgb, var(--blue) 32%, var(--border)); background: color-mix(in srgb, var(--blue) 11%, transparent); }
 .insight-banner-nisp { border-color: color-mix(in srgb, var(--green) 28%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--green) 9%, var(--bg-elevated)), var(--bg-elevated)); }
 .insight-banner-nisp .insight-banner-icon { color: var(--green); background: var(--green-soft); }
@@ -379,12 +383,15 @@ html[data-theme="dark"] .theme-icon-moon, html[data-theme="light"] .theme-icon-s
 .insight-banner-bbca .insight-banner-icon { color: var(--brand); background: var(--brand-soft); }
 .insight-banner-bmri { border-color: color-mix(in srgb, var(--blue) 26%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 8%, var(--bg-elevated)), var(--bg-elevated)); }
 .insight-banner-bmri .insight-banner-icon { color: var(--blue); background: color-mix(in srgb, var(--blue) 12%, transparent); }
+.insight-banner-bbni { border-color: color-mix(in srgb, var(--yellow) 30%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--yellow) 9%, var(--bg-elevated)), var(--bg-elevated)); }
+.insight-banner-bbni .insight-banner-icon { color: var(--yellow); background: color-mix(in srgb, var(--yellow) 13%, transparent); }
 .coverage-note { margin: -4px 0 14px; color: var(--text-faint); font-size: 10px; }
 .matrix-pending { color: var(--text-faint); }
 .note-card.note-featured { grid-column: span 2; }
 .note-card.note-featured-nisp { border-left-color: var(--green); background: linear-gradient(135deg, color-mix(in srgb, var(--green) 8%, var(--bg-elevated)), var(--bg-elevated)); }
 .note-card.note-featured-bbca { border-left-color: var(--brand); background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 7%, var(--bg-elevated)), var(--bg-elevated)); }
 .note-card.note-featured-bmri { border-left-color: var(--blue); background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 7%, var(--bg-elevated)), var(--bg-elevated)); }
+.note-card.note-featured-bbni { border-left-color: var(--yellow); background: linear-gradient(135deg, color-mix(in srgb, var(--yellow) 8%, var(--bg-elevated)), var(--bg-elevated)); }
 
 @media (max-width: 900px) {
     .q2-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

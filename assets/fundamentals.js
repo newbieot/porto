@@ -10,19 +10,19 @@
         { code: 'NISP', name: 'PT Bank OCBC NISP Tbk', color: '#0b9f6a' }
     ];
 
-    // Trillion IDR. June 2026 is currently available for NISP, BBCA, and BMRI.
+    // Trillion IDR. June 2026 is currently available for BBNI, NISP, BBCA, and BMRI.
     const data2025 = {
         credit: {
             BMRI: [1307.18, 1307.64, 1303.27, 1308.44, 1309.68, 1327.536899],
             BBCA: [893.03, 900.66, 930.13, 923.10, 924.26, 929.538706],
-            BBNI: [749.82, 741.99, 750.42, 757.58, 755.45, null],
+            BBNI: [749.82, 741.99, 750.42, 757.58, 755.45, 763.256772],
             BNGA: [155.31, 157.13, 160.11, 160.20, 161.20, null],
             NISP: [158.23, 161.03, 162.31, 162.32, 158.35, 165.847932]
         },
         profit: {
             BMRI: [4.01, 7.59, 11.63, 15.19, 19.65, 22.801127],
             BBCA: [4.73, 8.98, 14.15, 20.21, 25.16, 29.890278],
-            BBNI: [1.63, 3.29, 5.38, 6.87, 8.45, null],
+            BBNI: [1.63, 3.29, 5.38, 6.87, 8.45, 10.140022],
             BNGA: [0.36, 0.73, 1.63, 2.26, 2.74, null],
             NISP: [0.42, 0.83, 1.29, 1.71, 2.13, 2.566129]
         }
@@ -32,19 +32,59 @@
         credit: {
             BMRI: [1511.41, 1513.07, 1530.16, 1550.18, 1579.94, 1591.678057],
             BBCA: [948.96, 953.22, 980.59, 965.02, 969.10, 1003.728384],
-            BBNI: [894.29, 882.22, 903.34, 919.50, 940.88, null],
+            BBNI: [894.29, 882.22, 903.34, 919.50, 940.88, 952.842960],
             BNGA: [165.19, 167.61, 171.76, 171.40, 175.09, null],
             NISP: [160.38, 162.11, 170.56, 163.87, 168.69, 184.766903]
         },
         profit: {
             BMRI: [4.65, 8.86, 13.58, 18.05, 23.32, 28.512231],
             BBCA: [5.00, 9.23, 14.69, 20.82, 25.68, 30.191956],
-            BBNI: [1.69, 3.42, 5.65, 7.29, 9.05, null],
+            BBNI: [1.69, 3.42, 5.65, 7.29, 9.05, 10.907257],
             BNGA: [0.58, 1.07, 1.73, 2.28, 2.71, null],
             NISP: [0.44, 0.86, 1.36, 1.82, 2.26, 2.730119]
         }
     };
 
+
+
+    const bbniQ2 = {
+        profit: 10.907257,
+        profitPrior: 10.140022,
+        credit: 952.842960,
+        creditPrior: 763.256772,
+        assets: 1410.458313,
+        assetsPrior: 1151.926406,
+        equity: 160.590429,
+        equityPrior: 156.235718,
+        netInterestIncome: 21.766232,
+        netInterestIncomePrior: 18.955895,
+        deposits: 1086.125323,
+        depositsPrior: 885.672868,
+        casa: 65.88,
+        casaPrior: 72.48,
+        roa: 1.92,
+        roaPrior: 2.23,
+        roe: 14.54,
+        roePrior: 14.24,
+        nim: 3.55,
+        nimPrior: 3.83,
+        bopo: 73.11,
+        bopoPrior: 71.36,
+        cir: 44.57,
+        cirPrior: 45.18,
+        nplGross: 1.93,
+        nplGrossPrior: 1.95,
+        nplNet: 0.72,
+        nplNetPrior: 0.69,
+        ldr: 87.73,
+        ldrPrior: 86.18,
+        kpmm: 18.09,
+        kpmmPrior: 21.07,
+        impairment: 4.818969,
+        impairmentPrior: 3.533377,
+        comprehensiveIncome: 6.635676,
+        comprehensiveIncomePrior: 12.058698
+    };
 
 
     const nispQ2 = {
@@ -140,8 +180,8 @@
         kpmmPrior: 18.35
     };
 
-    const updatedJuneBanks = new Set(['NISP', 'BBCA', 'BMRI']);
-    const state = { selectedBank: 'NISP', creditChart: null, profitChart: null };
+    const updatedJuneBanks = new Set(['BBNI', 'NISP', 'BBCA', 'BMRI']);
+    const state = { selectedBank: 'BBNI', creditChart: null, profitChart: null };
 
     function cssVar(name) {
         return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -218,15 +258,17 @@
     function renderCharts() {
         const note = document.getElementById('coverage-note');
         if (note) {
-            note.textContent = state.selectedBank === 'NISP'
-                ? 'NISP includes the unaudited June 2026 consolidated loan and profit figures, with the supplied June 2025 report as the year-over-year base.'
-                : state.selectedBank === 'BBCA'
-                    ? 'BBCA includes unaudited June 2026 monthly data and Q2 ratios, with June 2025 figures as the year-over-year comparison base.'
-                    : state.selectedBank === 'BMRI'
-                        ? 'BMRI includes reviewed June monthly reports for 2026 and audited June 2025 comparatives, together with the Q2 2026 result.'
-                        : state.selectedBank === 'all'
-                            ? 'June is intentionally blank in the aggregate because NISP, BBCA, and BMRI are updated while BBNI and BNGA remain pending. The five-bank aggregate remains comparable through May.'
-                            : `${state.selectedBank} remains updated through May 2026; its June report has not been added yet.`;
+            note.textContent = state.selectedBank === 'BBNI'
+                ? 'BBNI includes reviewed June 2026 individual bank figures and the supplied June 2025 publication as the year-over-year base.'
+                : state.selectedBank === 'NISP'
+                    ? 'NISP includes the unaudited June 2026 consolidated loan and profit figures, with the supplied June 2025 report as the year-over-year base.'
+                    : state.selectedBank === 'BBCA'
+                        ? 'BBCA includes unaudited June 2026 monthly data and Q2 ratios, with June 2025 figures as the year-over-year comparison base.'
+                        : state.selectedBank === 'BMRI'
+                            ? 'BMRI includes reviewed June monthly reports for 2026 and audited June 2025 comparatives, together with the Q2 2026 result.'
+                            : state.selectedBank === 'all'
+                                ? 'June is intentionally blank in the five-bank aggregate because BBNI, NISP, BBCA, and BMRI are updated while BNGA remains pending. The aggregate remains fully comparable through May.'
+                                : `${state.selectedBank} remains updated through May 2026; its June report has not been added yet.`;
         }
 
         if (!window.Chart) return;
@@ -286,12 +328,12 @@
     }
 
     function renderSummary() {
-        const profitGrowth = growth(nispQ2.profit, nispQ2.profitPrior);
-        const creditGrowth = growth(nispQ2.credit, nispQ2.creditPrior);
+        const profitGrowth = growth(bbniQ2.profit, bbniQ2.profitPrior);
+        const creditGrowth = growth(bbniQ2.credit, bbniQ2.creditPrior);
         document.getElementById('latest-profit').textContent = `+${profitGrowth.toFixed(1)}%`;
-        document.getElementById('latest-profit-detail').textContent = `NISP H1 net profit · ${nispQ2.profit.toFixed(2)}T`;
-        document.getElementById('latest-loan').textContent = `${nispQ2.credit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}T`;
-        document.getElementById('latest-loan-detail').textContent = `NISP June gross loans · +${creditGrowth.toFixed(1)}% YoY`;
+        document.getElementById('latest-profit-detail').textContent = `BBNI H1 net profit · ${bbniQ2.profit.toFixed(2)}T`;
+        document.getElementById('latest-loan').textContent = `${bbniQ2.credit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}T`;
+        document.getElementById('latest-loan-detail').textContent = `BBNI June credit · +${creditGrowth.toFixed(1)}% YoY`;
     }
 
     function createValueCell(current, prior, options = {}) {
