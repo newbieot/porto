@@ -1,7 +1,7 @@
 {
-  "name": "IDX Portfolio Monitor",
+  "name": "Monitor Portofolio IDX",
   "short_name": "IDX Monitor",
-  "description": "Personal portfolio performance and bank-fundamental dashboard.",
+  "description": "Dasbor kinerja portofolio pribadi dan fundamental bank.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#080d18",

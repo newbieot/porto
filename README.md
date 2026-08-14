@@ -1,29 +1,29 @@
-# IDX Portfolio Monitor
+# Monitor Portofolio IDX
 
-Static Cloudflare Pages website for `idx.posnew.com`.
+Situs statis Cloudflare Pages untuk `idx.posnew.com`.
 
-## Pages
+## Halaman
 
-- `/` — live portfolio overview connected to the existing published Google Sheets CSV.
-- `/fundamentals` — five-bank monthly comparison through May, plus BBNI, NISP, BBCA, and BMRI June monthly and Q2 2026 performance with June 2025 year-over-year comparatives.
+- `/` — ringkasan portofolio langsung yang terhubung ke CSV Google Sheets terpublikasi.
+- `/fundamentals` — perbandingan bulanan lima bank; BMRI tersedia sampai Juli 2026 dengan pembanding Juli 2025, BBNI/NISP/BBCA sampai Juni, dan BNGA sampai Mei.
 
 ## Deployment
 
-No build command is required. Upload the repository to GitHub and connect the root directory to Cloudflare Pages.
+Tidak diperlukan perintah build. Unggah repositori ke GitHub dan hubungkan direktori root ke Cloudflare Pages.
 
-## Project structure
+## Struktur proyek
 
 - `index.html`
 - `fundamentals.html`
 - `assets/styles.css`
 - `assets/app.js`
 - `assets/fundamentals.js`
-- Cloudflare Pages files: `_headers`, `_redirects`, `404.html`
+- Berkas Cloudflare Pages: `_headers`, `404.html`
 
-## Data notes
+## Catatan data
 
-The portfolio overview preserves the Google Sheets CSV URL from the original project. The fundamentals page preserves the original embedded monthly values and adds BBNI, NISP, BBCA, and BMRI June 2026 figures and Q2 2026 analysis, while clearly marking June data for BNGA as pending. BBNI uses the reviewed 1H 2026 individual-bank publication and the supplied unaudited 2Q 2025 report; NISP uses supplied unaudited consolidated statements; BBCA uses its unaudited bank-only publication; BMRI uses reviewed bank-only publications. BBNI and NISP CASA figures are derived from reported deposit lines and explicitly labelled. For BBNI CIR, the dashboard uses the 45.18% comparative shown in the 2026 publication rather than the 45.47% figure in the original standalone 2Q 2025 report.
+Ringkasan portofolio mempertahankan URL CSV Google Sheets dari proyek awal. Halaman fundamental menambahkan angka kredit dan laba bersih BMRI Juli 2026 serta Juli 2025, berikut analisis laporan bulanan. DPK BMRI dihitung dari giro, tabungan, dan deposito; CASA serta LDR ditandai sebagai hasil hitung. Data kuartal II sebelumnya tetap dipertahankan untuk BBNI, NISP, BBCA, dan konteks rasio BMRI.
 
-## Cloudflare Pages routing
+## Routing dan cache Cloudflare Pages
 
-No custom `_redirects` rule is required for `/fundamentals`. Cloudflare Pages automatically serves `fundamentals.html` at the extensionless `/fundamentals` route.
+Aturan `_redirects` khusus tidak diperlukan untuk `/fundamentals`; Cloudflare Pages melayani `fundamentals.html` secara otomatis. HTML memakai kebijakan tanpa cache, aset memakai nama versi unik, dan `_headers` memaksa validasi ulang agar deployment baru langsung tampil setelah push.

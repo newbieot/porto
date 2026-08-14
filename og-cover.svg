@@ -8,6 +8,6 @@
   <circle cx="80" cy="590" r="270" fill="#ff5a3c" opacity=".09"/>
   <g opacity=".13" stroke="#fff"><path d="M80 150h1040M80 250h1040M80 350h1040M80 450h1040"/><path d="M250 90v460M450 90v460M650 90v460M850 90v460M1050 90v460"/></g>
   <path d="M140 465c100-30 130-98 220-78 76 17 94 68 171 40 75-28 97-111 176-95 72 14 84 84 160 57 75-26 94-105 191-170" fill="none" stroke="url(#line)" stroke-width="12" stroke-linecap="round"/>
-  <g fill="#fff"><text x="96" y="118" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700">IDX PORTFOLIO MONITOR</text><text x="96" y="565" font-family="Inter,Arial,sans-serif" font-size="62" font-weight="800">Performance without the noise.</text></g>
-  <text x="100" y="605" fill="#9da9bc" font-family="Inter,Arial,sans-serif" font-size="22">idx.posnew.com · Personal market workspace</text>
+  <g fill="#fff"><text x="96" y="118" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700">MONITOR PORTOFOLIO IDX</text><text x="96" y="565" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="800">Pantau kinerja tanpa kebisingan.</text></g>
+  <text x="100" y="605" fill="#9da9bc" font-family="Inter,Arial,sans-serif" font-size="22">idx.posnew.com · Ruang kerja pasar pribadi</text>
 </svg>

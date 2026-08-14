@@ -1,4 +1,13 @@
 # Changelog
+## 2026-08-14 — Pembaruan BMRI Juli 2026 dan Bahasa Indonesia
+
+- Menambahkan kredit dan laba bersih BMRI Juli 2026 serta Juli 2025 ke grafik dan matriks sumber.
+- Menambahkan sorotan laporan bulanan BMRI yang membandingkan laba, kredit, pendapatan bunga bersih, DPK, aset, ekuitas, deposito, LDR hasil hitung, dan laba komprehensif secara YoY.
+- Menambahkan analisis berimbang mengenai pertumbuhan kuat, penurunan bauran CASA, kenaikan intensitas neraca, dan rugi nilai wajar FVOCI.
+- Mengubah seluruh antarmuka utama, halaman fundamental, pesan aplikasi, metadata, manifest, halaman 404, dan gambar berbagi ke Bahasa Indonesia.
+- Menjadikan BMRI sebagai fokus grafik bawaan dan memperpanjang matriks sampai Juli.
+- Menambahkan nama aset versi unik serta kebijakan cache HTML tanpa penyimpanan agar versi terbaru segera tampil di Cloudflare Pages.
+
 ## 2026-08-05 — BBNI June and Q2 2026 update
 
 - Added BBNI June 2026 and June 2025 individual credit and cumulative net-profit figures to the charts and source matrix.
