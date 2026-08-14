@@ -1,7 +1,7 @@
 (() => {
     'use strict';
 
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli'];
     const banks = [
         { code: 'BMRI', name: 'PT Bank Mandiri (Persero) Tbk', color: '#3976e8' },
         { code: 'BBCA', name: 'PT Bank Central Asia Tbk', color: '#f04b2f' },
@@ -216,7 +216,7 @@
     }
 
     function formatGrowth(value, suffix = 'YoY') {
-        if (!Number.isFinite(value)) return 'Comparison unavailable';
+        if (!Number.isFinite(value)) return 'Pembanding belum tersedia';
         const formatted = value.toLocaleString('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
         return `${value > 0 ? '+' : ''}${formatted}% ${suffix}`;
     }
@@ -302,7 +302,7 @@
         }
 
         if (!window.Chart) return;
-        const label = state.selectedBank === 'all' ? 'Five-bank aggregate' : state.selectedBank;
+        const label = state.selectedBank === 'all' ? 'Agregat lima bank' : state.selectedBank;
         const credit25 = selectedSeries('credit', data2025);
         const credit26 = selectedSeries('credit', data2026);
         const profit25 = selectedSeries('profit', data2025);
@@ -337,7 +337,7 @@
 
     function renderFilters() {
         const filter = document.getElementById('bank-filter');
-        const options = [{ code: 'all', name: 'All banks' }, ...banks];
+        const options = [{ code: 'all', name: 'Semua bank' }, ...banks];
         filter.replaceChildren(...options.map(option => {
             const button = document.createElement('button');
             button.type = 'button';
@@ -361,9 +361,9 @@
         const profitGrowth = growth(bmriJuly.profit, bmriJuly.profitPrior);
         const creditGrowth = growth(bmriJuly.credit, bmriJuly.creditPrior);
         document.getElementById('latest-profit').textContent = formatGrowth(profitGrowth, 'YoY').replace(' YoY', '');
-        document.getElementById('latest-profit-detail').textContent = `BMRI Jan–Jul net profit · ${formatTrillion(bmriJuly.profit)}`;
+        document.getElementById('latest-profit-detail').textContent = `Laba bersih BMRI Jan-Jul · ${formatTrillion(bmriJuly.profit)}`;
         document.getElementById('latest-loan').textContent = formatTrillion(bmriJuly.credit);
-        document.getElementById('latest-loan-detail').textContent = `BMRI July loans · ${formatGrowth(creditGrowth)}`;
+        document.getElementById('latest-loan-detail').textContent = `Kredit BMRI Juli · ${formatGrowth(creditGrowth)}`;
     }
 
     function createValueCell(current, prior, options = {}) {
@@ -376,7 +376,7 @@
             pending.textContent = '—';
             const detail = document.createElement('span');
             detail.className = 'matrix-yoy';
-            detail.textContent = options.pendingText || 'Report unavailable';
+            detail.textContent = options.pendingText || 'Laporan belum tersedia';
             td.append(pending, detail);
             return td;
         }
@@ -412,26 +412,26 @@
             bankCell.textContent = `${bank.name} (${bank.code})`;
             const creditMetric = document.createElement('td');
             creditMetric.className = 'metric-name';
-            creditMetric.textContent = 'Loans';
+            creditMetric.textContent = 'Kredit yang diberikan';
             creditRow.append(bankCell, creditMetric);
 
             data2026.credit[bank.code].forEach((value, index) => {
                 const options = Number.isFinite(value)
                     ? {}
-                    : { pendingText: index === 5 ? 'June not added yet' : index === 6 ? 'July not added yet' : 'Report unavailable' };
+                    : { pendingText: index === 5 ? 'Juni belum ditambahkan' : index === 6 ? 'Juli belum ditambahkan' : 'Laporan belum tersedia' };
                 creditRow.append(createValueCell(value, data2025.credit[bank.code][index], options));
             });
 
             const profitRow = document.createElement('tr');
             const profitMetric = document.createElement('td');
             profitMetric.className = 'metric-name';
-            profitMetric.textContent = 'Year-to-date net profit';
+            profitMetric.textContent = 'Laba bersih periode berjalan';
             profitRow.append(profitMetric);
 
             data2026.profit[bank.code].forEach((value, index) => {
                 const options = Number.isFinite(value)
                     ? {}
-                    : { pendingText: index === 5 ? 'June not added yet' : index === 6 ? 'July not added yet' : 'Report unavailable' };
+                    : { pendingText: index === 5 ? 'Juni belum ditambahkan' : index === 6 ? 'Juli belum ditambahkan' : 'Laporan belum tersedia' };
                 profitRow.append(createValueCell(value, data2025.profit[bank.code][index], options));
             });
 
