@@ -1,4 +1,20 @@
 # Changelog
+
+## 2026-08-14 — English UI dengan analisis Bahasa Indonesia
+
+- Mengubah navigasi, tombol, label KPI, status pembaruan, tab, filter, grafik, tabel, rating, dan footer halaman Bank Fundamentals ke bahasa Inggris.
+- Mempertahankan seluruh narasi analisis, insight investasi, catatan perusahaan, metodologi, dan penjelasan cakupan dalam Bahasa Indonesia.
+- Menambahkan versi aset unik `20260814-bnga-q2-en-ui` agar pembaruan langsung terambil setelah deployment Cloudflare Pages.
+- Mengemas pembaruan dengan nama ZIP yang secara eksplisit menyebut BNGA Q2 2026.
+
+## 2026-08-14 — Pembaruan BNGA Q2 2026
+
+- Menambahkan kredit konvensional dan laba bersih bank individual BNGA Juni 2026 serta Juni 2025 ke grafik dan matriks bulanan.
+- Menambahkan sorotan konsolidasian BNGA semester I 2026 yang telah direviu, mencakup laba, kredit termasuk syariah, pendapatan bunga dan syariah bersih, DPK, CASA hasil hitung, NPL, CAR, aset, serta laba komprehensif.
+- Menambahkan analisis berimbang mengenai perbaikan bauran dana dan kualitas aset di tengah tekanan pendapatan inti, kenaikan beban penurunan nilai, dan rugi penghasilan komprehensif lain.
+- Membuat agregat lima bank lengkap sampai Juni 2026 dan memperbarui catatan cakupan, catatan perusahaan, SEO, README, serta pengungkapan basis data.
+- Mengganti nama aset versi untuk CSS dan JavaScript agar deployment Cloudflare Pages tidak tertahan cache lama.
+
 ## 2026-08-14 — Pembaruan BMRI Juli 2026 dan Bahasa Indonesia
 
 - Menambahkan kredit dan laba bersih BMRI Juli 2026 serta Juli 2025 ke grafik dan matriks sumber.
