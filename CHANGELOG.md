@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-18 — Pembaruan BBCA Juli 2026
+
+- Menambahkan kredit dan laba bersih BBCA Juli 2026 serta Juli 2025 ke grafik dan matriks sumber.
+- Menjadikan BBCA sebagai fokus grafik bawaan dan memperbarui kartu ringkasan, metadata, cakupan data, catatan perusahaan, serta tanggal halaman.
+- Menambahkan sorotan laporan bulanan BBCA yang membandingkan laba, kredit, pendapatan bunga bersih, DPK, CASA hasil hitung, aset, ekuitas, pendapatan komisi, LDR hasil hitung, dan laba komprehensif secara YoY.
+- Menambahkan analisis berimbang mengenai penguatan dana murah dan pertumbuhan kredit di tengah konversi laba yang terbatas serta rugi nilai wajar pada penghasilan komprehensif lain.
+- Menambahkan aset JavaScript versi `20260818-bbca-july` agar pembaruan segera terambil setelah deployment Cloudflare Pages.
+
 ## 2026-08-14 — English UI dengan analisis Bahasa Indonesia
 
 - Mengubah navigasi, tombol, label KPI, status pembaruan, tab, filter, grafik, tabel, rating, dan footer halaman Bank Fundamentals ke bahasa Inggris.
