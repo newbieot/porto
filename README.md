@@ -1,31 +1,49 @@
-# Monitor Portofolio IDX
+# IDX Monitor / porto
 
-Situs statis Cloudflare Pages untuk `idx.posnew.com`.
+Static website for the portfolio overview and bank fundamentals workspace.
 
-## Halaman
+## 2026-08-18 update
 
-- `/` — ringkasan portofolio langsung yang terhubung ke CSV Google Sheets terpublikasi.
-- `/fundamentals` — perbandingan bulanan lima bank; BBCA dan BMRI tersedia sampai Juli 2026 dengan pembanding Juli 2025, sedangkan BNGA/BBNI/NISP lengkap sampai Juni.
+This snapshot preserves the existing live Google Sheets portfolio Overview and adds a 1H26 Asset Quality comparison for:
+- BBCA
+- BMRI
+- BBNI
+- BNGA
+- NISP
 
-## Deployment
+Metrics:
+- Loan at Risk (LAR)
+- LAR Coverage
+- Gross NPL
+- NPL Coverage
 
-Tidak diperlukan perintah build. Unggah repositori ke GitHub dan hubungkan direktori root ke Cloudflare Pages.
+The site uses a conservative data policy. If a 30 June 2026 figure cannot be verified with enough confidence, the UI shows **Undisclosed** instead of carrying forward an older quarter or substituting a different coverage definition.
 
-## Struktur proyek
+## Deploy
 
-- `index.html`
-- `fundamentals.html`
-- `assets/styles.css`
-- `assets/app.js`
-- `assets/fundamentals.js`
-- Berkas Cloudflare Pages: `_headers`, `404.html`
+This repository is fully static and can be deployed directly with Cloudflare Pages.
+No build command is required.
 
-## Catatan data
+The HTML references versioned CSS/JS files (`20260818-lar-v3`) so browsers/CDNs do not reuse the previous asset URL.
 
-Ringkasan portofolio mempertahankan URL CSV Google Sheets dari proyek awal. Halaman fundamental memuat BBCA dan BMRI sampai Juli 2026 serta tambahan BNGA Q2 2026 versus Juni 2025. Sorotan BBCA Juli memakai laporan bank individual; DPK dihitung dari giro, tabungan, dan deposito, sedangkan CASA serta LDR ditandai sebagai hasil hitung. Sorotan BNGA memakai angka konsolidasian; seri bulanannya memakai laba bank individual dan kredit konvensional bank individual hasil hitung agar basis Januari-Juni tetap konsisten. Data kuartal II BBNI, NISP, BBCA, dan konteks rasio BMRI tetap dipertahankan.
+## Local replacement
 
-Antarmuka halaman Bank Fundamentals menggunakan bahasa Inggris, sedangkan narasi analisis, insight, catatan perusahaan, cakupan data, dan interpretasi tetap menggunakan Bahasa Indonesia.
+See `INSTALL.md`. Keep the hidden `.git` directory when replacing the repository contents.
 
-## Routing dan cache Cloudflare Pages
 
-Aturan `_redirects` khusus tidak diperlukan untuk `/fundamentals`; Cloudflare Pages melayani `fundamentals.html` secara otomatis. HTML memakai kebijakan tanpa cache, JavaScript fundamental memakai nama versi unik—terbaru `20260818-bbca-july`—dan `_headers` memaksa validasi ulang agar deployment baru langsung tampil setelah push.
+## Asset-quality v2 methodology
+
+Build `20260818-lar-v3` distinguishes **Reported**, **Derived**, and **Undisclosed**.
+
+Current-period derived LAR Coverage added:
+- BMRI ≈ 40.7%
+- BNGA ≈ 42.4%
+- NISP ≈ 91.0%
+
+BNGA 1H26 LAR is ≈6.4% including remaining Covid restructuring (≈5.2% ex-Covid).
+
+See `DATA_SOURCES.md` for formulas, basis, and confidence notes.
+
+## BBNI 1H26 coverage update
+
+BBNI LAR Coverage is now **47.4%**, classified as **Research-reported** from the NH Korindo Sekuritas Indonesia 13 August 2026 report (source attribution: BBNI, NHKSI Research).

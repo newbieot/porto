@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="bg" x1="80" y1="30" x2="1110" y2="610" gradientUnits="userSpaceOnUse"><stop stop-color="#16254d"/><stop offset="1" stop-color="#080d18"/></linearGradient>
-    <linearGradient id="line" x1="250" y1="480" x2="1050" y2="160" gradientUnits="userSpaceOnUse"><stop stop-color="#20c98a"/><stop offset="1" stop-color="#ff5a3c"/></linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="60" r="260" fill="#3976e8" opacity=".09"/>
-  <circle cx="80" cy="590" r="270" fill="#ff5a3c" opacity=".09"/>
-  <g opacity=".13" stroke="#fff"><path d="M80 150h1040M80 250h1040M80 350h1040M80 450h1040"/><path d="M250 90v460M450 90v460M650 90v460M850 90v460M1050 90v460"/></g>
-  <path d="M140 465c100-30 130-98 220-78 76 17 94 68 171 40 75-28 97-111 176-95 72 14 84 84 160 57 75-26 94-105 191-170" fill="none" stroke="url(#line)" stroke-width="12" stroke-linecap="round"/>
-  <g fill="#fff"><text x="96" y="118" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700">MONITOR PORTOFOLIO IDX</text><text x="96" y="565" font-family="Inter,Arial,sans-serif" font-size="58" font-weight="800">Pantau kinerja tanpa kebisingan.</text></g>
-  <text x="100" y="605" fill="#9da9bc" font-family="Inter,Arial,sans-serif" font-size="22">idx.posnew.com · Ruang kerja pasar pribadi</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#0d1625"/><text x="80" y="220" fill="#6ea1ff" font-family="Arial" font-size="34" font-weight="700">IDX MONITOR</text><text x="80" y="310" fill="white" font-family="Arial" font-size="64" font-weight="700">Bank Fundamentals</text><text x="80" y="385" fill="#a7b3c5" font-family="Arial" font-size="32">Asset Quality · 1H26</text><text x="80" y="470" fill="#a7b3c5" font-family="Arial" font-size="26">LAR · LAR Coverage · Gross NPL · NPL Coverage</text></svg>
