@@ -15,11 +15,10 @@ If `.git` is deleted, the folder is no longer a Git repository and GitHub Deskto
 2. Enable hidden items in Windows Explorer if needed.
 3. Keep the `.git` directory.
 4. Delete the old website files and folders other than `.git`.
-5. Extract `porto-lar-coverage-v3-20260818.zip`.
+5. Copy or extract the current repository snapshot.
 6. Copy all extracted files directly into the `porto` repository root.
 7. Review changes in GitHub Desktop.
-8. Commit with a message such as:
-   `Add 1H26 asset quality and LAR coverage`
+8. Commit with a descriptive message.
 9. Push to `main`.
 
-The HTML references versioned assets ending in `20260818-lar-v3`, so Cloudflare/browser cache should request new CSS/JS URLs.
+The HTML references versioned assets ending in `20260819-valuation-v1` and `20260819-en`, so Cloudflare/browser cache should request new CSS/JS URLs.

@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-19 — Daily three-year P/E and P/BV bands
+
+- Added daily three-year P/E and P/BV ratio bands for BBCA, BBNI, BMRI, BNGA and NISP.
+- Added a portfolio aggregate using the brokerage share counts and daily market-value-weighted harmonic valuation.
+- Added current multiples, three-year averages, ranges, percentiles, and live portfolio weights.
+- Added a no-key data generator using daily prices and annual point-in-time fundamentals with a conservative 90-day reporting lag.
+- Added a weekday GitHub Actions schedule at 19:15 Jakarta time; changed data is committed to `main` to trigger Cloudflare Pages.
+- Converted the full public Overview UI and runtime messages to English while preserving Indonesian analysis inside Bank Fundamentals.
+- Cache-busted the production assets to `20260819-valuation-v1` and `20260819-en`.
+
 ## 2026-08-18 — BBNI LAR Coverage validation
 
 - Updated BBNI 1H26 LAR Coverage from Undisclosed to **47.4%**.

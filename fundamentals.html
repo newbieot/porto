@@ -1,26 +1,43 @@
 <!doctype html><html lang="en"><head>
-<title>Bank Fundamentals — IDX Monitor</title><meta name="description" content="Monthly bank fundamentals and 1H26 asset quality comparison for BBCA, BMRI, BBNI, BNGA and NISP.">
+<title>Bank Fundamentals &amp; Valuation Bands — IDX Monitor</title><meta name="description" content="Three-year P/E and P/BV valuation bands, monthly bank fundamentals, and 1H26 asset-quality comparison for BBCA, BMRI, BBNI, BNGA and NISP.">
 
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f4f7fb">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="stylesheet" href="/assets/styles.20260818-lar-v3.css">
+<link rel="stylesheet" href="/assets/styles.20260819-valuation-v1.css">
 </head><body>
 
 <header class="site-header"><div class="shell header-inner">
 <a class="brand" href="/" aria-label="IDX Monitor home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 23V12m6 11V8m6 15V15m6 8V5"/><path d="m6 8 6-4 6 5 8-6"/></svg></span><span><strong>IDX Monitor</strong><small>Private market workspace</small></span></a>
 <nav class="primary-nav"><a class="nav-link " href="/">Overview</a><a class="nav-link is-active" href="/fundamentals">Bank fundamentals</a></nav>
-<div class="header-actions"><span class="sync-pill"><span class="status-dot"></span>Asset quality · 1H26</span><button id="theme-toggle" class="icon-button" aria-label="Toggle theme"><svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2"/></svg><svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg></button></div>
+<div class="header-actions"><span class="sync-pill"><span class="status-dot"></span>Daily valuation · 1H26 quality</span><button id="theme-toggle" class="icon-button" aria-label="Toggle theme"><svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2"/></svg><svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg></button></div>
 </div></header>
 
 <main class="shell main-shell">
-<section class="fund-hero"><div><span class="eyebrow">Monthly reports + quarterly statements</span><h1>Bank fundamentals with a conservative 1H26 asset-quality layer.</h1><p>BBCA and BMRI are available through July 2026. All five banks have June coverage; LAR-related fields are only populated where a sufficiently reliable 1H26 figure is available.</p></div><a class="button" href="/">Back to overview</a></section>
+<section class="fund-hero"><div><span class="eyebrow">Daily valuation + reported fundamentals</span><h1>Bank fundamentals with three-year valuation bands.</h1><p>Track daily P/E and P/BV for each bank and the market-value-weighted portfolio, alongside the existing monthly and 1H26 asset-quality analysis.</p></div><a class="button" href="/">Back to overview</a></section>
 <section class="metric-grid">
 <article class="metric-card"><span>Banks tracked</span><strong class="metric-value">5</strong><p>BBCA, BMRI, BBNI, BNGA, NISP</p></article>
 <article class="metric-card metric-positive"><span>Lowest disclosed LAR</span><strong class="metric-value">4.8%</strong><p>NISP / OCBC Indonesia · 1H26</p></article>
 <article class="metric-card"><span>LAR coverage available</span><strong class="metric-value metric-value-text">5 of 5</strong><p>BBCA &amp; BBNI reported/research-reported; BMRI, BNGA &amp; NISP derived</p></article>
 <article class="metric-card"><span>Policy</span><strong class="metric-value metric-value-text">No guessing</strong><p>Stale or non-comparable ratios are not carried forward</p></article>
+</section>
+
+<section class="panel valuation-panel" id="valuation-bands">
+<div class="panel-head"><div><span class="section-kicker">Daily valuation · three-year history</span><h2>P/E Ratio Band and P/BV Band</h2><p>Pilih masing-masing emiten atau agregat portofolio. Bobot agregat mengikuti market value harian dari jumlah saham pada portofolio Anda.</p></div><span class="badge" id="valuation-status">Loading daily data</span></div>
+<div class="valuation-toolbar"><div class="filter-row" id="valuation-filter" aria-label="Select valuation entity"></div><div class="valuation-asof"><span>Latest price date</span><strong id="valuation-date">—</strong></div></div>
+<div class="valuation-summary-grid" aria-label="Valuation summary">
+<article><span>Current P/E</span><strong id="valuation-current-pe">—</strong><small id="valuation-pe-percentile">Waiting for data</small></article>
+<article><span>Three-year mean P/E</span><strong id="valuation-mean-pe">—</strong><small id="valuation-pe-range">Waiting for data</small></article>
+<article><span>Current P/BV</span><strong id="valuation-current-pbv">—</strong><small id="valuation-pbv-percentile">Waiting for data</small></article>
+<article><span>Three-year mean P/BV</span><strong id="valuation-mean-pbv">—</strong><small id="valuation-pbv-range">Waiting for data</small></article>
+</div>
+<div class="chart-grid valuation-chart-grid">
+<div class="chart-card valuation-chart-card"><h3>P/E Ratio Band · annual earnings basis</h3><canvas id="pe-band-chart" aria-label="Three-year price to earnings ratio band" role="img"></canvas></div>
+<div class="chart-card valuation-chart-card"><h3>P/BV Band · year-end equity basis</h3><canvas id="pbv-band-chart" aria-label="Three-year price to book value ratio band" role="img"></canvas></div>
+</div>
+<div class="valuation-weights" id="portfolio-weights" aria-label="Current portfolio weights"></div>
+<div class="valuation-method"><strong>Metodologi:</strong> rasio memakai laba bersih FY dan ekuitas akhir tahun terbaru yang sudah tersedia, dengan lag konservatif 90 hari setelah tahun buku agar tidak terjadi look-ahead bias. P/E dan P/BV agregat dihitung secara harmonic berdasarkan market value harian—setara dengan total nilai posisi dibagi laba atau nilai buku yang menjadi porsi portofolio. Harga dapat tertunda dan rasio ini berbasis FY, bukan trailing twelve months.</div>
 </section>
 
 <section class="panel" id="asset-quality">
@@ -111,4 +128,4 @@
 
 </main><footer class="footer"><div class="shell">IDX Monitor · Asset-quality data rules and source URLs are documented in DATA_SOURCES.md.</div></footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-<script defer src="/assets/fundamentals.20260818-lar-v3.js"></script></body></html>
+<script defer src="/assets/fundamentals.20260819-valuation-v1.js"></script></body></html>

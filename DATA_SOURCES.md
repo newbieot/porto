@@ -1,4 +1,56 @@
-# Data Sources — Asset Quality 1H26
+# Data Sources — Valuation & Asset Quality
+
+## Daily valuation bands
+
+Updated: 19 August 2026
+Dataset: `data/valuation-bands.json`
+Generator: `scripts/update-valuation-data.mjs`
+
+### Portfolio positions
+
+The portfolio aggregate uses the brokerage position sizes supplied by the owner:
+
+- BBCA: 189 lots / 18,900 shares
+- BBNI: 625 lots / 62,500 shares
+- BMRI: 392 lots / 39,200 shares
+- BNGA: 777 lots / 77,700 shares
+- NISP: 641 lots / 64,100 shares
+
+On the initial 18 August 2026 dataset, these positions reconcile exactly to the supplied Rp718,204,000 total market value.
+
+### Market and fundamental inputs
+
+- Daily unadjusted closing prices: Yahoo Finance chart endpoint for `.JK` symbols.
+- Annual net income attributable to common shareholders, year-end shareholders' equity, diluted/basic average shares, and ordinary shares outstanding: Yahoo Finance fundamentals-timeseries endpoint.
+- The feed requires no repository secret, but market data may be delayed or revised.
+
+### Point-in-time methodology
+
+For each trading date:
+
+1. The latest full-year fundamental period is activated 90 days after fiscal year-end. This avoids using results before a conservative reporting-availability date.
+2. `EPS = annual net income attributable to common shareholders / diluted average shares`.
+3. `BVPS = year-end shareholders' equity / ordinary shares outstanding`.
+4. `P/E = daily close / EPS`.
+5. `P/BV = daily close / BVPS`.
+
+The ratios are therefore historical annual-basis point-in-time multiples, not trailing-twelve-month multiples.
+
+### Portfolio aggregation
+
+Daily position weight:
+
+`weight i = (close i × shares held i) / total portfolio market value`
+
+Portfolio P/E and P/BV use the financially consistent harmonic aggregation:
+
+`Portfolio P/E = total market value / sum(position market value / issuer P/E)`
+
+`Portfolio P/BV = total market value / sum(position market value / issuer P/BV)`
+
+The GitHub Actions workflow runs at 12:15 UTC / 19:15 Jakarta time on Monday-Friday. If the generated JSON changes, it commits the new dataset to `main`; Cloudflare Pages then deploys the update automatically.
+
+---
 
 Updated: 18 August 2026  
 Build: `20260818-lar-v3`

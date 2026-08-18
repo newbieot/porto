@@ -2,7 +2,23 @@
 
 Static website for the portfolio overview and bank fundamentals workspace.
 
-## 2026-08-18 update
+## 2026-08-19 update
+
+The public Overview UI is fully English. Bank Fundamentals keeps its controls, labels, and navigation in English while retaining Indonesian analytical explanations.
+
+Bank Fundamentals now includes daily three-year valuation history for BBCA, BBNI, BMRI, BNGA, NISP, and a portfolio aggregate:
+
+- P/E Ratio Band with three-year mean and ±1/±2 standard-deviation levels
+- P/BV Band with the same band structure
+- Current ratio, historical mean, range, and percentile
+- Current portfolio weights based on the brokerage position sizes
+- Market-value-weighted harmonic portfolio P/E and P/BV
+
+`scripts/update-valuation-data.mjs` refreshes `data/valuation-bands.json`. The GitHub Actions workflow runs at 19:15 Jakarta time on trading weekdays and commits changed data to `main`, which triggers Cloudflare Pages.
+
+The historical ratios use the latest full-year earnings and year-end equity available on each date, with a conservative 90-day reporting lag. They are annual-basis point-in-time ratios, not TTM ratios.
+
+## 2026-08-18 asset-quality update
 
 This snapshot preserves the existing live Google Sheets portfolio Overview and adds a 1H26 Asset Quality comparison for:
 - BBCA
@@ -24,7 +40,7 @@ The site uses a conservative data policy. If a 30 June 2026 figure cannot be ver
 This repository is fully static and can be deployed directly with Cloudflare Pages.
 No build command is required.
 
-The HTML references versioned CSS/JS files (`20260818-lar-v3`) so browsers/CDNs do not reuse the previous asset URL.
+The HTML references versioned CSS/JS files (`20260819-valuation-v1` and `20260819-en`) so browsers/CDNs do not reuse the previous asset URL.
 
 ## Local replacement
 

@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark" data-build="20260818-lar-v3-coverage">
+<html lang="en" data-theme="dark" data-build="20260819-en-valuation-v1">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
     <meta name="theme-color" content="#0b1020">
-    <title>Monitor Portofolio IDX | Ikhsan Radiansyah</title>
-    <meta name="description" content="Dasbor portofolio pribadi untuk membandingkan kinerja YTD dengan IHSG, SRI-KEHATI, dan IDX30 menggunakan data Google Sheets yang diperbarui langsung.">
+    <title>IDX Portfolio Monitor | Ikhsan Radiansyah</title>
+    <meta name="description" content="A private portfolio dashboard comparing YTD performance with the Jakarta Composite, SRI-KEHATI, and IDX30 using a live Google Sheets dataset.">
     <meta name="author" content="Ikhsan Radiansyah">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://idx.posnew.com/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://idx.posnew.com/">
-    <meta property="og:title" content="Monitor Portofolio IDX">
-    <meta property="og:description" content="Kinerja portofolio pribadi, alokasi, perbandingan tolok ukur, dan riwayat imbal hasil terealisasi dalam satu dasbor.">
+    <meta property="og:title" content="IDX Portfolio Monitor">
+    <meta property="og:description" content="Portfolio performance, allocation, benchmark comparisons, and realized-return history in one private dashboard.">
     <meta property="og:image" content="https://idx.posnew.com/og-cover.svg">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="manifest" href="/manifest.webmanifest?v=20260818-lar-v3-coverage">
-    <link rel="stylesheet" href="/assets/styles.20260818-lar-v3.css">
+    <link rel="manifest" href="/manifest.webmanifest?v=20260819-en-valuation-v1">
+    <link rel="stylesheet" href="/assets/styles.20260819-valuation-v1.css">
     <script>
         (() => {
             const saved = localStorage.getItem('idx-theme');
@@ -30,31 +30,31 @@
     </script>
 </head>
 <body>
-    <a class="skip-link" href="#main-content">Lewati ke dasbor</a>
+    <a class="skip-link" href="#main-content">Skip to dashboard</a>
 
     <header class="site-header">
         <div class="shell header-inner">
-            <a class="brand" href="/" aria-label="Beranda Monitor Portofolio IDX">
+            <a class="brand" href="/" aria-label="IDX Portfolio Monitor home">
                 <span class="brand-mark" aria-hidden="true">
                     <svg viewBox="0 0 32 32" role="img"><path d="M7 23V12m6 11V8m6 15V15m6 8V5"/><path d="m6 8 6-4 6 5 8-6"/></svg>
                 </span>
                 <span>
                     <strong>IDX Monitor</strong>
-                    <small>Ruang kerja pasar pribadi</small>
+                    <small>Private market workspace</small>
                 </span>
             </a>
 
-            <nav class="primary-nav" aria-label="Navigasi utama">
-                <a class="nav-link is-active" href="/" aria-current="page">Ringkasan</a>
-                <a class="nav-link" href="/fundamentals">Fundamental bank</a>
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <a class="nav-link is-active" href="/" aria-current="page">Overview</a>
+                <a class="nav-link" href="/fundamentals">Bank fundamentals</a>
             </nav>
 
             <div class="header-actions">
                 <div class="sync-pill is-loading" id="sync-pill" role="status" aria-live="polite">
                     <span class="status-dot" aria-hidden="true"></span>
-                    <span id="sync-label">Menghubungkan</span>
+                    <span id="sync-label">Connecting</span>
                 </div>
-                <button class="icon-button" id="theme-toggle" type="button" aria-label="Ganti tema warna" title="Ganti tema warna">
+                <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">
                     <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
                     <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
                 </button>
@@ -65,66 +65,66 @@
     <main id="main-content" class="shell main-shell">
         <section class="hero" aria-labelledby="page-title">
             <div class="hero-copy">
-                <span class="eyebrow">Pemantauan portofolio YTD secara langsung</span>
-                <h1 id="page-title">Pantau kinerja portofolio tanpa kebisingan.</h1>
-                <p>Satu tampilan jelas untuk imbal hasil bersih, laba-rugi posisi aktif, tolok ukur pasar, alokasi, dan keuntungan terealisasi. Data dibaca langsung dari Google Sheet yang terhubung.</p>
+                <span class="eyebrow">Live year-to-date portfolio monitoring</span>
+                <h1 id="page-title">Track portfolio performance without the noise.</h1>
+                <p>One clear view of net returns, open-position P/L, market benchmarks, allocation, and realized gains. Data is read directly from the connected Google Sheet.</p>
                 <div class="hero-actions">
                     <button class="button button-primary" id="refresh-data" type="button">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66L20 8.68M20 4v4.68h-4.68"/></svg>
-                        Segarkan data
+                        Refresh data
                     </button>
                     <a class="button button-secondary" href="/fundamentals">
                         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
-                        Lihat fundamental
+                        View fundamentals
                     </a>
                 </div>
             </div>
 
-            <aside class="hero-status" aria-label="Status kumpulan data">
+            <aside class="hero-status" aria-label="Dataset status">
                 <div class="status-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
                 <div>
-                    <span class="status-kicker">Data terbaru</span>
-                    <strong id="latest-date">Menunggu data</strong>
-                    <p id="latest-detail">Dasbor akan terisi setelah CSV langsung tersedia.</p>
+                    <span class="status-kicker">Latest data</span>
+                    <strong id="latest-date">Waiting for data</strong>
+                    <p id="latest-detail">The dashboard will populate when the live CSV is available.</p>
                 </div>
             </aside>
         </section>
 
-        <section class="metric-grid" aria-label="Ringkasan portofolio">
+        <section class="metric-grid" aria-label="Portfolio summary">
             <article class="metric-card metric-positive">
                 <div class="metric-head">
-                    <span>Imbal hasil bersih tercatat</span>
+                    <span>Recorded net return</span>
                     <span class="metric-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
                 </div>
                 <strong class="metric-value skeleton-text" id="val-net-pct">—</strong>
-                <p>Termasuk keuntungan terealisasi dan dividen</p>
+                <p>Includes realized gains and dividends</p>
             </article>
 
             <article class="metric-card metric-dynamic" id="floating-card">
                 <div class="metric-head">
-                    <span>Laba-rugi mengambang</span>
+                    <span>Unrealized P/L</span>
                     <span class="metric-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M7 15l4-4 3 3 5-7"/></svg></span>
                 </div>
                 <strong class="metric-value skeleton-text" id="val-floating-pct">—</strong>
-                <p>Posisi aktif pada harga terakhir yang tercatat</p>
+                <p>Open positions at the latest recorded prices</p>
             </article>
 
             <article class="metric-card">
                 <div class="metric-head">
-                    <span>Dibandingkan IHSG</span>
+                    <span>Versus Jakarta Composite</span>
                     <span class="metric-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3m13 5h3a2 2 0 0 0 2-2v-3"/><path d="M8 12h8"/></svg></span>
                 </div>
                 <strong class="metric-value skeleton-text" id="val-vs-ihsg">—</strong>
-                <p>Selisih imbal hasil bersih terhadap tolok ukur</p>
+                <p>Net-return spread against the benchmark</p>
             </article>
 
             <article class="metric-card">
                 <div class="metric-head">
-                    <span>Catatan hari perdagangan</span>
+                    <span>Trading-day records</span>
                     <span class="metric-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 16v-5m5 5V7m5 9V4"/></svg></span>
                 </div>
                 <strong class="metric-value skeleton-text" id="val-records">—</strong>
-                <p id="record-period">Kumpulan data YTD saat ini</p>
+                <p id="record-period">Current YTD dataset</p>
             </article>
         </section>
 
@@ -132,33 +132,33 @@
             <article class="panel performance-panel">
                 <div class="panel-header">
                     <div>
-                        <span class="section-kicker">Perbandingan kinerja</span>
-                        <h2>Portofolio dibandingkan tolok ukur pasar</h2>
-                        <p>Setiap periode pilihan disetel ulang ke 0% agar mudah dibandingkan secara setara.</p>
+                        <span class="section-kicker">Performance comparison</span>
+                        <h2>Portfolio versus market benchmarks</h2>
+                        <p>Each selected period is rebased to 0% for a like-for-like comparison.</p>
                     </div>
-                    <div class="segmented" id="range-control" aria-label="Periode grafik">
+                    <div class="segmented" id="range-control" aria-label="Chart period">
                         <button type="button" data-range="21">1M</button>
                         <button type="button" data-range="63">3M</button>
                         <button type="button" data-range="all" class="is-active" aria-pressed="true">YTD</button>
                     </div>
                 </div>
                 <div class="chart-wrap chart-large">
-                    <canvas id="performance-chart" aria-label="Grafik garis kinerja portofolio dan tolok ukur" role="img"></canvas>
-                    <div class="chart-loading" id="performance-loading"><span></span>Memuat data kinerja…</div>
+                    <canvas id="performance-chart" aria-label="Portfolio and benchmark performance line chart" role="img"></canvas>
+                    <div class="chart-loading" id="performance-loading"><span></span>Loading performance data…</div>
                 </div>
             </article>
 
             <article class="panel allocation-panel">
                 <div class="panel-header compact">
                     <div>
-                        <span class="section-kicker">Komposisi saat ini</span>
-                        <h2>Alokasi portofolio</h2>
+                        <span class="section-kicker">Current composition</span>
+                        <h2>Portfolio allocation</h2>
                     </div>
-                    <span class="tiny-badge">5 aset</span>
+                    <span class="tiny-badge">5 assets</span>
                 </div>
                 <div class="allocation-chart-wrap">
-                    <canvas id="allocation-chart" aria-label="Diagram donat alokasi portofolio" role="img"></canvas>
-                    <div class="allocation-center" aria-hidden="true"><strong>100%</strong><span>dialokasikan</span></div>
+                    <canvas id="allocation-chart" aria-label="Portfolio allocation doughnut chart" role="img"></canvas>
+                    <div class="allocation-center" aria-hidden="true"><strong>100%</strong><span>allocated</span></div>
                 </div>
                 <div class="allocation-list" id="allocation-list"></div>
             </article>
@@ -167,18 +167,18 @@
         <section class="panel stats-panel" aria-labelledby="stats-title">
             <div class="panel-header">
                 <div>
-                    <span class="section-kicker">Rentang imbal hasil</span>
-                    <h2 id="stats-title">Statistik kinerja utama</h2>
-                    <p>Perubahan jangka pendek dan menengah dihitung dari catatan hari perdagangan yang tersedia.</p>
+                    <span class="section-kicker">Return windows</span>
+                    <h2 id="stats-title">Key performance statistics</h2>
+                    <p>Short- and medium-term changes are calculated from the available trading-day records.</p>
                 </div>
-                <span class="helper-chip">Imbal hasil persen</span>
+                <span class="helper-chip">Percentage return</span>
             </div>
             <div class="table-scroll">
                 <table class="data-table">
-                    <caption class="sr-only">Statistik kinerja portofolio dan tolok ukur pasar</caption>
+                    <caption class="sr-only">Portfolio and market benchmark performance statistics</caption>
                     <thead>
                         <tr>
-                            <th scope="col">Indikator</th>
+                            <th scope="col">Indicator</th>
                             <th scope="col">1D</th>
                             <th scope="col">1W</th>
                             <th scope="col">1M</th>
@@ -187,7 +187,7 @@
                         </tr>
                     </thead>
                     <tbody id="key-stats-body">
-                        <tr class="loading-row"><td colspan="6">Menunggu data langsung…</td></tr>
+                        <tr class="loading-row"><td colspan="6">Waiting for live data…</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -196,50 +196,50 @@
         <section class="history-section" aria-labelledby="history-title">
             <div class="section-heading-row">
                 <div>
-                    <span class="section-kicker">Peristiwa kas</span>
-                    <h2 id="history-title">Riwayat keuntungan terealisasi &amp; dividen</h2>
-                    <p>Peristiwa YTD yang tercatat dan berkontribusi terhadap total imbal hasil bersih.</p>
+                    <span class="section-kicker">Cash events</span>
+                    <h2 id="history-title">Realized gains &amp; dividend history</h2>
+                    <p>Recorded YTD events contributing to the total net return.</p>
                 </div>
-                <button class="text-button" id="history-toggle" type="button" aria-expanded="false">Tampilkan semua peristiwa</button>
+                <button class="text-button" id="history-toggle" type="button" aria-expanded="false">Show all events</button>
             </div>
 
             <div class="gain-summary">
-                <article><span>Dividen</span><strong>+7,22%</strong></article>
-                <article><span>Penjualan terealisasi</span><strong>+10,52%</strong></article>
-                <article class="gain-total"><span>Keuntungan gabungan</span><strong>+17,74%</strong></article>
+                <article><span>Dividends</span><strong>+7.22%</strong></article>
+                <article><span>Realized sales</span><strong>+10.52%</strong></article>
+                <article class="gain-total"><span>Combined gains</span><strong>+17.74%</strong></article>
             </div>
 
             <div class="event-list is-collapsed" id="event-list">
-                <article class="event-item"><time datetime="2026-06-26">26 Jun 2026</time><div><strong>Dividen BBCA</strong><span>Ditarik</span></div><b>+0,05%</b></article>
-                <article class="event-item"><time datetime="2026-05-25">25 Mei 2026</time><div><strong>Dividen B***</strong><span>Pendapatan dividen</span></div><b>+1,74%</b></article>
-                <article class="event-item"><time datetime="2026-05-13">13 Mei 2026</time><div><strong>Dividen B***</strong><span>Pendapatan dividen</span></div><b>+1,56%</b></article>
-                <article class="event-item"><time datetime="2026-05-04">04 Mei 2026</time><div><strong>Dividen N***</strong><span>Pendapatan dividen</span></div><b>+0,36%</b></article>
-                <article class="event-item"><time datetime="2026-04-08">08 Apr 2026</time><div><strong>Dividen B***</strong><span>Pendapatan dividen</span></div><b>+0,66%</b></article>
-                <article class="event-item"><time datetime="2026-04-07">07 Apr 2026</time><div><strong>Dividen B***</strong><span>Pendapatan dividen</span></div><b>+2,57%</b></article>
-                <article class="event-item"><time datetime="2026-03-06">06 Mar 2026</time><div><strong>Jual T***</strong><span>Keuntungan terealisasi</span></div><b>+2,93%</b></article>
-                <article class="event-item"><time datetime="2026-02-18">18 Feb 2026</time><div><strong>Jual T***</strong><span>Keuntungan terealisasi</span></div><b>+6,69%</b></article>
-                <article class="event-item"><time datetime="2026-01-23">23 Jan 2026</time><div><strong>Jual A***</strong><span>Keuntungan terealisasi</span></div><b>+0,89%</b></article>
-                <article class="event-item"><time datetime="2026-01-14">14 Jan 2026</time><div><strong>Dividen B*** &amp; K***</strong><span>Pendapatan dividen</span></div><b>+0,28%</b></article>
+                <article class="event-item"><time datetime="2026-06-26">26 Jun 2026</time><div><strong>BBCA dividend</strong><span>Withdrawn</span></div><b>+0.05%</b></article>
+                <article class="event-item"><time datetime="2026-05-25">25 May 2026</time><div><strong>B*** dividend</strong><span>Dividend income</span></div><b>+1.74%</b></article>
+                <article class="event-item"><time datetime="2026-05-13">13 May 2026</time><div><strong>B*** dividend</strong><span>Dividend income</span></div><b>+1.56%</b></article>
+                <article class="event-item"><time datetime="2026-05-04">04 May 2026</time><div><strong>N*** dividend</strong><span>Dividend income</span></div><b>+0.36%</b></article>
+                <article class="event-item"><time datetime="2026-04-08">08 Apr 2026</time><div><strong>B*** dividend</strong><span>Dividend income</span></div><b>+0.66%</b></article>
+                <article class="event-item"><time datetime="2026-04-07">07 Apr 2026</time><div><strong>B*** dividend</strong><span>Dividend income</span></div><b>+2.57%</b></article>
+                <article class="event-item"><time datetime="2026-03-06">06 Mar 2026</time><div><strong>Sell T***</strong><span>Realized gain</span></div><b>+2.93%</b></article>
+                <article class="event-item"><time datetime="2026-02-18">18 Feb 2026</time><div><strong>Sell T***</strong><span>Realized gain</span></div><b>+6.69%</b></article>
+                <article class="event-item"><time datetime="2026-01-23">23 Jan 2026</time><div><strong>Sell A***</strong><span>Realized gain</span></div><b>+0.89%</b></article>
+                <article class="event-item"><time datetime="2026-01-14">14 Jan 2026</time><div><strong>B*** &amp; K*** dividends</strong><span>Dividend income</span></div><b>+0.28%</b></article>
             </div>
         </section>
 
-        <section class="disclosure" aria-label="Metodologi dan penafian">
+        <section class="disclosure" aria-label="Methodology and disclaimer">
             <div class="disclosure-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M12 8v4m0 4h.01"/></svg>
             </div>
             <div>
-                <strong>Dasbor pemantauan pribadi</strong>
-                <p>Angka disajikan untuk pemantauan dan dokumentasi, bukan nasihat investasi. Seri tolok ukur dan portofolio hanya disetel ulang di dalam grafik perbandingan; kartu utama tetap mempertahankan nilai YTD yang tercatat.</p>
+                <strong>Private monitoring dashboard</strong>
+                <p>Figures are provided for monitoring and documentation, not investment advice. Benchmark and portfolio series are rebased only inside the comparison chart; the headline cards retain the recorded YTD values.</p>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="shell footer-inner">
-            <div class="footer-brand"><span></span>Monitor Portofolio IDX</div>
-            <p>Dasbor pasar pribadi yang terhubung langsung ke Google Sheets · Versi 18 Agustus 2026.</p>
+            <div class="footer-brand"><span></span>IDX Portfolio Monitor</div>
+            <p>Private market dashboard connected directly to Google Sheets · Version 19 August 2026.</p>
             <a class="creator-badge" href="https://posnew.com/" target="_blank" rel="noopener noreferrer">
-                Dibuat oleh <strong>Ikhsan Radiansyah</strong> · 2026
+                Created by <strong>Ikhsan Radiansyah</strong> · 2026
             </a>
         </div>
     </footer>
@@ -247,6 +247,6 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
-    <script src="/assets/app.20260818-lar-v3.js" defer></script>
+    <script src="/assets/app.20260819-en.js" defer></script>
 </body>
 </html>
