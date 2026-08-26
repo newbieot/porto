@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-08-26 — BBNI July 2026 monthly update
+
+- Added BBNI July 2025 and July 2026 bank-individual loans and YTD net profit to the monthly charts and matrix.
+- Updated the BBNI spotlight to 31 July 2026: loans Rp969.94 T (+27.0% YoY), Jan–Jul net profit Rp12.53 T (+5.5%), net interest income Rp25.32 T (+14.1%), and customer deposits Rp1,134.89 T (+28.9%).
+- Added derived July 2026 CASA of 66.4% and LDR of 85.47%; kept the separate 1H26 asset-quality basis unchanged.
+- Cache-busted the Bank Fundamentals JavaScript to `20260826-bbni-jul-v1`.
+
 ## 2026-08-19 — Daily three-year P/E and P/BV bands
 
 - Added daily three-year P/E and P/BV ratio bands for BBCA, BBNI, BMRI, BNGA and NISP.

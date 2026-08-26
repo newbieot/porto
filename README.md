@@ -2,6 +2,10 @@
 
 Static website for the portfolio overview and bank fundamentals workspace.
 
+## 2026-08-26 update
+
+BBNI's bank-individual monthly series now runs through July 2026, with the July 2025 report used for the like-for-like YoY comparison. The Bank Fundamentals page includes the updated loans and YTD net-profit charts, monthly matrix, and a July BBNI spotlight covering loans, profit, net interest income, customer deposits, derived CASA, and derived LDR.
+
 ## 2026-08-19 update
 
 The public Overview UI is fully English. Bank Fundamentals keeps its controls, labels, and navigation in English while retaining Indonesian analytical explanations.
@@ -40,7 +44,7 @@ The site uses a conservative data policy. If a 30 June 2026 figure cannot be ver
 This repository is fully static and can be deployed directly with Cloudflare Pages.
 No build command is required.
 
-The HTML references versioned CSS/JS files (`20260819-valuation-v1` and `20260819-en`) so browsers/CDNs do not reuse the previous asset URL.
+The HTML references versioned CSS/JS files (including `20260826-bbni-jul-v1`) so browsers/CDNs do not reuse the previous asset URL.
 
 ## Local replacement
 

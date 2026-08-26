@@ -1,5 +1,31 @@
 # Data Sources — Valuation & Asset Quality
 
+## BBNI monthly update — July 2026
+
+Updated: 26 August 2026
+
+Owner-supplied source reports:
+
+- `LKP_BLN_2026-07_New SEOJK9_Ind.pdf` — bank-individual monthly report at 31 July 2026.
+- `LKP_BLN_2025-07_New SEOJK9_IND.pdf` — bank-individual monthly report at 31 July 2025, used as the YoY comparison.
+
+Reported figures (Rp million unless noted):
+
+| Metric | July 2026 | July 2025 | YoY |
+| --- | ---: | ---: | ---: |
+| Loans | 969,943,871 | 763,655,355 | +27.0% |
+| YTD net profit | 12,527,978 | 11,870,495 | +5.5% |
+| Net interest income | 25,323,954 | 22,195,311 | +14.1% |
+| Customer deposits | 1,134,891,442 | 880,668,346 | +28.9% |
+
+Customer deposits are calculated as current accounts + savings + time deposits.
+
+- July 2026 derived CASA: `(462,863,906 + 290,794,719) / 1,134,891,442 = 66.41%`.
+- July 2025 derived CASA: `(358,420,655 + 267,296,507) / 880,668,346 = 71.05%`.
+- July 2026 derived LDR: `969,943,871 / 1,134,891,442 = 85.47%`.
+
+The July monthly disclosure is bank-individual and does not replace the separate 1H26 asset-quality snapshot.
+
 ## Daily valuation bands
 
 Updated: 19 August 2026
