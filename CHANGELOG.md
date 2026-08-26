@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-08-26 — BNGA July 2026 monthly update
+
+- Added BNGA July 2025 and July 2026 bank-individual loans and YTD net profit to the monthly charts and matrix.
+- Updated the BNGA spotlight to 31 July 2026: loans Rp179.19 T (+15.4% YoY), Jan–Jul net profit Rp3.45 T (-9.1%), net interest income Rp6.94 T (-0.1%), and customer deposits Rp258.59 T (+1.1%).
+- Added derived CASA of 73.2% and LDR of 69.29%, while showing Sharia financing separately at Rp51.47 T and impairment expense at Rp1.06 T.
+- Cache-busted the Bank Fundamentals JavaScript to `20260826-bbni-bnga-jul-v2`.
+
 ## 2026-08-26 — BBNI July 2026 monthly update
 
 - Added BBNI July 2025 and July 2026 bank-individual loans and YTD net profit to the monthly charts and matrix.
