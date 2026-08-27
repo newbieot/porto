@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-26T13:16:27.761Z",
-  "priceDate": "2026-08-26",
-  "periodStart": "2023-08-26",
+  "generatedAt": "2026-08-27T22:15:04.847Z",
+  "priceDate": "2026-08-27",
+  "periodStart": "2023-08-27",
   "methodology": {
     "fundamentalBasis": "Latest available full-year net income and year-end equity, applied 90 days after fiscal year-end to avoid look-ahead bias.",
     "portfolioAggregation": "Daily market-value weighted harmonic P/E and P/BV, equivalent to total position value divided by attributable earnings or book value.",
@@ -26,11 +26,11 @@
       "symbol": "BBCA.JK",
       "name": "Bank Central Asia",
       "shares": 18900,
-      "currentPrice": 6350,
-      "marketValue": 120015000,
-      "weight": 0.166165,
-      "pe": 13.6017,
-      "pbv": 2.7752,
+      "currentPrice": 6400,
+      "marketValue": 120960000,
+      "weight": 0.166107,
+      "pe": 13.7088,
+      "pbv": 2.7971,
       "fiscalYearBasis": 2025
     },
     {
@@ -38,11 +38,11 @@
       "symbol": "BBNI.JK",
       "name": "Bank Negara Indonesia",
       "shares": 62500,
-      "currentPrice": 3680,
-      "marketValue": 230000000,
-      "weight": 0.318444,
-      "pe": 6.8488,
-      "pbv": 0.7984,
+      "currentPrice": 3710,
+      "marketValue": 231875000,
+      "weight": 0.318419,
+      "pe": 6.9046,
+      "pbv": 0.8049,
       "fiscalYearBasis": 2025
     },
     {
@@ -50,11 +50,11 @@
       "symbol": "BMRI.JK",
       "name": "Bank Mandiri",
       "shares": 39200,
-      "currentPrice": 4160,
-      "marketValue": 163072000,
-      "weight": 0.22578,
-      "pe": 6.8962,
-      "pbv": 1.3218,
+      "currentPrice": 4210,
+      "marketValue": 165032000,
+      "weight": 0.226628,
+      "pe": 6.9791,
+      "pbv": 1.3376,
       "fiscalYearBasis": 2025
     },
     {
@@ -62,11 +62,11 @@
       "symbol": "BNGA.JK",
       "name": "CIMB Niaga",
       "shares": 77700,
-      "currentPrice": 1665,
-      "marketValue": 129370500,
-      "weight": 0.179119,
-      "pe": 6.0871,
-      "pbv": 0.7225,
+      "currentPrice": 1680,
+      "marketValue": 130536000,
+      "weight": 0.179257,
+      "pe": 6.142,
+      "pbv": 0.729,
       "fiscalYearBasis": 2025
     },
     {
@@ -76,7 +76,7 @@
       "shares": 64100,
       "currentPrice": 1245,
       "marketValue": 79804500,
-      "weight": 0.110492,
+      "weight": 0.10959,
       "pe": 5.6485,
       "pbv": 0.6514,
       "fiscalYearBasis": 2025
@@ -4376,6 +4376,12 @@
           722262000,
           7.1205,
           0.955
+        ],
+        [
+          "2026-08-27",
+          728207500,
+          7.1791,
+          0.9629
         ]
       ]
     },
@@ -9387,6 +9393,13 @@
           6350,
           13.6017,
           2.7752,
+          2025
+        ],
+        [
+          "2026-08-27",
+          6400,
+          13.7088,
+          2.7971,
           2025
         ]
       ],
@@ -14430,6 +14443,13 @@
           6.8488,
           0.7984,
           2025
+        ],
+        [
+          "2026-08-27",
+          3710,
+          6.9046,
+          0.8049,
+          2025
         ]
       ],
       "fundamentals": [
@@ -19471,6 +19491,13 @@
           4160,
           6.8962,
           1.3218,
+          2025
+        ],
+        [
+          "2026-08-27",
+          4210,
+          6.9791,
+          1.3376,
           2025
         ]
       ],
@@ -24514,6 +24541,13 @@
           6.0871,
           0.7225,
           2025
+        ],
+        [
+          "2026-08-27",
+          1680,
+          6.142,
+          0.729,
+          2025
         ]
       ],
       "fundamentals": [
@@ -29552,6 +29586,13 @@
         ],
         [
           "2026-08-26",
+          1245,
+          5.6485,
+          0.6514,
+          2025
+        ],
+        [
+          "2026-08-27",
           1245,
           5.6485,
           0.6514,
