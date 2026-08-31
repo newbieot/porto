@@ -1,5 +1,33 @@
 # Data Sources — Valuation & Asset Quality
 
+## NISP monthly update — July 2026
+
+Updated: 31 August 2026
+
+Owner-supplied source reports:
+
+- Bank-individual monthly report at 31 July 2026 (Laporan Posisi Keuangan, Laba Rugi, Komitmen dan Kontinjensi).
+- Bank-individual monthly report at 31 July 2025, used as the YoY comparison.
+
+Reported figures (Rp million unless noted):
+
+| Metric | July 2026 | July 2025 | YoY |
+| --- | ---: | ---: | ---: |
+| Loans (Kredit yang diberikan) | 183,257,287 | 157,436,977 | +16.4% |
+| Sharia financing | 5,400,851 | 6,030,243 | -10.4% |
+| YTD net profit | 3,215,509 | 3,011,455 | +6.8% |
+| Net interest income | 6,827,833 | 6,358,821 | +7.4% |
+| Customer deposits | 243,976,359 | 218,374,851 | +11.7% |
+| Impairment expense | 512,110 | 65,577 | +681.0% |
+
+Customer deposits are calculated as current accounts + savings + time deposits.
+
+- July 2026 derived CASA: `(79,206,318 + 62,392,048) / 243,976,359 = 58.04%`.
+- July 2025 derived CASA: `(61,143,094 + 56,300,558) / 218,374,851 = 53.79%`.
+- July 2026 derived LDR: `183,257,287 / 243,976,359 = 75.11%`.
+
+The monthly chart keeps the existing bank-individual `Kredit yang diberikan` basis. Sharia financing is disclosed separately rather than being added to the historical loans series. The separate 1H26 consolidated asset-quality snapshot remains unchanged.
+
 ## BNGA monthly update — July 2026
 
 Updated: 26 August 2026

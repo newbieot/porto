@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-31 — NISP July 2026 monthly update
+
+- Added NISP July 2025 and July 2026 bank-individual loans and YTD net profit to the monthly charts and matrix.
+- Updated the NISP spotlight to 31 July 2026: loans Rp183.26 T (+16.4% YoY), Jan–Jul net profit Rp3.22 T (+6.8%), net interest income Rp6.83 T (+7.4%), and customer deposits Rp243.98 T (+11.7%).
+- Added derived CASA of 58.0% and LDR of 75.11%; showed Sharia financing separately at Rp5.40 T and impairment expense at Rp0.51 T.
+- All five tracked banks now have complete July 2026 monthly data.
+- Cache-busted the Bank Fundamentals JavaScript to `20260831-nisp-jul-v1`.
+
 ## 2026-08-26 — BNGA July 2026 monthly update
 
 - Added BNGA July 2025 and July 2026 bank-individual loans and YTD net profit to the monthly charts and matrix.
