@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-09-01 — Fundamentals page overhaul with deep insights & recommendations
+
+- Redesigned the Bank Fundamentals page with better section spacing, visual hierarchy, and section dividers.
+- Added deep per-bank insights for all five emitens: analysis of loan growth quality, profitability trajectory, funding structure (CASA/LDR), and key risks to watch.
+- Added investment recommendations (Accumulate/Hold/Trim) with fundamental rationale for each bank:
+  - **BBCA**: Hold — defensive quality, but NIM compression limits earnings growth.
+  - **BMRI**: Hold — strongest profit growth (+24.2%), but LDR near prudential limit.
+  - **BBNI**: Accumulate — valuation discount, strong loan growth post-Hibank, improving asset quality coverage.
+  - **BNGA**: Hold — wait for impairment normalization; healthy CASA and LDR as building blocks.
+  - **NISP**: Hold — best asset quality, but structural CASA weakness below 60%.
+- Collapsed asset-quality methodology footnotes behind a toggle to reduce visual clutter.
+- Added investment disclaimer section at the bottom.
+- Updated third summary metric card from "LAR coverage" to "Monthly data: Jul 2026".
+- Cache-busted CSS to `20260901-insights-v1` and JS to `20260901-insights-v1`.
+
 ## 2026-08-31 — NISP July 2026 monthly update
 
 - Added NISP July 2025 and July 2026 bank-individual loans and YTD net profit to the monthly charts and matrix.

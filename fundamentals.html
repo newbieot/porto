@@ -1,28 +1,33 @@
 <!doctype html><html lang="en"><head>
-<title>Bank Fundamentals &amp; Valuation Bands — IDX Monitor</title><meta name="description" content="Three-year P/E and P/BV valuation bands, monthly bank fundamentals, and 1H26 asset-quality comparison for BBCA, BMRI, BBNI, BNGA and NISP.">
+<title>Bank Fundamentals &amp; Valuation Bands — IDX Monitor</title><meta name="description" content="Three-year P/E and P/BV valuation bands, monthly bank fundamentals, deep insights, and investment recommendations for BBCA, BMRI, BBNI, BNGA and NISP.">
 
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f4f7fb">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="stylesheet" href="/assets/styles.20260819-valuation-v1.css">
+<link rel="stylesheet" href="/assets/styles.20260901-insights-v1.css">
 </head><body>
 
 <header class="site-header"><div class="shell header-inner">
 <a class="brand" href="/" aria-label="IDX Monitor home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 23V12m6 11V8m6 15V15m6 8V5"/><path d="m6 8 6-4 6 5 8-6"/></svg></span><span><strong>IDX Monitor</strong><small>Private market workspace</small></span></a>
 <nav class="primary-nav"><a class="nav-link " href="/">Overview</a><a class="nav-link is-active" href="/fundamentals">Bank fundamentals</a></nav>
-<div class="header-actions"><span class="sync-pill"><span class="status-dot"></span>Daily valuation · 1H26 quality</span><button id="theme-toggle" class="icon-button" aria-label="Toggle theme"><svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2"/></svg><svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg></button></div>
+<div class="header-actions"><span class="sync-pill"><span class="status-dot"></span>Daily valuation · July 2026</span><button id="theme-toggle" class="icon-button" aria-label="Toggle theme"><svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2"/></svg><svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg></button></div>
 </div></header>
 
 <main class="shell main-shell">
-<section class="fund-hero"><div><span class="eyebrow">Daily valuation + reported fundamentals</span><h1>Bank fundamentals with three-year valuation bands.</h1><p>Track daily P/E and P/BV for each bank and the market-value-weighted portfolio, alongside the existing monthly and 1H26 asset-quality analysis.</p></div><a class="button" href="/">Back to overview</a></section>
+
+<!-- ═══ HERO ═══ -->
+<section class="fund-hero"><div><span class="eyebrow">Daily valuation · reported fundamentals · investment insights</span><h1>Bank fundamentals, valuation bands, and actionable analysis.</h1><p>Analisis mendalam kelima emiten bank portofolio berdasarkan data bulanan Juli 2026, valuasi tiga tahun, dan kualitas aset 1H26.</p></div><a class="button" href="/">Back to overview</a></section>
+
+<!-- ═══ SUMMARY METRICS ═══ -->
 <section class="metric-grid">
 <article class="metric-card"><span>Banks tracked</span><strong class="metric-value">5</strong><p>BBCA, BMRI, BBNI, BNGA, NISP</p></article>
 <article class="metric-card metric-positive"><span>Lowest disclosed LAR</span><strong class="metric-value">4.8%</strong><p>NISP / OCBC Indonesia · 1H26</p></article>
-<article class="metric-card"><span>LAR coverage available</span><strong class="metric-value metric-value-text">5 of 5</strong><p>BBCA &amp; BBNI reported/research-reported; BMRI, BNGA &amp; NISP derived</p></article>
+<article class="metric-card"><span>Monthly data</span><strong class="metric-value metric-value-text">Jul 2026</strong><p>All five banks complete through July</p></article>
 <article class="metric-card"><span>Policy</span><strong class="metric-value metric-value-text">No guessing</strong><p>Stale or non-comparable ratios are not carried forward</p></article>
 </section>
 
+<!-- ═══ VALUATION BANDS ═══ -->
 <section class="panel valuation-panel" id="valuation-bands">
 <div class="panel-head"><div><span class="section-kicker">Daily valuation · three-year history</span><h2>P/E Ratio Band and P/BV Band</h2><p>Pilih masing-masing emiten atau agregat portofolio. Bobot agregat mengikuti market value harian dari jumlah saham pada portofolio Anda.</p></div><span class="badge" id="valuation-status">Loading daily data</span></div>
 <div class="valuation-toolbar"><div class="filter-row" id="valuation-filter" aria-label="Select valuation entity"></div><div class="valuation-asof"><span>Latest price date</span><strong id="valuation-date">—</strong></div></div>
@@ -40,6 +45,89 @@
 <div class="valuation-method"><strong>Metodologi:</strong> rasio memakai laba bersih FY dan ekuitas akhir tahun terbaru yang sudah tersedia, dengan lag konservatif 90 hari setelah tahun buku agar tidak terjadi look-ahead bias. P/E dan P/BV agregat dihitung secara harmonic berdasarkan market value harian—setara dengan total nilai posisi dibagi laba atau nilai buku yang menjadi porsi portofolio. Harga dapat tertunda dan rasio ini berbasis FY, bukan trailing twelve months.</div>
 </section>
 
+<!-- ═══ MONTHLY CHARTS ═══ -->
+<section class="panel"><div class="panel-head"><div><span class="section-kicker">Monthly momentum</span><h2>Loans and year-to-date net profit</h2></div><span class="badge badge-good">2025 vs 2026</span></div>
+<div id="bank-filter" class="filter-row"></div><p id="coverage-note" class="coverage-note"></p>
+<div class="chart-grid"><div class="chart-card"><h3>Loans · Rp trillion</h3><canvas id="credit-chart"></canvas></div><div class="chart-card"><h3>YTD net profit · Rp trillion</h3><canvas id="profit-chart"></canvas></div></div></section>
+
+<!-- ═══ MONTHLY MATRIX ═══ -->
+<section class="panel"><div class="panel-head"><div><span class="section-kicker">Monthly matrix</span><h2>Underlying bank-individual series</h2></div><span class="badge">YoY comparison</span></div>
+<div class="table-wrap"><table><thead><tr><th>Bank</th><th>Metric</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th></tr></thead><tbody id="fundamental-table-body"></tbody></table></div></section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     BANK SPOTLIGHTS WITH DEEP INSIGHTS & RECOMMENDATIONS
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- ═══ BBCA ═══ -->
+<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">BBCA individual-bank monthly · 31 July 2026</span><h2>BBCA: struktur pendanaan paling defensif, tetapi pertumbuhan laba nyaris stagnan.</h2><p>Angka bulanan Juli tetap dipisahkan dari perbandingan kualitas aset 1H26 di bawah agar basis datanya tidak tercampur.</p></div><span class="update-badge">Latest monthly</span></div>
+<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp35.25 T</strong><small class="return-positive">+1.6% YoY</small></article><article><span>Loans</span><strong>Rp1,000.88 T</strong><small class="return-positive">+8.4% YoY</small></article><article><span>Net interest income</span><strong>Rp46.71 T</strong><small class="return-positive">+0.3% YoY</small></article><article><span>Customer deposits</span><strong>Rp1,257.73 T</strong><small class="return-positive">+8.2% YoY · derived CASA 85.4%</small></article></div>
+<div class="q2-detail-grid"><div><span>Total assets</span><strong>Rp1,575.90 T</strong></div><div><span>Total equity</span><strong>Rp266.56 T</strong></div><div><span>Fee &amp; admin income</span><strong>Rp11.89 T</strong></div><div><span>Derived LDR</span><strong>79.58%</strong></div><div><span>Comprehensive income</span><strong>Rp33.19 T</strong></div></div>
+<div class="spotlight-insight">
+<p><strong>Pertumbuhan kredit tetap terkontrol</strong> di +8,4% YoY, sesuai karakter prudent BCA yang mengedepankan kualitas di atas volume. Kredit sudah menembus Rp1.000 triliun untuk pertama kalinya, sebuah milestone penting yang menunjukkan skala BCA semakin dominan di industri.</p>
+<p><strong>NII nyaris flat (+0,3%)</strong> menandakan NIM yang tertekan signifikan di lingkungan suku bunga yang cenderung turun. Ini konsisten dengan struktur CASA yang sangat tinggi (85,4%)—saat bunga turun, yield kredit turun lebih cepat daripada cost of fund yang sudah sangat rendah. Namun fee income Rp11,89 T memberikan diversifikasi pendapatan yang sehat.</p>
+<p><strong>CASA 85,4% adalah yang tertinggi</strong> di antara kelima bank dan menjadi benteng defensif yang sangat kuat. LDR 79,58% memberikan ruang ekspansi kredit tanpa tekanan likuiditas. Kualitas aset 1H26 (LAR 4,9%, Coverage 69%) tetap solid.</p>
+<div class="insight-risk"><strong>Risiko utama:</strong> NIM compression akan terus membatasi pertumbuhan laba selama siklus penurunan suku bunga. Dengan laba yang tumbuh hanya 1,6% YoY, valuasi premium BCA menjadi lebih sulit dijustifikasi oleh momentum earnings.</div>
+</div>
+<div class="rec-box"><span class="rec-badge rec-hold">Hold</span><p class="rec-rationale"><strong>Pertahankan posisi.</strong> Kualitas aset dan struktur pendanaan terbaik di industri memberikan keamanan, tetapi momentum laba yang lemah dan valuasi premium tidak mendukung penambahan posisi di harga saat ini. Naikkan ke Accumulate jika ada koreksi harga yang signifikan.</p></div>
+</section>
+
+<!-- ═══ BMRI ═══ -->
+<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">BMRI individual-bank monthly · 31 July 2026</span><h2>BMRI: momentum laba terkuat (+24,2%), tetapi LDR mendekati batas prudensial.</h2></div><span class="update-badge">Latest monthly</span></div>
+<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp33.01 T</strong><small class="return-positive">+24.2% YoY</small></article><article><span>Loans</span><strong>Rp1,595.85 T</strong><small class="return-positive">+19.4% YoY</small></article><article><span>Net interest income</span><strong>Rp48.31 T</strong><small class="return-positive">+8.4% YoY</small></article><article><span>Customer deposits</span><strong>Rp1,684.07 T</strong><small class="return-positive">+18.5% YoY · derived CASA 70.4%</small></article></div>
+<div class="q2-detail-grid"><div><span>Total assets</span><strong>Rp2,360.69 T</strong></div><div><span>Total equity</span><strong>Rp257.22 T</strong></div><div><span>Time deposits</span><strong>Rp498.90 T</strong></div><div><span>Derived LDR</span><strong>94.76%</strong></div><div><span>Comprehensive income</span><strong>Rp30.07 T</strong></div></div>
+<div class="spotlight-insight">
+<p><strong>Laba tumbuh paling agresif (+24,2% YoY)</strong> di antara kelima bank, didukung operating leverage yang efektif dan NII yang masih bertumbuh +8,4%. Ini menunjukkan Mandiri berhasil mengelola repricing aset dan liabilitas dengan baik, memanfaatkan portofolio kredit korporasi dan komersial yang besar.</p>
+<p><strong>Kredit tumbuh +19,4% YoY</strong> menjadi Rp1.595,85 T, menjadikan Mandiri sebagai bank dengan portfolio kredit terbesar di kelima emiten. Pertumbuhan deposito (+18,5%) hampir mengimbangi pertumbuhan kredit, tetapi <strong>LDR sudah mencapai 94,76%</strong>—mendekati batas prudensial dan menjadi constraint utama ke depan.</p>
+<p><strong>CASA 70,4% tetap baik</strong> untuk bank seukuran Mandiri, meskipun deposito berjangka (Rp498,90 T) sudah menjadi porsi yang signifikan. NPL 0,98% adalah yang terendah kedua setelah NISP, menunjukkan kualitas aset yang terjaga di tengah pertumbuhan agresif.</p>
+<div class="insight-risk"><strong>Risiko utama:</strong> LDR 94,76% membatasi kapasitas ekspansi kredit lebih lanjut tanpa pertumbuhan deposito yang proporsional. Jika Mandiri harus menaikkan suku bunga deposito untuk menarik dana, NIM bisa tertekan dan mengerem momentum laba.</div>
+</div>
+<div class="rec-box"><span class="rec-badge rec-hold">Hold</span><p class="rec-rationale"><strong>Pertahankan posisi.</strong> Fundamental sangat kuat dengan pertumbuhan laba terbaik dan NPL rendah. Namun LDR yang tinggi dan valuasi yang sudah merefleksikan pertumbuhan menjadi alasan untuk menunggu. Naikkan ke Accumulate jika harga terkoreksi atau jika LDR turun di bawah 92%.</p></div>
+</section>
+
+<!-- ═══ BBNI ═══ -->
+<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">BBNI individual-bank monthly · 31 July 2026</span><h2>BBNI: pertumbuhan kredit tertinggi (+27,0%) pasca-integrasi Hibank, valuasi masih discount.</h2><p>Perbandingan memakai laporan bulanan individual 31 Juli 2026 dan 31 Juli 2025. Metrik kualitas aset tetap memakai snapshot 1H26 yang terpisah di bawah.</p></div><span class="update-badge">Latest monthly</span></div>
+<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp12.53 T</strong><small class="return-positive">+5.5% YoY</small></article><article><span>Loans</span><strong>Rp969.94 T</strong><small class="return-positive">+27.0% YoY</small></article><article><span>Net interest income</span><strong>Rp25.32 T</strong><small class="return-positive">+14.1% YoY</small></article><article><span>Customer deposits</span><strong>Rp1,134.89 T</strong><small class="return-positive">+28.9% YoY · derived CASA 66.4%</small></article></div>
+<div class="q2-detail-grid"><div><span>Total assets</span><strong>Rp1,438.09 T</strong></div><div><span>Total equity</span><strong>Rp162.24 T</strong></div><div><span>Fee &amp; admin income</span><strong>Rp6.45 T</strong></div><div><span>Derived LDR</span><strong>85.47%</strong></div><div><span>Comprehensive income</span><strong>Rp8.06 T</strong></div></div>
+<div class="spotlight-insight">
+<p><strong>Pertumbuhan kredit tertinggi (+27,0%)</strong> di kelima bank, sebagian didorong oleh integrasi Hibank yang menambah skala secara anorganik. Dengan kredit mendekati Rp970 T, BNI semakin memperkecil jarak dengan BCA (Rp1.001 T). NII tumbuh kuat +14,1%, menunjukkan bahwa volume kredit yang lebih besar sudah mulai ter-monetize.</p>
+<p><strong>Laba hanya tumbuh +5,5% YoY</strong> meskipun kredit naik 27%—ini mengindikasikan adanya biaya integrasi dan transisi yang masih membebani. Seiring proses integrasi Hibank matang, seharusnya ada ruang untuk operating leverage yang lebih baik ke depan.</p>
+<p><strong>CASA turun dari 71,1% ke 66,4%</strong>, dilusi yang wajar akibat akuisisi karena basis deposito Hibank memiliki profil yang berbeda. LDR 85,47% masih sehat dan memberikan ruang pertumbuhan. LAR 8,1% memang tertinggi di kelima bank, tetapi <strong>LAR Coverage sudah naik ke 47,4%</strong> (research-reported), menunjukkan tren perbaikan.</p>
+<div class="insight-risk"><strong>Risiko utama:</strong> Integrasi Hibank bisa menyebabkan beban sementara yang tidak terduga. LAR 8,1% adalah yang tertinggi di antara lima emiten dan perlu terus dimonitor. Penurunan CASA juga bisa menekan NIM jika tidak segera di-recovery.</div>
+</div>
+<div class="rec-box"><span class="rec-badge rec-accumulate">Accumulate</span><p class="rec-rationale"><strong>Tambah posisi secara bertahap.</strong> Discount valuasi terhadap BBCA masih lebar sementara pertumbuhan kredit dan NII sangat kuat. Potensi operating leverage pasca-integrasi Hibank belum ter-price, dan coverage kualitas aset membaik. Ambil posisi pada weakness.</p></div>
+</section>
+
+<!-- ═══ BNGA ═══ -->
+<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">BNGA individual-bank monthly · 31 July 2026</span><h2>BNGA: kredit konvensional tumbuh sehat (+15,4%), tetapi lonjakan impairment menggerus laba.</h2><p>Perbandingan memakai laporan bulanan individual 31 Juli 2026 dan 31 Juli 2025. Pembiayaan syariah ditampilkan terpisah agar basis seri kredit tetap konsisten.</p></div><span class="update-badge">Latest monthly</span></div>
+<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp3.45 T</strong><small class="return-negative">-9.1% YoY</small></article><article><span>Loans</span><strong>Rp179.19 T</strong><small class="return-positive">+15.4% YoY</small></article><article><span>Net interest income</span><strong>Rp6.94 T</strong><small class="return-negative">-0.1% YoY</small></article><article><span>Customer deposits</span><strong>Rp258.59 T</strong><small class="return-positive">+1.1% YoY · derived CASA 73.2%</small></article></div>
+<div class="q2-detail-grid"><div><span>Sharia financing</span><strong>Rp51.47 T</strong></div><div><span>Total assets</span><strong>Rp365.15 T</strong></div><div><span>Fee &amp; admin income</span><strong>Rp1.66 T</strong></div><div><span>Derived LDR</span><strong>69.29%</strong></div><div><span>Impairment expense</span><strong>Rp1.06 T</strong></div></div>
+<div class="spotlight-insight">
+<p><strong>Laba turun -9,1% YoY</strong> menjadikan BNGA satu-satunya emiten dengan penurunan profitabilitas. Penyebab utamanya adalah <strong>lonjakan impairment sebesar +86,1%</strong> menjadi Rp1,06 T, yang mengindikasikan adanya deteriorasi kualitas aset pada sebagian portofolio. NII flat (-0,1%) menunjukkan belum ada pricing power.</p>
+<p><strong>Di sisi positif, kredit konvensional tumbuh +15,4%</strong> dan struktur pendanaan membaik—CASA naik dari 69,1% ke 73,2%, menunjukkan kemampuan menghimpun dana murah. LDR 69,29% adalah yang paling konservatif di kelima bank, memberikan ruang besar untuk ekspansi kredit.</p>
+<p><strong>Pembiayaan syariah turun -12,4%</strong> ke Rp51,47 T, yang bisa jadi merupakan normalisasi deliberatif atau tanda menurunnya permintaan di segmen tersebut. Secara keseluruhan BNGA memiliki building blocks yang baik (CASA tinggi, LDR rendah) tetapi sedang melalui siklus pembersihan portofolio.</p>
+<div class="insight-risk"><strong>Risiko utama:</strong> Impairment yang melonjak bisa mengindikasikan masalah kualitas aset yang belum sepenuhnya terungkap. LAR management 6,4% (termasuk sisa Covid restructuring) tetap lebih tinggi dari rata-rata peers. Perlu konfirmasi normalisasi impairment di kuartal berikutnya.</div>
+</div>
+<div class="rec-box"><span class="rec-badge rec-hold">Hold</span><p class="rec-rationale"><strong>Pertahankan posisi, tunggu konfirmasi.</strong> Valuasi relatif murah dan building blocks (CASA, LDR) sehat, tetapi lonjakan impairment menciptakan uncertainty. Naikkan ke Accumulate setelah ada bukti normalisasi impairment pada laporan Agustus-September.</p></div>
+</section>
+
+<!-- ═══ NISP ═══ -->
+<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">NISP individual-bank monthly · 31 July 2026</span><h2>OCBC Indonesia: kualitas aset terbaik dan backing OCBC Group, tetapi CASA di bawah 60%.</h2><p>Perbandingan memakai laporan bulanan individual 31 Juli 2026 dan 31 Juli 2025. Metrik kualitas aset tetap memakai snapshot 1H26 yang terpisah di bawah.</p></div><span class="update-badge">Latest monthly</span></div>
+<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp3.22 T</strong><small class="return-positive">+6.8% YoY</small></article><article><span>Loans</span><strong>Rp183.26 T</strong><small class="return-positive">+16.4% YoY</small></article><article><span>Net interest income</span><strong>Rp6.83 T</strong><small class="return-positive">+7.4% YoY</small></article><article><span>Customer deposits</span><strong>Rp243.98 T</strong><small class="return-positive">+11.7% YoY · derived CASA 58.0%</small></article></div>
+<div class="q2-detail-grid"><div><span>Sharia financing</span><strong>Rp5.40 T</strong></div><div><span>Total assets</span><strong>Rp331.84 T</strong></div><div><span>Total equity</span><strong>Rp44.98 T</strong></div><div><span>Derived LDR</span><strong>75.11%</strong></div><div><span>Impairment expense</span><strong>Rp0.51 T</strong></div></div>
+<div class="spotlight-insight">
+<p><strong>Kredit tumbuh kuat +16,4% YoY</strong>, didorong oleh dukungan parent company OCBC Group dan strategi fokus pada segmen korporasi dan commercial banking. Dengan total aset Rp331,84 T, NISP memiliki skala yang cukup untuk bersaing meskipun masih jauh di bawah big-four bank.</p>
+<p><strong>Kualitas aset terbaik di kelima bank</strong>: LAR hanya 4,8% (terendah), LAR Coverage ≈91,0% (tertinggi), dan NPL provision coverage 230%. Ini menunjukkan pencadangan yang sangat konservatif, khas bank dengan induk asing yang ketat. Impairment Rp0,51 T memang naik signifikan dari base yang sangat rendah (Rp0,07 T), tetapi nominalnya masih kecil dibanding peers.</p>
+<p><strong>Kelemahan struktural ada pada CASA 58,0%</strong>—terendah di kelima bank dan turun dari level yang sudah rendah (53,8% YoY). Ini menekan NIM dan membuat cost of fund relatif tinggi. Laba yang tumbuh hanya +6,8% YoY di tengah kredit +16,4% mengkonfirmasi bahwa spread yang diperoleh tidak seefisien bank dengan CASA tinggi.</p>
+<div class="insight-risk"><strong>Risiko utama:</strong> CASA yang terus menurun bisa semakin menekan NIM ke depan. Lonjakan impairment (+681% dari base rendah) perlu dipantau apakah merupakan normalisasi satu kali atau tren baru. Skala yang relatif kecil membatasi diversifikasi pendapatan.</div>
+</div>
+<div class="rec-box"><span class="rec-badge rec-hold">Hold</span><p class="rec-rationale"><strong>Pertahankan posisi.</strong> Kualitas aset ekselen dan backing OCBC Group memberikan comfort floor yang kuat. Namun tren penurunan CASA dan keterbatasan skala menjadi kendala struktural. Cocok sebagai posisi defensif dalam portofolio, bukan sebagai growth driver.</p></div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══ ASSET QUALITY TABLE ═══ -->
 <section class="panel" id="asset-quality">
 <div class="asset-intro"><div><span class="section-kicker">Asset quality · 1H26 comparable snapshot</span><h2>LAR Coverage and NPL Coverage are shown as different risk metrics.</h2><p>Modul ini sengaja mengutamakan kualitas disclosure dibanding kelengkapan semu. Angka FY25 atau Q1 tidak dibawa ke 1H26 apabila tidak dapat diverifikasi untuk posisi 30 Juni 2026 dengan basis yang sebanding.</p></div>
 <div class="definition-box"><strong>LAR</strong> is a broader stressed-loan pool than NPL. <strong>LAR Coverage</strong> mengukur pencadangan terhadap kelompok risiko yang lebih luas tersebut. <strong>NPL Coverage</strong> mengukur pencadangan terhadap NPL sehingga nilainya dapat jauh lebih tinggi. Kedua rasio ini tidak boleh dipertukarkan.</div></div>
@@ -90,42 +178,24 @@
 <code>CKPN kredit ÷ nominal LAR × 100%</code>
 <span>Jika nominal LAR tidak dipublikasikan: <code>nominal LAR ≈ gross loans × LAR ratio</code>. Jika NPL Coverage, NPL dan LAR menggunakan pool pencadangan yang sama, rasio juga dapat diturunkan dengan <code>NPL Coverage × NPL% ÷ LAR%</code>.</span>
 </div>
+<details class="asset-quality-details">
+<summary>Tampilkan catatan metodologi per bank</summary>
 <div class="asset-footnotes">
 <div><strong>BBCA:</strong> LAR 4,9% dan gross NPL 1,9% berasal dari rilis resmi 1H26. LAR Coverage 69% berasal dari hasil 2Q26 yang dilaporkan analis dan konsisten dengan tren presentasi BCA. NPL Coverage tetap Undisclosed karena angka current-period yang dapat diakses belum cukup konsisten.</div>
 <div><strong>BMRI:</strong> basis dibuat bank-only agar LAR 5,83%, gross NPL 0,98%, dan NPL Coverage 242% tetap sejalan. Derived LAR Coverage = 242% × 0,98% ÷ 5,83% = sekitar 40,7%, sangat dekat dengan angka 41% pada laporan analis 2Q26.</div>
-<div><strong>BBNI:</strong> LAR 8,1% dan gross NPL 1,9% dikonfirmasi rilis resmi BNI 1H26. LAR Coverage 47,4% berasal dari NH Korindo Sekuritas Indonesia Update Report 13 Agustus 2026 yang mencantumkan “Source: BBNI, NHKSI Research”. Karena bukan hasil kalkulasi saya, statusnya <em>Research-reported</em>, bukan Derived.</div>
+<div><strong>BBNI:</strong> LAR 8,1% dan gross NPL 1,9% dikonfirmasi rilis resmi BNI 1H26. LAR Coverage 47,4% berasal dari NH Korindo Sekuritas Indonesia Update Report 13 Agustus 2026 yang mencantumkan "Source: BBNI, NHKSI Research". Karena bukan hasil kalkulasi saya, statusnya <em>Research-reported</em>, bukan Derived.</div>
 <div><strong>BNGA:</strong> Presiden Direktur CIMB Niaga menyebut LAR 1H26 sekitar 6,4% termasuk sisa restrukturisasi Covid dan 5,2% ex-Covid. Laporan konsolidasian yang direviu mencatat gross loans Rp237,322 T dan CKPN kredit konvensional+syariah Rp6,435 T. Derived LAR Coverage broad = 6,435 ÷ (237,322 × 6,4%) = sekitar 42,4%. Ini adalah estimasi, bukan rasio yang dilaporkan langsung BNGA.</div>
 <div><strong>NISP:</strong> OCBC mengungkapkan LAR 4,8%, gross NPL 1,9%, dan NPL provision coverage 230,0%. Dengan asumsi numerator provision yang sama, Derived LAR Coverage ≈ 230,0% × 1,9% ÷ 4,8% = 91,0%. Karena input rasio dibulatkan, hasil ditampilkan dengan tanda ≈.</div>
-</div></div></section>
+</div>
+</details>
+</section>
 
-<section class="panel"><div class="panel-head"><div><span class="section-kicker">Monthly momentum</span><h2>Loans and year-to-date net profit</h2></div><span class="badge badge-good">2025 vs 2026</span></div>
-<div id="bank-filter" class="filter-row"></div><p id="coverage-note" class="coverage-note"></p>
-<div class="chart-grid"><div class="chart-card"><h3>Loans · Rp trillion</h3><canvas id="credit-chart"></canvas></div><div class="chart-card"><h3>YTD net profit · Rp trillion</h3><canvas id="profit-chart"></canvas></div></div></section>
-
-<section class="panel"><div class="panel-head"><div><span class="section-kicker">Monthly matrix</span><h2>Underlying bank-individual series</h2></div><span class="badge">YoY comparison</span></div>
-<div class="table-wrap"><table><thead><tr><th>Bank</th><th>Metric</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th></tr></thead><tbody id="fundamental-table-body"></tbody></table></div></section>
-
-
-<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">BBCA individual-bank monthly · 31 July 2026</span><h2>BBCA: pertumbuhan kredit tetap sehat, dengan struktur pendanaan yang defensif.</h2><p>Angka bulanan Juli tetap dipisahkan dari perbandingan kualitas aset 1H26 di atas agar basis datanya tidak tercampur.</p></div><span class="update-badge">Latest monthly</span></div>
-<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp35.25 T</strong><small class="return-positive">+1.6% YoY</small></article><article><span>Loans</span><strong>Rp1,000.88 T</strong><small class="return-positive">+8.4% YoY</small></article><article><span>Net interest income</span><strong>Rp46.71 T</strong><small class="return-positive">+0.3% YoY</small></article><article><span>Customer deposits</span><strong>Rp1,257.73 T</strong><small class="return-positive">+8.2% YoY · derived CASA 85.4%</small></article></div>
-<div class="q2-detail-grid"><div><span>Total assets</span><strong>Rp1,575.90 T</strong></div><div><span>Total equity</span><strong>Rp266.56 T</strong></div><div><span>Fee & admin income</span><strong>Rp11.89 T</strong></div><div><span>Derived LDR</span><strong>79.58%</strong></div><div><span>Comprehensive income</span><strong>Rp33.19 T</strong></div></div></section>
-
-<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">BMRI individual-bank monthly · 31 July 2026</span><h2>BMRI: momentum laba dan kredit kuat, tetapi perubahan bauran pendanaan tetap perlu diawasi.</h2></div><span class="update-badge">Latest monthly</span></div>
-<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp33.01 T</strong><small class="return-positive">+24.2% YoY</small></article><article><span>Loans</span><strong>Rp1,595.85 T</strong><small class="return-positive">+19.4% YoY</small></article><article><span>Net interest income</span><strong>Rp48.31 T</strong><small class="return-positive">+8.4% YoY</small></article><article><span>Customer deposits</span><strong>Rp1,684.07 T</strong><small class="return-positive">+18.5% YoY · derived CASA 70.4%</small></article></div>
-<div class="q2-detail-grid"><div><span>Total assets</span><strong>Rp2,360.69 T</strong></div><div><span>Total equity</span><strong>Rp257.22 T</strong></div><div><span>Time deposits</span><strong>Rp498.90 T</strong></div><div><span>Derived LDR</span><strong>94.76%</strong></div><div><span>Comprehensive income</span><strong>Rp30.07 T</strong></div></div></section>
-
-<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">BNGA individual-bank monthly · 31 July 2026</span><h2>BNGA: kredit konvensional tumbuh 15,4% YoY, tetapi laba turun di tengah kenaikan impairment.</h2><p>Perbandingan memakai laporan bulanan individual 31 Juli 2026 dan 31 Juli 2025. Pembiayaan syariah ditampilkan terpisah agar basis seri kredit tetap konsisten.</p></div><span class="update-badge">Latest monthly</span></div>
-<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp3.45 T</strong><small class="return-negative">-9.1% YoY</small></article><article><span>Loans</span><strong>Rp179.19 T</strong><small class="return-positive">+15.4% YoY</small></article><article><span>Net interest income</span><strong>Rp6.94 T</strong><small class="return-negative">-0.1% YoY</small></article><article><span>Customer deposits</span><strong>Rp258.59 T</strong><small class="return-positive">+1.1% YoY · derived CASA 73.2%</small></article></div>
-<div class="q2-detail-grid"><div><span>Sharia financing</span><strong>Rp51.47 T</strong></div><div><span>Total assets</span><strong>Rp365.15 T</strong></div><div><span>Fee &amp; admin income</span><strong>Rp1.66 T</strong></div><div><span>Derived LDR</span><strong>69.29%</strong></div><div><span>Impairment expense</span><strong>Rp1.06 T</strong></div></div></section>
-
-<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">BBNI individual-bank monthly · 31 July 2026</span><h2>BBNI: kredit tumbuh 27,0% YoY dan laba tetap bertumbuh, sementara porsi CASA menurun.</h2><p>Perbandingan memakai laporan bulanan individual 31 Juli 2026 dan 31 Juli 2025. Metrik kualitas aset tetap memakai snapshot 1H26 yang terpisah di atas.</p></div><span class="update-badge">Latest monthly</span></div>
-<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp12.53 T</strong><small class="return-positive">+5.5% YoY</small></article><article><span>Loans</span><strong>Rp969.94 T</strong><small class="return-positive">+27.0% YoY</small></article><article><span>Net interest income</span><strong>Rp25.32 T</strong><small class="return-positive">+14.1% YoY</small></article><article><span>Customer deposits</span><strong>Rp1,134.89 T</strong><small class="return-positive">+28.9% YoY · derived CASA 66.4%</small></article></div>
-<div class="q2-detail-grid"><div><span>Total assets</span><strong>Rp1,438.09 T</strong></div><div><span>Total equity</span><strong>Rp162.24 T</strong></div><div><span>Fee &amp; admin income</span><strong>Rp6.45 T</strong></div><div><span>Derived LDR</span><strong>85.47%</strong></div><div><span>Comprehensive income</span><strong>Rp8.06 T</strong></div></div></section>
-
-<section class="panel q2-spotlight"><div class="q2-heading"><div><span class="section-kicker">NISP individual-bank monthly · 31 July 2026</span><h2>OCBC Indonesia: kredit tumbuh 16,4% YoY dan laba naik 6,8%, tetapi CASA tertekan di bawah 60%.</h2><p>Perbandingan memakai laporan bulanan individual 31 Juli 2026 dan 31 Juli 2025. Metrik kualitas aset tetap memakai snapshot 1H26 yang terpisah di atas.</p></div><span class="update-badge">Latest monthly</span></div>
-<div class="q2-kpi-grid"><article><span>Jan–Jul net profit</span><strong>Rp3.22 T</strong><small class="return-positive">+6.8% YoY</small></article><article><span>Loans</span><strong>Rp183.26 T</strong><small class="return-positive">+16.4% YoY</small></article><article><span>Net interest income</span><strong>Rp6.83 T</strong><small class="return-positive">+7.4% YoY</small></article><article><span>Customer deposits</span><strong>Rp243.98 T</strong><small class="return-positive">+11.7% YoY · derived CASA 58.0%</small></article></div>
-<div class="q2-detail-grid"><div><span>Sharia financing</span><strong>Rp5.40 T</strong></div><div><span>Total assets</span><strong>Rp331.84 T</strong></div><div><span>Total equity</span><strong>Rp44.98 T</strong></div><div><span>Derived LDR</span><strong>75.11%</strong></div><div><span>Impairment expense</span><strong>Rp0.51 T</strong></div></div></section>
+<!-- ═══ DISCLAIMER ═══ -->
+<div class="disclaimer-section">
+<strong>⚠ Disclaimer — Bukan Rekomendasi Investasi Profesional</strong>
+Seluruh analisis, insight, dan rekomendasi pada halaman ini merupakan catatan pribadi pemilik portofolio berdasarkan data laporan keuangan bulanan dan kualitas aset 1H26. Ini <strong>bukan</strong> nasihat investasi profesional, riset sekuritas, atau ajakan transaksi. Keputusan investasi tetap menjadi tanggung jawab masing-masing investor. Data dapat mengandung kesalahan baca atau interpretasi. Selalu lakukan analisis independen dan konsultasikan dengan penasihat keuangan berlisensi sebelum mengambil keputusan investasi.
+</div>
 
 </main><footer class="footer"><div class="shell">IDX Monitor · Asset-quality data rules and source URLs are documented in DATA_SOURCES.md.</div></footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-<script defer src="/assets/fundamentals.20260831-nisp-jul-v1.js"></script></body></html>
+<script defer src="/assets/fundamentals.20260901-insights-v1.js"></script></body></html>
