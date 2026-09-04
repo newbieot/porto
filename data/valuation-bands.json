@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T16:24:45.043Z",
-  "priceDate": "2026-09-03",
-  "periodStart": "2023-09-03",
+  "generatedAt": "2026-09-04T16:20:32.071Z",
+  "priceDate": "2026-09-04",
+  "periodStart": "2023-09-04",
   "methodology": {
     "fundamentalBasis": "Latest available full-year net income and year-end equity, applied 90 days after fiscal year-end to avoid look-ahead bias.",
     "portfolioAggregation": "Daily market-value weighted harmonic P/E and P/BV, equivalent to total position value divided by attributable earnings or book value.",
@@ -26,11 +26,11 @@
       "symbol": "BBCA.JK",
       "name": "Bank Central Asia",
       "shares": 18900,
-      "currentPrice": 6775,
-      "marketValue": 128047500,
-      "weight": 0.167825,
-      "pe": 14.5121,
-      "pbv": 2.961,
+      "currentPrice": 6700,
+      "marketValue": 126630000,
+      "weight": 0.166808,
+      "pe": 14.3514,
+      "pbv": 2.9282,
       "fiscalYearBasis": 2025
     },
     {
@@ -38,11 +38,11 @@
       "symbol": "BBNI.JK",
       "name": "Bank Negara Indonesia",
       "shares": 62500,
-      "currentPrice": 3960,
-      "marketValue": 247500000,
-      "weight": 0.324385,
-      "pe": 7.3699,
-      "pbv": 0.8591,
+      "currentPrice": 3940,
+      "marketValue": 246250000,
+      "weight": 0.324382,
+      "pe": 7.3326,
+      "pbv": 0.8548,
       "fiscalYearBasis": 2025
     },
     {
@@ -50,11 +50,11 @@
       "symbol": "BMRI.JK",
       "name": "Bank Mandiri",
       "shares": 39200,
-      "currentPrice": 4460,
-      "marketValue": 174832000,
-      "weight": 0.229143,
-      "pe": 7.3935,
-      "pbv": 1.4171,
+      "currentPrice": 4420,
+      "marketValue": 173264000,
+      "weight": 0.228238,
+      "pe": 7.3272,
+      "pbv": 1.4044,
       "fiscalYearBasis": 2025
     },
     {
@@ -62,11 +62,11 @@
       "symbol": "BNGA.JK",
       "name": "CIMB Niaga",
       "shares": 77700,
-      "currentPrice": 1705,
-      "marketValue": 132478500,
-      "weight": 0.173632,
-      "pe": 6.2334,
-      "pbv": 0.7398,
+      "currentPrice": 1710,
+      "marketValue": 132867000,
+      "weight": 0.175024,
+      "pe": 6.2516,
+      "pbv": 0.742,
       "fiscalYearBasis": 2025
     },
     {
@@ -76,7 +76,7 @@
       "shares": 64100,
       "currentPrice": 1250,
       "marketValue": 80125000,
-      "weight": 0.105015,
+      "weight": 0.105548,
       "pe": 5.6711,
       "pbv": 0.654,
       "fiscalYearBasis": 2025
@@ -4382,6 +4382,12 @@
           762983000,
           7.5219,
           1.0088
+        ],
+        [
+          "2026-09-04",
+          759136000,
+          7.484,
+          1.0038
         ]
       ]
     },
@@ -9401,6 +9407,13 @@
           14.5121,
           2.961,
           2025
+        ],
+        [
+          "2026-09-04",
+          6700,
+          14.3514,
+          2.9282,
+          2025
         ]
       ],
       "fundamentals": [
@@ -14403,6 +14416,13 @@
           2025
         ],
         [
+          "2026-08-25",
+          3680,
+          6.8488,
+          0.7984,
+          2025
+        ],
+        [
           "2026-08-26",
           3680,
           6.8488,
@@ -14449,6 +14469,13 @@
           3960,
           7.3699,
           0.8591,
+          2025
+        ],
+        [
+          "2026-09-04",
+          3940,
+          7.3326,
+          0.8548,
           2025
         ]
       ],
@@ -19452,6 +19479,13 @@
           2025
         ],
         [
+          "2026-08-25",
+          4200,
+          6.9625,
+          1.3345,
+          2025
+        ],
+        [
           "2026-08-26",
           4160,
           6.8962,
@@ -19498,6 +19532,13 @@
           4460,
           7.3935,
           1.4171,
+          2025
+        ],
+        [
+          "2026-09-04",
+          4420,
+          7.3272,
+          1.4044,
           2025
         ]
       ],
@@ -24501,6 +24542,13 @@
           2025
         ],
         [
+          "2026-08-25",
+          1675,
+          6.1237,
+          0.7268,
+          2025
+        ],
+        [
           "2026-08-26",
           1665,
           6.0871,
@@ -24547,6 +24595,13 @@
           1705,
           6.2334,
           0.7398,
+          2025
+        ],
+        [
+          "2026-09-04",
+          1710,
+          6.2516,
+          0.742,
           2025
         ]
       ],
@@ -29550,6 +29605,13 @@
           2025
         ],
         [
+          "2026-08-25",
+          1265,
+          5.7392,
+          0.6618,
+          2025
+        ],
+        [
           "2026-08-26",
           1245,
           5.6485,
@@ -29593,6 +29655,13 @@
         ],
         [
           "2026-09-03",
+          1250,
+          5.6711,
+          0.654,
+          2025
+        ],
+        [
+          "2026-09-04",
           1250,
           5.6711,
           0.654,
