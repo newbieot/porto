@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-07 — BBCA & BMRI dividend schedule update
+
+- Added upcoming cash dividend distribution events to the Overview cash events:
+  - **BBCA**: Rp25 per share, payment date 16 September 2026 (Rp472,500 gross payout for 189 lots / 18,900 shares, +0.06% portfolio return impact; reconciles to "Open: 472,500" corporate action receivable in broker portfolio).
+  - **BMRI**: Rp66 per share, payment date 02 October 2026 (Rp2,587,200 gross payout for 392 lots / 39,200 shares, +0.32% portfolio return impact).
+- Updated cumulative dividend return to +7.60% and combined gains to +18.12% projected.
+- Added corporate action dividend notes to BBCA and BMRI spotlights in `fundamentals.html`.
+- Documented position reconciliation and payment schedules in `DATA_SOURCES.md`.
+
 ## 2026-09-01 — Fundamentals page overhaul with deep insights & recommendations
 
 - Redesigned the Bank Fundamentals page with better section spacing, visual hierarchy, and section dividers.

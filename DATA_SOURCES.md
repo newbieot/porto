@@ -100,6 +100,24 @@ The portfolio aggregate uses the brokerage position sizes supplied by the owner:
 
 On the initial 18 August 2026 dataset, these positions reconcile exactly to the supplied Rp718,204,000 total market value.
 
+### Corporate Actions & Dividend Distribution (September – October 2026)
+
+- **BBCA (PT Bank Central Asia Tbk)**:
+  - Dividend per share: Rp25
+  - Position: 189 lots / 18,900 shares
+  - Gross payout: Rp472,500 (reconciles to "Open: 472,500" corporate action receivable in broker portfolio)
+  - Payment date: 16 September 2026
+  - Estimated portfolio impact: +0.06%
+- **BMRI (PT Bank Mandiri (Persero) Tbk)**:
+  - Dividend per share: Rp66
+  - Position: 392 lots / 39,200 shares
+  - Gross payout: Rp2,587,200
+  - Payment date: 02 October 2026
+  - Estimated portfolio impact: +0.32%
+- **Combined Impact**:
+  - Total upcoming dividend payout: Rp3,059,700
+  - Total portfolio return addition: +0.38% (bringing cumulative dividend return to +7.60% and combined gains to +18.12%)
+
 ### Market and fundamental inputs
 
 - Daily unadjusted closing prices: Yahoo Finance chart endpoint for `.JK` symbols.

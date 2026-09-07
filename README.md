@@ -2,6 +2,13 @@
 
 Static website for the portfolio overview and bank fundamentals workspace.
 
+## 2026-09-07 update
+
+Recorded upcoming cash dividends in the Overview cash events and Bank Fundamentals:
+- **BBCA**: Rp25 per share, payment date 16 September 2026 (Rp472,500 for 189 lots / 18,900 shares, +0.06% portfolio return impact).
+- **BMRI**: Rp66 per share, payment date 02 October 2026 (Rp2,587,200 for 392 lots / 39,200 shares, +0.32% portfolio return impact).
+- Combined upcoming dividend payout: Rp3,059,700 (+0.38% return, bringing total dividends to +7.60% and combined gains to +18.12%).
+
 ## 2026-08-26 update
 
 BBNI's bank-individual monthly series now runs through July 2026, with the July 2025 report used for the like-for-like YoY comparison. The Bank Fundamentals page includes the updated loans and YTD net-profit charts, monthly matrix, and a July BBNI spotlight covering loans, profit, net interest income, customer deposits, derived CASA, and derived LDR.
