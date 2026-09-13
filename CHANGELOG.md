@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-09-13 — BMRI August monthly results
+
+- Added August 2025/2026 BMRI loans and YTD net profit; extended charts and
+  matrix to August with unavailable values for the other banks.
+- Updated BMRI KPIs: profit Rp37.49 T (+22.3% YoY), loans Rp1,592.20 T
+  (+17.6%), NII Rp54.84 T (+7.2%), deposits Rp1,687.22 T (+17.6%).
+- Rewrote BMRI insights using documented fee, expense, funding and impairment
+  movements; distinguished August-only profit (+10.0%) from YTD growth.
+- Removed unsupported BMRI repricing, prudential-limit, peer ranking and
+  valuation assertions; kept June quality metrics explicitly dated.
+- Versioned the active JavaScript as `20260913-bmri-aug-v1`.
+- Allowed chart grid containers to shrink correctly on mobile.
+
 ## 2026-09-07 — BBCA & BMRI dividend schedule update
 
 - Added upcoming cash dividend distribution events to the Overview cash events:

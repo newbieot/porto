@@ -1,0 +1,2 @@
+/* Let Chart.js containers shrink when the viewport or grid changes. */
+.chart-grid > .chart-card { min-width: 0; }

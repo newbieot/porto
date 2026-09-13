@@ -1,5 +1,50 @@
 # Data Sources — Valuation & Asset Quality
 
+## BMRI monthly update — August 2026
+
+Updated: 13 September 2026. Basis: Bank Mandiri individual bank, not consolidated.
+Owner-supplied reports: `08 IR Agustus 2026 - Format New SE OJK.pdf` and
+`08 Agustus 2025 - Format New SE OJK_2.pdf`. Balance sheets: pages 1–2;
+income statements: page 3. All raw amounts below are Rp million; divide by
+1,000,000 for the website's Rp trillion. Income figures are January–August YTD.
+
+| Metric | August 2026 | August 2025 | YoY |
+| --- | ---: | ---: | ---: |
+| Loans | 1,592,200,081 | 1,353,438,264 | +17.6% |
+| Net profit YTD | 37,488,217 | 30,652,641 | +22.3% |
+| Net interest income | 54,835,853 | 51,174,695 | +7.2% |
+| Current accounts | 623,090,703 | 590,566,209 | +5.5% |
+| Savings | 562,688,656 | 505,265,640 | +11.4% |
+| Time deposits | 501,440,620 | 339,344,142 | +47.8% |
+| Customer deposits (sum of the preceding three lines) | 1,687,219,979 | 1,435,175,991 | +17.6% |
+| Fee and administration income | 15,530,521 | 12,735,035 | +22.0% |
+| Personnel + promotion + other expenses | 28,941,143 | 31,919,168 | -9.3% |
+| Promotion expense | 620,575 | 2,422,384 | -74.4% |
+| Financial-asset impairment expense | 5,548,241 | 4,490,099 | +23.6% |
+| Loan impairment allowance (balance-sheet stock) | 37,979,921 | 39,019,406 | -2.7% |
+| Total assets | 2,358,542,643 | 1,953,688,456 | +20.7% |
+| Total equity | 262,712,323 | 247,228,252 | +6.3% |
+| Comprehensive income YTD | 35,557,396 | 33,612,848 | +5.8% |
+
+Derived ratios, using unrounded inputs:
+
+- CASA = (current accounts + savings) / customer deposits: 70.2801% vs
+  76.3552%, down 6.0752 percentage points. Nominal CASA grew 8.2081%.
+- LDR = loans / customer deposits: 94.3683% vs 94.3047%. This simplified
+  ratio is not regulatory RIM or a test of compliance with a regulatory limit.
+- August-only profit = August YTD minus July YTD, using the site's existing
+  July individual series: 37,488,217 − 33,014,553 = 4,473,664 in 2026;
+  30,652,641 − 26,584,511 = 4,068,130 in 2025; +9.9686% YoY.
+- August loan MoM = 1,592,200,081 / 1,595,847,870 − 1 = -0.2286%.
+- Expense savings = 31,919,168 − 28,941,143 = 2,978,025, including
+  promotion savings of 2,422,384 − 620,575 = 1,801,809.
+
+Insights are restricted to observable movements. No repricing, segment-growth,
+August NIM/NPL/LAR, or current-price valuation conclusions are inferred from
+these reports. Impairment expense is a YTD flow across financial assets, whereas
+loan CKPN is a balance-sheet stock. The June asset-quality panel keeps its period.
+August cells for banks without supplied August reports are explicitly unavailable.
+
 ## NISP monthly update — July 2026
 
 Updated: 31 August 2026

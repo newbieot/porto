@@ -2,6 +2,14 @@
 
 Static website for the portfolio overview and bank fundamentals workspace.
 
+## 2026-09-13 update
+
+BMRI monthly charts and matrix now include August 2026 versus August 2025.
+Other banks retain July data with explicit unavailable August cells. The BMRI
+spotlight distinguishes YTD and August-only profit, explains funding mix and
+expense movements, and labels the limits of the monthly disclosures.
+The active fundamentals asset is `fundamentals.20260913-bmri-aug-v1.js`.
+
 ## 2026-09-07 update
 
 Recorded upcoming cash dividends in the Overview cash events and Bank Fundamentals:
