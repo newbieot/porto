@@ -2,13 +2,22 @@
 
 Static website for the portfolio overview and bank fundamentals workspace.
 
+## 2026-09-17 update
+
+BBCA and BBNI monthly charts, matrix, and bank spotlights now include August
+2026 versus August 2025. The insights separate YTD performance from the
+August-only movement, document derived CASA and LDR, and avoid inferring
+undisclosed August NIM, NPL, or LAR. BBCA, BMRI, and BBNI now run through
+August; BNGA and NISP remain through July. The active fundamentals asset is
+`fundamentals.20260917-bbca-bbni-aug-v1.js`.
+
 ## 2026-09-13 update
 
 BMRI monthly charts and matrix now include August 2026 versus August 2025.
 Other banks retain July data with explicit unavailable August cells. The BMRI
 spotlight distinguishes YTD and August-only profit, explains funding mix and
 expense movements, and labels the limits of the monthly disclosures.
-The active fundamentals asset is `fundamentals.20260913-bmri-aug-v1.js`.
+The active fundamentals asset was `fundamentals.20260913-bmri-aug-v1.js`.
 
 ## 2026-09-07 update
 

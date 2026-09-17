@@ -1,5 +1,90 @@
 # Data Sources — Valuation & Asset Quality
 
+## BBCA monthly update — August 2026
+
+Updated: 17 September 2026. Basis: BCA individual bank, not consolidated.
+Owner-supplied reports: `20260915-laporan-keuangan-publikasi-bulanan-agustus-2026-ID.pdf`
+and `20250915-laporan-keuangan-publikasi-bulanan-agustus-2025-ind.pdf`.
+Balance sheets: pages 1–2; income statements: page 3. All raw amounts below
+are Rp million; divide by 1,000,000 for the website's Rp trillion. Income
+figures are January–August YTD.
+
+| Metric | August 2026 | August 2025 | YoY |
+| --- | ---: | ---: | ---: |
+| Loans | 1,017,705,728 | 920,872,163 | +10.5% |
+| Net profit YTD | 40,173,327 | 39,058,614 | +2.9% |
+| Net interest income | 53,824,410 | 53,116,924 | +1.3% |
+| Current accounts | 447,507,609 | 390,069,489 | +14.7% |
+| Savings | 626,696,528 | 579,228,625 | +8.2% |
+| Time deposits | 182,627,474 | 190,836,075 | -4.3% |
+| Customer deposits | 1,256,831,611 | 1,160,134,189 | +8.3% |
+| Fee and administration income | 13,590,277 | 12,614,414 | +7.7% |
+| Personnel + promotion + other expenses | 21,469,606 | 20,652,760 | +4.0% |
+| Financial-asset impairment expense | 2,169,523 | 2,663,671 | -18.6% |
+| Loan impairment allowance (balance-sheet stock) | 30,688,507 | 32,237,035 | -4.8% |
+| Total assets | 1,596,962,424 | 1,476,024,326 | +8.2% |
+| Total equity | 268,846,396 | 262,450,855 | +2.4% |
+| Comprehensive income YTD | 38,551,012 | 40,443,303 | -4.7% |
+
+Derived ratios, using unrounded inputs:
+
+- CASA = (current accounts + savings) / customer deposits: 85.4692% vs
+  83.5505%, up 1.9187 percentage points.
+- LDR = loans / customer deposits: 80.9739% vs 79.3763%. This simplified
+  ratio is not regulatory RIM or a test of compliance with a regulatory limit.
+- August-only profit = August YTD minus July YTD, using the site's existing
+  July individual series: 40,173,327 − 35,252,398 = 4,920,929 in 2026;
+  39,058,614 − 34,707,591 = 4,351,023 in 2025; +13.0982% YoY.
+- August loan MoM = 1,017,705,728 / 1,000,882,825 − 1 = +1.6808%.
+
+The monthly report does not disclose August NIM, NPL, or LAR. NII growing
+more slowly than loans is therefore reported as an observation, not attributed
+to a specific spread or pricing cause. Impairment expense and loan CKPN are
+kept separate because the former is a YTD flow and the latter a balance-sheet
+stock.
+
+## BBNI monthly update — August 2026
+
+Updated: 17 September 2026. Basis: BNI individual bank, not consolidated.
+Owner-supplied reports: `LKP_BLN_2026-08_New-SEOJK9_Ind.pdf` and
+`LKP_BLN_2025-08_New-SEOJK9_IND.pdf`. Balance sheets: pages 1–2; income
+statements: page 3. All raw amounts below are Rp million; divide by 1,000,000
+for the website's Rp trillion. Income figures are January–August YTD.
+
+| Metric | August 2026 | August 2025 | YoY |
+| --- | ---: | ---: | ---: |
+| Loans | 977,173,221 | 768,603,159 | +27.1% |
+| Net profit YTD | 14,328,252 | 13,404,383 | +6.9% |
+| Net interest income | 28,877,106 | 25,258,583 | +14.3% |
+| Current accounts | 442,629,921 | 366,549,411 | +20.8% |
+| Savings | 292,137,542 | 264,464,228 | +10.5% |
+| Time deposits | 389,948,243 | 238,142,810 | +63.7% |
+| Customer deposits | 1,124,715,706 | 869,156,449 | +29.4% |
+| Fee and administration income | 7,466,158 | 6,689,407 | +11.6% |
+| Personnel + promotion + other expenses | 20,752,843 | 18,434,827 | +12.6% |
+| Financial-asset impairment expense | 5,929,570 | 4,672,264 | +26.9% |
+| Loan impairment allowance (balance-sheet stock) | 36,604,952 | 35,405,870 | +3.4% |
+| Total assets | 1,434,116,032 | 1,160,188,555 | +23.6% |
+| Total equity | 165,191,805 | 160,646,335 | +2.8% |
+| Comprehensive income YTD | 11,008,902 | 16,469,315 | -33.2% |
+
+Derived ratios, using unrounded inputs:
+
+- CASA = (current accounts + savings) / customer deposits: 65.3292% vs
+  72.6007%, down 7.2715 percentage points. Nominal CASA grew 16.4424%.
+- LDR = loans / customer deposits: 86.8818% vs 88.4309%. This simplified
+  ratio is not regulatory RIM or a test of compliance with a regulatory limit.
+- August-only profit = August YTD minus July YTD, using the site's existing
+  July individual series: 14,328,252 − 12,527,978 = 1,800,274 in 2026;
+  13,404,383 − 11,870,495 = 1,533,888 in 2025; +17.3667% YoY.
+- August loan MoM = 977,173,221 / 969,943,871 − 1 = +0.7453%.
+
+The monthly report does not disclose August NIM, NPL, LAR, segment drivers,
+or integration effects. Those causes are not inferred. Impairment expense rose
+at nearly the same rate as loans, but the report alone is insufficient to
+conclude whether asset quality improved or deteriorated. The June asset-quality
+panel remains separately dated.
+
 ## BMRI monthly update — August 2026
 
 Updated: 13 September 2026. Basis: Bank Mandiri individual bank, not consolidated.

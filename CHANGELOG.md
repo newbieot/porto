@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-09-17 — BBCA & BBNI August monthly results
+
+- Added August 2025/2026 BBCA and BBNI loans and YTD net profit to the charts
+  and monthly matrix; BBCA is selected by default to surface the latest update.
+- Updated BBCA KPIs: profit Rp40.17 T (+2.9% YoY), loans Rp1,017.71 T
+  (+10.5%), NII Rp53.82 T (+1.3%), and deposits Rp1,256.83 T (+8.3%).
+- Updated BBNI KPIs: profit Rp14.33 T (+6.9% YoY), loans Rp977.17 T
+  (+27.1%), NII Rp28.88 T (+14.3%), and deposits Rp1,124.72 T (+29.4%).
+- Rewrote both insights to distinguish August-only profit from YTD growth,
+  explain the funding mix, and separate impairment expense from loan CKPN.
+- Removed unsupported NIM, integration-cost, segment-driver, valuation, and
+  recommendation claims that cannot be established from the monthly reports.
+- Versioned the active JavaScript as `20260917-bbca-bbni-aug-v1`.
+
 ## 2026-09-13 — BMRI August monthly results
 
 - Added August 2025/2026 BMRI loans and YTD net profit; extended charts and
