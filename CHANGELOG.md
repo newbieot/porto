@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-09-30 — BNGA & NISP August monthly results
+
+- Completed August 2025/2026 loans and YTD profit for BNGA and NISP; all five
+  banks now have August comparisons in the charts and monthly matrix.
+- Updated BNGA KPIs: profit Rp3.95 T (-6.7% YoY), conventional loans
+  Rp178.41 T (+11.4%), NII Rp7.92 T (-1.3%), DPK Rp268.61 T (+1.8%).
+- Updated NISP KPIs: profit Rp3.66 T (+6.6% YoY), conventional loans
+  Rp184.98 T (+18.8%), NII Rp7.79 T (+7.4%), DPK Rp246.79 T (+9.4%).
+- Distinguished August-only profit from YTD growth, and conventional loans
+  from total loans including Sharia financing when interpreting deposit ratios.
+- Corrected NISP's CASA direction: 56.74%, up 1.54 percentage points YoY,
+  but down from July's 58.04%. Removed unsupported segment, NIM and valuation
+  claims; flagged the large BNGA CKPN stock change for further explanation.
+- Preserved the separately dated June asset-quality snapshot.
+- Versioned the active JavaScript as `20260930-bnga-nisp-aug-v1`.
+
 ## 2026-09-17 — BBCA & BBNI August monthly results
 
 - Added August 2025/2026 BBCA and BBNI loans and YTD net profit to the charts

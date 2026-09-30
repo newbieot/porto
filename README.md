@@ -2,13 +2,24 @@
 
 Static website for the portfolio overview and bank fundamentals workspace.
 
+## 2026-09-30 update
+
+All five tracked banks now have August 2025/2026 loans and YTD net profit in
+the charts and monthly matrix. BNGA and NISP spotlights include the supplied
+August reports, August-only profit, funding mix, expense and impairment trends.
+Conventional loans remain the chart basis; Sharia financing and combined
+financing/deposit ratios are explained separately. NISP CASA is correctly
+described as improving YoY while declining from July. Source figures and
+unrounded calculations are recorded in `DATA_SOURCES.md`. The active asset is
+`fundamentals.20260930-bnga-nisp-aug-v1.js`.
+
 ## 2026-09-17 update
 
 BBCA and BBNI monthly charts, matrix, and bank spotlights now include August
 2026 versus August 2025. The insights separate YTD performance from the
 August-only movement, document derived CASA and LDR, and avoid inferring
 undisclosed August NIM, NPL, or LAR. BBCA, BMRI, and BBNI now run through
-August; BNGA and NISP remain through July. The active fundamentals asset is
+August; BNGA and NISP remained through July. The active fundamentals asset was
 `fundamentals.20260917-bbca-bbni-aug-v1.js`.
 
 ## 2026-09-13 update

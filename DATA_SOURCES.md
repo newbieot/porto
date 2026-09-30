@@ -1,5 +1,108 @@
 # Data Sources — Valuation & Asset Quality
 
+## BNGA monthly update — August 2026
+
+Updated: 30 September 2026. Basis: CIMB Niaga individual bank, not consolidated.
+Owner-supplied reports: `Publikasi-Bulanan-Aug.pdf` (2026) and
+`Publikasi-Bulanan-Aug_2.pdf` (2025). Balance sheets: page 1; income statements:
+page 2. Raw amounts below are Rp million; divide by 1,000,000 for the website's
+Rp trillion. Income figures are January-August YTD.
+
+| Metric | August 2026 | August 2025 | YoY |
+| --- | ---: | ---: | ---: |
+| Conventional loans | 178,408,815 | 160,190,301 | +11.4% |
+| Sharia financing | 50,027,125 | 58,639,045 | -14.7% |
+| Conventional loans + Sharia financing | 228,435,940 | 218,829,346 | +4.4% |
+| Net profit YTD | 3,947,927 | 4,232,780 | -6.7% |
+| Net interest income | 7,924,539 | 8,026,486 | -1.3% |
+| Fee and administration income | 1,864,125 | 1,785,813 | +4.4% |
+| Current accounts | 106,322,124 | 96,188,296 | +10.5% |
+| Savings | 87,718,213 | 86,326,496 | +1.6% |
+| Time deposits | 74,565,009 | 81,217,466 | -8.2% |
+| Customer deposits | 268,605,346 | 263,732,258 | +1.8% |
+| Personnel + promotion + other expenses | 5,801,823 | 5,583,435 | +3.9% |
+| Financial-asset impairment expense | 1,113,860 | 777,806 | +43.2% |
+| Loan + Sharia impairment allowance (balance-sheet stock) | 3,852,042 | 9,903,750 | -61.1% |
+| Total assets | 368,927,372 | 347,787,520 | +6.1% |
+| Total equity | 55,123,191 | 52,916,768 | +4.2% |
+| Comprehensive income YTD | 3,110,335 | 5,865,781 | -47.0% |
+
+Derived ratios and monthly movements, using unrounded inputs:
+
+- Customer deposits = current accounts + savings + time deposits.
+- CASA = (current accounts + savings) / customer deposits: 72.2399% vs
+  69.2046%, up 3.0354 percentage points YoY. July 2026 was 73.2476%, so
+  August declined 1.0077 percentage points MoM.
+- Conventional loans / customer deposits: 66.4204% vs 60.7397%.
+  (Conventional loans + Sharia financing) / customer deposits: 85.0452% vs
+  82.9741%. These simplified ratios are not regulatory liquidity ratios;
+  the conventional-only ratio must not be compared with peers' total-loan
+  ratios to rank liquidity.
+- August-only profit = August YTD minus July YTD from the existing individual
+  series: 3,947,927 - 3,453,804 = 494,123 in 2026;
+  4,232,780 - 3,798,567 = 434,213 in 2025; +13.7974% YoY.
+- Conventional loan MoM = 178,408,815 / 179,185,794 - 1 = -0.4336%.
+  Combined loans/financing MoM = 228,435,940 / (179,185,794 + 51,471,783)
+  - 1 = -0.9632%.
+
+Impairment expense is a YTD flow across financial assets; the CKPN line is a
+balance-sheet stock for conventional loans and Sharia financing. The reports
+do not reconcile the large CKPN stock reduction or disclose August NPL, LAR,
+or NIM. No asset-quality improvement/deterioration, pricing cause, or Sharia
+strategy is inferred from those movements alone. June asset-quality figures
+remain explicitly dated. The chart preserves the conventional-loan series.
+
+## NISP monthly update — August 2026
+
+Updated: 30 September 2026. Basis: OCBC Indonesia individual bank, not consolidated.
+Owner-supplied reports: `202608-laporan-keuangan-bulanan_id.pdf` and
+`202508-laporan-keuangan-bulanan_id.pdf`. Balance sheets: page 1; income
+statements: page 2. Raw amounts below are Rp million; divide by 1,000,000 for
+the website's Rp trillion. Income figures are January-August YTD.
+
+| Metric | August 2026 | August 2025 | YoY |
+| --- | ---: | ---: | ---: |
+| Conventional loans | 184,981,039 | 155,674,284 | +18.8% |
+| Sharia financing | 5,329,406 | 6,002,068 | -11.2% |
+| Conventional loans + Sharia financing | 190,310,445 | 161,676,352 | +17.7% |
+| Net profit YTD | 3,664,430 | 3,438,229 | +6.6% |
+| Net interest income | 7,787,242 | 7,247,341 | +7.4% |
+| Fee and administration income | 1,030,073 | 689,244 | +49.4% |
+| Current accounts | 78,549,517 | 66,690,987 | +17.8% |
+| Savings | 61,469,669 | 57,788,750 | +6.4% |
+| Time deposits | 106,771,989 | 101,060,790 | +5.7% |
+| Customer deposits | 246,791,175 | 225,540,527 | +9.4% |
+| Personnel + promotion + other expenses | 4,098,959 | 4,223,604 | -3.0% |
+| Financial-asset impairment expense | 582,062 | 157,950 | +268.5% |
+| Loan + Sharia impairment allowance (balance-sheet stock) | 7,920,441 | 8,014,311 | -1.2% |
+| Gains from sale of financial assets | 87,579 | 547,726 | -84.0% |
+| Total assets | 336,961,204 | 293,378,829 | +14.9% |
+| Total equity | 45,746,955 | 42,282,690 | +8.2% |
+| Comprehensive income YTD | 2,930,825 | 4,025,532 | -27.2% |
+
+Derived ratios and monthly movements, using unrounded inputs:
+
+- Customer deposits = current accounts + savings + time deposits.
+- CASA = (current accounts + savings) / customer deposits: 56.7359% vs
+  55.1917%, up 1.5442 percentage points YoY. July 2026 was 58.0377%, so
+  August declined 1.3018 percentage points MoM. The prior July spotlight's
+  claim of falling YoY CASA was incorrect: July CASA rose from 53.79% to
+  58.04%. The revised spotlight distinguishes YoY from MoM.
+- Conventional loans / customer deposits: 74.9545% vs 69.0228%.
+  (Conventional loans + Sharia financing) / customer deposits: 77.1140% vs
+  71.6839%. These are simplified ratios, not regulatory liquidity ratios.
+- August-only profit = August YTD minus July YTD from the existing individual
+  series: 3,664,430 - 3,215,509 = 448,921 in 2026;
+  3,438,229 - 3,011,455 = 426,774 in 2025; +5.1894% YoY.
+- Conventional loan MoM = 184,981,039 / 183,257,287 - 1 = +0.9406%.
+  Combined loans/financing MoM = 190,310,445 / (183,257,287 + 5,400,851)
+  - 1 = +0.8758%.
+
+Impairment expense is kept separate from the loan/Sharia CKPN stock. The high
+impairment growth rate is accompanied by its low 2025 base in the insight.
+The monthly reports do not disclose August NIM, funding costs, NPL, LAR, or
+segment growth drivers. The June asset-quality panel remains separately dated.
+
 ## BBCA monthly update — August 2026
 
 Updated: 17 September 2026. Basis: BCA individual bank, not consolidated.
