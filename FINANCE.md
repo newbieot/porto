@@ -53,7 +53,7 @@ node scripts/import-finance.mjs --csv "C:/path/to/full-history.csv" --position "
 
 The deploy step uses the existing Cloudflare Wrangler OAuth login from its
 standard local configuration; it does not print credentials. Refresh that login
-with `wrangler login` if it expires. The Worker name and account are fixed in the
+with `wrangler whoami` if its token expires; use `wrangler login` only if refresh fails. The Worker name and account are fixed in the
 import script. Import replaces the snapshot from the full export rather than
 appending it: IDs are only trusted for uniqueness within an individual export.
 Exports that truncate the previously available date coverage are rejected.
@@ -81,7 +81,11 @@ only the private Worker deployment, not a commit containing financial data.
 - Net worth is assets plus outstanding receivables minus outstanding payables.
   Recorded capital and market value are separate choices. Stocks use the
   existing portfolio price snapshot. BTC uses confirmed quantity times the
-  latest available CoinGecko IDR price. A missing market price never silently
+  latest BTC/IDR trade price from Tokocrypto (CoinGecko / Coinbase as reference fallbacks).
+  The provider and source timestamp are shown; invalid, future or stale quotes
+  are rejected, and successful quotes are cached for five minutes. Coinbase
+  timestamps refer to quote retrieval, not a claimed last-trade timestamp.
+  A missing market price never silently
   becomes the cost balance.
 - Historical balances are reconstructed book asset balances, not historical
   market net worth: historical debt and investment quantities are not assumed.

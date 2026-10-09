@@ -58,3 +58,32 @@ test('Pages serves private HTML only after the internal backend approves its ses
  assert.equal((await pages.fetch(req('/'),env)).status,200);
  assert.equal((await pages.fetch(req('/finance'),{ASSETS:env.ASSETS})).status,503);
 });
+test('Bitcoin quotes use the actual exchange, fall back safely and reject invalid or stale prices',async()=>{
+ const source=(await readFile(new URL('../server/finance-worker.mjs',import.meta.url),'utf8')).replace("import snapshot from './finance-private.mjs';","const snapshot={};");
+ const env={FINANCE_SESSION_SECRET:'price-fixture-only'},now=Date.now();
+ const body=Buffer.from(JSON.stringify({email:'ikhsan@posnew.com',iat:Math.floor(now/1000)-1,exp:Math.floor(now/1000)+100})).toString('base64url');
+ const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(env.FINANCE_SESSION_SECRET),{name:'HMAC',hash:'SHA-256'},false,['sign']);
+ const cookie='__Host-porto_finance='+body+'.'+Buffer.from(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(body))).toString('base64url');
+ const request=new Request('https://idx.posnew.com/api/finance/bitcoin',{headers:{cookie}}),originalFetch=globalThis.fetch;
+ const toko={symbol:'BTCIDR',lastPrice:'1500000000.00',closeTime:now-1000},gecko={bitcoin:{idr:1490000000,last_updated_at:Math.floor(now/1000)-1}};
+ try {
+  const cases=[
+   {toko,gecko,expected:1500000000,provider:'Tokocrypto',calls:1},
+   {toko:null,gecko,expected:1490000000,provider:'CoinGecko',calls:2},
+   {toko:{...toko,symbol:'BTCUSDT'},gecko,expected:1490000000,provider:'CoinGecko',calls:2},
+   {toko:{...toko,closeTime:now-3600001},gecko,expected:1490000000,provider:'CoinGecko',calls:2},
+   {toko:{...toko,lastPrice:'0'},gecko:{bitcoin:{idr:-1,last_updated_at:Math.floor(now/1000)}},expected:null,provider:null,calls:3},
+   {toko:{...toko,closeTime:now+120000},gecko:{bitcoin:{idr:1490000000,last_updated_at:Math.floor(now/1000)-86401}},expected:null,provider:null,calls:3},
+   {toko:null,gecko:null,coinbase:{data:{base:'BTC',currency:'IDR',amount:'1495000000.123'}},expected:1495000000.123,provider:'Coinbase',calls:3},
+   {toko:null,gecko:null,coinbase:{data:{base:'BTC',currency:'USD',amount:'90000'}},expected:null,provider:null,calls:3}
+  ];
+  for(const [index,item] of cases.entries()){
+   let calls=0;
+   globalThis.fetch=async(url,init)=>{calls++;assert.equal(init.redirect,'manual');assert.match(init.headers['user-agent'],/IkhsanFinance/);const value=url.startsWith('https://www.tokocrypto.site/')?item.toko:url.startsWith('https://api.coingecko.com/')?item.gecko:item.coinbase;assert.ok(url.startsWith('https://www.tokocrypto.site/')||url.startsWith('https://api.coingecko.com/')||url==='https://api.coinbase.com/v2/prices/BTC-IDR/spot');return value?new Response(JSON.stringify(value),{headers:{date:new Date(now).toUTCString()}}):new Response('',{status:429});};
+   const worker=(await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64')+'#quotes-'+index)).default;
+   const quote=await (await worker.fetch(request,env)).json();assert.equal(quote.btcIdr,item.expected);assert.equal(quote.source,item.provider);assert.equal(calls,item.calls);
+   if(item.expected!==null){assert.ok(quote.btcUpdatedAt);assert.equal(quote.timestampKind,item.provider==='Coinbase'?'quoted':'updated');}else assert.equal(quote.unavailable,true);
+   await worker.fetch(request,env);assert.equal(calls,item.calls,'cache avoids repeating upstream requests');
+  }
+ }finally{globalThis.fetch=originalFetch;}
+});

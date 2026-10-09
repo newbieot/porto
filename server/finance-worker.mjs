@@ -29,15 +29,26 @@ function allowedOrigin(request) {
 let marketCache=null;
 async function bitcoinPrice() {
   const now=Date.now();
-  if(marketCache&&now-marketCache.fetchedAt<300000)return marketCache;
-  try {
-    const response=await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=idr&include_last_updated_at=true',{signal:AbortSignal.timeout(9000),headers:{accept:'application/json'}});
-    if(!response.ok)throw new Error('Price unavailable');
-    const btc=(await response.json()).bitcoin;
-    if(!(btc?.idr>0)||!Number.isFinite(btc.idr)||!btc.last_updated_at||now/1000-btc.last_updated_at>86400)throw new Error('Price stale');
-    marketCache={btcIdr:btc.idr,btcUpdatedAt:new Date(btc.last_updated_at*1000).toISOString(),fetchedAt:now,source:'CoinGecko'};
+  if(marketCache&&now-marketCache.fetchedAt<(marketCache.unavailable?30000:300000))return marketCache;
+  // Prefer the exchange holding the asset; use a reference quote if it is unavailable.
+  const sources=[
+    {name:'Tokocrypto',url:'https://www.tokocrypto.site/api/v3/ticker/24hr?symbol=BTCIDR',maxAge:3600000,
+      parse:data=>data.symbol==='BTCIDR'?{price:Number(data.lastPrice),updatedAt:Number(data.closeTime)}:null},
+    {name:'CoinGecko',url:'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=idr&include_last_updated_at=true',maxAge:86400000,
+      parse:data=>({price:data.bitcoin?.idr,updatedAt:data.bitcoin?.last_updated_at*1000})},
+    {name:'Coinbase',url:'https://api.coinbase.com/v2/prices/BTC-IDR/spot',maxAge:300000,timestampKind:'quoted',
+      parse:(data,response)=>data.data?.base==='BTC'&&data.data?.currency==='IDR'?{price:Number(data.data.amount),updatedAt:Date.parse(response.headers.get('date'))}:null}
+  ];
+  for(const source of sources)try {
+    const response=await fetch(source.url,{redirect:'manual',signal:AbortSignal.timeout(6000),headers:{accept:'application/json','user-agent':'IkhsanFinance/1.0 (+https://idx.posnew.com/finance)'}});
+    if(!response.ok)continue;
+    const quote=source.parse(await response.json(),response);
+    if(!quote||!(quote.price>0)||!Number.isFinite(quote.price)||!(quote.updatedAt>0)||!Number.isFinite(quote.updatedAt)||now-quote.updatedAt>source.maxAge||quote.updatedAt-now>60000)continue;
+    marketCache={btcIdr:quote.price,btcUpdatedAt:new Date(quote.updatedAt).toISOString(),fetchedAt:now,source:source.name,timestampKind:source.timestampKind||'updated'};
     return marketCache;
-  }catch{return {btcIdr:null,btcUpdatedAt:null,source:'CoinGecko',unavailable:true};}
+  }catch{/* Try the next fixed public market-data source. */}
+  marketCache={btcIdr:null,btcUpdatedAt:null,fetchedAt:now,source:null,unavailable:true};
+  return marketCache;
 }
 export default {
   async fetch(request,env) {
