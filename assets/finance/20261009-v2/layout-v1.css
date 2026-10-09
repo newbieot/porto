@@ -1,0 +1,5 @@
+/* Keep rupiah totals intact in cards at desktop, tablet and phone widths. */
+.metric-card{container-type:inline-size}
+.metric-card .metric-value{font-size:clamp(15px,9cqw,29px);overflow-wrap:normal;white-space:nowrap}
+@media(max-width:1200px){.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:360px){.metric-grid{grid-template-columns:1fr}}
