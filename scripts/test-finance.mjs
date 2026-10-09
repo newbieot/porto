@@ -27,7 +27,7 @@ test('Finance auth rejects anonymous, cross-origin, tampered, expired and non-ow
  const worker=(await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'))).default;
  const env={FINANCE_SESSION_SECRET:'test-only-secret-which-is-never-used-in-production'};
  const originalFetch=globalThis.fetch;let calls=0;
- globalThis.fetch=async()=>{calls++;return new Response(JSON.stringify({ok:true,user:{email:'ikhsan@posnew.com'}}),{headers:{'content-type':'application/json'}});};
+ globalThis.fetch=async(url,init)=>{calls++;assert.equal(url,'https://mile.posnew.com/api/auth/login');assert.equal(init.redirect,'manual');return new Response(JSON.stringify({ok:true,user:{email:'ikhsan@posnew.com'}}),{headers:{'content-type':'application/json'}});};
  const req=(path,method='GET',body,headers={})=>new Request('https://idx.posnew.com/api/finance/'+path,{method,headers:{...headers},body:body===undefined?undefined:JSON.stringify(body)});
  const loginHeaders={origin:'https://idx.posnew.com','content-type':'application/json','sec-fetch-site':'same-origin'};
  try {
@@ -49,7 +49,7 @@ test('Pages serves private HTML only after the internal backend approves its ses
  const source=await readFile(new URL('../_worker.js',import.meta.url),'utf8');
  const pages=(await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'))).default;
  let authenticated=false,assetCalls=0;
- const env={FINANCE_API:{fetch:async(input,init)=>{const req=new Request(input,init);return new Response(JSON.stringify({email:authenticated?'ikhsan@posnew.com':null}),{status:authenticated?200:401,headers:{'content-type':'application/json'}});}},ASSETS:{fetch:async()=>{assetCalls++;return new Response('<html>static shell</html>');}}};
+ const env={FINANCE_API:{fetch:async(input,init)=>{const req=new Request(input,init);assert.equal(req.redirect,'manual');return new Response(JSON.stringify({email:authenticated?'ikhsan@posnew.com':null}),{status:authenticated?200:401,headers:{'content-type':'application/json'}});}},ASSETS:{fetch:async()=>{assetCalls++;return new Response('<html>static shell</html>');}}};
  const req=path=>new Request('https://idx.posnew.com'+path);
  let response=await pages.fetch(req('/finance'),env);assert.equal(response.status,302);assert.equal(response.headers.get('location'),'/finance-login');assert.equal(assetCalls,0);
  response=await pages.fetch(req('/api/finance/data'),env);assert.equal(response.status,401);assert.equal(response.headers.get('cache-control'),'private, no-store');

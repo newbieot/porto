@@ -13,15 +13,15 @@ export default {
       headers.delete('host');headers.delete('authorization');
       try {
         const response=await financeFetch(new Request(upstream, {method:request.method,headers,
-          body:['GET','HEAD'].includes(request.method)?undefined:request.body,redirect:'error'}),undefined,env);
+          body:['GET','HEAD'].includes(request.method)?undefined:request.body,redirect:'manual'}),undefined,env);
         const result=new Response(response.body,response);
         for(const [key,value] of Object.entries(privateHeaders))result.headers.set(key,value);
         return result;
-      }catch(error){return new Response(JSON.stringify({error:'Layanan keuangan sementara tidak tersedia.',code:env.FINANCE_API?'BACKEND_UNAVAILABLE':'SERVICE_NOT_CONFIGURED',detail:typeof error?.message==='string'?error.message.slice(0,160):'Unknown service error'}),{status:503,headers:{...privateHeaders,'content-type':'application/json'}});}
+      }catch{return new Response(JSON.stringify({error:'Layanan keuangan sementara tidak tersedia.',code:env.FINANCE_API?'BACKEND_UNAVAILABLE':'SERVICE_NOT_CONFIGURED'}),{status:503,headers:{...privateHeaders,'content-type':'application/json'}});}
     }
     if(['/finance','/finance/','/finance.html'].includes(url.pathname)) {
       let response;
-      try {response=await financeFetch(API_ORIGIN+'/api/finance/session',{headers:{cookie:request.headers.get('cookie')||''},redirect:'error',signal:AbortSignal.timeout(12000)},env);}
+      try {response=await financeFetch(API_ORIGIN+'/api/finance/session',{headers:{cookie:request.headers.get('cookie')||''},redirect:'manual',signal:AbortSignal.timeout(12000)},env);}
       catch{return new Response('Layanan sementara tidak tersedia. Coba kembali.',{status:503,headers:privateHeaders});}
       if(response.status===401)return new Response(null,{status:302,headers:{...privateHeaders,location:'/finance-login'}});
       if(response.status!==200)return new Response('Layanan sementara tidak tersedia. Coba kembali.',{status:503,headers:privateHeaders});

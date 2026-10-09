@@ -55,8 +55,9 @@ export default {
       // The fixed server gateway validates the Firebase identity; passwords/tokens are never stored here.
       let response,result;
       try {
-        response=await fetch('https://mile.posnew.com/api/auth/login',{method:'POST',redirect:'error',signal:AbortSignal.timeout(15000),
+        response=await fetch('https://mile.posnew.com/api/auth/login',{method:'POST',redirect:'manual',signal:AbortSignal.timeout(15000),
           headers:{'content-type':'application/json','origin':'https://mile.posnew.com'},body:JSON.stringify({email,password,remember:false})});
+        if(response.status>=300&&response.status<400)throw new Error('Unexpected login gateway redirect');
         result=await response.json();
       }catch{return json({error:'Layanan login sementara tidak tersedia. Coba kembali.'},502);}
       if(!response.ok||result?.user?.email?.toLowerCase()!==OWNER||result.ok!==true)return json({error:response.status===429?'Terlalu banyak percobaan. Tunggu lalu coba lagi.':'Email atau password tidak benar.'},response.status===429?429:401);
