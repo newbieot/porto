@@ -17,7 +17,7 @@ export default {
         const result=new Response(response.body,response);
         for(const [key,value] of Object.entries(privateHeaders))result.headers.set(key,value);
         return result;
-      }catch{return new Response(JSON.stringify({error:'Layanan keuangan sementara tidak tersedia.'}),{status:503,headers:{...privateHeaders,'content-type':'application/json'}});}
+      }catch{return new Response(JSON.stringify({error:'Layanan keuangan sementara tidak tersedia.',code:env.FINANCE_API?'BACKEND_UNAVAILABLE':'SERVICE_NOT_CONFIGURED'}),{status:503,headers:{...privateHeaders,'content-type':'application/json'}});}
     }
     if(['/finance','/finance/','/finance.html'].includes(url.pathname)) {
       let response;
