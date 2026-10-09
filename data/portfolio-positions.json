@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "verifiedAsOf": "2026-10-09",
+  "source": "Owner-supplied Stockbit portfolio and transaction history screenshots",
+  "brokerInvestedTotal": 806013080,
+  "brokerMarketValue": 700140000,
+  "brokerRoundingNote": "The five displayed invested amounts sum to Rp806,013,079; the broker headline rounds to Rp806,013,080.",
+  "holdings": [
+    { "code": "BBCA", "symbol": "BBCA.JK", "name": "Bank Central Asia", "shares": 18900, "invested": 143457363 },
+    { "code": "BBNI", "symbol": "BBNI.JK", "name": "Bank Negara Indonesia", "shares": 62500, "invested": 261807125 },
+    { "code": "BMRI", "symbol": "BMRI.JK", "name": "Bank Mandiri", "shares": 39900, "invested": 178751597 },
+    { "code": "BNGA", "symbol": "BNGA.JK", "name": "CIMB Niaga", "shares": 77700, "invested": 137199489 },
+    { "code": "NISP", "symbol": "NISP.JK", "name": "OCBC Indonesia", "shares": 64100, "invested": 84797505 }
+  ],
+  "transactions": [
+    { "date": "2026-10-02", "type": "BUY", "code": "BMRI", "shares": 700, "price": 4010, "grossAmount": 2807000, "fee": 4211, "netAmount": 2811211 }
+  ],
+  "confirmedDividends": [
+    { "date": "2026-09-16", "code": "BBCA", "eligibleShares": 18900, "perShare": 25, "amount": 472500, "status": "paid" },
+    { "date": "2026-10-02", "code": "BMRI", "eligibleShares": 39200, "perShare": 66, "amount": 2587200, "status": "paid" }
+  ],
+  "recordedCashReturns": {
+    "asOf": "2026-10-09",
+    "dividends": 60580154,
+    "realizedSales": 84579920,
+    "basis": "Existing FINAL net-return cash ledger plus the confirmed September and October dividends. Percentages use current broker invested capital."
+  }
+}

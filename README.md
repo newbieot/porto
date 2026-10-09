@@ -2,6 +2,28 @@
 
 Static website for the portfolio overview and bank fundamentals workspace.
 
+## 2026-10-09 portfolio update
+
+Recorded the 2 October BMRI purchase: 7 lots at Rp4,010, Rp4,211 fee,
+Rp2,811,211 net cost. BMRI now holds 399 lots with Rp178,751,597 invested.
+`data/portfolio-positions.json` is the shared position source for Overview
+invested-capital allocation and the daily valuation generator.
+
+The connected `Data Scrape Web` workbook, `FINAL!E2:F374`, now applies 399 lots
+and Rp806,013,080 total invested capital starting 2 October; older dates retain
+their existing position/capital basis. Confirmed BBCA and BMRI dividends enter
+net return on 16 September and 2 October respectively. At 9 October prices,
+the portfolio reconciles to Rp700,140,000, -13.1354% floating P/L and +4.8742%
+net return under the existing cash-ledger method. This is a gain-to-invested-
+capital ratio, not a cash-flow-neutral time-weighted return.
+
+Overview cash-return totals now follow that recorded ledger and current capital:
+dividends +7.52%, realized sales +10.49%, combined +18.01%. The valuation history
+uses the current basket at historical prices; it is not a record of historical
+positions or realized performance. Run `node --test scripts/portfolio.test.mjs`
+for the brokerage reconciliation and valuation checks. See `DATA_SOURCES.md`
+for exact inputs and the legacy June-dividend limitation.
+
 ## 2026-09-30 update
 
 All five tracked banks now have August 2025/2026 loans and YTD net profit in

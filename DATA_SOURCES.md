@@ -315,6 +315,56 @@ Customer deposits are calculated as current accounts + savings + time deposits.
 
 The July monthly disclosure is bank-individual and does not replace the separate 1H26 asset-quality snapshot.
 
+## Portfolio reconciliation — 9 October 2026
+
+Source: owner-supplied Stockbit portfolio and History screenshots dated
+9 October 2026. The existing Google Sheet is `Data Scrape Web`,
+`https://docs.google.com/spreadsheets/d/1iIvmAQ2PSFUW_YPLZk9tsgKWDZvvNqCPrdLjjn1GnDM/edit`.
+The web consumes its published `FINAL` CSV (gid 247687098).
+
+| Holding | Lots | Invested (Rp) | Price 9 Oct (Rp) | Market value (Rp) |
+| --- | ---: | ---: | ---: | ---: |
+| BBCA | 189 | 143,457,363 | 6,050 | 114,345,000 |
+| BBNI | 625 | 261,807,125 | 3,430 | 214,375,000 |
+| BMRI | 399 | 178,751,597 | 4,040 | 161,196,000 |
+| BNGA | 777 | 137,199,489 | 1,695 | 131,701,500 |
+| NISP | 641 | 84,797,505 | 1,225 | 78,522,500 |
+
+The displayed invested rows sum to Rp806,013,079; the Stockbit headline is
+Rp806,013,080. The Sheet uses that headline so floating P/L reconciles exactly
+to the broker total. Allocation normalizes by the sum of the displayed rows.
+
+BMRI purchase on 2 October: 700 shares × Rp4,010 = Rp2,807,000; recorded fee
+Rp4,211; net cost Rp2,811,211. No extra return is assigned to the deposit or
+the purchase. The broker deposit is Rp2,811,210 (Rp1 below the debit); no cash
+balance is inferred from this rounding difference.
+
+`FINAL!E2:F374` retains the prior 39,200 BMRI shares and Rp803,207,034 capital
+for dates before 2 October, then switches to 39,900 shares and Rp806,013,080.
+The old Sheet capital exceeds the broker-implied pre-purchase headline
+(Rp806,013,080 − Rp2,811,211 = Rp803,201,869) by Rp5,165; historical results are
+not silently rebased to resolve an unexplained legacy discrepancy.
+
+The existing net-return LOOKUP ledger ended at Rp142,100,374 on 25 May.
+Its realized-sales increments on 23 January, 18 February and 6 March total
+Rp84,579,920. Its recorded dividends therefore total Rp57,520,454 before the
+new confirmations. Add Rp472,500 BBCA on 16 September (cumulative cash returns
+Rp142,572,874) and Rp2,587,200 BMRI on 2 October (Rp145,160,074). BMRI's payout
+uses the 392 eligible lots, not the subsequently purchased 399-lot balance.
+Withdrawn dividends remain recorded income; withdrawals are not counted as a
+second loss or gain.
+
+At 9 October: floating = `(700140000 − 806013080) / 806013080 × 100`
+= −13.1354047009%; net = `(700140000 + 145160074 − 806013080) / 806013080 × 100`
+= +4.8742377729%. This preserves the site's existing gain-to-invested-capital
+method, not a time-weighted return. Cash-summary percentages use current capital:
+dividends +7.5160%, sales +10.4936%, combined +18.0096%.
+
+Legacy limitation: the Overview already listed a 26 June BBCA dividend at
++0.05%, but that date/amount was absent from the original Sheet's cash ledger.
+The supplied screenshots do not confirm its exact amount. That historical
+note is retained; no unverified June amount is added to the recorded totals.
+
 ## Daily valuation bands
 
 Updated: 19 August 2026
@@ -323,15 +373,20 @@ Generator: `scripts/update-valuation-data.mjs`
 
 ### Portfolio positions
 
-The portfolio aggregate uses the brokerage position sizes supplied by the owner:
+The portfolio aggregate uses `data/portfolio-positions.json`, verified against
+the brokerage screenshots on 9 October 2026:
 
 - BBCA: 189 lots / 18,900 shares
 - BBNI: 625 lots / 62,500 shares
-- BMRI: 392 lots / 39,200 shares
+- BMRI: 399 lots / 39,900 shares (392 lots before the 2 October purchase)
 - BNGA: 777 lots / 77,700 shares
 - NISP: 641 lots / 64,100 shares
 
-On the initial 18 August 2026 dataset, these positions reconcile exactly to the supplied Rp718,204,000 total market value.
+The previous 392-lot BMRI basket reconciled to Rp718,204,000 on 18 August 2026.
+The current 399-lot basket reconciles to Rp700,140,000 on 9 October 2026.
+The three-year valuation aggregate backcasts the current basket, with daily
+market-value weights; transaction-dated holdings apply to the Overview return
+series in the Google Sheet instead.
 
 ### Corporate Actions & Dividend Distribution (September – October 2026)
 
@@ -348,8 +403,10 @@ On the initial 18 August 2026 dataset, these positions reconcile exactly to the 
   - Payment date: 02 October 2026
   - Estimated portfolio impact: +0.32%
 - **Combined Impact**:
-  - Total upcoming dividend payout: Rp3,059,700
-  - Total portfolio return addition: +0.38% (bringing cumulative dividend return to +7.60% and combined gains to +18.12%)
+  - Both payments confirmed by the 9 October Stockbit History screenshot.
+  - Confirmed dividend payout: Rp3,059,700.
+  - Recorded return totals after reconciliation are documented above; the old
+    +7.60%/+18.12% projections are superseded.
 
 ### Market and fundamental inputs
 

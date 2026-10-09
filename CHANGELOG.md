@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-10-09 — BMRI purchase and portfolio reconciliation
+
+- Updated BMRI from 392 to 399 lots after the 2 October purchase, including
+  Rp4,211 brokerage fee; reconciled current capital and prices to Stockbit.
+- Corrected the live Sheet floating/net formulas with a purchase-date condition,
+  and included the confirmed 16 September BBCA and 2 October BMRI dividends.
+- Replaced fixed Overview allocation with weights calculated from verified
+  invested amounts; displayed position lots and verification date.
+- Updated cash-return summaries from the source ledger, marked dividends paid,
+  and recorded the purchase separately from gains.
+- Shared the position snapshot with the daily valuation generator; refreshed
+  prices through 9 October and clarified the current-basket valuation basis.
+- Added brokerage and harmonic valuation reconciliation tests and a new
+  versioned Overview script to bypass immutable asset caching.
+- Fixed chart-grid overflow on narrow mobile viewports and kept the purchase
+  amount visually separate from positive cash-return percentages.
+
 ## 2026-09-30 — BNGA & NISP August monthly results
 
 - Completed August 2025/2026 loans and YTD profit for BNGA and NISP; all five

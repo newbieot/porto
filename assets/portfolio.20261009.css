@@ -1,0 +1,11 @@
+.dashboard-grid > .panel { min-width: 0; }
+.panel-header > div:first-child { min-width: 0; }
+.allocation-row > div { min-width: 0; }
+.allocation-row strong, .allocation-row > div > span { display: block; }
+#allocation-note { line-height: 1.5; }
+.event-item { grid-template-columns: 92px minmax(0, 1fr) auto; }
+.event-item.is-purchase b { color: var(--text); }
+@media (max-width: 640px) {
+    .performance-panel .panel-header { flex-direction: column; gap: 12px; }
+    .event-item { grid-template-columns: 78px minmax(0, 1fr) auto; }
+}

@@ -1,17 +1,15 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 const DAY_MS = 86_400_000;
 const REPORTING_LAG_DAYS = 90;
 const OUTPUT_PATH = new URL('../data/valuation-bands.json', import.meta.url);
 const USER_AGENT = 'IDX-Portfolio-Monitor/1.0 (+https://idx.posnew.com)';
 
-const holdings = [
-    { code: 'BBCA', symbol: 'BBCA.JK', name: 'Bank Central Asia', shares: 18_900 },
-    { code: 'BBNI', symbol: 'BBNI.JK', name: 'Bank Negara Indonesia', shares: 62_500 },
-    { code: 'BMRI', symbol: 'BMRI.JK', name: 'Bank Mandiri', shares: 39_200 },
-    { code: 'BNGA', symbol: 'BNGA.JK', name: 'CIMB Niaga', shares: 77_700 },
-    { code: 'NISP', symbol: 'NISP.JK', name: 'OCBC Indonesia', shares: 64_100 }
-];
+const positions = JSON.parse(await readFile(new URL('../data/portfolio-positions.json', import.meta.url), 'utf8'));
+const holdings = positions.holdings.map(({ code, symbol, name, shares }) => ({ code, symbol, name, shares }));
+if (holdings.length !== 5 || holdings.some(item => !Number.isInteger(item.shares) || item.shares <= 0 || item.shares % 100 !== 0)) {
+    throw new Error('Invalid portfolio positions: expected five positive whole-lot holdings.');
+}
 
 const fundamentalTypes = [
     'annualNetIncomeCommonStockholders',
@@ -205,10 +203,11 @@ async function main() {
         schemaVersion: 1,
         generatedAt: new Date().toISOString(),
         priceDate: latestDate,
+        positionsAsOf: positions.verifiedAsOf,
         periodStart: cutoffDate,
         methodology: {
             fundamentalBasis: 'Latest available full-year net income and year-end equity, applied 90 days after fiscal year-end to avoid look-ahead bias.',
-            portfolioAggregation: 'Daily market-value weighted harmonic P/E and P/BV, equivalent to total position value divided by attributable earnings or book value.',
+            portfolioAggregation: 'Current holdings valued at each historical daily close, with market-value weighted harmonic P/E and P/BV. This is a current-basket valuation history, not historical portfolio performance.',
             updateCadence: 'Scheduled after the Indonesia Stock Exchange close on trading weekdays.',
             caveat: 'Market data may be delayed. Annual-basis ratios are not trailing-twelve-month ratios.'
         },
