@@ -45,3 +45,16 @@ test('Finance auth rejects anonymous, cross-origin, tampered, expired and non-ow
   assert.equal((await worker.fetch(req('logout','POST',{},loginHeaders),env)).headers.get('set-cookie').includes('Max-Age=0'),true);
  } finally {globalThis.fetch=originalFetch;}
 });
+test('Pages serves private HTML only after the internal backend approves its session',async()=>{
+ const source=await readFile(new URL('../_worker.js',import.meta.url),'utf8');
+ const pages=(await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'))).default;
+ let authenticated=false,assetCalls=0;
+ const env={FINANCE_API:{fetch:async(input,init)=>{const req=new Request(input,init);return new Response(JSON.stringify({email:authenticated?'ikhsan@posnew.com':null}),{status:authenticated?200:401,headers:{'content-type':'application/json'}});}},ASSETS:{fetch:async()=>{assetCalls++;return new Response('<html>static shell</html>');}}};
+ const req=path=>new Request('https://idx.posnew.com'+path);
+ let response=await pages.fetch(req('/finance'),env);assert.equal(response.status,302);assert.equal(response.headers.get('location'),'/finance-login');assert.equal(assetCalls,0);
+ response=await pages.fetch(req('/api/finance/data'),env);assert.equal(response.status,401);assert.equal(response.headers.get('cache-control'),'private, no-store');
+ assert.equal((await pages.fetch(req('/finance-login'),env)).status,200);
+ authenticated=true;response=await pages.fetch(req('/finance.html'),env);assert.equal(response.status,200);assert.equal(response.headers.get('cache-control'),'private, no-store');assert.match(response.headers.get('content-security-policy'),/frame-ancestors 'none'/);
+ assert.equal((await pages.fetch(req('/'),env)).status,200);
+ assert.equal((await pages.fetch(req('/finance'),{ASSETS:env.ASSETS})).status,503);
+});

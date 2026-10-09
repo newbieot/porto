@@ -40,7 +40,7 @@ if(args.includes('--deploy')) {
   if(!oauth)throw new Error('Cloudflare login belum tersedia.');
   let secret;try {secret=await readFile(join(privateDir,'session-secret'),'utf8');}catch {secret=randomBytes(48).toString('base64url');await writeFile(join(privateDir,'session-secret'),secret);}
   const form=new FormData();
-  form.set('metadata',new Blob([JSON.stringify({main_module:'index.mjs',compatibility_date:'2026-10-09',bindings:[{type:'secret_text',name:'FINANCE_SESSION_SECRET',text:secret.trim()}]})],{type:'application/json'}));
+  form.set('metadata',new Blob([JSON.stringify({main_module:'index.mjs',compatibility_date:'2026-10-09',compatibility_flags:['global_fetch_strictly_public'],bindings:[{type:'secret_text',name:'FINANCE_SESSION_SECRET',text:secret.trim()}]})],{type:'application/json'}));
   form.set('index.mjs',new Blob([await readFile(join(root,'server/finance-worker.mjs'),'utf8')],{type:'application/javascript+module'}),'index.mjs');
   form.set('finance-private.mjs',new Blob(['export default '+text+';'],{type:'application/javascript+module'}),'finance-private.mjs');
   const endpoint='https://api.cloudflare.com/client/v4/accounts/01505ab3bea2f372002e420a5887adf4/workers/scripts/porto-finance-api';

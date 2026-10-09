@@ -6,8 +6,8 @@ theme preference is stored in browser local storage.
 
 ## Access and deployment
 
-Cloudflare Pages `_worker.js` proxies `/api/finance/*` to the separate
-`porto-finance-api` Worker and verifies the session before serving the dashboard
+Cloudflare Pages `_worker.js` proxies `/api/finance/*` through the internal
+`FINANCE_API` service binding to `porto-finance-api` and verifies the session before serving the dashboard
 HTML. The backend validates Email/Password identity through the existing
 TemplateMile Firebase authority (project `mile-posnew-com`). Both the login
 response and every session require the sole allowed email `ikhsan@posnew.com`.
@@ -17,7 +17,9 @@ Sessions are HMAC signed, expire after 12 hours, and use a Secure, HttpOnly,
 SameSite=Strict host-only cookie. Login and logout enforce the canonical site
 Origin. Private responses are `no-store`; no private API supports public CORS.
 There are no Firebase credentials or financial exports in this repository.
-The TemplateMile gateway must remain available for new logins.
+The TemplateMile gateway must remain available for new logins. `wrangler.toml`
+declares the Pages binding. The backend enables `global_fetch_strictly_public`
+for its fixed HTTPS request to the existing login gateway.
 
 The private snapshot is injected as a server module when deploying the Worker.
 It is not an asset URL. `.finance/` stores source positions, reconciled snapshots

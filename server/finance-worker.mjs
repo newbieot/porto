@@ -1,5 +1,6 @@
 // Deployed separately with a private JSON module; never publish that module to Git.
 import snapshot from './finance-private.mjs';
+const snapshotBody=JSON.stringify(snapshot);
 const OWNER='ikhsan@posnew.com';
 const COOKIE='__Host-porto_finance';
 const encoder=new TextEncoder(), decoder=new TextDecoder();
@@ -72,7 +73,7 @@ export default {
     if(!user)return json({error:'Silakan masuk untuk melanjutkan.'},401);
     if(request.method!=='GET')return json({error:'Metode tidak diizinkan.'},405);
     if(path==='/api/finance/session')return json({email:user.email,expiresAt:new Date(user.exp*1000).toISOString()});
-    if(path==='/api/finance/data')return json(snapshot);
+    if(path==='/api/finance/data')return new Response(snapshotBody,{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','cloudflare-cdn-cache-control':'no-store','x-content-type-options':'nosniff','x-frame-options':'DENY'}});
     if(path==='/api/finance/bitcoin')return json(await bitcoinPrice());
     return json({error:'Halaman tidak ditemukan.'},404);
   }

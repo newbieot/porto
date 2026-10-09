@@ -1,0 +1,8 @@
+name = "porto"
+pages_build_output_dir = "."
+compatibility_date = "2026-10-09"
+send_metrics = false
+
+[[services]]
+binding = "FINANCE_API"
+service = "porto-finance-api"
