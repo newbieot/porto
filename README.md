@@ -2,6 +2,12 @@
 
 Static website for the portfolio overview and bank fundamentals workspace.
 
+The private personal finance dashboard is available at `/finance`, with owner-only
+Firebase-backed login, a dark default theme, responsive charts, historical cash
+flow, period comparisons and cost/market net worth. Its financial dataset stays
+in a separate private Worker and is excluded from Git. See [FINANCE.md](FINANCE.md)
+for authentication, calculation definitions and monthly CSV update instructions.
+
 ## 2026-10-09 portfolio update
 
 Recorded the 2 October BMRI purchase: 7 lots at Rp4,010, Rp4,211 fee,

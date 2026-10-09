@@ -1,0 +1,7 @@
+.finance/
+.dev.vars
+.env
+.env.*
+node_modules/
+wrangler-state/
+
