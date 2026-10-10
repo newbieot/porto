@@ -2,6 +2,12 @@ import assert from 'node:assert/strict';
 import {test} from 'node:test';
 import {readFile} from 'node:fs/promises';
 import * as E from '../assets/finance/20261009/engine.mjs';
+async function workerSource(snapshot={}) {
+ return (await readFile(new URL('../server/finance-worker.mjs',import.meta.url),'utf8'))
+ .replace("import snapshot from './finance-private.mjs';",`const snapshot=${JSON.stringify(snapshot)};`)
+ .replace("import {bootstrap} from './finance-private.mjs';","const bootstrap={};")
+ .replace("'./finance-store.mjs'",JSON.stringify(new URL('../server/finance-store.mjs',import.meta.url).href));
+}
 
 const tx=(date,amount,category='Salary',excluded=false,account='Cash',note='')=>({id:date+amount,date,amount,category,excluded,account,note});
 test('CSV preserves quoted notes, repeated content and signed IDR values',()=>{
@@ -23,7 +29,7 @@ test('Net worth replaces investment capital with market values and never fabrica
  const history=E.historicalBalances(data,'2026-02-01','2026-03-09');assert.deepEqual(history.map(x=>x.amount),[350,350]);assert.equal(history.at(-1).date,'2026-03-09');
 });
 test('Finance auth rejects anonymous, cross-origin, tampered, expired and non-owner identities',async()=>{
- const code=(await readFile(new URL('../server/finance-worker.mjs',import.meta.url),'utf8')).replace("import snapshot from './finance-private.mjs';","const snapshot={schemaVersion:1,privateFixture:'owner-only'};");
+ const code=await workerSource({schemaVersion:1,privateFixture:'owner-only'});
  const worker=(await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'))).default;
  const env={FINANCE_SESSION_SECRET:'test-only-secret-which-is-never-used-in-production'};
  const originalFetch=globalThis.fetch;let calls=0;
@@ -32,11 +38,16 @@ test('Finance auth rejects anonymous, cross-origin, tampered, expired and non-ow
  const loginHeaders={origin:'https://idx.posnew.com','content-type':'application/json','sec-fetch-site':'same-origin'};
  try {
   let res=await worker.fetch(req('data'),env);assert.equal(res.status,401);assert.ok(!(await res.text()).includes('owner-only'));
+  for(const route of ['state','backup','preview','import','config','rollback','snapshot'])assert.equal((await worker.fetch(req(route),env)).status,401);
   assert.equal((await worker.fetch(req('login','POST',{email:'ikhsan@posnew.com',password:'12345678'},{origin:'https://evil.example'}),env)).status,403);
   assert.equal((await worker.fetch(req('login','POST',null,loginHeaders),env)).status,400);
   assert.equal((await worker.fetch(req('login','POST',{email:'other@example.com',password:'12345678'},loginHeaders),env)).status,401);assert.equal(calls,0);
   res=await worker.fetch(req('login','POST',{email:'ikhsan@posnew.com',password:'12345678'},loginHeaders),env);assert.equal(res.status,200);const cookie=res.headers.get('set-cookie').split(';')[0];assert.match(res.headers.get('set-cookie'),/HttpOnly; Secure; SameSite=Strict/);
   res=await worker.fetch(req('data','GET',undefined,{cookie}),env);assert.equal(res.status,200);assert.equal((await res.json()).privateFixture,'owner-only');assert.equal(res.headers.get('cache-control'),'private, no-store');
+  const dbEnv={...env,FINANCE_DB:{idFromName:x=>x,get:()=>({fetch:async()=>new Response('{"fixture":true}',{headers:{'content-type':'application/json'}})})}};
+  assert.equal((await worker.fetch(req('state','GET',undefined,{cookie}),dbEnv)).status,200);
+  assert.equal((await worker.fetch(req('config','POST',{}, {cookie,origin:'https://evil.example','content-type':'application/json'}),dbEnv)).status,403);
+  assert.equal((await worker.fetch(req('config','POST',{}, {cookie,...loginHeaders}),dbEnv)).status,200);
   assert.equal((await worker.fetch(req('data','GET',undefined,{cookie:cookie+'bad'}),env)).status,401);
   const signed=async payload=>{const body=Buffer.from(JSON.stringify(payload)).toString('base64url');const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(env.FINANCE_SESSION_SECRET),{name:'HMAC',hash:'SHA-256'},false,['sign']);return '__Host-porto_finance='+body+'.'+Buffer.from(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(body))).toString('base64url');};
   const now=Math.floor(Date.now()/1000);
@@ -59,7 +70,7 @@ test('Pages serves private HTML only after the internal backend approves its ses
  assert.equal((await pages.fetch(req('/finance'),{ASSETS:env.ASSETS})).status,503);
 });
 test('Bitcoin quotes use the actual exchange, fall back safely and reject invalid or stale prices',async()=>{
- const source=(await readFile(new URL('../server/finance-worker.mjs',import.meta.url),'utf8')).replace("import snapshot from './finance-private.mjs';","const snapshot={};");
+ const source=await workerSource();
  const env={FINANCE_SESSION_SECRET:'price-fixture-only'},now=Date.now();
  const body=Buffer.from(JSON.stringify({email:'ikhsan@posnew.com',iat:Math.floor(now/1000)-1,exp:Math.floor(now/1000)+100})).toString('base64url');
  const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(env.FINANCE_SESSION_SECRET),{name:'HMAC',hash:'SHA-256'},false,['sign']);

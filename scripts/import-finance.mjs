@@ -4,6 +4,7 @@ import {resolve,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {parseCSV,balances,role} from '../assets/finance/20261009/engine.mjs';
 const args=process.argv.slice(2);
+if(args.includes('--deploy'))throw new Error('Legacy deploy is disabled for finance v2. Use the reviewed private Worker package; production deployment requires owner approval.');
 const option=name=>args[args.indexOf(name)+1];
 if(!args.includes('--csv')||!args.includes('--position'))throw new Error('Gunakan --csv <full-history.csv> --position <private-position.json> [--deploy].');
 const root=fileURLToPath(new URL('..',import.meta.url));

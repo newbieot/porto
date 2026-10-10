@@ -1,102 +1,41 @@
-# Private personal finance dashboard
+# Private finance dashboard
 
-The canonical URL is `https://idx.posnew.com/finance`; anonymous visitors are
-redirected to `/finance-login`. Dark mode is the initial preference. Only the
-theme preference is stored in browser local storage.
+The canonical URL is https://idx.posnew.com/finance. The dashboard uses dark mode by default, an optional light theme, and a responsive layout. Only the owner account is allowed through the existing TemplateMile Firebase gateway. Server-side session validation protects both HTML and every private API. Sessions remain Secure, HttpOnly, SameSite=Strict and signed; private responses are no-store.
 
-## Access and deployment
+## Data and monthly updates
 
-Cloudflare Pages `_worker.js` proxies `/api/finance/*` through the internal
-`FINANCE_API` service binding to `porto-finance-api` and verifies the session before serving the dashboard
-HTML. The backend validates Email/Password identity through the existing
-TemplateMile Firebase authority (project `mile-posnew-com`). Both the login
-response and every session require the sole allowed email `ikhsan@posnew.com`.
-The fixed server gateway is `https://mile.posnew.com/api/auth/login`.
+Finance v2 uses a SQLite Durable Object (`FINANCE_DB`, class `FinanceStore`). Source CSV archives, normalized transactions, settings versions, snapshots and audit history are private. Initialization seeds a new database only; redeploying does not overwrite an existing ledger.
 
-Sessions are HMAC signed, expire after 12 hours, and use a Secure, HttpOnly,
-SameSite=Strict host-only cookie. Login and logout enforce the canonical site
-Origin. Private responses are `no-store`; no private API supports public CORS.
-There are no Firebase credentials or financial exports in this repository.
-The TemplateMile gateway must remain available for new logins. `wrangler.toml`
-declares the Pages binding. The backend enables `global_fetch_strictly_public`
-for its fixed HTTPS request to the existing login gateway.
+Use Settings & import with a full-history Money Lover CSV. Preview before commit. Sequential export row IDs are not permanent transaction identifiers. Fingerprints include occurrence counts; importing the same file is a no-op. Report-only replacement can preserve previously excluded support rows. Truncated history and conflicting incremental corrections are rejected. Import commits require the preview token and current revision. Prior imports and settings can be restored without deleting their archives. Download a private backup before major changes.
 
-The private snapshot is injected as a server module when deploying the Worker.
-It is not an asset URL. `.finance/` stores source positions, reconciled snapshots
-and the session secret locally and is ignored by Git. Do not force-add these
-files or deploy the local preview server. The public repository contains only
-UI, generic import code, metric definitions and synthetic test fixtures.
+Keep all private source data, bootstrap modules, session secrets, local databases and development handoffs outside public Git. `.finance/` is ignored. Never deploy the local preview server or publish the repository working directory as a raw upload.
 
-## Monthly import
+## Reports
 
-Obtain an export of **all periods** from Money Lover, plus an updated position
-snapshot if debt, receivables or BTC quantity changed. Update stock holdings in
-the existing portfolio source when necessary. Keep the original CSV outside
-the repository. The ignored position file has this shape:
+Income, expense and net income use accounting classifications. Cash flow uses movements in configured cash accounts. Internal transfers, debt principal, investments, prepaid payments and noncash accruals remain distinct. Net Liquidity includes configured liquid accounts less financial obligations and custody funds; investments, prepaid rent and deferred rental income are excluded. Net worth offers cost and market bases; missing market prices remain unavailable.
 
-```json
-{
-  "asOf": "YYYY-MM-DD",
-  "btcQuantity": 0,
-  "payables": [{"name":"…", "amount":0, "originalAmount":null}],
-  "receivables": [{"name":"…", "amount":0, "originalAmount":null}]
-}
-```
+Weekly, monthly, quarterly and yearly line charts, monthly grouped/stacked bars, date/account filters, matching prior-year comparisons, transaction drill-down, budgets, challenge tiers and a retirement roadmap are available. Projections use editable assumptions and effective monthly compounding. They are scenarios, not predictions. Historical net worth requires actual dated snapshots. Final month-end closure requires reconciliation and ledger coverage; incomplete data remains provisional.
 
-Run with the available Node runtime:
+## Local verification
+
+Requires Node 24 (built-in SQLite). No npm install or frontend compilation is needed.
 
 ```powershell
-node scripts/import-finance.mjs --csv "C:/path/to/full-history.csv" --position ".finance/position.json"
-node --test scripts/test-finance.mjs
-node scripts/import-finance.mjs --csv "C:/path/to/full-history.csv" --position ".finance/position.json" --deploy
+node --test scripts/test-finance.mjs scripts/finance-core.test.mjs
+node --check assets/finance/20261010/app.mjs
+node scripts/preview-finance.mjs
 ```
 
-The deploy step uses the existing Cloudflare Wrangler OAuth login from its
-standard local configuration; it does not print credentials. Refresh that login
-with `wrangler whoami` if its token expires; use `wrangler login` only if refresh fails. The Worker name and account are fixed in the
-import script. Import replaces the snapshot from the full export rather than
-appending it: IDs are only trusted for uniqueness within an individual export.
-Exports that truncate the previously available date coverage are rejected.
-Repeated content with distinct IDs is retained for review, not silently deleted.
-The same session secret is retained between monthly deployments.
+Preview listens only on 127.0.0.1:8765. Open the private entry URL saved in `.finance/preview-url`; do not share that key. The preview uses a separate local database and local access session, not a production Firebase login test. Private bootstrap must already exist locally.
 
-For UI changes, bump the asset directory version before changing files already
-published with the immutable asset cache rule, run tests, then commit and push
-to the existing Pages-connected branch. A data-only monthly import requires
-only the private Worker deployment, not a commit containing financial data.
+## Release
 
-## Metric rules
+```powershell
+node scripts/package-finance.mjs
+wrangler deploy --dry-run --config .finance/worker-package/wrangler.json
+wrangler deploy --config .finance/worker-package/wrangler.json --keep-vars
+```
 
-- Wallet balances include every signed transaction through the export cutoff,
-  regardless of report flags. The dashboard reconciles these to current positions.
-- Income and expense use `Exclude Report=False`. Internal transfers, opening
-  balances, withdrawals and debt/loan principal movements are separate.
-  Adjust-balance entries are included by default to follow Money Lover and can
-  be removed from the report with a visible filter.
-- Saving rate is `(income − expense) / income`. Zero-income ratios and
-  percentage growth with zero or negative bases are unavailable, not infinity.
-- YoY comparisons shift the entire selected range by one and two years.
-  Leap-day cutoffs clamp to February's last day. Partial months use matching
-  days for MoM; uncovered comparison periods stay null.
-- Net worth is assets plus outstanding receivables minus outstanding payables.
-  Recorded capital and market value are separate choices. Stocks use the
-  existing portfolio price snapshot. BTC uses confirmed quantity times the
-  latest BTC/IDR trade price from Tokocrypto (CoinGecko / Coinbase as reference fallbacks).
-  The provider and source timestamp are shown; invalid, future or stale quotes
-  are rejected, and successful quotes are cached for five minutes. Coinbase
-  timestamps refer to quote retrieval, not a claimed last-trade timestamp.
-  A missing market price never silently
-  becomes the cost balance.
-- Historical balances are reconstructed book asset balances, not historical
-  market net worth: historical debt and investment quantities are not assumed.
-- The scenario uses the last three complete months, an editable expense cut
-  and horizon, with fixed investment prices/debt balances. It is a cash-flow
-  sensitivity calculation, not a return or income forecast. The narrower income
-  option is a category proxy (salary, interest, rent), not a guarantee of recurrence.
-- Cash coverage excludes deposits and investment assets. The editable reserve
-  target is informed by the [OJK household planning guide](https://sikapiuangmu.ojk.go.id/FrontEnd/images/FileDownload/17_Combined%20Buku%20Perencanaan%20IRT.pdf).
-  Debt rates and due dates are unavailable, so the dashboard does not invent a
-  repayment priority or repayment timeline.
+Publishing requires owner approval. Preserve the existing `FINANCE_SESSION_SECRET`. Deploy the backend and verify authenticated state before publishing the frontend. Cloudflare Pages deploys pushes to the connected main branch; `_worker.js` uses the internal `FINANCE_API` service binding. The old importer `--deploy` path is intentionally disabled. The generated package and bootstrap remain ignored and must never be committed.
 
-Transactions are searchable, paginated and inspectable. CSV exports respect
-the visible period/account/search filters and escape spreadsheet formula text.
+After release, verify owner access, anonymous rejection, state initialization and static asset version. Assets dated 20261010 must be version-bumped for later changes after publication because the site uses immutable asset caching.

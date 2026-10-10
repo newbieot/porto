@@ -1,5 +1,8 @@
 // Deployed separately with a private JSON module; never publish that module to Git.
 import snapshot from './finance-private.mjs';
+import {bootstrap} from './finance-private.mjs';
+import {FinanceDatabase} from './finance-store.mjs';
+export class FinanceStore extends FinanceDatabase {constructor(ctx,env){super(ctx,bootstrap);}}
 const snapshotBody=JSON.stringify(snapshot);
 const OWNER='ikhsan@posnew.com';
 const COOKIE='__Host-porto_finance';
@@ -83,6 +86,20 @@ export default {
     }
     const user=await session(request,env);
     if(!user)return json({error:'Silakan masuk untuk melanjutkan.'},401);
+    if(['/api/finance/state','/api/finance/backup','/api/finance/preview','/api/finance/import','/api/finance/config','/api/finance/restore-config','/api/finance/rollback','/api/finance/snapshot'].includes(path)) {
+      if(!env.FINANCE_DB)return json({error:'Penyimpanan privat belum tersedia.'},503);
+      const reads=['/api/finance/state','/api/finance/backup'];
+      if(reads.includes(path)?request.method!=='GET':request.method!=='POST')return json({error:'Metode tidak diizinkan.'},405);
+      if(request.method==='POST'){
+        if(!allowedOrigin(request))return json({error:'Permintaan lintas situs ditolak.'},403);
+        if(!request.headers.get('content-type')?.startsWith('application/json'))return json({error:'Gunakan JSON.'},415);
+        if(Number(request.headers.get('content-length'))>20000000)return json({error:'Berkas terlalu besar.'},413);
+        const body=await request.text();if(encoder.encode(body).length>20000000)return json({error:'Berkas terlalu besar.'},413);
+        request=new Request(request,{body});
+      }
+      const id=env.FINANCE_DB.idFromName('owner-ledger-v2');
+      return env.FINANCE_DB.get(id).fetch(request);
+    }
     if(request.method!=='GET')return json({error:'Metode tidak diizinkan.'},405);
     if(path==='/api/finance/session')return json({email:user.email,expiresAt:new Date(user.exp*1000).toISOString()});
     if(path==='/api/finance/data')return new Response(snapshotBody,{headers:{'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','cloudflare-cdn-cache-control':'no-store','x-content-type-options':'nosniff','x-frame-options':'DENY'}});
