@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-09T12:27:16.831Z",
-  "priceDate": "2026-10-09",
+  "generatedAt": "2026-10-09T18:20:43.576Z",
+  "priceDate": "2026-10-08",
   "positionsAsOf": "2026-10-09",
-  "periodStart": "2023-10-09",
+  "periodStart": "2023-10-08",
   "methodology": {
     "fundamentalBasis": "Latest available full-year net income and year-end equity, applied 90 days after fiscal year-end to avoid look-ahead bias.",
     "portfolioAggregation": "Current holdings valued at each historical daily close, with market-value weighted harmonic P/E and P/BV. This is a current-basket valuation history, not historical portfolio performance.",
@@ -27,11 +27,11 @@
       "symbol": "BBCA.JK",
       "name": "Bank Central Asia",
       "shares": 18900,
-      "currentPrice": 6050,
-      "marketValue": 114345000,
-      "weight": 0.163317,
-      "pe": 12.9591,
-      "pbv": 2.6441,
+      "currentPrice": 6000,
+      "marketValue": 113400000,
+      "weight": 0.162881,
+      "pe": 12.852,
+      "pbv": 2.6223,
       "fiscalYearBasis": 2025
     },
     {
@@ -39,11 +39,11 @@
       "symbol": "BBNI.JK",
       "name": "Bank Negara Indonesia",
       "shares": 62500,
-      "currentPrice": 3430,
-      "marketValue": 214375000,
-      "weight": 0.306189,
-      "pe": 6.3835,
-      "pbv": 0.7441,
+      "currentPrice": 3410,
+      "marketValue": 213125000,
+      "weight": 0.30612,
+      "pe": 6.3463,
+      "pbv": 0.7398,
       "fiscalYearBasis": 2025
     },
     {
@@ -51,11 +51,11 @@
       "symbol": "BMRI.JK",
       "name": "Bank Mandiri",
       "shares": 39900,
-      "currentPrice": 4040,
-      "marketValue": 161196000,
-      "weight": 0.230234,
-      "pe": 6.6972,
-      "pbv": 1.2836,
+      "currentPrice": 4000,
+      "marketValue": 159600000,
+      "weight": 0.22924,
+      "pe": 6.6309,
+      "pbv": 1.2709,
       "fiscalYearBasis": 2025
     },
     {
@@ -63,11 +63,11 @@
       "symbol": "BNGA.JK",
       "name": "CIMB Niaga",
       "shares": 77700,
-      "currentPrice": 1695,
-      "marketValue": 131701500,
-      "weight": 0.188107,
-      "pe": 6.1968,
-      "pbv": 0.7355,
+      "currentPrice": 1685,
+      "marketValue": 130924500,
+      "weight": 0.188052,
+      "pe": 6.1602,
+      "pbv": 0.7311,
       "fiscalYearBasis": 2025
     },
     {
@@ -75,11 +75,11 @@
       "symbol": "NISP.JK",
       "name": "OCBC Indonesia",
       "shares": 64100,
-      "currentPrice": 1225,
-      "marketValue": 78522500,
-      "weight": 0.112153,
-      "pe": 5.5577,
-      "pbv": 0.6409,
+      "currentPrice": 1235,
+      "marketValue": 79163500,
+      "weight": 0.113706,
+      "pe": 5.6031,
+      "pbv": 0.6461,
       "fiscalYearBasis": 2025
     }
   ],
@@ -4365,12 +4365,6 @@
           696213000,
           6.8352,
           0.9179
-        ],
-        [
-          "2026-10-09",
-          700140000,
-          6.8737,
-          0.923
         ]
       ]
     },
@@ -9368,13 +9362,6 @@
           6000,
           12.852,
           2.6223,
-          2025
-        ],
-        [
-          "2026-10-09",
-          6050,
-          12.9591,
-          2.6441,
           2025
         ]
       ],
@@ -14404,13 +14391,6 @@
           6.3463,
           0.7398,
           2025
-        ],
-        [
-          "2026-10-09",
-          3430,
-          6.3835,
-          0.7441,
-          2025
         ]
       ],
       "fundamentals": [
@@ -19438,13 +19418,6 @@
           4000,
           6.6309,
           1.2709,
-          2025
-        ],
-        [
-          "2026-10-09",
-          4040,
-          6.6972,
-          1.2836,
           2025
         ]
       ],
@@ -24474,13 +24447,6 @@
           6.1602,
           0.7311,
           2025
-        ],
-        [
-          "2026-10-09",
-          1695,
-          6.1968,
-          0.7355,
-          2025
         ]
       ],
       "fundamentals": [
@@ -29508,13 +29474,6 @@
           1235,
           5.6031,
           0.6461,
-          2025
-        ],
-        [
-          "2026-10-09",
-          1225,
-          5.5577,
-          0.6409,
           2025
         ]
       ],
