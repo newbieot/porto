@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-26 — BMRI Q3 / September 2026
+
+- Added September bank-only loan and YTD profit comparisons to charts and matrix; missing other-bank September observations remain unavailable.
+- Replaced the BMRI spotlight with 9M results, funding mix, reported ratios, accounting details and monitoring priorities.
+- Distinguished bank-only from consolidated income, total from attributable profit, and 9M EPS from the unchanged annual valuation basis.
+- Disclosed BSI deconsolidation and retained June LAR/coverage dates rather than substituting KKR or mixing periods.
+- Added source-backed JSON, source documentation, regression tests and a new immutable-cache asset version.
+
 ## 2026-10-09 — BMRI purchase and portfolio reconciliation
 
 - Updated BMRI from 392 to 399 lots after the 2 October purchase, including

@@ -1,3 +1,35 @@
+## BMRI Q3 / 9M2026 update — 26 October 2026
+
+Sources: owner-supplied `Publikasi Q3 2026_Indonesia Final (1).pdf` and `Mandiri_LapKeu_Q3-2025_Ind_Preview.pdf`, both page 1. Official 2026 source: https://www.bankmandiri.co.id/documents/38265486/0/Publikasi%2BQ3%2B2026_Indonesia%2BFinal%2B(1).pdf/46d48b57-3621-5abb-c47e-4f78add18ee3?t=1792770041447 . Official archive: https://www.bankmandiri.co.id/web/ir/quarterly-financials . Exact extracted inputs and scope notes: `data/bmri-q3-2026.json`.
+
+Statements use million IDR; divide by 1,000,000 for trillion IDR. Income is cumulative January–September (9M), not standalone Q3. The 2026 publication compares balance sheets with December 2025; September 2025 balance-sheet comparators are taken from the supplied 2025 publication. Prior income figures in the latest publication match the supplied prior publication. September month-only profit is derived from compatible August YTD values already in the website.
+
+Bank individual / Sep2026 vs Sep2025:
+
+| Metric | 2026 (million IDR) | 2025 (million IDR) |
+|---|---:|---:|
+| Net profit, 9M | 41,968,253 | 34,795,956 |
+| Loans | 1,605,839,379 | 1,384,539,056 |
+| Assets | 2,404,110,078 | 2,001,758,851 |
+| Equity | 260,229,768 | 251,718,313 |
+| NII, 9M | 61,199,751 | 57,627,515 |
+| Fees/admin, 9M | 17,783,512 | 14,685,815 |
+| Impairment expense, 9M | 6,337,047 | 4,929,733 |
+| Giro | 678,604,995 | 564,522,570 |
+| Savings | 579,562,863 | 522,760,746 |
+| Time deposits | 492,018,495 | 399,651,947 |
+| Derived DPK | 1,750,186,353 | 1,486,935,263 |
+
+Derived CASA = (giro + savings) / DPK: 71.887651% vs73.122438%, -1.234787 percentage points. Derived loans/DPK =91.752480% vs93.113607%, distinct from published regulatory LDR91.20% vs92.55%. Do not conflate these definitions.
+
+Reported bank-only ratios, 2026 vs2025: gross NPL0.98/1.03%, net NPL0.38/0.40%, KKR6.93/6.57%, ROA2.99/2.93%, ROE23.62/21.24%, NIM4.21/4.59%, BOPO59.29/63.48%, CIR36.08/43.05%, CAR18.39/19.04%. These are publication ratios, not locally recomputed approximations. NIM declined38bps; KKR increased36bps. KKR is not relabelled LAR. Previously verified June LAR and coverage remain explicitly dated June; the old same-period coverage formula remains historical.
+
+Consolidated attributable profit45,534,001 vs37,730,142 (+20.6834%); total net profit47,109,523 vs41,372,941; EPS488.13 vs404.25 IDR is 9M EPS. Consolidated attributable equity294,041,482 vs281,631,008. **Publication note4: BSI deconsolidated from1February2026.** Consolidated assets, credit, deposits and NII are affected by the changed consolidation perimeter, so their differences are not labelled organic growth/decline. Bank-only charts never use consolidated headline earnings.
+
+Historical annual-basis valuation bands, personal positions and transactions are unchanged by this reporting update. Nine-month EPS is not a replacement for FY EPS or TTM earnings. Other four banks remain August; September chart/table cells are null/unavailable, never zero.
+
+---
+
 # Data Sources — Valuation & Asset Quality
 
 ## BNGA monthly update — August 2026

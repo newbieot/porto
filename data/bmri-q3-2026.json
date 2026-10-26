@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "code": "BMRI",
+  "currency": "IDR",
+  "unit": "million",
+  "periodEnd": "2026-09-30",
+  "profitPeriod": "2026-01-01/2026-09-30",
+  "comparativeEnd": "2025-09-30",
+  "reviewedOn": "2026-10-26",
+  "sources": [
+    {
+      "title": "Bank Mandiri Q3 2026 newspaper publication",
+      "url": "https://www.bankmandiri.co.id/documents/38265486/0/Publikasi%2BQ3%2B2026_Indonesia%2BFinal%2B(1).pdf/46d48b57-3621-5abb-c47e-4f78add18ee3?t=1792770041447",
+      "page": 1
+    },
+    {
+      "title": "Bank Mandiri Q3 2025 newspaper publication",
+      "url": "https://www.bankmandiri.co.id/web/ir/quarterly-financials",
+      "file": "Mandiri_LapKeu_Q3-2025_Ind_Preview.pdf",
+      "page": 1
+    }
+  ],
+  "bankOnly": {
+    "current": {
+      "netProfit": 41968253,
+      "loans": 1605839379,
+      "assets": 2404110078,
+      "equity": 260229768,
+      "giro": 678604995,
+      "savings": 579562863,
+      "timeDeposits": 492018495,
+      "nii": 61199751,
+      "interestIncome": 97270028,
+      "interestExpense": 36070277,
+      "fees": 17783512,
+      "impairment": 6337047,
+      "staff": 13255368,
+      "promotion": 676795,
+      "otherExpenses": 18748113,
+      "loanAllowance": 38140360,
+      "comprehensiveIncome": 39234841,
+      "eps": 449.91,
+      "deposits": 1750186353,
+      "casa": 71.88765104032325,
+      "derivedLdr": 91.75247974293855,
+      "selectedOpex": 32680276,
+      "operatingProfit": 51568940,
+      "profitBeforeTax": 51565274
+    },
+    "previous": {
+      "netProfit": 34795956,
+      "loans": 1384539056,
+      "assets": 2001758851,
+      "equity": 251718313,
+      "giro": 564522570,
+      "savings": 522760746,
+      "timeDeposits": 399651947,
+      "nii": 57627515,
+      "interestIncome": 90836418,
+      "interestExpense": 33208903,
+      "fees": 14685815,
+      "impairment": 4929733,
+      "staff": 13700524,
+      "promotion": 2539436,
+      "otherExpenses": 19674724,
+      "eps": 372.81,
+      "deposits": 1486935263,
+      "casa": 73.1224380143038,
+      "derivedLdr": 93.11360692371984,
+      "selectedOpex": 35914684,
+      "operatingProfit": 42606169,
+      "profitBeforeTax": 42718434
+    }
+  },
+  "consolidated": {
+    "current": {
+      "netProfit": 47109523,
+      "attributableProfit": 45534001,
+      "eps": 488.13,
+      "assets": 2588298318,
+      "loans": 1645272499,
+      "attributableEquity": 294041482,
+      "nii": 69811612,
+      "fees": 20027303,
+      "impairment": 8471171,
+      "deposits": 1804610083,
+      "casa": 70.56571782437503,
+      "operatingProfit": 57848177,
+      "profitBeforeTax": 57832621,
+      "giro": 679138558,
+      "savings": 594297501,
+      "timeDeposits": 531174024
+    },
+    "previous": {
+      "netProfit": 41372941,
+      "attributableProfit": 37730142,
+      "eps": 404.25,
+      "assets": 2563360149,
+      "loans": 1720252673,
+      "attributableEquity": 281631008,
+      "nii": 78258615,
+      "fees": 19206184,
+      "impairment": 9171759,
+      "deposits": 1884189346,
+      "casa": 69.25722437451888,
+      "operatingProfit": 51433729,
+      "profitBeforeTax": 51547203,
+      "giro": 623724710,
+      "savings": 681212533,
+      "timeDeposits": 579252103
+    }
+  },
+  "reportedBankRatios": {
+    "unit": "percent",
+    "current": {
+      "nplGross": 0.98,
+      "nplNet": 0.38,
+      "kkr": 6.93,
+      "roa": 2.99,
+      "roe": 23.62,
+      "nim": 4.21,
+      "bopo": 59.29,
+      "cir": 36.08,
+      "ldr": 91.2,
+      "car": 18.39
+    },
+    "previous": {
+      "nplGross": 1.03,
+      "nplNet": 0.4,
+      "kkr": 6.57,
+      "roa": 2.93,
+      "roe": 21.24,
+      "nim": 4.59,
+      "bopo": 63.48,
+      "cir": 43.05,
+      "ldr": 92.55,
+      "car": 19.04
+    }
+  },
+  "caveats": [
+    "Income statement amounts are cumulative January-September, not standalone Q3.",
+    "Current report balance-sheet comparator is December 2025; September 2025 balance-sheet values come from the prior Q3 publication.",
+    "BSI deconsolidated from 1 February 2026; consolidated comparisons are not like-for-like.",
+    "Kredit Kualitas Rendah (KKR) is not substituted for management LAR.",
+    "Derived CASA and loans/deposits are arithmetic ratios; use separately reported regulatory LDR.",
+    "EPS is nine-month EPS, not annual or TTM; historical FY valuation denominators remain unchanged."
+  ]
+}

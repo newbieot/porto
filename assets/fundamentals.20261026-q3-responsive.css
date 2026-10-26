@@ -1,0 +1,14 @@
+.chart-grid > .chart-card { min-width: 0; }
+.q2-spotlight, #asset-quality { scroll-margin-top: 90px; }
+#bmri-monthly .table-wrap { margin-top: 14px; }
+#bmri-monthly table { min-width: 580px; }
+#bmri-monthly caption { text-align: left; padding: 12px; font-size: 12px; font-weight: 650; color: var(--muted); }
+#bmri-monthly .source-link { overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .header-inner { flex-wrap: wrap; gap: 8px; padding-block: 10px; }
+  .header-inner .brand { flex: 1; }
+  .header-inner .header-actions { margin-left: auto; }
+  .header-inner .primary-nav { order: 3; width: 100%; justify-content: space-between; gap: 2px; }
+  .header-inner .nav-link { padding: 7px 9px; font-size: 12px; }
+  .q2-spotlight, #asset-quality { scroll-margin-top: 130px; }
+}
