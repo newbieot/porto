@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-26 — BMRI Q3 coverage follow-up
+
+- Updated BMRI bank-only LAR to6.88%, LAR Coverage34.5%, NPL Coverage243% from the official analyst presentation page22.
+- Changed coverage labels to Reported, kept group ex-BSI ratios separate, and documented the exact newspaper-based reconciliation without double-counting restructured loans.
+- Replaced June BMRI coverage in the asset-quality panel, source notes and monitoring insights.
+
 ## 2026-10-26 — BMRI Q3 / September 2026
 
 - Added September bank-only loan and YTD profit comparisons to charts and matrix; missing other-bank September observations remain unavailable.

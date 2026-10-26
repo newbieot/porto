@@ -1,3 +1,22 @@
+## BMRI Q3 coverage follow-up — 26 October 2026
+
+Official supplementary source: [3Q26 Analyst Meeting presentation, page 22](https://www.bankmandiri.co.id/documents/38265486/0/3Q26%2BAnalyst%2BMeeting%2B-%2BLong%2BForm%2B%283%29.pdf/00478387-1fe8-d8a0-30f3-3bd97affadf9?t=1792747131358), linked from Bank Mandiri's corporate presentations archive. This source supplies explicit coverage disclosures missing from the newspaper ratio summary. Headline Q3 values now use **Reported**, not Derived, on a consistent bank-only basis.
+
+| Bank-only asset quality | Sep2026 | Sep2025 | Reported change |
+|---|---:|---:|---:|
+| LAR incl. Covid restructurings | 6.88% | 6.53% | +0.35 pp |
+| LAR Coverage | 34.5% | 42.5% | -8.01 pp |
+| NPL gross | 0.98% | 1.03% | -0.05 pp |
+| NPL Coverage | 243% | 271% | -28.4 pp |
+
+Reported changes retain the source's precision and can differ from subtracting rounded display values. Consolidated excluding BSI, same page: LAR6.76%, LAR Coverage35.1%, NPL Coverage235%; previous pro-forma6.39%,43.1%,262%. Do not mix these with bank-only.
+
+Independent reconciliation from newspaper page1, individual-bank asset quality: NPL KL+D+M =15,709,644 million, CKPN credit38,140,360 million -> NPL coverage242.7831%, rounding243%. Special-mention loans46,222,993 million + current restructured48,607,719 million + NPL15,709,644 million = LAR110,540,356 million (6.88365% of loans); allowance/LAR34.5036%, matching reported34.5%. Do not add all restructured loans94,797,556 million: its DPK/NPL components overlap existing risk categories. KKR6.93% remains distinct from LAR6.88%. Underlying machine-readable figures are in data/bmri-q3-2026.json assetQuality.
+
+This follow-up supersedes the prior decision to retain June BMRI coverage. Other banks remain June. Historical June methodology below is retained for the audit trail, not used as current BMRI data. Management profitability definitions can differ from publication-regulator ratios (e.g. presentation NIM4.19% vs publication4.21%); this follow-up changes coverage only and preserves labelled publication ratios.
+
+---
+
 ## BMRI Q3 / 9M2026 update — 26 October 2026
 
 Sources: owner-supplied `Publikasi Q3 2026_Indonesia Final (1).pdf` and `Mandiri_LapKeu_Q3-2025_Ind_Preview.pdf`, both page 1. Official 2026 source: https://www.bankmandiri.co.id/documents/38265486/0/Publikasi%2BQ3%2B2026_Indonesia%2BFinal%2B(1).pdf/46d48b57-3621-5abb-c47e-4f78add18ee3?t=1792770041447 . Official archive: https://www.bankmandiri.co.id/web/ir/quarterly-financials . Exact extracted inputs and scope notes: `data/bmri-q3-2026.json`.
@@ -22,7 +41,7 @@ Bank individual / Sep2026 vs Sep2025:
 
 Derived CASA = (giro + savings) / DPK: 71.887651% vs73.122438%, -1.234787 percentage points. Derived loans/DPK =91.752480% vs93.113607%, distinct from published regulatory LDR91.20% vs92.55%. Do not conflate these definitions.
 
-Reported bank-only ratios, 2026 vs2025: gross NPL0.98/1.03%, net NPL0.38/0.40%, KKR6.93/6.57%, ROA2.99/2.93%, ROE23.62/21.24%, NIM4.21/4.59%, BOPO59.29/63.48%, CIR36.08/43.05%, CAR18.39/19.04%. These are publication ratios, not locally recomputed approximations. NIM declined38bps; KKR increased36bps. KKR is not relabelled LAR. Previously verified June LAR and coverage remain explicitly dated June; the old same-period coverage formula remains historical.
+Reported bank-only ratios, 2026 vs2025: gross NPL0.98/1.03%, net NPL0.38/0.40%, KKR6.93/6.57%, ROA2.99/2.93%, ROE23.62/21.24%, NIM4.21/4.59%, BOPO59.29/63.48%, CIR36.08/43.05%, CAR18.39/19.04%. These are publication ratios, not locally recomputed approximations. NIM declined38bps; KKR increased36bps. KKR is not relabelled LAR. Superseded for current display by the official Q3 coverage follow-up above; June calculations remain historical.
 
 Consolidated attributable profit45,534,001 vs37,730,142 (+20.6834%); total net profit47,109,523 vs41,372,941; EPS488.13 vs404.25 IDR is 9M EPS. Consolidated attributable equity294,041,482 vs281,631,008. **Publication note4: BSI deconsolidated from1February2026.** Consolidated assets, credit, deposits and NII are affected by the changed consolidation perimeter, so their differences are not labelled organic growth/decline. Bank-only charts never use consolidated headline earnings.
 

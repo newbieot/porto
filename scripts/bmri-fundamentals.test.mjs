@@ -107,3 +107,29 @@ test('Published HTML selects the new immutable asset and retains annual valuatio
     assert.match(html, /rasio memakai laba bersih FY/);
     assert.match(html, /bukan trailing twelve months/);
 });
+
+
+test('Q3 coverage uses reported bank-only ratios and reconciles loan risk without double counting', async () => {
+    const facts = JSON.parse(await read('data/bmri-q3-2026.json'));
+    const quality = facts.assetQuality;
+    assert.equal(quality.status, 'reported');
+    assert.equal(quality.page, 22);
+    assert.deepEqual([quality.bankOnly.current.lar, quality.bankOnly.current.larCoverage, quality.bankOnly.current.nplCoverage], [6.88, 34.5, 243]);
+    assert.deepEqual([quality.consolidatedExBSI.current.lar, quality.consolidatedExBSI.current.larCoverage, quality.consolidatedExBSI.current.nplCoverage], [6.76, 35.1, 235]);
+    const a = quality.publicationReconciliation;
+    assert.equal(a.npl, a.substandard + a.doubtful + a.loss);
+    assert.equal(a.lar, a.npl + a.specialMention + a.performingRestructured);
+    assert.equal(a.loanAllowance, facts.bankOnly.current.loanAllowance);
+    assert.equal(Math.round(a.loanAllowance / a.npl * 100), quality.bankOnly.current.nplCoverage);
+    assert.equal(Math.round(a.loanAllowance / a.lar * 1000) / 10, quality.bankOnly.current.larCoverage);
+    assert.equal(Math.round(a.lar / a.loans * 10000) / 100, quality.bankOnly.current.lar);
+    assert.notEqual(quality.bankOnly.current.lar, facts.reportedBankRatios.current.kkr);
+    const html = await read('fundamentals.html');
+    const row = html.match(/<tr id="bmri-asset-quality">[\s\S]*?<\/tr>/)?.[0];
+    assert.ok(row);
+    assert.match(row, /Bank-only \/ Sep 2026/);
+    assert.match(row, /34\.5%/);
+    assert.match(row, /243\.0%/);
+    assert.equal((row.match(/method-reported/g) || []).length, 4);
+    assert.doesNotMatch(row, /method-derived|Jun 2026|40\.7%|242\.0%/);
+});

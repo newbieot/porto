@@ -18,6 +18,11 @@
       "url": "https://www.bankmandiri.co.id/web/ir/quarterly-financials",
       "file": "Mandiri_LapKeu_Q3-2025_Ind_Preview.pdf",
       "page": 1
+    },
+    {
+      "title": "Bank Mandiri 3Q26 Analyst Meeting — Key profitability ratios",
+      "url": "https://www.bankmandiri.co.id/documents/38265486/0/3Q26%2BAnalyst%2BMeeting%2B-%2BLong%2BForm%2B%283%29.pdf/00478387-1fe8-d8a0-30f3-3bd97affadf9?t=1792747131358",
+      "page": 22
     }
   ],
   "bankOnly": {
@@ -69,7 +74,8 @@
       "derivedLdr": 93.11360692371984,
       "selectedOpex": 35914684,
       "operatingProfit": 42606169,
-      "profitBeforeTax": 42718434
+      "profitBeforeTax": 42718434,
+      "loanAllowance": 38434709
     }
   },
   "consolidated": {
@@ -143,6 +149,77 @@
     "BSI deconsolidated from 1 February 2026; consolidated comparisons are not like-for-like.",
     "Kredit Kualitas Rendah (KKR) is not substituted for management LAR.",
     "Derived CASA and loans/deposits are arithmetic ratios; use separately reported regulatory LDR.",
-    "EPS is nine-month EPS, not annual or TTM; historical FY valuation denominators remain unchanged."
-  ]
+    "EPS is nine-month EPS, not annual or TTM; historical FY valuation denominators remain unchanged.",
+    "Asset-quality coverage is updated from the official 3Q26 presentation p22. Management bank-only LAR 6.88% differs from regulatory publication KKR 6.93%; definitions remain separate."
+  ],
+  "assetQuality": {
+    "sourceIndex": 2,
+    "page": 22,
+    "periodEnd": "2026-09-30",
+    "comparativeEnd": "2025-09-30",
+    "status": "reported",
+    "unit": "percent",
+    "definition": "LAR includes Covid-restructured loans. Bank-only and consolidated excluding BSI remain separate. Management presentation ratios, not KKR.",
+    "bankOnly": {
+      "current": {
+        "lar": 6.88,
+        "nplGross": 0.98,
+        "nplCoverage": 243,
+        "larCoverage": 34.5,
+        "specialMention": 2.88,
+        "performingRestructured": 3.02
+      },
+      "previous": {
+        "lar": 6.53,
+        "nplGross": 1.03,
+        "nplCoverage": 271,
+        "larCoverage": 42.5,
+        "specialMention": 3.35,
+        "performingRestructured": 2.16
+      },
+      "reportedChangePp": {
+        "lar": 0.35,
+        "nplGross": -0.05,
+        "nplCoverage": -28.4,
+        "larCoverage": -8.01
+      }
+    },
+    "consolidatedExBSI": {
+      "current": {
+        "lar": 6.76,
+        "nplGross": 1.02,
+        "nplCoverage": 235,
+        "larCoverage": 35.1
+      },
+      "previousProForma": {
+        "lar": 6.39,
+        "nplGross": 1.06,
+        "nplCoverage": 262,
+        "larCoverage": 43.1
+      },
+      "reportedChangePp": {
+        "lar": 0.37,
+        "nplGross": -0.04,
+        "nplCoverage": -26.8,
+        "larCoverage": -8.08
+      }
+    },
+    "roundingNote": "YoY changes are copied from the presentation and can differ from subtraction of displayed rounded ratios.",
+    "publicationReconciliation": {
+      "unit": "million IDR",
+      "loans": 1605839379,
+      "loanAllowance": 38140360,
+      "npl": 15709644,
+      "specialMention": 46222993,
+      "performingRestructured": 48607719,
+      "lar": 110540356,
+      "nplCoverageDerived": 242.78309553036337,
+      "larCoverageDerived": 34.50356175802437,
+      "larRatioDerived": 6.883649600674041,
+      "method": "NPL = KL + D + M across related/unrelated loans; LAR = NPL + DPK + restructured current (L). Restructured DPK and NPL are subsets and must not be added twice. Headline ratios use the official reported presentation.",
+      "substandard": 1202824,
+      "doubtful": 1722765,
+      "loss": 12784055
+    }
+  }
 }
