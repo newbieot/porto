@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T17:59:08.675Z",
-  "priceDate": "2026-10-26",
+  "generatedAt": "2026-10-28T18:20:06.784Z",
+  "priceDate": "2026-10-27",
   "positionsAsOf": "2026-10-09",
-  "periodStart": "2023-10-26",
+  "periodStart": "2023-10-27",
   "methodology": {
     "fundamentalBasis": "Latest available full-year net income and year-end equity, applied 90 days after fiscal year-end to avoid look-ahead bias.",
     "portfolioAggregation": "Current holdings valued at each historical daily close, with market-value weighted harmonic P/E and P/BV. This is a current-basket valuation history, not historical portfolio performance.",
@@ -27,11 +27,11 @@
       "symbol": "BBCA.JK",
       "name": "Bank Central Asia",
       "shares": 18900,
-      "currentPrice": 4940,
-      "marketValue": 93366000,
-      "weight": 0.140049,
-      "pe": 10.5815,
-      "pbv": 2.159,
+      "currentPrice": 4900,
+      "marketValue": 92610000,
+      "weight": 0.143123,
+      "pe": 10.4958,
+      "pbv": 2.1415,
       "fiscalYearBasis": 2025
     },
     {
@@ -39,11 +39,11 @@
       "symbol": "BBNI.JK",
       "name": "Bank Negara Indonesia",
       "shares": 62500,
-      "currentPrice": 3470,
-      "marketValue": 216875000,
-      "weight": 0.325314,
-      "pe": 6.4579,
-      "pbv": 0.7528,
+      "currentPrice": 3310,
+      "marketValue": 206875000,
+      "weight": 0.319712,
+      "pe": 6.1602,
+      "pbv": 0.7181,
       "fiscalYearBasis": 2025
     },
     {
@@ -51,11 +51,11 @@
       "symbol": "BMRI.JK",
       "name": "Bank Mandiri",
       "shares": 39900,
-      "currentPrice": 3910,
-      "marketValue": 156009000,
-      "weight": 0.234014,
-      "pe": 6.4817,
-      "pbv": 1.2423,
+      "currentPrice": 3870,
+      "marketValue": 154413000,
+      "weight": 0.238635,
+      "pe": 6.4154,
+      "pbv": 1.2296,
       "fiscalYearBasis": 2025
     },
     {
@@ -63,11 +63,11 @@
       "symbol": "BNGA.JK",
       "name": "CIMB Niaga",
       "shares": 77700,
-      "currentPrice": 1610,
-      "marketValue": 125097000,
-      "weight": 0.187646,
-      "pe": 5.886,
-      "pbv": 0.6986,
+      "currentPrice": 1525,
+      "marketValue": 118492500,
+      "weight": 0.183122,
+      "pe": 5.5753,
+      "pbv": 0.6617,
       "fiscalYearBasis": 2025
     },
     {
@@ -75,11 +75,11 @@
       "symbol": "NISP.JK",
       "name": "OCBC Indonesia",
       "shares": 64100,
-      "currentPrice": 1175,
-      "marketValue": 75317500,
-      "weight": 0.112977,
-      "pe": 5.3309,
-      "pbv": 0.6148,
+      "currentPrice": 1165,
+      "marketValue": 74676500,
+      "weight": 0.115408,
+      "pe": 5.2855,
+      "pbv": 0.6095,
       "fiscalYearBasis": 2025
     }
   ],
@@ -88,12 +88,6 @@
       "code": "PORTFOLIO",
       "name": "Portfolio aggregate",
       "series": [
-        [
-          "2023-10-26",
-          897349000,
-          11.2788,
-          1.5047
-        ],
         [
           "2023-10-27",
           897837500,
@@ -4359,6 +4353,12 @@
           666664500,
           6.5451,
           0.8789
+        ],
+        [
+          "2026-10-27",
+          647067000,
+          6.3527,
+          0.8531
         ]
       ]
     },
@@ -4367,13 +4367,6 @@
       "name": "Bank Central Asia",
       "symbol": "BBCA.JK",
       "series": [
-        [
-          "2023-10-26",
-          8725,
-          26.4037,
-          4.8664,
-          2022
-        ],
         [
           "2023-10-27",
           8700,
@@ -9350,6 +9343,13 @@
           10.5815,
           2.159,
           2025
+        ],
+        [
+          "2026-10-27",
+          4900,
+          10.4958,
+          2.1415,
+          2025
         ]
       ],
       "fundamentals": [
@@ -9388,13 +9388,6 @@
       "name": "Bank Negara Indonesia",
       "symbol": "BBNI.JK",
       "series": [
-        [
-          "2023-10-26",
-          4880,
-          9.9339,
-          1.3384,
-          2022
-        ],
         [
           "2023-10-27",
           4850,
@@ -14371,6 +14364,13 @@
           6.4579,
           0.7528,
           2025
+        ],
+        [
+          "2026-10-27",
+          3310,
+          6.1602,
+          0.7181,
+          2025
         ]
       ],
       "fundamentals": [
@@ -14409,13 +14409,6 @@
       "name": "Bank Mandiri",
       "symbol": "BMRI.JK",
       "series": [
-        [
-          "2023-10-26",
-          5700,
-          12.9176,
-          2.3163,
-          2022
-        ],
         [
           "2023-10-27",
           5700,
@@ -19392,6 +19385,13 @@
           6.4817,
           1.2423,
           2025
+        ],
+        [
+          "2026-10-27",
+          3870,
+          6.4154,
+          1.2296,
+          2025
         ]
       ],
       "fundamentals": [
@@ -19430,13 +19430,6 @@
       "name": "CIMB Niaga",
       "symbol": "BNGA.JK",
       "series": [
-        [
-          "2023-10-26",
-          1675,
-          8.2833,
-          0.9241,
-          2022
-        ],
         [
           "2023-10-27",
           1695,
@@ -24413,6 +24406,13 @@
           5.886,
           0.6986,
           2025
+        ],
+        [
+          "2026-10-27",
+          1525,
+          5.5753,
+          0.6617,
+          2025
         ]
       ],
       "fundamentals": [
@@ -24451,13 +24451,6 @@
       "name": "OCBC Indonesia",
       "symbol": "NISP.JK",
       "series": [
-        [
-          "2023-10-26",
-          1090,
-          7.5176,
-          0.7311,
-          2022
-        ],
         [
           "2023-10-27",
           1110,
@@ -29433,6 +29426,13 @@
           1175,
           5.3309,
           0.6148,
+          2025
+        ],
+        [
+          "2026-10-27",
+          1165,
+          5.2855,
+          0.6095,
           2025
         ]
       ],
