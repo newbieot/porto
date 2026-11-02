@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T17:59:33.708Z",
-  "priceDate": "2026-10-29",
+  "generatedAt": "2026-11-02T21:41:52.351Z",
+  "priceDate": "2026-10-30",
   "positionsAsOf": "2026-10-09",
-  "periodStart": "2023-10-29",
+  "periodStart": "2023-10-30",
   "methodology": {
     "fundamentalBasis": "Latest available full-year net income and year-end equity, applied 90 days after fiscal year-end to avoid look-ahead bias.",
     "portfolioAggregation": "Current holdings valued at each historical daily close, with market-value weighted harmonic P/E and P/BV. This is a current-basket valuation history, not historical portfolio performance.",
@@ -27,11 +27,11 @@
       "symbol": "BBCA.JK",
       "name": "Bank Central Asia",
       "shares": 18900,
-      "currentPrice": 4940,
-      "marketValue": 93366000,
-      "weight": 0.146897,
-      "pe": 10.5815,
-      "pbv": 2.159,
+      "currentPrice": 4980,
+      "marketValue": 94122000,
+      "weight": 0.146951,
+      "pe": 10.6672,
+      "pbv": 2.1765,
       "fiscalYearBasis": 2025
     },
     {
@@ -39,11 +39,11 @@
       "symbol": "BBNI.JK",
       "name": "Bank Negara Indonesia",
       "shares": 62500,
-      "currentPrice": 3240,
-      "marketValue": 202500000,
-      "weight": 0.318602,
-      "pe": 6.0299,
-      "pbv": 0.7029,
+      "currentPrice": 3320,
+      "marketValue": 207500000,
+      "weight": 0.323966,
+      "pe": 6.1788,
+      "pbv": 0.7203,
       "fiscalYearBasis": 2025
     },
     {
@@ -53,7 +53,7 @@
       "shares": 39900,
       "currentPrice": 3720,
       "marketValue": 148428000,
-      "weight": 0.233528,
+      "weight": 0.231738,
       "pe": 6.1668,
       "pbv": 1.182,
       "fiscalYearBasis": 2025
@@ -63,11 +63,11 @@
       "symbol": "BNGA.JK",
       "name": "CIMB Niaga",
       "shares": 77700,
-      "currentPrice": 1505,
-      "marketValue": 116938500,
-      "weight": 0.183985,
-      "pe": 5.5022,
-      "pbv": 0.653,
+      "currentPrice": 1490,
+      "marketValue": 115773000,
+      "weight": 0.180754,
+      "pe": 5.4473,
+      "pbv": 0.6465,
       "fiscalYearBasis": 2025
     },
     {
@@ -75,11 +75,11 @@
       "symbol": "NISP.JK",
       "name": "OCBC Indonesia",
       "shares": 64100,
-      "currentPrice": 1160,
-      "marketValue": 74356000,
-      "weight": 0.116988,
-      "pe": 5.2628,
-      "pbv": 0.6069,
+      "currentPrice": 1165,
+      "marketValue": 74676500,
+      "weight": 0.116591,
+      "pe": 5.2855,
+      "pbv": 0.6095,
       "fiscalYearBasis": 2025
     }
   ],
@@ -4365,6 +4365,12 @@
           635588500,
           6.24,
           0.8379
+        ],
+        [
+          "2026-10-30",
+          640499500,
+          6.2882,
+          0.8444
         ]
       ]
     },
@@ -9362,6 +9368,13 @@
           4940,
           10.5815,
           2.159,
+          2025
+        ],
+        [
+          "2026-10-30",
+          4980,
+          10.6672,
+          2.1765,
           2025
         ]
       ],
@@ -14391,6 +14404,13 @@
           6.0299,
           0.7029,
           2025
+        ],
+        [
+          "2026-10-30",
+          3320,
+          6.1788,
+          0.7203,
+          2025
         ]
       ],
       "fundamentals": [
@@ -19415,6 +19435,13 @@
         ],
         [
           "2026-10-29",
+          3720,
+          6.1668,
+          1.182,
+          2025
+        ],
+        [
+          "2026-10-30",
           3720,
           6.1668,
           1.182,
@@ -24447,6 +24474,13 @@
           5.5022,
           0.653,
           2025
+        ],
+        [
+          "2026-10-30",
+          1490,
+          5.4473,
+          0.6465,
+          2025
         ]
       ],
       "fundamentals": [
@@ -29474,6 +29508,13 @@
           1160,
           5.2628,
           0.6069,
+          2025
+        ],
+        [
+          "2026-10-30",
+          1165,
+          5.2855,
+          0.6095,
           2025
         ]
       ],
