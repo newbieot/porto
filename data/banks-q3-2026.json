@@ -1,0 +1,862 @@
+{
+  "schemaVersion": 1,
+  "currency": "IDR",
+  "unit": "million",
+  "periodEnd": "2026-09-30",
+  "comparativeEnd": "2025-09-30",
+  "incomePeriod": "January-September cumulative (9M), not standalone Q3",
+  "reviewedOn": "2026-11-14",
+  "banks": {
+    "BBCA": {
+      "code": "BBCA",
+      "currency": "IDR",
+      "unit": "million",
+      "periodEnd": "2026-09-30",
+      "incomePeriod": "January-September cumulative 9M",
+      "bankOnly": {
+        "current": {
+          "netProfit": 45180388,
+          "loans": 1030718519,
+          "assets": 1589724166,
+          "equity": 273788212,
+          "giro": 459246800,
+          "savings": 628411955,
+          "timeDeposits": 182400906,
+          "nii": 60705439,
+          "interestIncome": 70895857,
+          "interestExpense": 10190418,
+          "fees": 15263036,
+          "impairment": 2176131,
+          "staff": 12208285,
+          "promotion": 959232,
+          "otherExpenses": 11119587,
+          "loanAllowance": 30488189,
+          "deposits": 1270059661,
+          "casa": 85.63839860433139,
+          "derivedLdr": 81.15512606616045,
+          "selectedOpex": 24287104
+        },
+        "previous": {
+          "netProfit": 43573799,
+          "loans": 913729808,
+          "assets": 1492607401,
+          "equity": 267157456,
+          "giro": 400627624,
+          "savings": 586331650,
+          "timeDeposits": 190225457,
+          "nii": 59738365,
+          "interestIncome": 68984159,
+          "interestExpense": 9245794,
+          "fees": 14240920,
+          "impairment": 2818205,
+          "staff": 12043700,
+          "promotion": 786199,
+          "otherExpenses": 10522685,
+          "loanAllowance": 31144126,
+          "deposits": 1177184731,
+          "casa": 83.84064522834862,
+          "derivedLdr": 77.61991673335763,
+          "selectedOpex": 23352584
+        }
+      },
+      "consolidated": {
+        "current": {
+          "netProfit": 45238712,
+          "attributableProfit": 45215827,
+          "assets": 1641511008,
+          "nii": 65189331,
+          "loans": 1049154677,
+          "shariaFinancing": 12717035,
+          "fees": 15575686,
+          "impairment": 2753630,
+          "eps": 368,
+          "attributableEquity": 283419338
+        },
+        "previous": {
+          "netProfit": 43413463,
+          "attributableProfit": 43397415,
+          "assets": 1538501812,
+          "nii": 64090538,
+          "loans": 931877238,
+          "shariaFinancing": 12226782,
+          "fees": 14388352,
+          "impairment": 3522726,
+          "eps": 352,
+          "attributableEquity": 276415660
+        }
+      },
+      "assetQuality": {
+        "status": "reported",
+        "periodEnd": "2026-09-30",
+        "current": {
+          "lar": 4.6,
+          "nplGross": 1.8,
+          "nplCoverage": 167.5,
+          "larCoverage": 71.2
+        },
+        "previous": {
+          "lar": 5.5,
+          "nplGross": 2.1,
+          "nplCoverage": 166.6,
+          "larCoverage": 69.5
+        },
+        "definition": "LAR Coverage includes off-balance-sheet exposures (incl. off B/S) per presentation; do not recompute using on-balance-sheet credit allowance only. NPL ratios on presentation rounded to one decimal. Keep publication exact1.79 if labelled separately.",
+        "consolidatedAlternative": {
+          "sourcePage": 18,
+          "lar": 4.6,
+          "larCoverage": 71.4,
+          "nplGross": 1.8,
+          "note": "Do not mix with bank-only coverage71.2/NPL167.5."
+        },
+        "basis": "Bank-only",
+        "source": {
+          "title": "BCA official 9M26 Corporate Presentation",
+          "url": "https://www.bca.co.id/-/media/Feature/Report/File/Berita-Investor/2026/20261027-9m26-corporate-presentation.pdf",
+          "pages": [
+            12
+          ],
+          "kind": "pdf"
+        },
+        "notes": [
+          "Bank individual. LAR Coverage termasuk eksposur di luar neraca (off-balance-sheet). Gross NPL presentasi dibulatkan 1,8%; publikasi regulator mencantumkan 1,79%. Angka konsolidasian LAR Coverage 71,4% memiliki cakupan berbeda."
+        ],
+        "methods": {
+          "lar": "reported",
+          "larCoverage": "reported",
+          "nplGross": "reported",
+          "nplCoverage": "reported"
+        }
+      },
+      "sources": [
+        {
+          "file": "20261027-laporan-keuangan-september-2026.pdf",
+          "pages": {
+            "assets": 1,
+            "liabilitiesEquity": 2,
+            "income": 3,
+            "ratios": 5
+          }
+        },
+        {
+          "file": "20251020-laporan-keuangan-sep-2025.pdf",
+          "pages": {
+            "assets": 1,
+            "liabilitiesEquity": 2,
+            "income": 3,
+            "ratios": 5
+          }
+        },
+        {
+          "url": "https://www.bca.co.id/-/media/Feature/Report/File/Berita-Investor/2026/20261027-9m26-corporate-presentation.pdf",
+          "page": 12
+        }
+      ],
+      "bankYoYPercent": {
+        "netProfit": 3.687052854858952,
+        "loans": 12.803425036124017,
+        "assets": 6.506517717581661,
+        "equity": 2.481965541699127,
+        "giro": 14.631835771763946,
+        "savings": 7.176877625487221,
+        "timeDeposits": -4.113303825575776,
+        "nii": 1.6188491265202831,
+        "interestIncome": 2.7712130258774392,
+        "interestExpense": 10.216796956540453,
+        "fees": 7.177317195799149,
+        "impairment": -22.783083558506213,
+        "staff": 1.3665650921228512,
+        "promotion": 22.008804386675628,
+        "otherExpenses": 5.672525595891154,
+        "loanAllowance": -2.106133914305386,
+        "deposits": 7.889579906554189,
+        "casa": 2.144250406335013,
+        "derivedLdr": 4.554513173399921,
+        "selectedOpex": 4.001784128043395
+      },
+      "name": "Bank Central Asia",
+      "ratios": {
+        "current": {
+          "car": 27.51,
+          "nplGross": 1.79,
+          "nplNet": 0.72,
+          "kkr": 4.59,
+          "roaBeforeTax": 4.65,
+          "roaAfterTax": 3.81,
+          "roe": 23.9,
+          "nim": 5.41,
+          "bopo": 40.97,
+          "cir": 29.71,
+          "ldr": 79.82
+        },
+        "previous": {
+          "car": 29.94,
+          "nplGross": 2.1,
+          "nplNet": 0.77,
+          "kkr": 5.52,
+          "roaBeforeTax": 4.87,
+          "roaAfterTax": 3.97,
+          "roe": 24.08,
+          "nim": 5.76,
+          "bopo": 40.85,
+          "cir": 29.19,
+          "ldr": 75.59
+        }
+      },
+      "notes": [
+        "Use2026 income statement latest2025 comparatives: bank priorNII59,738,365 differs from original2025 publication59,728,804 by9,561 million; source of difference not established, do not infer exact cause.",
+        "Publication current2026 consolidated totalprofit45,238,712 differs from attributable45,215,827; keep separate.",
+        "Bank assets/loan/chartdata stayindividual; consolidatedloans addSharia onlyif explicit.",
+        "LARcoverage71.2 includesoffBS bankonly, not simpleCKPNloans/LAR pool.",
+        "EPS368 is9M notFY/TTM."
+      ],
+      "headline": "BBCA: kredit tumbuh 12,8%, laba naik 3,7%, dengan NIM yang masih tertekan.",
+      "monitor": "Pantau kemampuan NII mengejar pertumbuhan kredit, tren biaya dana, dan keberlanjutan penurunan impairment.",
+      "takeaway": "CASA dan kualitas aset membaik; pertumbuhan margin tetap perlu dikonfirmasi pada laporan berikutnya."
+    },
+    "BBNI": {
+      "code": "BBNI",
+      "unit": "million",
+      "periodEnd": "2026-09-30",
+      "comparativeEnd": "2025-09-30",
+      "bankOnly": {
+        "current": {
+          "loans": 976381824,
+          "netProfit": 16363116,
+          "assets": 1429792673,
+          "equity": 166593515,
+          "giro": 429882877,
+          "savings": 299228945,
+          "timeDeposits": 381397852,
+          "nii": 32465486,
+          "interestIncome": 58506533,
+          "interestExpense": 26041047,
+          "fees": 8429404,
+          "impairment": 6465666,
+          "loanAllowance": 36683400,
+          "staff": 11388545,
+          "promotion": 682494,
+          "otherExpenses": 11104624,
+          "deposits": 1110509674,
+          "casa": 65.65560292453607,
+          "derivedLdr": 87.9219557343541,
+          "selectedOpex": 23175663
+        },
+        "previous": {
+          "loans": 796526385,
+          "netProfit": 15169686,
+          "assets": 1214476406,
+          "equity": 162639749,
+          "giro": 338634197,
+          "savings": 268211463,
+          "timeDeposits": 309966854,
+          "nii": 28436867,
+          "interestIncome": 49635052,
+          "interestExpense": 21198185,
+          "fees": 7786038,
+          "impairment": 5259802,
+          "loanAllowance": 34711550,
+          "staff": 9795868,
+          "promotion": 744611,
+          "otherExpenses": 10600559,
+          "deposits": 916812514,
+          "casa": 66.19081335968762,
+          "derivedLdr": 86.87996431514678,
+          "selectedOpex": 21141038
+        }
+      },
+      "consolidated": {
+        "current": {
+          "netProfit": 16148327,
+          "attributableProfit": 16116089,
+          "assets": 1481829614,
+          "loans": 992514481,
+          "attributableEquity": 167615929,
+          "nii": 33238391,
+          "fees": 8440886,
+          "impairment": 6944126,
+          "eps": 432
+        },
+        "previous": {
+          "netProfit": 15230673,
+          "attributableProfit": 15115133,
+          "assets": 1269486437,
+          "loans": 812194787,
+          "attributableEquity": 164500322,
+          "nii": 29253082,
+          "fees": 7748645,
+          "impairment": 5554666,
+          "eps": 405
+        }
+      },
+      "assetQuality": {
+        "basis": "bank-only",
+        "status": "reported",
+        "source": {
+          "title": "BNI official 9M26 Corporate Presentation",
+          "url": "https://bni.co.id/Portals/1/BNI/Perusahaan/HubunganInvestor/Docs/2026/BNI-Corporate-Presentation-3Q26.pdf",
+          "pages": [
+            18,
+            31,
+            32
+          ],
+          "kind": "pdf"
+        },
+        "pages": [
+          18,
+          31,
+          32,
+          29
+        ],
+        "current": {
+          "lar": 7.8,
+          "larCoverage": 48.3,
+          "nplGross": 1.9,
+          "nplCoverage": 193.3,
+          "larAmount": 75918000,
+          "nplAmount": 18978000
+        },
+        "previous": {
+          "lar": 10.4,
+          "larCoverage": 41.9,
+          "nplGross": 2.0,
+          "nplCoverage": 222.7,
+          "larAmount": 82888000,
+          "nplAmount": 15586000
+        },
+        "definition": "LAR = special mention loans + NPL + total current restructured loans. Coverage denominators and provisions must remain bank-only.",
+        "unitNote": "LAR/NPL amounts are million IDR converted from rounded IDR billion presentation p29; ratios percent and directly reported.",
+        "notes": [
+          "LAR dan coverage memakai cakupan bank individual. LAR mencakup kredit dalam perhatian khusus, NPL, dan restrukturisasi lancar. Gross NPL presentasi dibulatkan 1,9% / 2,0%; publikasi regulator 1,94% / 1,96% ditampilkan terpisah."
+        ],
+        "periodEnd": "2026-09-30",
+        "methods": {
+          "lar": "reported",
+          "larCoverage": "reported",
+          "nplGross": "reported",
+          "nplCoverage": "reported"
+        }
+      },
+      "sources": [
+        {
+          "title": "BNI 3Q2026 publication (supplied Indonesian PDF)",
+          "url": "https://bni.co.id/Portals/1/BNI/Perusahaan/HubunganInvestor/Docs/2026/BNI-Financial-Statement-3Q2026-ID.pdf",
+          "pages": {
+            "balance": [
+              2,
+              3
+            ],
+            "income": [
+              4,
+              5
+            ],
+            "ratios": [
+              6
+            ]
+          }
+        },
+        {
+          "title": "BNI 3Q2025 publication (supplied Indonesian PDF)",
+          "url": "https://www.bni.co.id/Portals/1/BNI/Perusahaan/HubunganInvestor/Docs/2025/BNI-Financial-Statement-3Q2025-ID.pdf",
+          "pages": {
+            "balance": [
+              2,
+              3
+            ],
+            "income": [
+              4,
+              5
+            ],
+            "ratios": [
+              6
+            ]
+          }
+        },
+        {
+          "title": "BNI official 9M26 Corporate Presentation",
+          "url": "https://bni.co.id/Portals/1/BNI/Perusahaan/HubunganInvestor/Docs/2026/BNI-Corporate-Presentation-3Q26.pdf",
+          "pages": [
+            18,
+            31,
+            32
+          ]
+        }
+      ],
+      "notes": [
+        "Income = cumulative Jan-Sep, not standalone Q3.",
+        "2026 balance comparison printed in the publication is Dec2025; Sep2025 balance inputs come from 2025 Q3 supplied PDF.",
+        "Prefer latest2026 comparative income/ratios: prior2025 CIR now45.83%, old2025publication46.11%. Do not silently mix the two disclosures.",
+        "Regulatory ROE14.39% differs from presentationROAE13.3% because denominator differs (Tier1capital versus average equity), notedpresentationp18.",
+        "Presentation asset-quality ratios use rounded grossNPL1.9% vs2.0%; publication offers1.94% vs1.96%. Label precision/source.",
+        "NII means net interest only; consolidated total net interest+insurance is33,823,164 vs29,834,303, kept separate from NII33,238,391 vs29,253,082."
+      ],
+      "growthPercent": {
+        "loans": 22.579972539139437,
+        "netProfit": 7.867203052192373,
+        "assets": 17.729143681692893,
+        "equity": 2.430996127521068,
+        "giro": 26.94609133052206,
+        "savings": 11.564562399035117,
+        "timeDeposits": 23.044721420439362,
+        "nii": 14.166887653270654,
+        "interestIncome": 17.873419373067236,
+        "interestExpense": 22.845644568155254,
+        "fees": 8.263072951865901,
+        "impairment": 22.926034097861468,
+        "loanAllowance": 5.680674011964326,
+        "staff": 16.258661304950216,
+        "promotion": -8.342208213416136,
+        "otherExpenses": 4.755079425528419,
+        "deposits": 21.127237798588784,
+        "casa": -0.8085871860240901,
+        "derivedLdr": 1.19934604879397,
+        "selectedOpex": 9.624054410195004
+      },
+      "name": "Bank Negara Indonesia",
+      "ratios": {
+        "current": {
+          "car": 19.2,
+          "nplGross": 1.94,
+          "nplNet": 0.71,
+          "kkr": 7.78,
+          "roa": 1.95,
+          "roe": 14.39,
+          "nim": 3.47,
+          "bopo": 73.26,
+          "cir": 45.82,
+          "ldr": 87.92
+        },
+        "previous": {
+          "car": 21.09,
+          "nplGross": 1.96,
+          "nplNet": 0.78,
+          "kkr": 10.43,
+          "roa": 2.17,
+          "roe": 14.11,
+          "nim": 3.76,
+          "bopo": 72.25,
+          "cir": 45.83,
+          "ldr": 86.88
+        }
+      },
+      "headline": "BBNI: laba September menguat, LAR Coverage naik, tetapi NPL Coverage menurun.",
+      "monitor": "Pantau NIM dan biaya dana, pertumbuhan DPK dibanding kredit, serta perbedaan arah LAR Coverage dan NPL Coverage.",
+      "takeaway": "Ekspansi kredit dan laba tetap positif, namun pertumbuhan volume belum sepenuhnya menjadi margin.",
+      "currency": "IDR"
+    },
+    "BNGA": {
+      "code": "BNGA",
+      "currency": "IDR",
+      "unit": "million",
+      "periodEnd": "2026-09-30",
+      "profitPeriod": "January-September 2026 / 2025 YTD",
+      "bankOnly": {
+        "current": {
+          "loans": 182838484,
+          "shariaFinancing": 49439920,
+          "netProfit": 4223191,
+          "nii": 8902218,
+          "fees": 2109396,
+          "impairment": 1620292,
+          "giro": 110739298,
+          "savings": 87847416,
+          "timeDeposits": 76687260,
+          "assets": 376433577,
+          "equity": 55209742,
+          "loanAllowance": 3984831,
+          "staff": 3711851,
+          "promotion": 213701,
+          "otherExpenses": 2395774,
+          "deposits": 275273974,
+          "casa": 72.14147822053094,
+          "derivedLdr": 66.42054871485962,
+          "interestIncome": 16563728,
+          "interestExpense": 7661510,
+          "selectedOpex": 6321326
+        },
+        "previous": {
+          "loans": 159732385,
+          "shariaFinancing": 58225587,
+          "netProfit": 5135366,
+          "nii": 9040189,
+          "fees": 2282408,
+          "impairment": 893109,
+          "giro": 102136105,
+          "savings": 87231580,
+          "timeDeposits": 89224897,
+          "assets": 357264306,
+          "equity": 53908309,
+          "loanAllowance": 8645443,
+          "staff": 3702729,
+          "promotion": 189040,
+          "otherExpenses": 2541218,
+          "deposits": 278592582,
+          "casa": 67.97298177881851,
+          "derivedLdr": 57.33547672134357,
+          "interestIncome": 17149795,
+          "interestExpense": 8109606,
+          "selectedOpex": 6432987
+        }
+      },
+      "consolidated": {
+        "current": {
+          "netProfit": 4506482,
+          "attributableProfit": 4491646,
+          "nii": 9860555,
+          "fees": 2367062,
+          "impairment": 2366974,
+          "assets": 384790192,
+          "equity": 57371056,
+          "loans": 193143532,
+          "shariaFinancing": 49439920,
+          "loanAllowance": 5043510
+        },
+        "previous": {
+          "netProfit": 5333982,
+          "attributableProfit": 5268586,
+          "nii": 10078479,
+          "fees": 2519547,
+          "impairment": 1256371,
+          "assets": 369447994,
+          "equity": 56088451,
+          "loans": 170425976,
+          "shariaFinancing": 58225587,
+          "loanAllowance": 8944905
+        }
+      },
+      "assetQuality": {
+        "scope": "consolidated",
+        "status": "reported",
+        "source": {
+          "title": "CIMB Niaga 3Q26 presentation",
+          "url": "https://investor.cimbniaga.co.id/misc/AP/2026/BNGA-3Q26-Results-Final.pdf",
+          "pages": [
+            13,
+            19
+          ],
+          "kind": "pdf"
+        },
+        "pages": [
+          13,
+          19
+        ],
+        "current": {
+          "lar": 5.7,
+          "larCoverage": 36.3,
+          "nplCoverage": 116.8,
+          "nplGross": 1.81,
+          "nplNet": 0.73
+        },
+        "previous": {
+          "lar": 7.8,
+          "larCoverage": 49.1,
+          "nplCoverage": 195.8,
+          "nplGross": 1.98,
+          "nplNet": 0.8
+        },
+        "basis": "Consolidated",
+        "periodEnd": "2026-09-30",
+        "methods": {
+          "lar": "reported",
+          "larCoverage": "reported",
+          "nplGross": "reported",
+          "nplCoverage": "reported"
+        },
+        "notes": [
+          "Coverage dilaporkan langsung pada presentasi konsolidasian Q3 halaman 13/19. Angka tidak dihitung dari CKPN kredit bank individual. LAR presentasi 5,7% berbeda dari LAR publikasi regulator konsolidasian 5,83%; setiap rangkaian dipertahankan dengan sumbernya."
+        ]
+      },
+      "reportedConsolidatedRatios": {
+        "current": {
+          "roe": 10.9,
+          "roa": 2.1,
+          "nim": 3.82,
+          "cir": 44.9,
+          "coc": 1.35,
+          "ldr": 87.7,
+          "casa": 72.0
+        },
+        "previous": {
+          "roe": 13.5,
+          "roa": 2.5,
+          "nim": 4.0,
+          "cir": 44.3,
+          "coc": 0.86,
+          "ldr": 81.1,
+          "casa": 67.9
+        }
+      },
+      "sources": [
+        {
+          "file": "Published-Sep-2026-EN.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "note": "balancecurrentSep26 vsDec25; income9M26 vs9M25"
+        },
+        {
+          "file": "Published-Sep-2025.pdf",
+          "pages": [
+            1,
+            2
+          ],
+          "note": "Sep25balances"
+        },
+        {
+          "url": "https://investor.cimbniaga.co.id/misc/AP/2026/BNGA-3Q26-Results-Final.pdf",
+          "pages": [
+            7,
+            13,
+            19
+          ],
+          "note": "explicitconsolidatedcoverage"
+        },
+        {
+          "file": "Published-Sep-2026-EN.pdf",
+          "pages": [
+            7
+          ],
+          "title": "CIMB Niaga regulatory bank-only ratios"
+        }
+      ],
+      "notes": [
+        "Bank-only chart loans remain conventional excluding Sharia.",
+        "Coverage directly reported by presentation; do not force loan-only CKPN numerator to consolidated denominator including CNAF.",
+        "Presentation p7 says provisioning reflects one-off auto-finance accounting change, higher retail provisioning and forward-looking overlays; no inventedquantification."
+      ],
+      "name": "CIMB Niaga",
+      "ratios": {
+        "current": {
+          "car": 23,
+          "nplGross": 1.42,
+          "nplNet": 0.65,
+          "lar": 5.12,
+          "roa": 1.95,
+          "roe": 10.93,
+          "nim": 3.56,
+          "bopo": 75.47,
+          "cir": 47.59,
+          "ldr": 83.46
+        },
+        "previous": {
+          "car": 24.54,
+          "nplGross": 1.99,
+          "nplNet": 0.77,
+          "lar": 7.68,
+          "roa": 2.48,
+          "roe": 13.96,
+          "nim": 3.71,
+          "bopo": 72.65,
+          "cir": 45.24,
+          "ldr": 77.05
+        }
+      },
+      "niiDefinition": "Published net interest / profit-sharing income; use the disclosed combined line, not a separately estimated conventional margin.",
+      "headline": "BNGA: kredit bertambah, laba 9M turun 17,8%, dan coverage pencadangan melemah.",
+      "monitor": "Pantau kualitas pertumbuhan kredit, kebutuhan pencadangan, serta normalisasi dampak perubahan akuntansi pembiayaan kendaraan.",
+      "takeaway": "LAR menurun tetapi coverage dan laba juga melemah; evaluasi bantalan pencadangan bersama tren risiko, bukan NPL saja.",
+      "insights": [
+        [
+          "Kredit konvensional dan pembiayaan syariah bergerak berbeda.",
+          "Kredit konvensional bank individual Rp182,84 T naik 14,5% YoY, sedangkan pembiayaan syariah Rp49,44 T turun 15,1%. Gabungan keduanya meningkat 6,6% menjadi Rp232,28 T. Seri kredit bulanan tetap menggunakan kredit konvensional."
+        ],
+        [
+          "Laba 9M turun ketika impairment meningkat.",
+          "Laba bank individual Rp4,22 T turun 17,8% YoY. Pendapatan bunga/imbal hasil bersih Rp8,90 T turun 1,5% dan fee/administrasi turun 7,6%, sementara beban impairment naik 81,4% menjadi Rp1,62 T. Laba konsolidasian untuk pemilik Rp4,49 T berbeda dari laba bank individual."
+        ],
+        [
+          "Komposisi pendanaan membaik, dengan DPK lebih rendah.",
+          "DPK turun 1,2% YoY menjadi Rp275,27 T, sementara derived CASA naik dari 67,97% ke 72,14%. Rasio kredit konvensional/DPK 66,42% bukan LDR resmi 83,46%; pembiayaan syariah dan definisi regulator perlu diperhatikan. NIM bank individual turun dari 3,71% ke 3,56%."
+        ],
+        [
+          "LAR turun, tetapi bantalan coverage lebih tipis.",
+          "Presentasi konsolidasian melaporkan LAR 5,7% dari 7,8%, LAR Coverage 36,3% dari 49,1%, dan NPL Coverage 116,8% dari 195,8%. Presentasi menyebut dampak satu kali perubahan akuntansi pembiayaan kendaraan, pencadangan ritel, dan forward-looking overlays; kontribusi nominal setiap faktor belum dipisahkan di sini."
+        ]
+      ]
+    },
+    "NISP": {
+      "code": "NISP",
+      "currency": "IDR",
+      "unit": "million",
+      "periodEnd": "2026-09-30",
+      "profitPeriod": "January-September YTD",
+      "bankOnly": {
+        "current": {
+          "loans": null,
+          "totalLoanPrincipalIncludingSharia": 190232797,
+          "totalLoansIncludingAccruedInterestAndSharia": 190761950,
+          "shariaNetOfAllowance": 5335629,
+          "netProfit": 4032846,
+          "nii": 8505176,
+          "fees": 1172032,
+          "impairment": 616646,
+          "giro": 74940340,
+          "savings": 59932426,
+          "timeDeposits": 109757338,
+          "assets": 333454391,
+          "equity": 46146931,
+          "loanAllowance": 7856552,
+          "staff": 2666354,
+          "generalAdmin": 1773930,
+          "otherExpenses": 302633,
+          "deposits": 244630104,
+          "casa": 55.13334777472849,
+          "netInterestAndShariaIncome": 8726345,
+          "interestIncome": 14103208,
+          "interestExpense": 5598032,
+          "operatingExpenses": 4742917,
+          "derivedLdr": null
+        },
+        "previous": {
+          "loans": null,
+          "totalLoanPrincipalIncludingSharia": 164322430,
+          "totalLoansIncludingAccruedInterestAndSharia": 164739179,
+          "shariaNetOfAllowance": 5651464,
+          "netProfit": 3824573,
+          "nii": 7887919,
+          "fees": 750724,
+          "impairment": -5333,
+          "giro": 71087128,
+          "savings": 57305754,
+          "timeDeposits": 101960860,
+          "assets": 294028177,
+          "equity": 42767337,
+          "loanAllowance": 7725818,
+          "staff": 2657123,
+          "generalAdmin": 1665260,
+          "otherExpenses": 287968,
+          "deposits": 230353742,
+          "casa": 55.737267771408725,
+          "netInterestAndShariaIncome": 8104793,
+          "interestIncome": 13345840,
+          "interestExpense": 5457921,
+          "operatingExpenses": 4610351,
+          "derivedLdr": null
+        }
+      },
+      "consolidated": {
+        "current": {
+          "netProfit": 4224302,
+          "attributableProfit": 4032846,
+          "assets": 350459464,
+          "equity": 47305694,
+          "attributableEquity": 46468147,
+          "giro": 74613875,
+          "savings": 59932426,
+          "timeDeposits": 109629204,
+          "deposits": 244175505,
+          "casa": 55.102292508824746
+        },
+        "previous": {
+          "netProfit": 3942592,
+          "attributableProfit": 3824573
+        },
+        "previousBasis": "Restated comparative in latest 2026 statement"
+      },
+      "assetQuality": {
+        "scope": "consolidated (official release assets350.5T/DPK244.2T matchconsolidatedFS; netprofit4.032846T is attributabletotheparent, alsosameasbank-onlynetprofit).",
+        "source": {
+          "title": "OCBC official Q3 2026 release",
+          "url": "https://www.ocbc.id/id/tentang-ocbc/informasi/siaran-pers/2026/10/30/kinerja-ocbc-q3-2026",
+          "pages": [],
+          "kind": "webpage"
+        },
+        "status": "mixed",
+        "current": {
+          "lar": 4.8,
+          "nplGross": 2.0,
+          "nplCoverage": 202.9,
+          "larCoverage": 84.54166666666667
+        },
+        "previous": {
+          "lar": 5.4,
+          "nplGross": null,
+          "nplCoverage": null,
+          "larCoverage": null
+        },
+        "larCoverageStatus": "derived",
+        "larCoverageMethod": "NPLcoverage202.9% *NPL2.0% /LAR4.8%=84.5417%; approximate rounded inputs and assumes sameprovisionpool. Notdirectlyreported.",
+        "reportedRatios": {
+          "car": 23.7,
+          "lcr": 252.7,
+          "ldr": 77.5,
+          "casa": 55.1
+        },
+        "basis": "Consolidated",
+        "periodEnd": "2026-09-30",
+        "methods": {
+          "lar": "reported",
+          "larCoverage": "derived",
+          "nplGross": "reported",
+          "nplCoverage": "reported"
+        },
+        "notes": [
+          "LAR Coverage ≈84,5% = 202,9% × 2,0% ÷ 4,8%. Derived, bukan rasio yang dilaporkan langsung. Input dibulatkan dan mengasumsikan pool pencadangan yang sama. LAR serta NPL Coverage memakai cakupan rilis konsolidasian."
+        ],
+        "shortNote": "LAR Coverage derived · rounded inputs / same provision pool assumption",
+        "derivation": {
+          "formula": "nplCoverage * nplGross / lar",
+          "assumptions": [
+            "same provision pool",
+            "rounded source ratios"
+          ]
+        }
+      },
+      "sources": [
+        {
+          "file": "laporan-keuangan-triwulan-iii-2026-tidak-diaudit.pdf",
+          "pages": [
+            209,
+            210,
+            211,
+            212
+          ],
+          "note": "Bank-only parentappendix position andincome;note12p135givesgrossloanandnetSharia"
+        },
+        {
+          "file": "laporan-keuangan-triwulan-iii-2025-tidak-diaudit_3.pdf",
+          "pages": [
+            178,
+            179,
+            180
+          ],
+          "note": "Sep25parentbalances;income2025 latestreportp212"
+        },
+        {
+          "url": "https://www.ocbc.id/id/tentang-ocbc/informasi/siaran-pers/2026/10/30/kinerja-ocbc-q3-2026",
+          "note": "Official release financial position is consolidated; headline profit is attributable to the parent. Do not infer bank-only scope from equal profit amounts."
+        }
+      ],
+      "notes": [
+        "Bank-only2026loanprincipal=59096+190173701;accrued529153addedinnotegross190761950.",
+        "Bank-only profit4.032846T differsconsolidatednetprofit4.224302T;2025consolidatedrestatedpernote55.",
+        "9M25impairmentfinancialassetsisrecovery5333million, represented expense=-5333; do notcalculatepositivegrowthbase.",
+        "Officialrelease financialposition is consolidated: assets350459464m, deposits244175505m; release4.03T netprofit is attributabletotheparent (FS p7), which alsoequalsbank-onlynetprofit. Do not inferbank-onlyscopefromprofitcoincidence.",
+        "The historical conventional-only loan series has no comparable September observation in supplied statements; keep null. Combined credit including Sharia and accrued interest is disclosed separately. NII in this snapshot is interest-only; combined net interest and Sharia income is stored separately."
+      ],
+      "name": "OCBC Indonesia",
+      "ratios": {},
+      "headline": "OCBC: fee menopang laba, sementara impairment beralih dari pemulihan menjadi beban.",
+      "monitor": "Pantau NII, CASA, kebutuhan impairment, dan kelengkapan seri kredit konvensional dengan basis yang sebanding.",
+      "takeaway": "Laba dan fee bertumbuh; coverage berbasis rilis tetap perlu dibaca dengan catatan estimasi LAR Coverage.",
+      "insights": [
+        [
+          "Fee tumbuh lebih cepat daripada pendapatan bunga bersih.",
+          "Laba bank individual Rp4,03 T naik 5,4% YoY dan fee/provisi Rp1,17 T naik 56,1%. NII bunga saja Rp8,51 T naik 7,8%; jika hasil syariah disertakan, pendapatan bersihnya Rp8,73 T. Definisi ini dipisahkan agar pendapatan syariah tidak dihitung dua kali."
+        ],
+        [
+          "Impairment perlu dibaca dari tanda dan basisnya.",
+          "Beban impairment aset keuangan Rp616,65 miliar dibanding pemulihan Rp5,33 miliar pada 9M25. Perubahan dari pemulihan ke beban tidak disajikan sebagai pertumbuhan persentase biasa. Beban gaji, administrasi umum, dan lainnya meningkat 2,9%."
+        ],
+        [
+          "Pendanaan bertumbuh dengan CASA sedikit menurun.",
+          "DPK bank individual Rp244,63 T naik 6,2% YoY. Derived CASA turun dari 55,74% ke 55,13%. Kredit gabungan konvensional dan syariah termasuk bunga akrual Rp190,76 T tersedia terpisah; data itu belum dapat menggantikan seri historis kredit konvensional September."
+        ],
+        [
+          "NPL Coverage dilaporkan, LAR Coverage masih berupa estimasi.",
+          "Rilis Q3 konsolidasian mengungkap LAR 4,8% (5,4% pada September 2025), gross NPL 2,0%, dan NPL Coverage 202,9%. LAR Coverage ≈84,5% diturunkan dari rasio tersebut dengan asumsi pool pencadangan yang sama dan input yang dibulatkan; angka ini berlabel Derived. Laba konsolidasian total Rp4,22 T berbeda dari laba untuk pemilik Rp4,03 T."
+        ]
+      ]
+    }
+  }
+}

@@ -1,3 +1,41 @@
+## Four-bank Q3 refresh — 14 November 2026
+
+Current structured evidence: `data/banks-q3-2026.json` (BBCA, BBNI, BNGA, NISP). BMRI remains in its existing Q3 source. Inputs are million IDR unless an explicitly labelled percentage or EPS. Income is January–September cumulative, not standalone Q3. Balance comparisons use September 2025 from prior publications, rather than accidentally comparing September 2026 with the December column in the latest report. Historical FY valuation denominators, investment positions and personal-finance records are unchanged.
+
+| Issuer | September bank-only conventional loans, million IDR 2026 / 2025 | 9M bank-only profit 2026 / 2025 |
+|---|---|---|
+| BBCA | 1,030,718,519 / 913,729,808 | 45,180,388 / 43,573,799 |
+| BBNI | 976,381,824 / 796,526,385 | 16,363,116 / 15,169,686 |
+| BNGA | 182,838,484 / 159,732,385 | 4,223,191 / 5,135,366 |
+| NISP | unavailable on comparable conventional-only basis | 4,032,846 / 3,824,573 |
+
+### Current coverage and controlling scope
+
+| Issuer and scope | LAR | LAR Coverage | NPL Coverage | Classification |
+|---|---:|---:|---:|---|
+| BBCA bank-only | 4.6% | 71.2% | 167.5% | Reported; LAR Coverage includes off-balance-sheet exposures |
+| BBNI bank-only | 7.8% | 48.3% | 193.3% | Reported |
+| BNGA consolidated | 5.7% | 36.3% | 116.8% | Reported in corporate presentation |
+| NISP consolidated release | 4.8% | approximately 84.5% | 202.9% | LAR/NPL Coverage Reported; LAR Coverage Derived |
+
+Primary supplementary sources:
+
+- [BCA official 9M26 presentation, p12](https://www.bca.co.id/-/media/Feature/Report/File/Berita-Investor/2026/20261027-9m26-corporate-presentation.pdf): bank-only coverage. Consolidated LAR Coverage71.4% on p18 is a different scope and is not substituted for71.2%.
+- [BNI official 3Q26 presentation, p18 and p31–32](https://bni.co.id/Portals/1/BNI/Perusahaan/HubunganInvestor/Docs/2026/BNI-Corporate-Presentation-3Q26.pdf): bank-only coverage, rounded NPL1.9%/2.0%. Publication provides1.94%/1.96% and is separately labelled. LAR Coverage increases while NPL Coverage decreases.
+- [CIMB Niaga official 3Q26 presentation, p13 and p19](https://investor.cimbniaga.co.id/misc/AP/2026/BNGA-3Q26-Results-Final.pdf): consolidated reported coverage. Presentation LAR5.7% differs from publication regulatory LAR5.83%; preserve the source-specific series. The bank-only regulatory ratios on publication p7 are separate from this consolidated coverage panel.
+- [OCBC official Q3 release](https://www.ocbc.id/id/tentang-ocbc/informasi/siaran-pers/2026/10/30/kinerja-ocbc-q3-2026): LAR4.8%, grossNPL2.0%, NPLCoverage202.9%. Financial position matches consolidated statements. LARCoverage =202.9×2.0/4.8 =84.5417%, assuming the same provision pool and using rounded source ratios. This is an approximate derived value, not an explicitly reported ratio.
+
+### Supplied statement lineage and material qualifications
+
+- BCA monthly statements `20261027-laporan-keuangan-september-2026.pdf` and `20251020-laporan-keuangan-sep-2025.pdf`, p1–5; associated long consolidated statements supply the group scope. Latest2026 comparative NII59,738,365 differs from original2025 publication59,728,804 by9,561 million; use the latest comparator and do not invent the cause. Total group profit45,238,712 differs from attributable45,215,827.
+- BNI `BNI-Financial-Statement-3Q2026-ID.pdf` and `BNI-Financial-Statement-3Q2025-ID.pdf`, p2–6. Latest comparative CIR45.83% replaces the older publication46.11% (the authoritative latest value is45.83%). Regulatory ROE14.39% uses a different denominator from management ROAE13.3%; keep definitions distinct. NII excludes insurance.
+- CIMB Niaga `Published-Sep-2026-EN.pdf` and `Published-Sep-2025.pdf`, p1–2 and p7. Loans remain conventional only; Sharia financing is a separate line. Published net interest/profit-sharing8,902,218 /9,040,189 is labelled as such. Do not force bank-only loan allowances into consolidated coverage denominators. Presentation describes one-off auto-finance accounting effects and additional provisioning; no unsupported numerical attribution is made.
+- OCBC `laporan-keuangan-triwulan-iii-2026-tidak-diaudit.pdf`, parent appendix p209–212 and note12 p135; 2025 `_3.pdf` appendix p178–180. Combined gross loans including Sharia and accrued interest190,761,950 /164,739,179 are shown separately. The documents disclose net Sharia financing, which cannot safely be subtracted from gross combined loans; September conventional chart observations stay null, not zero. NII interest-only8,505,176 /7,887,919 is separated from combined net interest-and-Sharia8,726,345 /8,104,793. Prior impairment is recovery5,333 million, encoded as expense -5,333; do not show ordinary positive-base growth. Group total profit4,224,302 differs from parent-attributable4,032,846; prior group total3,942,592 is restated in the latest statements.
+
+The earlier sections below are historical source records. They do not override this current Q3 update.
+
+---
+
 ## BMRI Q3 coverage follow-up — 26 October 2026
 
 Official supplementary source: [3Q26 Analyst Meeting presentation, page 22](https://www.bankmandiri.co.id/documents/38265486/0/3Q26%2BAnalyst%2BMeeting%2B-%2BLong%2BForm%2B%283%29.pdf/00478387-1fe8-d8a0-30f3-3bd97affadf9?t=1792747131358), linked from Bank Mandiri's corporate presentations archive. This source supplies explicit coverage disclosures missing from the newspaper ratio summary. Headline Q3 values now use **Reported**, not Derived, on a consistent bank-only basis.

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-14 — BCA, BNI, CIMB Niaga and OCBC Q3 results
+
+- Updated four issuer spotlights, September charts, YTD profit comparisons, source tables and monitoring insights.
+- Refreshed LAR and NPL Coverage with explicit bank-only/consolidated scopes; BCA off-balance-sheet definition and OCBC derived estimate remain visible.
+- Preserved an unavailable OCBC conventional-loan observation as a gap while separately disclosing combined loans.
+- Distinguished interest-only NII, Sharia income, recoveries, latest comparative columns and attributable/group earnings.
+- Preserved BMRI Q3, FY valuation methodology and owner transaction records; versioned the public assets for immutable caching.
+
 ## 2026-10-26 — BMRI Q3 coverage follow-up
 
 - Updated BMRI bank-only LAR to6.88%, LAR Coverage34.5%, NPL Coverage243% from the official analyst presentation page22.

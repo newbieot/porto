@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import vm from 'node:vm';
 
-const version = 'fundamentals.20261026-bmri-q3-v1.js';
+const version = 'fundamentals.20261114-banks-q3-v1.js';
 const root = new URL('../', import.meta.url);
 const read = path => readFile(new URL(path, root), 'utf8');
 
@@ -71,8 +71,9 @@ test('Q3 source keeps million-IDR YTD results and consolidation scopes distinct'
     assert.match(facts.caveats.join(' '), /not standalone Q3/);
 });
 
-test('Charts default to BMRI, append verified September, and leave other banks unavailable', async () => {
+test('Charts preserve BMRI September and use the new four-bank source for other banks', async () => {
     const { charts, element } = await app();
+    element('bank-filter').handlers.click({ target: { closest: () => ({ dataset: { bank: 'BMRI' } }) } });
     const credit = charts.get('credit-chart'), profit = charts.get('profit-chart');
     assert.equal(credit.data.labels.length, 9);
     assert.match(credit.data.labels.at(-1), /Sep/i);
@@ -83,7 +84,7 @@ test('Charts default to BMRI, append verified September, and leave other banks u
     assert.equal(profit.data.datasets[1].data.at(-1), 41.968253);
     assert.match(element('coverage-note').textContent, /September|Sept|9M|Q3/i);
     const matrix = element('fundamental-table-body').innerHTML;
-    assert.equal((matrix.match(/Report unavailable/g) || []).length, 8);
+    assert.equal((matrix.match(/Report unavailable/g) || []).length, 1);
     assert.match(matrix, /1\.605,84/);
     for (const code of ['BBCA', 'BBNI', 'BNGA', 'NISP']) {
         element('bank-filter').handlers.click({ target: { closest: () => ({ dataset: { bank: code } }) } });
@@ -92,7 +93,8 @@ test('Charts default to BMRI, append verified September, and leave other banks u
             assert.equal(data.labels.length, 9);
             for (const dataset of data.datasets) {
                 assert.equal(dataset.data.length, 9, `${code} ${id}: consistent month axis`);
-                assert.equal(dataset.data.at(-1), null, `${code}: September must not be invented`);
+                if (code === 'NISP' && id === 'credit-chart') assert.equal(dataset.data.at(-1), null);
+                else assert.ok(Number.isFinite(dataset.data.at(-1)) && dataset.data.at(-1) > 0);
             }
         }
     }
