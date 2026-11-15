@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "classification": "analyst_projection_not_declared_dividend",
+  "asOf": "2026-11-15",
+  "positionsAsOf": "2026-10-09",
+  "earningsPeriodEnd": "2026-09-30",
+  "earningsPeriod": "9M January–September 2026 cumulative",
+  "financialYear": 2026,
+  "cashCalendarYear": 2027,
+  "currency": "IDR",
+  "capital": 806013080,
+  "capitalRoundingNote": "Broker headline Rp806.013.080; jumlah lima baris modal Rp806.013.079 (beda pembulatan Rp1).",
+  "marketDate": "2026-11-12",
+  "marketTotal": 667382500,
+  "marketBasis": "Snapshot harga penutupan tersimpan 12 November 2026, bukan harga live.",
+  "positionSource": "/data/portfolio-positions.json",
+  "marketSource": "/data/valuation-bands.json",
+  "method": {
+    "annualEps": "EPS FY2026 = EPS 9M + (EPS 9M / 3 × multiplier laba Q4).",
+    "annualDps": "Estimasi total DPS FY2026 = estimasi EPS FY2026 × payout ratio.",
+    "remainingDps": "Sisa DPS FY2026 = max(0, total estimasi DPS − seluruh interim FY2026 per saham yang dibayar pada 2026 − asumsi tambahan interim 2026).",
+    "calendarCash": "Estimasi kas kalender 2027 = jumlah saham saat ini × (sisa DPS FY2026 + asumsi interim FY2027 yang dibayar pada 2027).",
+    "yield": "Yield portofolio = jumlah estimasi kas / total modal atau total nilai pasar. Bukan rata-rata sederhana yield tiap saham.",
+    "tax": "Seluruh proyeksi awal bruto. Pilihan pajak 10% hanya simulasi jika seluruh dividen dikenai PPh final; pengecualian dapat berlaku bila syarat reinvestasi dan pelaporan dipenuhi."
+  },
+  "limitations": [
+    "Estimasi belum merupakan keputusan RUPS 2027. Payout dan jadwal pembayaran dapat berubah.",
+    "Asumsi jumlah saham tidak berubah sampai tanggal cum/recording yang relevan; portofolio anak BMRI 11 lot tidak termasuk.",
+    "Tambahan interim 2026 dan interim FY2027 masih belum ditetapkan dalam model. Nilai awal nol berarti belum diasumsikan, bukan kepastian tidak ada pembayaran.",
+    "Interim FY2026 Rp45/saham BBCA (Rp20 Juni + Rp25 September) dan Rp66/saham BMRI sudah dikurangkan per saham. Ini bukan angka kas historis yang diterima pemilik atas jumlah saham saat ini.",
+    "BMRI 7 lot dibeli 2 Oktober setelah entitlement interim. Estimasi sisa DPS tetap dikurangi Rp66 pada seluruh 399 lot saat ini agar pembayaran 2027 tidak berlebih Rp46.200.",
+    "BCA menginformasikan rencana bersyarat tiga interim pada 2026; tambahan yang dibayar sebelum 2027 akan mengurangi sisa proyeksi FY2026 untuk 2027.",
+    "Skenario adalah sensitivitas asumsi laba dan payout, bukan interval probabilitas atau jaminan minimum/maksimum.",
+    "Halaman ini tidak mengubah transaksi CSV Money Lover, saldo kas, atau rekonsiliasi dividen BMRI yang masih menunggu sinkronisasi CSV."
+  ],
+  "positions": [
+    {
+      "code": "BBCA",
+      "name": "Bank Central Asia",
+      "lots": 189,
+      "shares": 18900,
+      "invested": 143457363,
+      "marketPrice": 5475,
+      "eps9m": 368,
+      "epsBasis": "Laba konsolidasian yang diatribusikan kepada pemilik entitas induk",
+      "epsSource": "bbca-q3",
+      "known2026InterimDps": 45,
+      "interimSourceIds": ["bbca-interim-june", "bbca-interim-september"],
+      "interimStatus": "Rp20 dibayar 26 Juni + Rp25 dibayar 16 September 2026",
+      "latestAnnualPayout": 0.72,
+      "payoutSource": "bbca-agm",
+      "previousFY2025Dps": 336
+    },
+    {
+      "code": "BBNI",
+      "name": "Bank Negara Indonesia",
+      "lots": 625,
+      "shares": 62500,
+      "invested": 261807125,
+      "marketPrice": 3470,
+      "eps9m": 432,
+      "epsBasis": "Laba konsolidasian yang diatribusikan kepada pemilik entitas induk",
+      "epsSource": "bbni-q3",
+      "known2026InterimDps": 0,
+      "interimStatus": "Belum ada interim FY2026 terverifikasi yang dimasukkan ke model",
+      "latestAnnualPayout": 0.65,
+      "payoutSource": "bbni-dividends",
+      "previousFY2025Dps": 349.41
+    },
+    {
+      "code": "BMRI",
+      "name": "Bank Mandiri",
+      "lots": 399,
+      "shares": 39900,
+      "invested": 178751597,
+      "marketPrice": 3890,
+      "eps9m": 488.13,
+      "epsBasis": "Laba konsolidasian yang diatribusikan kepada pemilik entitas induk",
+      "epsSource": "bmri-q3",
+      "known2026InterimDps": 66,
+      "interimSourceIds": ["bmri-interim-october"],
+      "interimStatus": "Rp66 dibayar 2 Oktober 2026; pemilik berhak atas 392 lot pada interim tersebut",
+      "historicalOwnerEligibleShares": 39200,
+      "latestAnnualPayout": 0.79,
+      "payoutSource": "bmri-agm",
+      "previousFY2025Dps": 476.956938949
+    },
+    {
+      "code": "BNGA",
+      "name": "CIMB Niaga",
+      "lots": 777,
+      "shares": 77700,
+      "invested": 137199489,
+      "marketPrice": 1520,
+      "eps9m": 167.97,
+      "epsBasis": "Bank individual / company-only, selaras dasar pembagian laba RUPS; bukan EPS konsolidasian Rp178,65",
+      "epsSource": "bnga-q3",
+      "known2026InterimDps": 0,
+      "interimStatus": "Belum ada interim FY2026 terverifikasi yang dimasukkan ke model",
+      "latestAnnualPayout": 0.6,
+      "payoutSource": "bnga-agm",
+      "previousFY2025Dps": 161.77
+    },
+    {
+      "code": "NISP",
+      "name": "OCBC Indonesia",
+      "lots": 641,
+      "shares": 64100,
+      "invested": 84797505,
+      "marketPrice": 1150,
+      "eps9m": 175.76,
+      "epsBasis": "EPS yang diatribusikan kepada pemilik entitas induk; catatan 46",
+      "epsSource": "nisp-q3",
+      "known2026InterimDps": 0,
+      "interimStatus": "Belum ada interim FY2026 terverifikasi yang dimasukkan ke model",
+      "latestAnnualPayout": 0.2042,
+      "payoutSource": "nisp-agm",
+      "previousFY2025Dps": 45
+    }
+  ],
+  "scenarios": {
+    "conservative": {
+      "label": "Konservatif",
+      "q4Multiplier": 0.8,
+      "description": "Laba Q4 80% rata-rata laba kuartal Q1–Q3 dan payout lebih rendah.",
+      "payout": {
+        "BBCA": 0.7,
+        "BBNI": 0.6,
+        "BMRI": 0.7,
+        "BNGA": 0.5,
+        "NISP": 0.2
+      }
+    },
+    "base": {
+      "label": "Dasar",
+      "q4Multiplier": 1,
+      "description": "Laba Q4 setara rata-rata laba kuartal Q1–Q3; payout mengikuti pembagian FY2025 terakhir.",
+      "payout": {
+        "BBCA": 0.72,
+        "BBNI": 0.65,
+        "BMRI": 0.79,
+        "BNGA": 0.6,
+        "NISP": 0.2042
+      }
+    },
+    "optimistic": {
+      "label": "Optimistis",
+      "q4Multiplier": 1.2,
+      "description": "Laba Q4 120% rata-rata laba kuartal Q1–Q3 dan payout lebih tinggi pada sebagian bank.",
+      "payout": {
+        "BBCA": 0.75,
+        "BBNI": 0.7,
+        "BMRI": 0.8,
+        "BNGA": 0.6,
+        "NISP": 0.25
+      }
+    }
+  },
+  "sources": [
+    {
+      "id": "bbca-q3",
+      "label": "BBCA laporan keuangan September 2026 — EPS konsolidasian Rp368",
+      "kind": "owner_supplied_financial_statement",
+      "file": "20261027-laporan-keuangan-september-2026.pdf",
+      "reviewedData": "/data/banks-q3-2026.json",
+      "title": "BBCA laporan keuangan September 2026 — EPS konsolidasian Rp368",
+      "note": "Dokumen publik emiten yang diunggah pemilik; rujuk nama berkas dan halaman. PDF asli tidak disalin ke website."
+    },
+    {
+      "id": "bbni-q3",
+      "label": "BNI laporan keuangan 3Q2026 — EPS konsolidasian Rp432",
+      "kind": "financial_statement",
+      "url": "https://bni.co.id/Portals/1/BNI/Perusahaan/HubunganInvestor/Docs/2026/BNI-Financial-Statement-3Q2026-ID.pdf",
+      "reviewedData": "/data/banks-q3-2026.json",
+      "title": "BNI laporan keuangan 3Q2026 — EPS konsolidasian Rp432"
+    },
+    {
+      "id": "bmri-q3",
+      "label": "Mandiri publikasi Q3 2026 — EPS konsolidasian Rp488,13",
+      "kind": "financial_statement",
+      "page": 1,
+      "url": "https://www.bankmandiri.co.id/documents/38265486/0/Publikasi%2BQ3%2B2026_Indonesia%2BFinal%2B(1).pdf/46d48b57-3621-5abb-c47e-4f78add18ee3?t=1792770041447",
+      "reviewedData": "/data/bmri-q3-2026.json",
+      "title": "Mandiri publikasi Q3 2026 — EPS konsolidasian Rp488,13"
+    },
+    {
+      "id": "bnga-q3",
+      "label": "CIMB Niaga publikasi September 2026 — EPS bank individual Rp167,97",
+      "kind": "owner_supplied_financial_statement",
+      "file": "Published-Sep-2026-EN.pdf",
+      "page": 2,
+      "reviewedData": "/data/banks-q3-2026.json",
+      "title": "CIMB Niaga publikasi September 2026 — EPS bank individual Rp167,97",
+      "note": "Dokumen publik emiten yang diunggah pemilik; rujuk nama berkas dan halaman. PDF asli tidak disalin ke website."
+    },
+    {
+      "id": "nisp-q3",
+      "label": "OCBC laporan Q3 2026 — EPS Rp175,76, catatan 46",
+      "kind": "owner_supplied_financial_statement",
+      "file": "laporan-keuangan-triwulan-iii-2026-tidak-diaudit.pdf",
+      "page": 181,
+      "reviewedData": "/data/banks-q3-2026.json",
+      "title": "OCBC laporan Q3 2026 — EPS Rp175,76, catatan 46",
+      "note": "Dokumen publik emiten yang diunggah pemilik; rujuk nama berkas dan halaman. PDF asli tidak disalin ke website."
+    },
+    {
+      "id": "bbca-agm",
+      "label": "BCA RUPST 2026 — payout FY2025 72% dan rencana bersyarat 3 interim FY2026",
+      "kind": "issuer_announcement",
+      "url": "https://www.bca.co.id/id/tentang-bca/media-riset/pressroom/siaran-pers/2026/03/13/02/08/hasil-rapat-umum-pemegang-saham-tahunan-bca",
+      "title": "BCA RUPST 2026 — payout FY2025 72% dan rencana bersyarat 3 interim FY2026"
+    },
+    {
+      "id": "bbca-interim-june",
+      "label": "BCA interim pertama FY2026 Rp20 per saham",
+      "kind": "issuer_announcement",
+      "url": "https://www.bca.co.id/id/tentang-bca/media-riset/pressroom/siaran-pers/2026/06/10/10/23/bagikan-dividen-interim-3-kali-termin-pertama-untuk-tahun-2026-mulai-dibayarkan",
+      "title": "BCA interim pertama FY2026 Rp20 per saham"
+    },
+    {
+      "id": "bbca-interim-september",
+      "label": "BCA interim kedua FY2026 Rp25 per saham",
+      "kind": "issuer_announcement",
+      "url": "https://www.bca.co.id/tentang-bca/media-riset/pressroom/siaran-pers/2026/08/20/03/33/tebar-rp307-triliun-bca-umumkan-pembayaran-dividen-interim",
+      "title": "BCA interim kedua FY2026 Rp25 per saham"
+    },
+    {
+      "id": "bbni-dividends",
+      "label": "BNI riwayat dividen — payout FY2025 65%",
+      "kind": "issuer_announcement",
+      "url": "https://bni.co.id/id-id/investor/informasi-saham-obligasi/dividen",
+      "title": "BNI riwayat dividen — payout FY2025 65%"
+    },
+    {
+      "id": "bmri-agm",
+      "label": "Mandiri RUPST 2026 — payout FY2025 79%",
+      "kind": "issuer_announcement",
+      "url": "https://www.bankmandiri.co.id/documents/38268824/0/Ringkasan%2BRisalah%2BRUPST%2B2026%2B%281%29.pdf/5ee462d6-0fbd-a30c-742a-4ac84fd3b4ef?t=1777550594595",
+      "title": "Mandiri RUPST 2026 — payout FY2025 79%"
+    },
+    {
+      "id": "bmri-interim-october",
+      "title": "Mandiri interim FY2026 Rp66 per saham, dibayar 2 Oktober 2026",
+      "label": "Mandiri interim FY2026 Rp66 per saham, dibayar 2 Oktober 2026",
+      "kind": "issuer_announcement",
+      "url": "https://www.bankmandiri.co.id/en/news-detail?backUrl=https%3A%2F%2Fwww.bankmandiri.co.id%2Fhome%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_q945LRNhMD0F&p_p_lifecycle=0&p_p_mode=view&p_p_state=normal&primaryKey=614202234"
+    },
+    {
+      "id": "bnga-agm",
+      "label": "CIMB Niaga pembagian FY2025 — maksimal 60% laba bank individual",
+      "kind": "issuer_announcement",
+      "url": "https://investor.cimbniaga.co.id/newsroom/20260417_BNGA_Keterbukaan_Informasi_terkait_Aksi_Korporasi_32071704_lamp2.pdf",
+      "title": "CIMB Niaga pembagian FY2025 — maksimal 60% laba bank individual"
+    },
+    {
+      "id": "nisp-agm",
+      "label": "OCBC RUPST 2026 — dividen FY2025 Rp45 per saham, payout 20,42%",
+      "kind": "issuer_announcement",
+      "url": "https://www.ocbc.id/id/tentang-ocbc/informasi/siaran-pers/2026/04/10/ocbc-rupst-2026",
+      "title": "OCBC RUPST 2026 — dividen FY2025 Rp45 per saham, payout 20,42%"
+    },
+    {
+      "id": "tax",
+      "label": "DJP — pelaporan realisasi investasi dividen dan ketentuan pengecualian pajak",
+      "kind": "tax_authority",
+      "url": "https://www.pajak.go.id/sites/default/files/2025-03/Cara_Lapor_Realisasi_Investasi_pada_Aplikasi_Coretax.pdf",
+      "title": "DJP — pelaporan realisasi investasi dividen dan ketentuan pengecualian pajak"
+    }
+  ]
+}

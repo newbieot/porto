@@ -1,0 +1,18 @@
+/* Shared four-destination navigation; keep the header usable down to 320px. */
+.site-header .header-inner,
+.site-header .primary-nav { min-width: 0; }
+.site-header .nav-link { white-space: nowrap; }
+.site-header .nav-link:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+@media (max-width: 1000px) {
+  .site-header .header-inner { flex-wrap: wrap; gap: 8px; padding-block: 10px; }
+  .site-header .brand { flex: 1; min-width: 0; }
+  .site-header .header-actions { flex-shrink: 0; margin-left: auto; }
+  .site-header .header-inner .primary-nav {
+    order: 3; flex: 0 0 100%; width: 100%; max-width: 100%;
+    justify-content: flex-start; gap: 4px; overflow-x: auto;
+    overscroll-behavior-inline: contain; padding: 2px 0 5px;
+    scrollbar-width: none;
+  }
+  .site-header .primary-nav::-webkit-scrollbar { display: none; }
+  .site-header .primary-nav .nav-link { flex: 0 0 auto; }
+}
